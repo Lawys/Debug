@@ -201,7 +201,7 @@ void	ft_map_reader(variable_list* l)
 	int j;
 
 	/// For mapping
-	if ((fopen_s(&stream, "./txt/triangle.txt", "r")) != 0)
+	if ((fopen_s(&stream, "./map/triangle", "r")) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -211,7 +211,7 @@ void	ft_map_reader(variable_list* l)
 	printf("Loaded file size: %d\n", size);
 	fclose(stream);
 	file = (char*)malloc((size + 1) * sizeof(char));
-	if ((_sopen_s(&fd, "./txt/triangle.txt", 0,_SH_DENYNO, 0)) != 0)
+	if ((_sopen_s(&fd, "./map/triangle", 0,_SH_DENYNO, 0)) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -245,7 +245,7 @@ void	ft_map_reader(variable_list* l)
 	}
 	free(file);
 	/// For mapping
-	if ((fopen_s(&stream, "./txt/group.txt", "r")) != 0)
+	if ((fopen_s(&stream, "./map/group", "r")) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -255,7 +255,7 @@ void	ft_map_reader(variable_list* l)
 	printf("Loaded file size: %d\n", size);
 	fclose(stream);
 	file = (char*)malloc((size + 1) * sizeof(char));
-	if ((_sopen_s(&fd, "./txt/group.txt", 0, _SH_DENYNO, 0)) != 0)
+	if ((_sopen_s(&fd, "./map/group", 0, _SH_DENYNO, 0)) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -271,11 +271,12 @@ void	ft_map_reader(variable_list* l)
 		l->g.sprite[j] = (int)ft_atoi(l, file, &i);
 		l->g.npc[j] = (int)ft_atoi(l, file, &i);
 		l->g.object[j] = (int)ft_atoi(l, file, &i);
+		l->g.sprite_orientation[j] = (int)ft_atoi(l, file, &i);
 		i++;
 	}
 	free(file);
 	/// For mapping
-	/*if ((fopen_s(&stream, "./txt/area.txt", "r")) != 0)
+	/*if ((fopen_s(&stream, "./map/area", "r")) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -285,7 +286,7 @@ void	ft_map_reader(variable_list* l)
 	printf("Loaded file size: %d\n", size);
 	fclose(stream);
 	file = (char*)malloc((size + 1) * sizeof(char));
-	if ((_sopen_s(&fd, "./txt/area.txt", 0, _SH_DENYNO, 0)) != 0)
+	if ((_sopen_s(&fd, "./map/area", 0, _SH_DENYNO, 0)) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);

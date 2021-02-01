@@ -101,12 +101,8 @@ void	ft_event_playing_mode_player_vector_intersection(variable_list* l, player_m
 		else if (y < 0 && y > tmp->save_ny && tmp->ny < 0)
 			tmp->save_ny = y;
 
-		
-
-
 	}
 }
-
 void	ft_event_playing_mode_triangle_init(variable_list* l, player_move_list* tmp, int ts)
 {
 	tmp->p1x = l->t.x1[ts];
@@ -131,6 +127,7 @@ void	ft_event_playing_mode_triangle_init(variable_list* l, player_move_list* tmp
 	tmp->nz = tmp->p01x * tmp->p02y -
 		tmp->p01y * tmp->p02x;
 }
+
 void	ft_event_playing_mode_triangle_line_plan_t(variable_list* l, player_move_list* tmp)
 {
 	tmp->t =
@@ -195,7 +192,7 @@ void	ft_event_playing_mode_triangle_vector_intersection(variable_list* l, player
 		else if (z < 0 && z > tmp->save_nz)
 			tmp->save_nz = z;
 
-		if (y > 0 && y < tmp->save_py)
+		if (y > 0 && y < tmp->save_py && tmp->vy < 0)
 			tmp->save_py = y;
 		else if (y < 0 && y > tmp->save_ny)
 			tmp->save_ny = y;
@@ -258,8 +255,15 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	int ts;
 
 	ft_event_playing_mode_player_wallblock_init(l, &tmp);
+	ft_event_playing_mode_player_wallblock_gravity(l);
+	l->p.z += tmp.move_z * l->p.speed;
+	l->p.x += tmp.move_x * l->p.speed;
 	if (l->i.state[20])
+	{
+		l->gravity = 0;
 		l->p.y += 5;
+	}
+
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
@@ -295,8 +299,26 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		tmp.vx = -10;
 		tmp.vz = 10;
 		tmp.vy = -50;
+
 		ft_event_playing_mode_player_vector_intersection(l, &tmp);
-		/*tmp.vx = -10;
+		tmp.vx = 10;
+		tmp.vz = 10;
+		tmp.vy = 0;
+		ft_event_playing_mode_player_vector_intersection(l, &tmp);
+		tmp.vx = 10;
+		tmp.vz = -10;
+		tmp.vy = 0;
+		ft_event_playing_mode_player_vector_intersection(l, &tmp);
+		tmp.vx = -10;
+		tmp.vz = -10;
+		tmp.vy = 0;
+		ft_event_playing_mode_player_vector_intersection(l, &tmp);
+		tmp.vx = -10;
+		tmp.vz = 10;
+		tmp.vy = 0;
+
+		ft_event_playing_mode_player_vector_intersection(l, &tmp);
+		tmp.vx = -10;
 		tmp.vz = 0;
 		tmp.vy = 0;
 		ft_event_playing_mode_player_vector_intersection(l, &tmp);
@@ -320,9 +342,9 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		tmp.vx = 0;
 		tmp.vz = 0;
 		tmp.vy = -50;
-		ft_event_playing_mode_player_vector_intersection(l, &tmp);*/
+		ft_event_playing_mode_player_vector_intersection(l, &tmp);
 	}
-
+	/*
 	tmp.p1x = l->p.x + -10;
 	tmp.p1y = l->p.y + -49;
 	tmp.p1z = l->p.z + 10;
@@ -463,51 +485,58 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		tmp.p[2] = l->t.z3[ts];
 		ft_event_playing_mode_triangle_vector_intersection(l, &tmp);
 	}
+	*/
+printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
+printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
+	//printf("->mov %f %f\n", tmp.move_x, tmp.move_z);
 
-	printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
-	printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
-	printf("->mov %f %f\n", tmp.move_x, tmp.move_z);
-
-	if (tmp.save_py < 5)
-		l->p.y += 5 - tmp.save_py;
-	else if (tmp.save_ny == -50)
-		l->gravity = 0;
-	else if (tmp.save_ny > -50 && tmp.save_ny <=  -40)
+	if (tmp.save_py != 100 && tmp.save_ny != -100)
+		l->p.y += l->gravity;
+	else
 	{
-		l->p.y += 50 + tmp.save_ny;
-		l->gravity = 0;
-
+		if (tmp.save_py <= 5)
+			l->p.y += tmp.save_py - 5;
+		else if (tmp.save_ny == -50)
+		{
+			l->gravity = 0;
+		}
+		else if (tmp.save_ny > -50)
+		{
+			l->p.y += tmp.save_ny + 50;
+			l->gravity = 0;
+		}
 	}
-	else if (tmp.save_ny < -50)
-		ft_event_playing_mode_player_wallblock_gravity(l);
+		if ((tmp.save_px != 100 || tmp.save_nx != -100) || (tmp.save_pz != 100 || tmp.save_nz != -100))
+		{
 
-	if (tmp.save_px != 100 || tmp.save_nx != -100)
-	{
-			if ((tmp.save_px == 10 && tmp.move_x < 0) ||
+			l->p.x -= tmp.move_x * l->p.speed;
+			l->p.z -= tmp.move_z * l->p.speed;
+			/*if ((tmp.save_px == 10 && tmp.move_x < 0) ||
 				(tmp.save_nx == -10 && tmp.move_x > 0))
 				l->p.x += tmp.move_x * l->p.speed;
 			else if (tmp.save_px < 10 && tmp.save_nx == -100)
 				l->p.x += tmp.save_px - 10;
 			else if (tmp.save_nx > -10 && tmp.save_px == 100)
-				l->p.x += tmp.save_nx + 10;
-		
-	}
-	else
-		l->p.x += tmp.move_x * l->p.speed;
+				l->p.x += tmp.save_nx + 10;*/
+		}
+		//else
+		//	l->p.x += tmp.move_x * l->p.speed;
 
-	if (tmp.save_pz != 100 || tmp.save_nz != -100)
-	{
-			if ((tmp.save_pz == 10 && tmp.move_z < 0) ||
+		/*if (tmp.save_pz != 100 || tmp.save_nz != -100)
+		{
+			l->p.x -= tmp.move_x * l->p.speed;
+			l->p.z -= tmp.move_z * l->p.speed;
+			/*if ((tmp.save_pz == 10 && tmp.move_z < 0) ||
 				(tmp.save_nz == -10 && tmp.move_z > 0))
 				l->p.z += tmp.move_z * l->p.speed;
 			else if (tmp.save_pz < 10 && tmp.save_nz == -100)
 				l->p.z += tmp.save_pz - 10;
 			else if (tmp.save_nz > -10 && tmp.save_pz == 100)
-				l->p.z += tmp.save_nz + 10;
-		
-	}
-	else
-		l->p.z += tmp.move_z * l->p.speed;
+				l->p.z += tmp.save_nz + 10;*/
+		//}
+		//else
+		//	l->p.z += tmp.move_z * l->p.speed;
+	
 }
 
 void	ft_event_playing_mode_player_crawl_or_squat
@@ -534,9 +563,10 @@ void	ft_event_playing_mode_player_crawl_or_squat
 
 void	ft_event_playing_mode_player(variable_list* l)
 {
+	l->p.speed = 1.5;
 	ft_event_playing_mode_player_crawl_or_squat(l);
 	if (l->i.state[225]) //MAJ sprint
-		l->p.speed = 3;
+		l->p.speed = 2;
 	if (l->i.state[26] + l->i.state[22] +
 		l->i.state[7] + l->i.state[4] > 1)
 		l->p.speed *= 0.75;
@@ -550,7 +580,7 @@ void	ft_event_playing_mode_player(variable_list* l)
 
 void	ft_event_playing_mode(variable_list* l)
 {
-	l->p.speed = 2;
+
 	ft_event_playing_mode_motion(l);
 	ft_event_playing_mode_player(l);
 }

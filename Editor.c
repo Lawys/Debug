@@ -777,7 +777,7 @@ void	TMP_map_editor_save_map(variable_list* l)
 		buffer_size = 15;
 
 		printf("Saving...\n");
-		if ((_sopen_s(&stream, "./txt/triangle.txt", O_RDWR | _O_CREAT,
+		if ((_sopen_s(&stream, "./map/triangle", O_RDWR | _O_CREAT,
 			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
 		{
 			printf("Load File Error\n");
@@ -813,7 +813,7 @@ void	TMP_map_editor_save_map(variable_list* l)
 		_write(stream, "\0", 1);
 		_close(stream);
 
-		if ((_sopen_s(&stream, "./txt/group.txt", O_RDWR | _O_CREAT,
+		if ((_sopen_s(&stream, "./map/group", O_RDWR | _O_CREAT,
 			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
 		{
 			printf("Load File Error\n");
@@ -830,6 +830,7 @@ void	TMP_map_editor_save_map(variable_list* l)
 				buffer_size = ft_itoa(l, l->g.sprite[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 				buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 				buffer_size = ft_itoa(l, l->g.object[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+				buffer_size = ft_itoa(l, l->g.sprite_orientation[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 			}
 			i++;
 		}

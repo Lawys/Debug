@@ -705,7 +705,7 @@ void	ft_engine_play_calculate_pixels_initialize_part_3(variable_list* l, s_engin
 	if (l->g.npc[l->t.group[ts]] == 1)
 	{
 		tmp->s = acos((l->t.z1[ts] - l->p.z) /
-			sqrt((center - l->p.x) * (center - l->p.x) + (l->t.z1[ts] - l->p.z) * (l->t.z1[ts] - l->p.z)));
+			sqrt((center - l->p.x) * (center - l->p.x) + (l->t.z1[ts] - l->p.z) * (l->t.z1[ts] - l->p.z))) - l->g.sprite_orientation[l->t.group[ts]] * M_PI / 180;
 		if ((center - l->p.x) > 0)
 			tmp->s = -tmp->s;
 		tmp->s = ((int)((tmp->s / M_PI * 180 - 202.5) / 45) * 128.);

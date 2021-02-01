@@ -24,7 +24,7 @@
 #define WDW2 (WDW / 2)
 #define WDH2 (WDH / 2)
 
-#define MAX_TRIANGLES 1000
+#define MAX_TRIANGLES 1500
 #define MAX_GROUPS 1000
 #define MAX_LIGHTS 200
 #define MAX_AREAS 100
