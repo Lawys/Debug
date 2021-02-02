@@ -193,8 +193,6 @@ void	ft_map_editor_group_parameter_object(variable_list* l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
-	if (ft_map_editor_group_parameter_sprite_check(l) == 1)
-		l->u.action = -1;
 	if (l->g.object[l->group_select] == 1)
 	{
 		l->u.colors = l->me.color_green;
