@@ -172,6 +172,7 @@ void	ft_read_all(variable_list* l)
 	ft_bmp_reader(l, "./img/img28.bmp");
 	ft_bmp_reader(l, "./img/img29.bmp");
 	ft_bmp_reader(l, "./img/img30.bmp");
+	ft_bmp_reader(l, "./img/img31.bmp");
 }
 
 void	ft_reset_arrays(variable_list* l)
