@@ -96,6 +96,7 @@ typedef struct s_list_8
     double* fy;
     double* ly;
     double s;
+    int ss;
     int x;
     int y;
     int mx;
@@ -307,6 +308,8 @@ typedef struct s_list_12
     int		    sprite[MAX_GROUPS];
     int		    sprite_orientation[MAX_GROUPS];
     int		    npc[MAX_GROUPS];
+    int		    npc_hp[MAX_GROUPS];
+    int		    npc_statement[MAX_GROUPS];
     int		    object[MAX_GROUPS];
 }       group_list;
 

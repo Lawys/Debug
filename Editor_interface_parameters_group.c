@@ -156,7 +156,7 @@ void	ft_map_editor_group_parameter_sprite(variable_list* l)
 	l->u.action = ++l->action;
 	if (ft_map_editor_group_parameter_sprite_check(l) == 1)
 		l->u.action = -1;
-	if (l->g.sprite[l->group_select] == 1 || l->g.npc[l->group_select] == 1)
+	if (l->g.sprite[l->group_select] == 1)
 	{
 		l->u.colors = l->me.color_green;
 		l->u.colors_on = l->me.color_green;
@@ -193,6 +193,8 @@ void	ft_map_editor_group_parameter_object(variable_list* l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
+	if (ft_map_editor_group_parameter_sprite_check(l) == 1)
+		l->u.action = -1;
 	if (l->g.object[l->group_select] == 1)
 	{
 		l->u.colors = l->me.color_green;
@@ -211,10 +213,11 @@ void	ft_map_editor_group_parameter_options(variable_list* l)
 {
 	l->u.str_address = "OPTIONS";
 	l->u.wsx = 37;
-	l->u.wsy += 2.5;
+	l->u.wsy = 94.5;
 	l->u.size = 0.80;
 	l->u.action = -1;
 	l->u.colors = l->me.color_red;
+	l->u.colors_on = l->me.color_white;
 	ft_put_text(l);
 }
 void	ft_map_editor_group_parameter_create_npc(variable_list* l)

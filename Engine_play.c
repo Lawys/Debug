@@ -103,7 +103,7 @@ void	ft_engine_set_triangles_points(variable_list* l)
 	ts = -1;
 	while (++ts < tn)
 	{
-		if (l->g.sprite[l->t.group[ts]] == 1 || l->g.npc[l->t.group[ts]] == 1)
+		if (l->g.sprite[l->t.group[ts]] == 1 || l->g.npc[l->t.group[ts]] == 1 || l->g.object[l->t.group[ts]] == 1)
 			ft_engine_set_sprite_points(l, tmp, ts);
 		else
 		{
@@ -705,13 +705,17 @@ void	ft_engine_play_calculate_pixels_initialize_part_3(variable_list* l, s_engin
 	if (l->g.npc[l->t.group[ts]] == 1)
 	{
 		tmp->s = acos((l->t.z1[ts] - l->p.z) /
-			sqrt((center - l->p.x) * (center - l->p.x) + (l->t.z1[ts] - l->p.z) * (l->t.z1[ts] - l->p.z))) - l->g.sprite_orientation[l->t.group[ts]] * M_PI / 180;
+			sqrt((center - l->p.x) * (center - l->p.x) + (l->t.z1[ts] - l->p.z) * (l->t.z1[ts] - l->p.z))) ;
 		if ((center - l->p.x) > 0)
 			tmp->s = -tmp->s;
-		tmp->s = ((int)((tmp->s / M_PI * 180 - 202.5) / 45) * 128.);
+		tmp->s = ((int)((tmp->s / M_PI * 180 - 202.5 + l->g.sprite_orientation[l->t.group[ts]]) / 45) * 128.);
+		tmp->ss = -l->g.npc_statement[l->t.group[ts]] * 132;
 	}
 	else
+	{
 		tmp->s = 0;
+		tmp->ss = 0;
+	}
 }
 
 void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
@@ -728,10 +732,10 @@ void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_cal
 		{
 			s->v = (((abs((((s->v4x * (s->c_x + s->t_x1) + s->v4y * (s->c_y +
 				s->t_y1) + s->v4z * (s->c_z + s->t_z1)) / s->d04) * 10.24) *
-				s->ttsiy + s->ttshy) + (int)s->s) & 1023) + (abs((((
+				s->ttsiy + s->ttshy) + (int)s->s) & 1023) + ((abs((((
 					s->v1x * (s->c_x + s->t_x1) + s->v1y * (s->c_y + s->t_y1) +
 					s->v1z * (s->c_z + s->t_z1)) / s->d01) * 10.24) * s->ttsix -
-					s->ttshx) & 1023) * 1024) * 4 + 138;
+					s->ttshx) + s->ss) & 1023) * 1024) * 4 + 138;
 			if (s->c[s->v + 3] != 0)
 			{
 				l->pixels_distance[s->x][s->y] = s->t_d;

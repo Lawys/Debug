@@ -6,49 +6,53 @@ void	ft_map_editor_triangle_parameters(variable_list* l)
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_triangle_parameter_triangle(l);
 	ft_map_editor_triangle_parameter_triangle_id(l);
-	ft_map_editor_triangle_parameter_area(l);
-	ft_map_editor_triangle_parameter_group(l);
-	ft_map_editor_triangle_parameter_position(l);
-	ft_map_editor_triangle_parameter_position_x_all(l);
-	ft_map_editor_triangle_parameter_position_y_all(l);
-	ft_map_editor_triangle_parameter_position_z_all(l);
-	ft_map_editor_triangle_parameter_position_size(l);
-	ft_map_editor_triangle_parameter_rotation(l);
-	ft_map_editor_triangle_parameter_position_h(l);
-	ft_map_editor_triangle_parameter_position_v(l);
-	ft_map_editor_triangle_parameter_position_l(l);
-	ft_map_editor_triangle_parameter_position_x_1(l);
-	ft_map_editor_triangle_parameter_position_y_1(l);
-	ft_map_editor_triangle_parameter_position_z_1(l);
-	ft_map_editor_triangle_parameter_position_x_2(l);
-	ft_map_editor_triangle_parameter_position_y_2(l);
-	ft_map_editor_triangle_parameter_position_z_2(l);
-	ft_map_editor_triangle_parameter_position_x_3(l);
-	ft_map_editor_triangle_parameter_position_y_3(l);
-	ft_map_editor_triangle_parameter_position_z_3(l);
-	ft_map_editor_triangle_parameter_texture(l);
-	ft_map_editor_triangle_parameter_texture_id(l);
-	ft_map_editor_triangle_parameter_texture_light(l);
-	ft_map_editor_triangle_parameter_texture_opacity(l);
-	ft_map_editor_triangle_parameter_texture_sides(l);
-	ft_map_editor_triangle_parameter_texture_size(l);
-	ft_map_editor_triangle_parameter_texture_size_x(l);
-	ft_map_editor_triangle_parameter_texture_size_y(l);
+	if (l->g.npc[l->t.group[l->triangle_select]] == 0)
+	{
+		ft_map_editor_triangle_parameter_area(l);
+		ft_map_editor_triangle_parameter_group(l);
 
-	ft_map_editor_triangle_parameter_texture_shift(l);
-	ft_map_editor_triangle_parameter_texture_shift_x(l);
-	ft_map_editor_triangle_parameter_texture_shift_y(l);
+		ft_map_editor_triangle_parameter_position(l);
+		ft_map_editor_triangle_parameter_position_x_all(l);
+		ft_map_editor_triangle_parameter_position_y_all(l);
+		ft_map_editor_triangle_parameter_position_z_all(l);
+		ft_map_editor_triangle_parameter_position_size(l);
+		ft_map_editor_triangle_parameter_rotation(l);
+		ft_map_editor_triangle_parameter_position_h(l);
+		ft_map_editor_triangle_parameter_position_v(l);
+		ft_map_editor_triangle_parameter_position_l(l);
+		ft_map_editor_triangle_parameter_position_x_1(l);
+		ft_map_editor_triangle_parameter_position_y_1(l);
+		ft_map_editor_triangle_parameter_position_z_1(l);
+		ft_map_editor_triangle_parameter_position_x_2(l);
+		ft_map_editor_triangle_parameter_position_y_2(l);
+		ft_map_editor_triangle_parameter_position_z_2(l);
+		ft_map_editor_triangle_parameter_position_x_3(l);
+		ft_map_editor_triangle_parameter_position_y_3(l);
+		ft_map_editor_triangle_parameter_position_z_3(l);
+		ft_map_editor_triangle_parameter_texture(l);
+		ft_map_editor_triangle_parameter_texture_id(l);
+		ft_map_editor_triangle_parameter_texture_light(l);
+		ft_map_editor_triangle_parameter_texture_opacity(l);
+		ft_map_editor_triangle_parameter_texture_sides(l);
+		ft_map_editor_triangle_parameter_texture_size(l);
+		ft_map_editor_triangle_parameter_texture_size_x(l);
+		ft_map_editor_triangle_parameter_texture_size_y(l);
 
-	ft_map_editor_triangle_parameter_texture_size_adapt(l);
-	ft_map_editor_triangle_parameter_texture_size_stretch(l);
-	ft_map_editor_triangle_parameter_texture_size_repeat(l);
-	ft_map_editor_triangle_parameter_texture_size_adapt_x(l);
-	ft_map_editor_triangle_parameter_texture_size_adapt_y(l);
-	ft_map_editor_triangle_parameter_options(l);
-	ft_map_editor_triangle_parameter_create_new(l);
-	ft_map_editor_triangle_parameter_create_square(l);
-	ft_map_editor_triangle_parameter_duplicate(l);
-	ft_map_editor_triangle_parameter_delete(l);
+		ft_map_editor_triangle_parameter_texture_shift(l);
+		ft_map_editor_triangle_parameter_texture_shift_x(l);
+		ft_map_editor_triangle_parameter_texture_shift_y(l);
+
+		ft_map_editor_triangle_parameter_texture_size_adapt(l);
+		ft_map_editor_triangle_parameter_texture_size_stretch(l);
+		ft_map_editor_triangle_parameter_texture_size_repeat(l);
+		ft_map_editor_triangle_parameter_texture_size_adapt_x(l);
+		ft_map_editor_triangle_parameter_texture_size_adapt_y(l);
+		ft_map_editor_triangle_parameter_options(l);
+		ft_map_editor_triangle_parameter_create_new(l);
+		ft_map_editor_triangle_parameter_create_square(l);
+		ft_map_editor_triangle_parameter_duplicate(l);
+		ft_map_editor_triangle_parameter_delete(l);
+	}
 	ft_map_editor_triangle_parameter_texture_view(l);
 }
 

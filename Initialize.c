@@ -27,6 +27,8 @@ void	ft_initialize_variables(variable_list* l)
 		l->g.object[i] = 0;
 		l->script_v1[i] = 0;
 		l->g.sprite_orientation[i] = 0;
+		l->g.npc_hp[i] = 100;
+		l->g.npc_statement[i] = 0;
 	}
 	i = -1;
 	while (++i < WDW)
@@ -272,6 +274,7 @@ void	ft_map_reader(variable_list* l)
 		l->g.npc[j] = (int)ft_atoi(l, file, &i);
 		l->g.object[j] = (int)ft_atoi(l, file, &i);
 		l->g.sprite_orientation[j] = (int)ft_atoi(l, file, &i);
+		l->g.npc_statement[j] = 1;
 		i++;
 	}
 	free(file);

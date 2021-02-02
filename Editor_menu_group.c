@@ -10,14 +10,26 @@ void	ft_map_editor_group_parameters(variable_list* l)
 	ft_map_editor_group_parameter_position_x(l);
 	ft_map_editor_group_parameter_position_y(l);
 	ft_map_editor_group_parameter_position_z(l);
-	ft_map_editor_group_parameter_position_h(l);
-	ft_map_editor_group_parameter_position_v(l);
-	ft_map_editor_group_parameter_position_l(l);
+	if (l->g.npc[l->group_select] == 0)
+	{
+		ft_map_editor_group_parameter_position_h(l);
+		ft_map_editor_group_parameter_position_v(l);
+		ft_map_editor_group_parameter_position_l(l);
+	}
 	ft_map_editor_group_parameter_position_size(l);
 	ft_map_editor_group_parameter_modes(l);
-	ft_map_editor_group_parameter_sprite(l);
-	ft_map_editor_group_parameter_npc(l);
-	ft_map_editor_group_parameter_object(l);
+	if (l->g.sprite[l->group_select] == 1)
+		ft_map_editor_group_parameter_sprite(l);
+	else if (l->g.npc[l->group_select] == 1)
+		ft_map_editor_group_parameter_npc(l);
+	else if (l->g.object[l->group_select] == 1)
+		ft_map_editor_group_parameter_object(l);
+	else
+	{
+		ft_map_editor_group_parameter_sprite(l);
+		ft_map_editor_group_parameter_npc(l);
+		ft_map_editor_group_parameter_object(l);
+	}
 	ft_map_editor_group_parameter_options(l);
 	ft_map_editor_group_parameter_create_npc(l);
 	ft_map_editor_group_parameter_duplicate(l);
@@ -31,12 +43,22 @@ void	ft_map_editor_group_actions(variable_list* l)
 	ft_map_editor_group_action_position_x(l);
 	ft_map_editor_group_action_position_y(l);
 	ft_map_editor_group_action_position_z(l);
-	ft_map_editor_group_action_position_h(l);
-	ft_map_editor_group_action_position_v(l);
-	ft_map_editor_group_action_position_l(l);
+	if (l->g.npc[l->group_select] == 0)
+	{
+		ft_map_editor_group_action_position_h(l);
+		ft_map_editor_group_action_position_v(l);
+		ft_map_editor_group_action_position_l(l);
+	}
 	ft_map_editor_group_action_position_size(l);
-	ft_map_editor_group_action_sprite(l);
-	ft_map_editor_group_action_object(l);
+	if (l->g.sprite[l->group_select] == 1)
+		ft_map_editor_group_action_sprite(l);
+	else if (l->g.object[l->group_select] == 1)
+		ft_map_editor_group_action_object(l);
+	else
+	{
+		ft_map_editor_group_action_sprite(l);
+		ft_map_editor_group_action_object(l);
+	}
 	ft_map_editor_group_action_create_npc(l);
 	ft_map_editor_group_action_duplicate(l);
 	ft_map_editor_group_action_delete(l);

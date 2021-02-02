@@ -823,7 +823,7 @@ void	TMP_map_editor_save_map(variable_list* l)
 		i = 0;
 		while (i < MAX_GROUPS)
 		{
-			if (l->g.sprite[i] > 0)
+			if (l->g.sprite[i] || l->g.npc[i] || l->g.object[i])
 			{
 				_write(stream, ",\n\0", 2);
 				buffer_size = ft_itoa(l, (double)i, buffer), _write(stream, buffer, buffer_size);

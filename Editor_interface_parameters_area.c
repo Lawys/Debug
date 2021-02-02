@@ -123,10 +123,11 @@ void	ft_map_editor_area_parameter_options(variable_list* l)
 {
 	l->u.str_address = "OPTIONS";
 	l->u.wsx = 37;
-	l->u.wsy += 2.5;
+	l->u.wsy = 94.5;
 	l->u.size = 0.80;
 	l->u.action = -1;
 	l->u.colors = l->me.color_red;
+	l->u.colors_on = l->me.color_white;
 	ft_put_text(l);
 }
 

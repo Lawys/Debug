@@ -261,7 +261,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	if (l->i.state[20])
 	{
 		l->gravity = 0;
-		l->p.y += 5;
+		l->p.y += 2;
 	}
 
 	ts = -1;
