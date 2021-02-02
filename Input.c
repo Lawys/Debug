@@ -267,59 +267,60 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
-		if (l->g.object[l->t.group[ts]] == 0)
+		if (l->g.object[l->t.group[ts]] == 0 && l->g.npc[l->t.group[ts]] == 0 && l->g.sprite[l->t.group[ts]] == 0)
 		{
 			ft_event_playing_mode_triangle_init(l, &tmp, ts);
-			tmp.vx = 10;
-			tmp.vz = 10;
-			tmp.vy = 5;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = 10;
-			tmp.vz = -10;
-			tmp.vy = 5;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = -10;
-			tmp.vz = -10;
-			tmp.vy = 5;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = -10;
-			tmp.vz = 10;
-			tmp.vy = 5;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = 10;
-			tmp.vz = 10;
-			tmp.vy = -50;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = 10;
-			tmp.vz = -10;
-			tmp.vy = -50;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = -10;
-			tmp.vz = -10;
-			tmp.vy = -50;
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
-			tmp.vx = -10;
-			tmp.vz = 10;
-			tmp.vy = -50;
 
-			ft_event_playing_mode_player_vector_intersection(l, &tmp);
 			tmp.vx = 10;
 			tmp.vz = 10;
-			tmp.vy = 0;
+			tmp.vy = 5;
 			ft_event_playing_mode_player_vector_intersection(l, &tmp);
 			tmp.vx = 10;
 			tmp.vz = -10;
-			tmp.vy = 0;
+			tmp.vy = 5;
 			ft_event_playing_mode_player_vector_intersection(l, &tmp);
 			tmp.vx = -10;
 			tmp.vz = -10;
-			tmp.vy = 0;
+			tmp.vy = 5;
 			ft_event_playing_mode_player_vector_intersection(l, &tmp);
 			tmp.vx = -10;
 			tmp.vz = 10;
-			tmp.vy = 0;
+			tmp.vy = 5;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = 10;
+			tmp.vz = 10;
+			tmp.vy = -50;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = 10;
+			tmp.vz = -10;
+			tmp.vy = -50;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = -10;
+			tmp.vz = -10;
+			tmp.vy = -50;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = -10;
+			tmp.vz = 10;
+			tmp.vy = -50;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
 
+			tmp.vx = 10;
+			tmp.vz = 10;
+			tmp.vy = 0;
 			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = 10;
+			tmp.vz = -10;
+			tmp.vy = 0;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = -10;
+			tmp.vz = -10;
+			tmp.vy = 0;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+			tmp.vx = -10;
+			tmp.vz = 10;
+			tmp.vy = 0;
+			ft_event_playing_mode_player_vector_intersection(l, &tmp);
+
 			tmp.vx = -10;
 			tmp.vz = 0;
 			tmp.vy = 0;
@@ -489,8 +490,8 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		ft_event_playing_mode_triangle_vector_intersection(l, &tmp);
 	}
 	*/
-printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
-printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
+	printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
+	printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
 	//printf("->mov %f %f\n", tmp.move_x, tmp.move_z);
 
 	if (tmp.save_py != 100 && tmp.save_ny != -100)
