@@ -490,8 +490,8 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		ft_event_playing_mode_triangle_vector_intersection(l, &tmp);
 	}
 	*/
-	printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
-	printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
+	//printf("->pos %f %f %f\n", tmp.save_px, tmp.save_py, tmp.save_pz);
+	//printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
 	//printf("->mov %f %f\n", tmp.move_x, tmp.move_z);
 
 	if (tmp.save_py != 100 && tmp.save_ny != -100)
@@ -750,22 +750,22 @@ void	ft_events(variable_list* l)
 
 	if (l->i.state[SDL_SCANCODE_ESCAPE] || l->event.type == SDL_QUIT)
 		ft_free_and_exit(l);
-	if (l->playing_mode == 1)
+	if (l->menu_mode == 1)
 		ft_event_playing_mode(l);
-	else if (l->map_editor_mode == 1)
+	else if (l->menu_mode == 2)
 		ft_event_map_editor_mode(l);
 	if (l->i.state[53])
 	{
 		l->i.state[53] = 0;
-		if (l->playing_mode == 0)
+		if (l->menu_mode == 2)
 		{
-			l->playing_mode = 1;
+			l->menu_mode = 1;
 			SDL_ShowCursor(SDL_DISABLE);
 			SDL_WarpMouseInWindow(l->window, (WDW2), (WDH2));
 		}
 		else
 		{
-			l->playing_mode = 0;
+			l->menu_mode = 2;
 			SDL_ShowCursor(SDL_ENABLE);
 		}
 	}

@@ -107,6 +107,18 @@ void	ft_initialize_variables(variable_list* l)
 		l->me.color_green = l->texture_colors[9];
 		l->i.state = SDL_GetKeyboardState(NULL);
 		l->i.mouse = SDL_GetMouseState(&l->i.mouse_x, &l->i.mouse_y);
+		//RVOLBERG
+
+		//objet du hud
+		l->hl.item_select = 0;
+
+		l->hl.obj_key[0] = 38;//  1
+		l->hl.obj_key[1] = 195;// 2 
+		l->hl.obj_key[2] = 34; // 3
+		l->hl.weapon = 0; // 0 fist, 1 gun NON UTILISER
+		l->hl.ammo = 24;
+		l->hl.live_bar = 100; // A TESTER VALEUR, 24 valeur ou la barre n est plus visible
+		l->menu_mode = 0;//
 
 }
 
@@ -173,6 +185,17 @@ void	ft_read_all(variable_list* l)
 	ft_bmp_reader(l, "./img/img29.bmp");
 	ft_bmp_reader(l, "./img/img30.bmp");
 	ft_bmp_reader(l, "./img/img31.bmp");
+	ft_bmp_reader(l, "./img/img32.bmp");
+	ft_bmp_reader(l, "./img/img33.bmp");
+	ft_bmp_reader(l, "./img/img34.bmp");
+	ft_bmp_reader(l, "./img/img35.bmp");
+	ft_bmp_reader(l, "./img/img36.bmp");
+	ft_bmp_reader(l, "./img/img37.bmp");
+	ft_bmp_reader(l, "./img/img38.bmp");
+	ft_bmp_reader(l, "./img/img39.bmp");
+	ft_bmp_reader(l, "./img/img40.bmp");
+	ft_bmp_reader(l, "./img/img41.bmp");
+	ft_bmp_reader(l, "./img/img42.bmp");
 }
 
 void	ft_reset_arrays(variable_list* l)
@@ -470,24 +493,31 @@ void	ft_size_to_window(variable_list* l)
 }
 void	ft_loop(variable_list* l)
 {
-
+	l->menu_mode = 0;
 	while (1)
 	{
 
 		if (SDL_UpdateWindowSurface(l->window) < 0)
 			ft_free_and_exit(l);
 		ft_reset_arrays(l);
-		ft_map_editor(l);
-		ft_engine_play(l);
-		if (l->triangle_select != -1)
-			ft_engine_set_window_blue_border_triangle(l);
-		else if (l->area_select != -1)
-			ft_engine_set_window_red_border_area(l);
-		else if (l->group_select != -1)
-			ft_engine_set_window_green_border_group(l);
+		if (l->menu_mode == 0)
+			ft_main_menu_clic(l);
+		else
+		{
+			if (l->menu_mode == 1)
+				ft_event_playing_hud(l);
+			else if (l->menu_mode == 2)
+				ft_map_editor(l);
+			ft_engine_play(l);
+			if (l->triangle_select != -1)
+				ft_engine_set_window_blue_border_triangle(l);
+			else if (l->area_select != -1)
+				ft_engine_set_window_red_border_area(l);
+			else if (l->group_select != -1)
+				ft_engine_set_window_green_border_group(l);
 
-		ft_size_to_window(l);
-
+			ft_size_to_window(l);
+		}
 		ft_events(l);
 		ft_get_time(l);
 		ft_script_auto(l);
@@ -504,6 +534,7 @@ int main()
 	ft_initialize_variables(l);
 	ft_initialize_SDL(l);
 	ft_read_all(l);
+	ft_main_menu_clic(l);
 	ft_loop(l);
 	return(0);
 }

@@ -313,6 +313,19 @@ typedef struct s_list_12
     int		    object[MAX_GROUPS];
 }       group_list;
 
+//RVOLBERG -------------------------------------------//
+typedef struct  s_list_13
+{
+    int live_bar;
+    int item_select;// -1 non recuperer / non utilisable, 0 recuperer, 1 en utilisation
+    int obj_key[3];//numero clavier
+    int weapon; //wich one equip, 0 fist, 1 gun
+    int ammo;
+
+}               hud_list;
+
+//---------------------------------------------------//
+
 typedef struct s_list_1
 {
     triangle_list t;
@@ -353,6 +366,14 @@ typedef struct s_list_1
     int             group_number;
     int             area_number;
 
+    //RVOLBERG---------------------------------------//
+
+    int menu_mode;
+    hud_list    hl;
+
+
+    //----------------------------------------------//
+
     int playing_mode;
     int map_editor_mode;
     int writing_mode;
@@ -361,7 +382,29 @@ typedef struct s_list_1
     unsigned char		texture_colors[64][1024 * 1024 * 4 + 138];
 
 }   variable_list;
+void ft_event_playing_hud(variable_list* l);
 
+int ft_choose_img_inventory(int index);
+
+void ft_put_ammo_bar(variable_list* l);
+
+void ft_inventory_gestion(variable_list* l);
+
+void ft_punch(variable_list* l);
+
+void ft_shoot(variable_list* l);
+
+int ft_nbrisinside(int a, int min, int max);
+
+double ft_coord_button_menu(variable_list* l, double coord, int window);
+
+void ft_main_menu_clic(variable_list* l);
+
+void ft_img_to_window(variable_list* l, int img_index, int* x, int* y, double* percent);
+
+void ft_game_over(variable_list* l);
+
+void ft_tester_hud(variable_list* l);
 void ft_engine_calculate_triangles_distance(variable_list* l);
 
 void ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z);
