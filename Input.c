@@ -567,10 +567,10 @@ void	ft_event_playing_mode_player_crawl_or_squat
 
 void	ft_event_playing_mode_player(variable_list* l)
 {
-	l->p.speed = 1.5;
+	l->p.speed = 2;
 	ft_event_playing_mode_player_crawl_or_squat(l);
 	if (l->i.state[225]) //MAJ sprint
-		l->p.speed = 2;
+		l->p.speed = 3;
 	if (l->i.state[26] + l->i.state[22] +
 		l->i.state[7] + l->i.state[4] > 1)
 		l->p.speed *= 0.75;
