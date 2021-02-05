@@ -24,6 +24,7 @@ void	ft_map_editor_menu_background(variable_list* l)
 	l->u.wsx = 2.5;
 	l->u.wsy = 72.5;
 	ft_put_texture(l);
+
 }
 void	ft_map_editor_submenu_background(variable_list* l)
 {
@@ -810,7 +811,7 @@ void	TMP_map_editor_save_map(variable_list* l)
 			buffer_size = ft_itoa(l, l->t.texture_sides[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 			i++;
 		}
-		_write(stream, "\0", 1);
+		_write(stream, ",\0\0", 2);
 		_close(stream);
 
 		if ((_sopen_s(&stream, "./map/group", O_RDWR | _O_CREAT,
@@ -819,11 +820,11 @@ void	TMP_map_editor_save_map(variable_list* l)
 			printf("Load File Error\n");
 			ft_free_and_exit(l);
 		}
-		_write(stream, "id,sprite,\0", 10);
+		_write(stream, "id,sprite,npc,object,sprite_orientation,action_auto,action_enable,action_disable\0", 80);
 		i = 0;
 		while (i < MAX_GROUPS)
 		{
-			if (l->g.sprite[i] || l->g.npc[i] || l->g.object[i])
+			if (l->g.sprite[i] || l->g.npc[i] || l->g.object[i] || l->g.action_auto[i][0] != 0 || l->g.action_enable[i][0] != 0 || l->g.action_disable[i][0] != 0)
 			{
 				_write(stream, ",\n\0", 2);
 				buffer_size = ft_itoa(l, (double)i, buffer), _write(stream, buffer, buffer_size);
@@ -831,10 +832,13 @@ void	TMP_map_editor_save_map(variable_list* l)
 				buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 				buffer_size = ft_itoa(l, l->g.object[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 				buffer_size = ft_itoa(l, l->g.sprite_orientation[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+				_write(stream, ",\0", 1), _write(stream, l->g.action_auto[i], sizeof(l->g.action_auto[i]));
+				_write(stream, ",\0", 1), _write(stream, l->g.action_enable[i], sizeof(l->g.action_enable[i]));
+				_write(stream, ",\0", 1), _write(stream, l->g.action_disable[i], sizeof(l->g.action_disable[i]));
 			}
 			i++;
 		}
-		_write(stream, "\0", 1);
+		_write(stream, ",\0\0", 2);
 		_close(stream);
 
 

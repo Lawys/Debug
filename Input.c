@@ -715,11 +715,8 @@ void	ft_event_map_editor_mode(variable_list* l)
 {
 	l->p.speed = 4;
 	ft_event_map_editor_mode_motion(l);
-
 	ft_event_map_editor_mode_moving(l);
 	ft_event_map_editor_mode_moving_y(l);
-
-	ft_event_map_editor_mode_mouse_time_pressing_counter(l);
 	ft_event_map_editor_mode_select_on_click(l);
 }
 
@@ -747,26 +744,31 @@ void	ft_events(variable_list* l)
 	}
 	l->i.state = SDL_GetKeyboardState(NULL);
 	l->i.mouse = SDL_GetMouseState(&l->i.mouse_x, &l->i.mouse_y);
+	ft_event_map_editor_mode_mouse_time_pressing_counter(l);
 
 	if (l->i.state[SDL_SCANCODE_ESCAPE] || l->event.type == SDL_QUIT)
 		ft_free_and_exit(l);
-	if (l->menu_mode == 1)
-		ft_event_playing_mode(l);
-	else if (l->menu_mode == 2)
-		ft_event_map_editor_mode(l);
-	if (l->i.state[53])
+
+	if (l->writing_mode == 0)
 	{
-		l->i.state[53] = 0;
-		if (l->menu_mode == 2)
+		if (l->menu_mode == 1)
+			ft_event_playing_mode(l);
+		else if (l->menu_mode == 2)
+			ft_event_map_editor_mode(l);
+		if (l->i.state[53])
 		{
-			l->menu_mode = 1;
-			SDL_ShowCursor(SDL_DISABLE);
-			SDL_WarpMouseInWindow(l->window, (WDW2), (WDH2));
-		}
-		else
-		{
-			l->menu_mode = 2;
-			SDL_ShowCursor(SDL_ENABLE);
+			l->i.state[53] = 0;
+			if (l->menu_mode == 2)
+			{
+				l->menu_mode = 1;
+				SDL_ShowCursor(SDL_DISABLE);
+				SDL_WarpMouseInWindow(l->window, (WDW2), (WDH2));
+			}
+			else
+			{
+				l->menu_mode = 2;
+				SDL_ShowCursor(SDL_ENABLE);
+			}
 		}
 	}
 }

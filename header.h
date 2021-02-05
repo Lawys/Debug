@@ -311,6 +311,9 @@ typedef struct s_list_12
     int		    npc_hp[MAX_GROUPS];
     int		    npc_statement[MAX_GROUPS];
     int		    object[MAX_GROUPS];
+    char		action_auto[MAX_GROUPS][57];
+    char		action_enable[MAX_GROUPS][57];
+    char		action_disable[MAX_GROUPS][57];
 }       group_list;
 
 //RVOLBERG -------------------------------------------//

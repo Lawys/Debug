@@ -167,7 +167,7 @@ double ft_coord_button_menu(variable_list* l, double coord, int window)
 {
     double num;
 
-    num = ((double)coord / (double)1024) * window;
+    num = ((double)coord / 1024.) * window;
     return(num);
 }
 

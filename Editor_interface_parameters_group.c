@@ -119,9 +119,53 @@ void	ft_map_editor_group_parameter_position_size(variable_list* l)
 	ft_put_text(l);
 }
 
-void	ft_map_editor_group_parameter_modes(variable_list* l)
+void	ft_map_editor_group_parameter_action(variable_list* l)
 {
-	l->u.str_address = "MODES";
+	l->u.str_address = "ACTION";
+	l->u.wsx = 37;
+	l->u.wsy += 2.5;
+	l->u.size = 0.80;
+	l->u.action = -1;
+	l->u.colors = l->me.color_white;
+	ft_put_text(l);
+}
+
+void	ft_map_editor_group_parameter_auto(variable_list* l)
+{
+	l->u.wsx += 1;
+	l->u.action = ++l->action;
+	l->u.size = 1;
+	l->u.colors = l->me.color_blue;
+	l->u.colors_on = l->me.color_green;
+	l->u.str_address = "AUTO";
+	ft_put_text(l);
+}
+
+void	ft_map_editor_group_parameter_enable(variable_list* l)
+{
+	l->u.wsx += 1;
+	l->u.action = ++l->action;
+	l->u.size = 1;
+	l->u.colors = l->me.color_blue;
+	l->u.colors_on = l->me.color_green;
+	l->u.str_address = "ENABLE";
+	ft_put_text(l);
+}
+
+void	ft_map_editor_group_parameter_disable(variable_list* l)
+{
+	l->u.wsx += 1;
+	l->u.action = ++l->action;
+	l->u.size = 1;
+	l->u.colors = l->me.color_blue;
+	l->u.colors_on = l->me.color_green;
+	l->u.str_address = "DISABLE";
+	ft_put_text(l);
+}
+
+void	ft_map_editor_group_parameter_mode(variable_list* l)
+{
+	l->u.str_address = "MODE";
 	l->u.wsx = 37;
 	l->u.wsy += 2.5;
 	l->u.size = 0.80;
@@ -206,6 +250,8 @@ void	ft_map_editor_group_parameter_object(variable_list* l)
 	l->u.str_address = "<OBJECT>";
 	ft_put_text(l);
 }
+
+
 
 void	ft_map_editor_group_parameter_options(variable_list* l)
 {

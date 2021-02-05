@@ -451,6 +451,99 @@ void	ft_map_editor_group_action_position_size(variable_list* l)
 	}
 }
 
+void	ft_map_editor_group_action_auto(variable_list* l)
+{
+	if (l->action_select[l->menu_select][++l->action])
+	{
+		l->writing_mode = 1;
+		ft_text_editing(l, l->g.action_auto[l->group_select], 56);
+
+		l->u.action = -1;
+		l->u.colors = l->texture_colors[16];
+		l->u.tsx = 250;
+		l->u.tex = 777;
+		l->u.tsy = 415;
+		l->u.tey = 674;
+		l->u.sizex = (double)WDWF / 541.5;
+		l->u.sizey = (double)WDHF / 4608;
+		l->u.size = 1;
+		l->u.wsx = 2;
+		l->u.wsy = 67.4;
+		ft_put_texture(l);
+
+		l->u.wsx = 4;
+		l->u.wsy = 69.4;
+		l->u.action = -1;
+		l->u.size = 1;
+		l->u.colors = l->me.color_red;
+		l->u.colors_on = l->me.color_red;
+		l->u.str_address = l->g.action_auto[l->group_select];
+		ft_put_text(l);
+	}
+}
+
+void	ft_map_editor_group_action_enable(variable_list* l)
+{
+	if (l->action_select[l->menu_select][++l->action])
+	{
+		l->writing_mode = 1;
+		ft_text_editing(l, l->g.action_enable[l->group_select], 56);
+
+		l->u.action = -1;
+		l->u.colors = l->texture_colors[16];
+		l->u.tsx = 250;
+		l->u.tex = 777;
+		l->u.tsy = 415;
+		l->u.tey = 674;
+		l->u.sizex = (double)WDWF / 541.5;
+		l->u.sizey = (double)WDHF / 4608;
+		l->u.size = 1;
+		l->u.wsx = 2;
+		l->u.wsy = 67.4;
+		ft_put_texture(l);
+
+		l->u.wsx = 4;
+		l->u.wsy = 69.3;
+		l->u.action = -1;
+		l->u.size = 1;
+		l->u.colors = l->me.color_white;
+		l->u.colors_on = l->me.color_white;
+		l->u.str_address = l->g.action_enable[l->group_select];
+		ft_put_text(l);
+	}
+}
+
+void	ft_map_editor_group_action_disable(variable_list* l)
+{
+	if (l->action_select[l->menu_select][++l->action])
+	{
+		l->writing_mode = 1;
+		ft_text_editing(l, l->g.action_disable[l->group_select], 56);
+
+		l->u.action = -1;
+		l->u.colors = l->texture_colors[16];
+		l->u.tsx = 250;
+		l->u.tex = 777;
+		l->u.tsy = 415;
+		l->u.tey = 674;
+		l->u.sizex = (double)WDWF / 541.5;
+		l->u.sizey = (double)WDHF / 4608;
+		l->u.size = 1;
+		l->u.wsx = 2;
+		l->u.wsy = 67.4;
+		ft_put_texture(l);
+
+		l->u.wsx = 4;
+		l->u.wsy = 69.3;
+		l->u.action = -1;
+		l->u.size = 1;
+		l->u.colors = l->me.color_white;
+		l->u.colors_on = l->me.color_white;
+		l->u.str_address = l->g.action_disable[l->group_select];
+		ft_put_text(l);
+	}
+}
+
 void	ft_map_editor_group_action_sprite(variable_list* l)
 {
 	if (l->action_select[l->menu_select][++l->action])

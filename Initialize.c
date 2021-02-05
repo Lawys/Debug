@@ -29,7 +29,15 @@ void	ft_initialize_variables(variable_list* l)
 		l->g.sprite_orientation[i] = 0;
 		l->g.npc_hp[i] = 100;
 		l->g.npc_statement[i] = 0;
+		j = -1;
+		while (++j < 57)
+		{
+			l->g.action_auto[i][j] = 0;
+			l->g.action_enable[i][j] = 0;
+			l->g.action_disable[i][j] = 0;
+		}
 	}
+
 	i = -1;
 	while (++i < WDW)
 	{
@@ -227,6 +235,7 @@ void	ft_map_reader(variable_list* l)
 	char *file;
 	int i;
 	int j;
+	int k;
 
 	/// For mapping
 	if ((fopen_s(&stream, "./map/triangle", "r")) != 0)
@@ -270,6 +279,7 @@ void	ft_map_reader(variable_list* l)
 		l->t.texture_opacity[l->triangle_number] = ft_atoi(l, file, &i);
 		l->t.texture_sides[l->triangle_number] = (int)ft_atoi(l, file, &i);
 		l->triangle_number++;
+		i++;
 	}
 	free(file);
 	/// For mapping
@@ -301,6 +311,24 @@ void	ft_map_reader(variable_list* l)
 		l->g.object[j] = (int)ft_atoi(l, file, &i);
 		l->g.sprite_orientation[j] = (int)ft_atoi(l, file, &i);
 		l->g.npc_statement[j] = 1;
+		k = 0;
+		while (file[++i] != ',')
+		{
+			l->g.action_auto[j][k] = file[i];
+			k++;
+		}
+		k = 0;
+		while (file[++i] != ',')
+		{
+			l->g.action_enable[j][k] = file[i];
+			k++;
+		}
+		k = 0;
+		while (file[++i] != ',')
+		{
+			l->g.action_disable[j][k] = file[i];
+			k++;
+		}
 		i++;
 	}
 	free(file);
