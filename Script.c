@@ -28,7 +28,6 @@ void ft_action_auto_x(variable_list* l, int group, int c)
 	double value;
 	int i;
 
-	c += ft_strings_count("X") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -50,7 +49,6 @@ void ft_action_auto_y(variable_list* l, int group, int c)
 	double value;
 	int i;
 
-	c += ft_strings_count("Y") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -72,7 +70,6 @@ void ft_action_auto_z(variable_list* l, int group, int c)
 	double value;
 	int i;
 
-	c += ft_strings_count("Z") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -146,7 +143,6 @@ void ft_action_auto_h(variable_list* l, int group, int c)
 	double tmp;
 	int i;
 
-	c += ft_strings_count("H") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -190,7 +186,6 @@ void ft_action_auto_v(variable_list* l, int group, int c)
 	double tmp;
 	int i;
 
-	c += ft_strings_count("V") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -234,7 +229,6 @@ void ft_action_auto_l(variable_list* l, int group, int c)
 	double tmp;
 	int i;
 
-	c += ft_strings_count("L") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -324,7 +318,6 @@ void ft_action_auto_s(variable_list* l, int group, int c)
 	double tmp;
 	int i;
 
-	c += ft_strings_count("S") + 1;
 	value = ft_atoi(l, l->g.action_auto[group], &c);
 	if (l->g.action_auto[group][c] == ';')
 	{
@@ -389,7 +382,6 @@ void ft_action_auto_start(variable_list* l, int group, int c)
 			}
 			else if (l->menu_mode == 1 && ft_strings_compare(l->g.action_auto[group], "LOOT", c))
 			{
-				c += ft_strings_count("LOOT") + 1;
 				l->hl.item_state[(int)ft_atoi(l, l->g.action_auto[group], &c)] = 1;
 				if (l->g.action_auto[group][c] == ';')
 				{
