@@ -693,7 +693,6 @@ void	ft_event_map_editor_mode_select_on_click(variable_list* l)
 {
 	if (l->i.mouse == 1 && l->i.mouse_time_pressing == 1)
 	{
-
 		if (l->action_select[0][1])
 			ft_event_map_editor_mode_select_triangle(l);
 		else if (l->action_select[0][2])

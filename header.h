@@ -328,7 +328,30 @@ typedef struct  s_list_13
 }               hud_list;
 
 //---------------------------------------------------//
+#define MAX_NPC 10
+#define RANGE_NPC 250
+#define LIFE_NPC 5
+#define TIMER_NPC 30
 
+
+typedef struct s_list_14
+{
+    double x;
+    double y;
+    double z;
+}               xyz_list;
+
+typedef struct s_list_15
+{
+    double x;
+    double y;
+    double z;
+    int      angle;
+    int    life;
+    int    timer;
+    int    g_id;
+    int     in_range;
+}               npc_list;
 typedef struct s_list_1
 {
     triangle_list t;
@@ -343,7 +366,7 @@ typedef struct s_list_1
     SDL_Window* window;
     SDL_Surface* window_surface;
     Uint32* pixels;
-
+    npc_list l_npc[MAX_NPC];
     double gravity;
     double		pixels_distance[WDW][WDH];
     int			pixels_triangle[WDW][WDH];
@@ -385,6 +408,13 @@ typedef struct s_list_1
     unsigned char		texture_colors[64][1024 * 1024 * 4 + 138];
 
 }   variable_list;
+
+int 	ft_bullet(variable_list* l, int p_flag, int range);
+void    ft_get_npc(variable_list* l);
+void	ft_init_npc(variable_list* l);
+int		npc_id(variable_list* l, int ret);
+void	npc_attack(variable_list* l);
+
 void ft_event_playing_hud(variable_list* l);
 
 int ft_choose_img_inventory(int index);
