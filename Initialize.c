@@ -25,7 +25,7 @@ void	ft_initialize_variables(variable_list* l)
 		l->g.sprite[i] = 0;
 		l->g.npc[i] = 0;
 		l->g.object[i] = 0;
-		l->script_v1[i] = 0;
+		l->action_v1[i] = 0;
 		l->g.sprite_orientation[i] = 0;
 		l->g.npc_hp[i] = 100;
 		l->g.npc_statement[i] = 0;
@@ -120,9 +120,15 @@ void	ft_initialize_variables(variable_list* l)
 		//objet du hud
 		l->hl.item_select = 0;
 
-		l->hl.obj_key[0] = 38;//  1
-		l->hl.obj_key[1] = 195;// 2 
-		l->hl.obj_key[2] = 34; // 3
+		l->hl.item_state[0] = 1;
+		l->hl.item_state[1] = 1;
+		l->hl.item_state[2] = 0;
+		l->hl.item_state[3] = 0;
+		l->hl.item_state[4] = 0;
+		l->hl.item_state[5] = 0;
+		l->hl.item_state[6] = 0;
+		l->hl.item_state[7] = 0;
+		l->hl.item_state[8] = 0;
 		l->hl.weapon = 0; // 0 fist, 1 gun NON UTILISER
 		l->hl.ammo = 24;
 		l->hl.live_bar = 100; // A TESTER VALEUR, 24 valeur ou la barre n est plus visible
@@ -548,7 +554,7 @@ void	ft_loop(variable_list* l)
 		}
 		ft_events(l);
 		ft_get_time(l);
-		ft_script_auto(l);
+		ft_action_auto(l);
 
 	}
 }

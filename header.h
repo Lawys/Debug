@@ -321,7 +321,7 @@ typedef struct  s_list_13
 {
     int live_bar;
     int item_select;// -1 non recuperer / non utilisable, 0 recuperer, 1 en utilisation
-    int obj_key[3];//numero clavier
+    int item_state[9];//numero clavier
     int weapon; //wich one equip, 0 fist, 1 gun
     int ammo;
 
@@ -349,7 +349,7 @@ typedef struct s_list_1
     int			pixels_triangle[WDW][WDH];
     int			pixels_color[WDW][WDH];
     int			area_list[MAX_AREAS];
-    int		    script_v1[MAX_GROUPS];
+    int		    action_v1[MAX_GROUPS];
     int				action_select[50][200];
     int             window_w;
     int             window_h;
@@ -632,11 +632,9 @@ void ft_put_texture_while(variable_list* l, utility_list* tmp, int x, int y);
 void ft_put_texture_action(variable_list* l, utility_list* tmp);
 
 void ft_put_texture(variable_list* l);
-void ft_script_on_input_group_74(variable_list* l, int ts);
 
-void ft_script_on_input_check_list(variable_list* l);
-
-void ft_script_auto(variable_list* l);
+void ft_action_auto_start(variable_list* l, int group, int c);
+void ft_action_auto(variable_list* l);
 void ft_put_text_texture_initialize(variable_list* l, utility_list* tmp);
 
 void ft_put_text_texture_while(variable_list* l, utility_list* tmp, int x, int y);

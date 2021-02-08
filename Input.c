@@ -578,7 +578,7 @@ void	ft_event_playing_mode_player(variable_list* l)
 	if (l->i.state[8] &&
 		l->pixels_distance[WDW2][WDH2] < 30)
 	{
-		ft_script_on_input_check_list(l);
+		//ft_action_on_input_check_list(l);
 	}
 }
 
@@ -767,6 +767,11 @@ void	ft_events(variable_list* l)
 			else
 			{
 				l->menu_mode = 2;
+				int i;
+				i = -1;
+				while (++i < l->triangle_number)
+					if (l->t.texture_opacity[i] == 0)
+						l->t.texture_opacity[i] = 100;
 				SDL_ShowCursor(SDL_ENABLE);
 			}
 		}

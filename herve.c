@@ -84,17 +84,17 @@ void ft_put_ammo_bar(variable_list* l)
 
 void ft_inventory_gestion(variable_list* l)
 {
-    if (l->i.state[SDL_SCANCODE_1])//press 1
+    if (l->i.state[SDL_SCANCODE_1] && l->hl.item_state[0] == 1)//press 1
     {
         l->i.state[SDL_SCANCODE_1] = 0;
         l->hl.item_select = 0;
     }
-    else if (l->i.state[SDL_SCANCODE_2])//press 2
+    else if (l->i.state[SDL_SCANCODE_2] && l->hl.item_state[1] == 1)//press 2
     {
         l->i.state[SDL_SCANCODE_2] = 0;
         l->hl.item_select = 1;
     }
-    else if (l->i.state[SDL_SCANCODE_3])//press 3
+    else if (l->i.state[SDL_SCANCODE_3] && l->hl.item_state[2] == 1)//press 3
     {
         l->i.state[SDL_SCANCODE_3] = 0;
         l->hl.item_select = 2;
