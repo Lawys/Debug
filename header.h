@@ -271,6 +271,13 @@ typedef struct s_list_2
     double  r;
     double  speed;
 
+    int  start_x;
+    int  start_y;
+    int  start_z;
+    int  start_hp;
+    int  start_ammo;
+    int  start_item[9];
+
     double  player_squat_timer;
     int     player_jump_timer;
     int     player_crawl_timer;
@@ -331,7 +338,7 @@ typedef struct  s_list_13
 #define MAX_NPC 10
 #define RANGE_NPC 250
 #define LIFE_NPC 5
-#define TIMER_NPC 30
+#define TIMER_NPC 60
 
 
 typedef struct s_list_14

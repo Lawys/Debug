@@ -205,12 +205,31 @@ void ft_main_menu_clic(variable_list* l)
         if (ft_nbrisinside(l->i.mouse_x, x[0], x[1]) && ft_nbrisinside(l->i.mouse_y, y[0], y[1]) == 1)//play
         {
             printf("GAME\n");
+            l->p.x = l->p.start_x;
+            l->p.y = l->p.start_y;
+            l->p.z = l->p.start_z;
+            l->hl.live_bar = l->p.start_hp;
+            l->hl.ammo = l->p.start_ammo;
+            l->hl.item_state[0] = l->p.start_item[0];
+            l->hl.item_state[1] = l->p.start_item[1];
+            l->hl.item_state[2] = l->p.start_item[2];
+            l->hl.item_state[3] = l->p.start_item[3];
+            l->hl.item_state[4] = l->p.start_item[4];
+            l->hl.item_state[5] = l->p.start_item[5];
+            l->hl.item_state[6] = l->p.start_item[6];
+            l->hl.item_state[7] = l->p.start_item[7];
+            l->hl.item_state[8] = l->p.start_item[8];
             SDL_ShowCursor(0);
             l->menu_mode = 1;
         }
         else if (ft_nbrisinside(l->i.mouse_x, x[0], x[1]) && ft_nbrisinside(l->i.mouse_y, y[2], y[3]) == 1)//edit
         {
             printf("EDIT\n");
+            int i;
+            i = -1;
+            while (++i < l->triangle_number)
+                if (l->t.texture_opacity[i] == 0)
+                    l->t.texture_opacity[i] = 100;
             SDL_ShowCursor(1);
             l->menu_mode = 2;
         }

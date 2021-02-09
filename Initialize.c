@@ -118,20 +118,7 @@ void	ft_initialize_variables(variable_list* l)
 		//RVOLBERG
 
 		//objet du hud
-		l->hl.item_select = 0;
-
-		l->hl.item_state[0] = 1;
-		l->hl.item_state[1] = 1;
-		l->hl.item_state[2] = 0;
-		l->hl.item_state[3] = 0;
-		l->hl.item_state[4] = 0;
-		l->hl.item_state[5] = 0;
-		l->hl.item_state[6] = 0;
-		l->hl.item_state[7] = 0;
-		l->hl.item_state[8] = 0;
-		l->hl.weapon = 0; // 0 fist, 1 gun NON UTILISER
-		l->hl.ammo = 24;
-		l->hl.live_bar = 100; // A TESTER VALEUR, 24 valeur ou la barre n est plus visible
+		l->hl.item_select = -1;
 		l->menu_mode = 0;//
 
 }
@@ -337,6 +324,21 @@ void	ft_map_reader(variable_list* l)
 		i++;
 	}
 	free(file);
+
+	l->p.start_x = l->p.x;
+	l->p.start_y = l->p.y;
+	l->p.start_z = l->p.z;
+	l->p.start_hp = 100;
+	l->p.start_ammo = 24;
+	l->p.start_item[0] = 1;
+	l->p.start_item[1] = 1;
+	l->p.start_item[2] = 0;
+	l->p.start_item[3] = 0;
+	l->p.start_item[4] = 0;
+	l->p.start_item[5] = 0;
+	l->p.start_item[6] = 0;
+	l->p.start_item[7] = 0;
+	l->p.start_item[8] = 0;
 	/// For mapping
 	/*if ((fopen_s(&stream, "./map/area", "r")) != 0)
 	{
