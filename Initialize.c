@@ -526,6 +526,7 @@ void	ft_size_to_window(variable_list* l)
 }
 void	ft_loop(variable_list* l)
 {
+	ft_init_npc(l);
 	l->menu_mode = 0;
 	while (1)
 	{
@@ -538,7 +539,7 @@ void	ft_loop(variable_list* l)
 		else
 		{
 			if (l->menu_mode == 1)
-				ft_event_playing_hud(l);
+				ft_event_playing_hud(l), ft_get_npc(l), npc_attack(l);
 			else if (l->menu_mode == 2)
 				ft_map_editor(l);
 			ft_engine_play(l);
