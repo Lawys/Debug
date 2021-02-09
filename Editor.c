@@ -765,6 +765,7 @@ void	ft_map_editor(variable_list* l)
 	ft_map_editor_group(l);
 	//ft_map_editor_light(l);
 	ft_map_editor_player(l);
+	ft_map_editor_game(l);
 	//ft_map_editor_paint(l);
 }
 

@@ -4,13 +4,15 @@ void	ft_init_npc(variable_list* l)
 {
 	int i;
 
+	printf("%f\n", l->coef_gravity);
 	i = -1;
 	while (i++ < MAX_NPC)
 	{
-		l->l_npc[i / 2].g_id = -1;
+		l->l_npc[(int)(i / 2)].g_id = -1;
 		l->l_npc[i].life = LIFE_NPC;
 		l->l_npc[i].timer = TIMER_NPC;
 	}
+	printf("%f\n", l->coef_gravity);
 }
 
 int		npc_id(variable_list* l, int ret)

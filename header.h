@@ -355,9 +355,12 @@ typedef struct s_list_15
     double z;
     int      angle;
     int    life;
+    int    damage;
     int    timer;
     int    g_id;
     int     in_range;
+
+
 }               npc_list;
 typedef struct s_list_1
 {
@@ -374,6 +377,12 @@ typedef struct s_list_1
     SDL_Surface* window_surface;
     Uint32* pixels;
     npc_list l_npc[MAX_NPC];
+    double     coef_gravity;
+    int    npc_base_life;
+    int    npc_base_damage;
+    int     mission[4];
+
+    int     fall_damage;
     double gravity;
     double		pixels_distance[WDW][WDH];
     int			pixels_triangle[WDW][WDH];

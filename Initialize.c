@@ -121,6 +121,29 @@ void	ft_initialize_variables(variable_list* l)
 		l->hl.item_select = -1;
 		l->menu_mode = 0;//
 
+		l->p.start_x = l->p.x;
+		l->p.start_y = l->p.y;
+		l->p.start_z = l->p.z;
+		l->p.start_hp = 100;
+		l->p.start_ammo = 24;
+		l->p.start_item[0] = 1;
+		l->p.start_item[1] = 1;
+		l->p.start_item[2] = 0;
+		l->p.start_item[3] = 0;
+		l->p.start_item[4] = 0;
+		l->p.start_item[5] = 0;
+		l->p.start_item[6] = 0;
+		l->p.start_item[7] = 0;
+		l->p.start_item[8] = 0;
+		l->npc_base_life = 100;
+		l->npc_base_damage = 1;
+		l->mission[0] = 0;
+		l->mission[1] = 1;
+		l->mission[2] = 0;
+		l->mission[3] = 0;
+		l->coef_gravity = 1;
+		l->fall_damage = 1;
+
 }
 
 void	ft_initialize_SDL(variable_list* l)
@@ -325,20 +348,6 @@ void	ft_map_reader(variable_list* l)
 	}
 	free(file);
 
-	l->p.start_x = l->p.x;
-	l->p.start_y = l->p.y;
-	l->p.start_z = l->p.z;
-	l->p.start_hp = 100;
-	l->p.start_ammo = 24;
-	l->p.start_item[0] = 1;
-	l->p.start_item[1] = 1;
-	l->p.start_item[2] = 0;
-	l->p.start_item[3] = 0;
-	l->p.start_item[4] = 0;
-	l->p.start_item[5] = 0;
-	l->p.start_item[6] = 0;
-	l->p.start_item[7] = 0;
-	l->p.start_item[8] = 0;
 	/// For mapping
 	/*if ((fopen_s(&stream, "./map/area", "r")) != 0)
 	{
@@ -532,7 +541,6 @@ void	ft_loop(variable_list* l)
 	l->menu_mode = 0;
 	while (1)
 	{
-
 		if (SDL_UpdateWindowSurface(l->window) < 0)
 			ft_free_and_exit(l);
 		ft_reset_arrays(l);
