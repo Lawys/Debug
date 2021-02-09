@@ -762,9 +762,6 @@ void	ft_events(variable_list* l)
 				l->menu_mode = 1;
 				SDL_ShowCursor(SDL_DISABLE);
 				SDL_WarpMouseInWindow(l->window, (WDW2), (WDH2));
-				l->p.x = l->p.start_x;
-				l->p.y = l->p.start_y;
-				l->p.z = l->p.start_z;
 				l->hl.live_bar = l->p.start_hp;
 				l->hl.ammo = l->p.start_ammo;
 				l->hl.item_state[0] = l->p.start_item[0];
