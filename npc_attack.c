@@ -77,6 +77,8 @@ int		ft_range(variable_list* l, int i)
 void	npc_attack(variable_list* l)
 {
 	int i;
+	double angle;
+	int* sprite_angle;
 
 	i = -1;
 	while (i++ < MAX_NPC && l->l_npc[i].g_id != -1)
@@ -84,15 +86,21 @@ void	npc_attack(variable_list* l)
 		if (l->l_npc[i].life && (l->l_npc[i].in_range == 1 || ft_range(l, i)))
 		{
 			l->l_npc[i].in_range = 1;
-			l->g.sprite_orientation[l->l_npc[i].g_id] = atan2(l->l_npc[i].z - l->p.z, l->l_npc[i].x - l->p.x) * 180 / M_PI;
-			printf("%d\n", l->g.sprite_orientation[l->l_npc[i].g_id]);
+			angle = atan2(l->l_npc[i].x - l->p.x, l->l_npc[i].z - l->p.z) * 180 / M_PI;
+			sprite_angle = &l->g.sprite_orientation[l->l_npc[i].g_id];
+			if (*sprite_angle != (int)(angle + 180))
+			{
+				*sprite_angle = (int)(angle + 180);
+			}
+			//l->g.sprite_orientation[l->l_npc[i].g_id] = 180 + atan2(l->l_npc[i].x - l->p.x, l->l_npc[i].z - l->p.z) * 180 / M_PI;
+
 
 			if (l->l_npc[i].timer-- == 0)
 			{
 				l->l_npc[i].in_range = 0;
 				l->l_npc[i].timer = TIMER_NPC;
-				if (ft_range(l, i))
-					printf("npc attack %d\n", i);
+				//if (ft_range(l, i))
+				//	printf("npc attack %d\n", i);
 			}
 		}
 	}
