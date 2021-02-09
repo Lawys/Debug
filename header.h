@@ -376,7 +376,7 @@ typedef struct s_list_1
     SDL_Window* window;
     SDL_Surface* window_surface;
     Uint32* pixels;
-    npc_list l_npc[MAX_NPC];
+
     double     coef_gravity;
     int    npc_base_life;
     int    npc_base_damage;
@@ -422,6 +422,8 @@ typedef struct s_list_1
     int pixel_count;
     int	cooldown;
     unsigned char		texture_colors[64][1024 * 1024 * 4 + 138];
+
+    npc_list l_npc[MAX_NPC]; //fait bug les variables
 
 }   variable_list;
 
