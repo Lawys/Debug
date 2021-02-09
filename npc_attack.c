@@ -86,15 +86,12 @@ void	npc_attack(variable_list* l)
 		if (l->l_npc[i].life && (l->l_npc[i].in_range == 1 || ft_range(l, i)))
 		{
 			l->l_npc[i].in_range = 1;
-			angle = atan2(l->l_npc[i].x - l->p.x, l->l_npc[i].z - l->p.z) * 180 / M_PI;
+			angle = atan2(l->l_npc[i].x - l->p.x, l->l_npc[i].z - l->p.z) * 180 / M_PI + 180;
 			sprite_angle = &l->g.sprite_orientation[l->l_npc[i].g_id];
-			if (*sprite_angle != (int)(angle + 180))
-			{
-				*sprite_angle = (int)(angle + 180);
-			}
-			//l->g.sprite_orientation[l->l_npc[i].g_id] = 180 + atan2(l->l_npc[i].x - l->p.x, l->l_npc[i].z - l->p.z) * 180 / M_PI;
-
-
+			//if (*sprite_angle != (int)angle)
+			//{
+				*sprite_angle = (int)angle;
+			//}
 			if (l->l_npc[i].timer-- == 0)
 			{
 				l->l_npc[i].in_range = 0;
