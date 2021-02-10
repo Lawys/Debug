@@ -29,6 +29,7 @@ void	ft_initialize_variables(variable_list* l)
 		l->g.sprite_orientation[i] = 0;
 		l->g.npc_hp[i] = 100;
 		l->g.npc_statement[i] = 0;
+		l->g.exist[i] = 1;
 		j = -1;
 		while (++j < 57)
 		{
@@ -143,6 +144,16 @@ void	ft_initialize_variables(variable_list* l)
 		l->mission[3] = 0;
 		l->coef_gravity = 1;
 		l->fall_damage = 1;
+
+		l->pen_size = 0;
+		l->pen_texture = 0;
+		l->pen_group = 0;
+		l->pen_area = 0;
+		l->pen_opacity = 100;
+		l->pen_light = 100;
+
+
+		l->view_only = 0;
 
 }
 
@@ -553,7 +564,9 @@ void	ft_loop(variable_list* l)
 				ft_event_playing_hud(l) , ft_get_npc(l), npc_attack(l);
 			else if (l->menu_mode == 2)
 				ft_map_editor(l);
+
 			ft_engine_play(l);
+
 			if (l->triangle_select != -1)
 				ft_engine_set_window_blue_border_triangle(l);
 			else if (l->area_select != -1)

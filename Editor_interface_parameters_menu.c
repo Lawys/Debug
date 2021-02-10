@@ -37,24 +37,6 @@ void	ft_map_editor_menu_parameter_light(variable_list* l)
 	ft_put_text(l);
 }
 
-void	ft_map_editor_menu_parameter_npc(variable_list* l)
-{
-	l->u.str_address = "NPC";
-	l->u.wsx += 1;
-	l->u.action = ++l->action;
-	l->u.colors = l->me.color_white;
-	l->u.colors_on = l->me.color_white;
-	ft_put_text(l);
-}
-
-void	ft_map_editor_menu_parameter_object(variable_list* l)
-{
-	l->u.str_address = "OBJECT";
-	l->u.wsx += 1;
-	l->u.action = ++l->action;
-	ft_put_text(l);
-}
-
 void	ft_map_editor_menu_parameter_player(variable_list* l)
 {
 	l->u.str_address = "PLAYER";
@@ -77,6 +59,22 @@ void	ft_map_editor_menu_parameter_paint(variable_list* l)
 	l->u.wsx = 4.5;
 	l->u.action = ++l->action;
 	l->u.wsy += 3;
+	ft_put_text(l);
+}
+
+void	ft_map_editor_menu_parameter_view_only(variable_list* l)
+{
+	l->u.str_address = "VIEW ONLY AREA";
+	l->u.wsx = 4.5;
+	l->u.action = ++l->action;
+	l->u.wsy += 3;
+	l->u.size = 0.80;
+	ft_put_text(l);
+	ft_itoa(l, l->view_only, l->me.str);
+	l->u.str_address = l->me.str;
+	l->u.wsx += 1;
+	l->u.colors = l->me.color_white;
+	l->u.colors_on = l->me.color_white;
 	ft_put_text(l);
 }
 

@@ -35,12 +35,12 @@ void	ft_map_editor_area(variable_list* l)
 {
 	if (l->action_select[0][2] == 1 && l->area_select != -1)
 	{
+		l->triangle_select = -1;
+		l->group_select = -1;
 		l->menu_select = 2;
 		l->action = 0;
 		ft_map_editor_area_parameters(l);
 		l->action = 0;
 		ft_map_editor_area_actions(l);
 	}
-	else
-		l->area_select = -1;
 }

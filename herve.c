@@ -99,6 +99,16 @@ void ft_inventory_gestion(variable_list* l)
         l->i.state[SDL_SCANCODE_3] = 0;
         l->hl.item_select = 2;
     }
+    else if (l->i.state[SDL_SCANCODE_4] && l->hl.item_state[3] == 1)//press 3
+    {
+        l->i.state[SDL_SCANCODE_4] = 0;
+        l->hl.item_select = 3;
+    }
+    else if (l->i.state[SDL_SCANCODE_5] && l->hl.item_state[4] == 1)//press 3
+    {
+        l->i.state[SDL_SCANCODE_5] = 0;
+        l->hl.item_select = 4;
+    }
 }
 
 /*
@@ -230,6 +240,11 @@ void ft_main_menu_clic(variable_list* l)
             while (++i < l->triangle_number)
                 if (l->t.texture_opacity[i] == 0)
                     l->t.texture_opacity[i] = 100;
+            i = -1;
+            while (++i < MAX_GROUPS)
+            {
+                l->g.exist[i] = 1;
+            }
             SDL_ShowCursor(1);
             l->menu_mode = 2;
         }

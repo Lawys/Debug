@@ -318,6 +318,7 @@ typedef struct s_list_12
     int		    npc_hp[MAX_GROUPS];
     int		    npc_statement[MAX_GROUPS];
     int		    object[MAX_GROUPS];
+    int		    exist[MAX_GROUPS];
     char		action_auto[MAX_GROUPS][57];
     char		action_enable[MAX_GROUPS][57];
     char		action_disable[MAX_GROUPS][57];
@@ -382,6 +383,15 @@ typedef struct s_list_1
     int    npc_base_damage;
     int     mission[4];
 
+    int pen_size;
+    int pen_texture;
+    int pen_group;
+    int pen_area;
+    double pen_opacity;
+    double pen_light;
+    
+
+    int view_only;
     int     fall_damage;
     double gravity;
     double		pixels_distance[WDW][WDH];

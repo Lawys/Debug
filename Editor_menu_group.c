@@ -76,13 +76,12 @@ void	ft_map_editor_group(variable_list* l)
 {
 	if (l->action_select[0][3] == 1 && l->group_select != -1)
 	{
-		l->writing_mode = 0;
+		l->triangle_select = -1;
+		l->area_select = -1;
 		l->menu_select = 3;
 		l->action = 0;
 		ft_map_editor_group_parameters(l);
 		l->action = 0;
 		ft_map_editor_group_actions(l);
 	}
-	else
-		l->group_select = -1;
 }

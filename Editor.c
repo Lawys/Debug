@@ -718,7 +718,7 @@ void	ft_map_editor_menu_actions(variable_list* l)
 
 void	ft_map_editor_menu_parameters(variable_list* l)
 {
-	l->action = 0;
+
 	ft_map_editor_menu_background(l);
 	ft_map_editor_menu_parameter_triangle(l);
 	ft_map_editor_menu_parameter_area(l);
@@ -727,6 +727,7 @@ void	ft_map_editor_menu_parameters(variable_list* l)
 	ft_map_editor_menu_parameter_player(l);
 	ft_map_editor_menu_parameter_game(l);
 	ft_map_editor_menu_parameter_paint(l);
+	ft_map_editor_menu_parameter_view_only(l);
 }
 void	ft_map_editor_menu(variable_list* l)
 {
@@ -736,11 +737,16 @@ void	ft_map_editor_menu(variable_list* l)
 	if (l->action_select[0][0] == 1)
 	{
 		l->menu_select = 0;
+		l->action = 0;
 		ft_map_editor_menu_parameters(l);
-		//ft_map_editor_menu_actions(l);
-		//
 		TMP_map_editor_menu_parameter_save_map(l);
 		TMP_map_editor_menu_parameter_clean_errors(l);
+
+		l->action = 0;
+		if (l->action_select[0][8])
+		{
+			ft_value_editing_int(l, &l->view_only, -1, MAX_AREAS - 1);
+		}
 		TMP_map_editor_save_map(l);
 		TMP_map_editor_clean_errors(l);
 		//
@@ -748,7 +754,7 @@ void	ft_map_editor_menu(variable_list* l)
 	else if (l->action_select[0][0] == 0)
 	{
 		l->triangle_select = -1;
-		l->triangle_select = -1;
+		l->area_select = -1;
 		l->group_select = -1;
 		l->light_select = -1;
 		l->action_select[0][0]++;
@@ -758,7 +764,6 @@ void	ft_map_editor_menu(variable_list* l)
 void	ft_map_editor(variable_list* l)
 {
 	ft_map_editor_tool_set_mult(l);
-	//l->writing_mode = 0;
 	ft_map_editor_menu(l);
 	ft_map_editor_triangle(l);
 	ft_map_editor_area(l);
@@ -766,7 +771,7 @@ void	ft_map_editor(variable_list* l)
 	//ft_map_editor_light(l);
 	ft_map_editor_player(l);
 	ft_map_editor_game(l);
-	//ft_map_editor_paint(l);
+	ft_map_editor_paint(l);
 }
 
 void	TMP_map_editor_save_map(variable_list* l)

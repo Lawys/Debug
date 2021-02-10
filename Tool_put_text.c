@@ -67,10 +67,15 @@ void	ft_put_text_texture_action(variable_list* l, utility_list* tmp)
 		{
 			if (l->action_select[l->menu_select][tmp->action] == 0)
 			{
-				i = 0;
-				while (++i < 200)
-					l->action_select[l->menu_select][i] = 0;
+				if (l->menu_select != 0 || tmp->action != 8)
+				{
+					i = 0;
+					while (++i < 200)
+						l->action_select[l->menu_select][i] = 0;
+				}
 				l->action_select[l->menu_select][tmp->action] = 1;
+				if (l->action_select[0][7])
+					l->triangle_select = -1;
 			}
 			else
 				l->action_select[l->menu_select][tmp->action] = 0;

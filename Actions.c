@@ -382,22 +382,25 @@ void ft_action_auto_start(variable_list* l, int group, int c)
 			}
 			else if (l->menu_mode == 1 && ft_strings_compare(l->g.action_auto[group], "LOOT", c))
 			{
-				l->hl.item_state[(int)ft_atoi(l, l->g.action_auto[group], &c)] = 1;
+				value = (int)ft_atoi(l, l->g.action_auto[group], &c);
 				if (l->g.action_auto[group][c] == ';')
 				{
-					i = -1;
-					while (++i < l->triangle_number)
-						if (l->t.group[i] == group)
-							l->t.texture_opacity[i] = 0;
+					l->hl.item_state[value] = 1;
+					l->g.exist[group] = 0;
 					ft_action_auto_start(l, group, ++c);
 				}
 			}
-			else if (ft_strings_compare(l->g.action_auto[group], "HP", c))
+			else if (ft_strings_compare(l->g.action_auto[group], "LIFE", c))
 			{
-				l->hl.live_bar += ft_atoi(l, l->g.action_auto[group], &c);
-				if (l->hl.live_bar > 100)
-					l->hl.live_bar = 100;
-				ft_action_auto_start(l, group, ++c);
+				value = (int)ft_atoi(l, l->g.action_auto[group], &c);
+				if (l->g.action_auto[group][c] == ';')
+				{
+					l->hl.live_bar += value;
+					if (l->hl.live_bar > 100)
+						l->hl.live_bar = 100;
+					l->g.exist[group] = 0;
+					ft_action_auto_start(l, group, ++c);
+				}
 			}
 		}
 	}
@@ -422,22 +425,25 @@ void ft_action_auto(variable_list* l)
 	group = -1;
 	while (++group < MAX_GROUPS)
 	{
-		if (l->g.action_auto[group][0] != 0)
+		if (l->g.exist[group])
 		{
-			c = 0;
-			ft_action_auto_start(l, group, c);
-		}
-		if (l->g.object[group] == 1)
-		{
-			if (l->g.action_enable[group][0] != 0)
+			if (l->g.action_auto[group][0] != 0)
 			{
 				c = 0;
-				//ft_action_enable_start(l, group, c);
+				ft_action_auto_start(l, group, c);
 			}
-			if (l->g.action_disable[group][0] != 0)
+			if (l->g.object[group] == 1)
 			{
-				c = 0;
-				//ft_action_disable_start(l, group, c);
+				if (l->g.action_enable[group][0] != 0)
+				{
+					c = 0;
+					//ft_action_enable_start(l, group, c);
+				}
+				if (l->g.action_disable[group][0] != 0)
+				{
+					c = 0;
+					//ft_action_disable_start(l, group, c);
+				}
 			}
 		}
 	}

@@ -103,12 +103,12 @@ void	ft_map_editor_triangle(variable_list* l)
 {
 	if (l->action_select[0][1] == 1 && l->triangle_select != -1)
 	{
+		l->group_select = -1;
+		l->area_select = -1;
 		l->menu_select = 1;
 		l->action = 0;
 		ft_map_editor_triangle_parameters(l);
 		l->action = 0;
 		ft_map_editor_triangle_actions(l);
 	}
-	else
-		l->triangle_select = -1;
 }

@@ -643,15 +643,17 @@ void	ft_engine_play_calculate(variable_list* l)
 	i = ft_engine_play_calculate_skip_triangles_behind_player(l);
 	while (i < l->triangle_number)
 	{
-		l->e.t_s = l->e.t_id[i];			
-		if (l->t.texture_opacity[l->e.t_s] == 100)
-		{
-			ft_engine_play_calculate_initialize_points_vectors_normals(l);
-			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
-				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
-				l->t.texture_sides[l->e.t_s] == 0)
-				ft_engine_play_calculate_if_appear(l);
-		}
+		l->e.t_s = l->e.t_id[i];
+		if (l->view_only == -1 || l->t.area[l->e.t_s] == l->view_only)
+			if (l->g.exist[l->t.group[l->e.t_s]] &&
+				l->t.texture_opacity[l->e.t_s] == 100)
+			{
+				ft_engine_play_calculate_initialize_points_vectors_normals(l);
+				if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+					(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+					l->t.texture_sides[l->e.t_s] == 0)
+					ft_engine_play_calculate_if_appear(l);
+			}
 		i++;
 	}
 }

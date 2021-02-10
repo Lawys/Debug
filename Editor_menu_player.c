@@ -38,6 +38,9 @@ void	ft_map_editor_player(variable_list* l)
 {
 	if (l->action_select[0][5] == 1)
 	{
+		l->triangle_select = -1;
+		l->group_select = -1;
+		l->area_select = -1;
 		l->menu_select = 5;
 		l->action = 0;
 		ft_map_editor_player_parameters(l);
