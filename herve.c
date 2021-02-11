@@ -241,15 +241,8 @@ void ft_main_menu_clic(variable_list* l)
             printf("EDIT\n");
             int i;
             i = -1;
-            while (++i < l->triangle_number)
-                if (l->g.exist[l->t.group[i]] == 0)
-                    l->g.exist[l->t.group[i]] = 1;
-
-            i = -1;
             while (++i < MAX_GROUPS)
-            {
                 l->g.exist[i] = 1;
-            }
             SDL_ShowCursor(1);
             l->menu_mode = 2;
         }

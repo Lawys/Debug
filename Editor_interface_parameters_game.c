@@ -47,17 +47,7 @@ void	ft_map_editor_game_parameter_mission_destroy_computers(variable_list* l)
 		l->u.colors = l->me.color_blue;
 	ft_put_text(l);
 }
-void	ft_map_editor_game_parameter_mission_steal_no_alarm(variable_list* l)
-{
-	l->u.str_address = "<NO ALARM>";
-	l->u.action = ++l->action;
-	l->u.colors_on = l->me.color_green;
-	if (l->mission[3])
-		l->u.colors = l->me.color_green;
-	else
-		l->u.colors = l->me.color_blue;
-	ft_put_text(l);
-}
+
 void	ft_map_editor_game_parameter_npc(variable_list* l)
 {
 	l->u.str_address = "NPC";

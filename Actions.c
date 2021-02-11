@@ -379,6 +379,7 @@ void ft_action_auto_start(variable_list* l, int group, int c)
 			}
 			else if (ft_strings_compare(l->g.action_auto[group], "END;", c))
 			{
+
 			}
 			else if (l->menu_mode == 1 && ft_strings_compare(l->g.action_auto[group], "LOOT", c))
 			{

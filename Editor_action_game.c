@@ -36,18 +36,6 @@ void ft_map_editor_game_action_mission_steal_top_secret_box(variable_list* l)
 	}
 }
 
-void ft_map_editor_game_action_mission_no_alarm(variable_list* l)
-{
-	if (l->action_select[l->menu_select][++l->action])
-	{
-		if (l->mission[3] == 0)
-			l->mission[3] = 1;
-		else
-			l->mission[3] = 0;
-		l->action_select[l->menu_select][l->action] = 0;
-	}
-}
-
 void ft_map_editor_game_action_npc_health(variable_list* l)
 {
 	if (l->action_select[l->menu_select][++l->action])
