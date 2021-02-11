@@ -397,9 +397,14 @@ typedef struct s_list_1
     double		pixels_distance[WDW][WDH];
     int			pixels_triangle[WDW][WDH];
     int			pixels_color[WDW][WDH];
-    int			area_list[MAX_AREAS];
     int		    action_v1[MAX_GROUPS];
     int				action_select[50][200];
+    int         link1[MAX_AREAS];
+    int         link2[MAX_AREAS];
+    int         link3[MAX_AREAS];
+    int         link4[MAX_AREAS];
+    int         link5[MAX_AREAS];
+    int         link6[MAX_AREAS];
     int             window_w;
     int             window_h;
     int				triangle_select;
@@ -425,13 +430,11 @@ typedef struct s_list_1
 
 
     //----------------------------------------------//
-
-    int playing_mode;
-    int map_editor_mode;
     int writing_mode;
-    int pixel_count;
     int	cooldown;
+    int player_area;
     unsigned char		texture_colors[64][1024 * 1024 * 4 + 138];
+
 
     npc_list l_npc[MAX_NPC]; //fait bug les variables
 

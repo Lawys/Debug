@@ -219,8 +219,8 @@ void	ft_event_playing_mode_player_wallblock_init(variable_list* l, player_move_l
 	tmp->move_x = 0;
 	tmp->move_y = 0;
 	tmp->move_z = 0;
-	tmp->save_px = 100, tmp->save_py = 100, tmp->save_pz = 100;
-	tmp->save_nx = -100, tmp->save_ny = -100, tmp->save_nz = -100;
+	tmp->save_px = 10000000000, tmp->save_py = 10000000000, tmp->save_pz = 10000000000;
+	tmp->save_nx = -10000000000, tmp->save_ny = -10000000000, tmp->save_nz = -10000000000;
 	if (l->i.state[26]) // haut
 	{
 		tmp->move_x -= sin(l->p.h) * l->p.speed;
@@ -249,10 +249,46 @@ void	ft_event_playing_mode_player_wallblock_gravity(variable_list* l)
 		l->gravity = 10;
 	l->p.y -= l->gravity;
 }
+void	ft_event_playing_mode_player_first_area_list(variable_list* l, player_move_list *tmp, int ts)
+{
+	double x;
+	double y;
+	double z;
+
+	ft_event_playing_mode_player_line_plan_t(l, tmp);
+	ft_event_playing_mode_player_line_plan_u(l, tmp);
+	ft_event_playing_mode_player_line_plan_v(l, tmp);
+	if (tmp->t > 0 && tmp->t <= 1 &&
+		tmp->u >= 0 && tmp->u <= 1 &&
+		tmp->v >= 0 && tmp->v <= 1 &&
+		tmp->u + tmp->v <= 1)
+	{
+		y = tmp->vy * tmp->t;
+		if (y < 0 && y > tmp->save_ny)
+		{
+			tmp->save_ny = y;
+			l->player_area = l->t.area[ts];
+		}
+	}
+}
+
 void	ft_event_playing_mode_player_wallblock(variable_list* l)
 {
 	player_move_list tmp;
 	int ts;
+
+	tmp.save_ny = -10000000000;
+	ts = -1;
+	while (++ts < l->triangle_number)
+	{
+		ft_event_playing_mode_triangle_init(l, &tmp, ts);
+		tmp.vx = 0;
+		tmp.vz = 0;
+		tmp.vy = -10000000000;
+		ft_event_playing_mode_player_first_area_list(l, &tmp, ts);
+	}
+	if (tmp.save_ny == -10000000000)
+		printf("ERROR\n");
 
 	ft_event_playing_mode_player_wallblock_init(l, &tmp);
 	ft_event_playing_mode_player_wallblock_gravity(l);
@@ -263,14 +299,12 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		l->gravity = 0;
 		l->p.y += 2;
 	}
-
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
 		if (l->g.object[l->t.group[ts]] == 0 && l->g.npc[l->t.group[ts]] == 0 && l->g.sprite[l->t.group[ts]] == 0)
 		{
 			ft_event_playing_mode_triangle_init(l, &tmp, ts);
-
 			tmp.vx = 10;
 			tmp.vz = 10;
 			tmp.vy = 5;
@@ -494,7 +528,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	//printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
 	//printf("->mov %f %f\n", tmp.move_x, tmp.move_z);
 
-	if (tmp.save_py != 100 && tmp.save_ny != -100)
+	if (tmp.save_py != 10000000000 && tmp.save_ny != -10000000000)
 		l->p.y += l->gravity;
 	else
 	{
@@ -510,7 +544,8 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 			l->gravity = 0;
 		}
 	}
-		if ((tmp.save_px != 100 || tmp.save_nx != -100) || (tmp.save_pz != 100 || tmp.save_nz != -100))
+		if ((tmp.save_px != 10000000000 || tmp.save_nx != -10000000000) ||
+			(tmp.save_pz != 10000000000 || tmp.save_nz != -10000000000))
 		{
 
 			l->p.x -= tmp.move_x * l->p.speed;
@@ -773,15 +808,17 @@ void	ft_events(variable_list* l)
 				l->hl.item_state[6] = l->p.start_item[6];
 				l->hl.item_state[7] = l->p.start_item[7];
 				l->hl.item_state[8] = l->p.start_item[8];
+				l->triangle_select = -1;
+				l->area_select = -1;
+				l->group_select = -1;
 			}
 			else
 			{
 				l->menu_mode = 2;
 				int i;
 				i = -1;
-				while (++i < l->triangle_number)
-					if (l->t.texture_opacity[i] == 0)
-						l->t.texture_opacity[i] = 100;
+				while (++i < MAX_GROUPS)
+					l->g.exist[i] = 1;
 				SDL_ShowCursor(SDL_ENABLE);
 			}
 		}

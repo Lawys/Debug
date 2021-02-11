@@ -10,6 +10,13 @@ void	ft_map_editor_area_parameters(variable_list* l)
 	ft_map_editor_area_parameter_position_x(l);
 	ft_map_editor_area_parameter_position_y(l);
 	ft_map_editor_area_parameter_position_z(l);
+	ft_map_editor_area_parameter_link(l);
+	ft_map_editor_area_parameter_link1(l);
+	ft_map_editor_area_parameter_link2(l);
+	ft_map_editor_area_parameter_link3(l);
+	ft_map_editor_area_parameter_link4(l);
+	ft_map_editor_area_parameter_link5(l);
+	ft_map_editor_area_parameter_link6(l);
 	/*ft_map_editor_area_parameter_position_h(l);
 	ft_map_editor_area_parameter_position_v(l);
 	ft_map_editor_area_parameter_position_l(l);
@@ -24,6 +31,12 @@ void	ft_map_editor_area_actions(variable_list* l)
 	ft_map_editor_area_action_position_x(l);
 	ft_map_editor_area_action_position_y(l);
 	ft_map_editor_area_action_position_z(l);
+	ft_map_editor_area_action_link1(l);
+	ft_map_editor_area_action_link2(l);
+	ft_map_editor_area_action_link3(l);
+	ft_map_editor_area_action_link4(l);
+	ft_map_editor_area_action_link5(l);
+	ft_map_editor_area_action_link6(l);
 	/*ft_map_editor_area_action_position_h(l);
 	ft_map_editor_area_action_position_v(l);
 	ft_map_editor_area_action_position_l(l);

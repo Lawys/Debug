@@ -80,7 +80,7 @@ void	ft_map_editor_paint_action_opacity(variable_list* l)
 		ft_value_editing_double(l, &l->pen_opacity, 0, 100);
 		if (l->i.mouse == 1)
 		{
-			l->t.texture_opacity[l->triangle_select] = l->pen_texture;
+			l->t.texture_opacity[l->triangle_select] = l->pen_opacity;
 			l->triangle_select = -1;
 		}
 	}
@@ -92,7 +92,7 @@ void	ft_map_editor_paint_action_light(variable_list* l)
 		ft_value_editing_double(l, &l->pen_light, 0, 100);
 		if (l->i.mouse == 1)
 		{
-			l->t.texture_light[l->triangle_select] = l->pen_texture;
+			l->t.texture_light[l->triangle_select] = l->pen_light;
 			l->triangle_select = -1;
 		}
 	}

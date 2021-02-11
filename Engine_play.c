@@ -550,11 +550,13 @@ void	ft_engine_play_calculate_triangle_limits_no_reference(variable_list* l)
 	double max_x;
 	double* first_y;
 	double* last_y;
+	int check;
 
 	x = l->e.min_x - 1.;
 	max_x = l->e.max_x;
 	first_y = l->e.first_y;
 	last_y = l->e.last_y;
+	check = 0;
 	while (++x <= max_x)
 	{
 		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x], &last_y[x]);
@@ -564,6 +566,8 @@ void	ft_engine_play_calculate_triangle_limits_no_reference(variable_list* l)
 			first_y[x] = -1 + 0.0;
 		if (last_y[x] >= WDH)
 			last_y[x] = WDH - 1.;
+		if (first_y[x] < WDH)
+			check = 1;
 	}
 }
 void	ft_engine_play_calculate_triangle_limits_reference_1(variable_list* l)
@@ -636,15 +640,25 @@ void	ft_engine_play_calculate_if_appear(variable_list* l)
 	ft_engine_play_calculate_pixels(l);
 
 }
+
 void	ft_engine_play_calculate(variable_list* l)
 {
 	int i;
+	int area;
 
 	i = ft_engine_play_calculate_skip_triangles_behind_player(l);
 	while (i < l->triangle_number)
 	{
 		l->e.t_s = l->e.t_id[i];
-		if (l->view_only == -1 || l->t.area[l->e.t_s] == l->view_only)
+		area = l->t.area[l->e.t_s];
+		if ((l->menu_mode == 2 || l->player_area == area ||
+			l->link1[l->player_area] == area ||
+			l->link2[l->player_area] == area ||
+			l->link3[l->player_area] == area ||
+			l->link4[l->player_area] == area ||
+			l->link5[l->player_area] == area ||
+			l->link6[l->player_area] == area) &&
+			(l->view_only == -1 || l->t.area[l->e.t_s] == l->view_only))
 			if (l->g.exist[l->t.group[l->e.t_s]] &&
 				l->t.texture_opacity[l->e.t_s] == 100)
 			{
@@ -682,7 +696,7 @@ void	ft_engine_play_calculate_pixels_initialize_part_2(variable_list* l, s_engin
 
 	ts = tmp->t_s;
 	tmp->nzvd = tmp->vd * tmp->nz;
-	tmp->l = l->t.texture_light[ts] / 100;
+	tmp->l = l->t.texture_light[ts] / 100.;
 	tmp->v4x = (tmp->v1y * tmp->nz - tmp->ny * tmp->v1z);
 	tmp->v4y = (tmp->v1z * tmp->nx - tmp->nz * tmp->v1x);
 	tmp->v4z = (tmp->v1x * tmp->ny - tmp->nx * tmp->v1y);
@@ -739,7 +753,6 @@ void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_cal
 			{
 				l->pixels_distance[s->x][s->y] = s->t_d;
 				l->pixels_triangle[s->x][s->y] = s->t_s;
-				s->l = 1;
 				l->pixels_color[s->x][s->y] = (int)(s->l * s->c[s->v]) + (int)(s->l * s->c[s->v
 					+ 1]) * 256 + (int)(s->l * s->c[s->v + 2]) * 65536;
 			}
@@ -750,10 +763,12 @@ void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_cal
 void	ft_engine_play_calculate_pixels(variable_list* l)
 {
 	s_engine_play_calculate_pixels_tmp tmp;
+	int i;
 
 	ft_engine_play_calculate_pixels_initialize_part_1(l, &tmp);
 	ft_engine_play_calculate_pixels_initialize_part_2(l, &tmp);
 	ft_engine_play_calculate_pixels_initialize_part_3(l, &tmp);
+	tmp.t_d = -1;
 	tmp.x = l->e.min_x - 1;
 	while (++tmp.x <= tmp.mx)
 	{
@@ -772,5 +787,5 @@ void	ft_engine_play_calculate_pixels(variable_list* l)
 	ft_engine_calculate_triangles_distance(l);
 	ft_quick_sort(l->e.t_id, l->e.t_d, l->triangle_number);
 	ft_engine_play_calculate(l);
-	l->pixels[WDW2 + WDH2 * WDW] = 0x00FF00;
+	l->pixels_color[WDW2][WDH2] = 0x00FF00;
 }

@@ -763,6 +763,7 @@ void	ft_map_editor_menu(variable_list* l)
 
 void	ft_map_editor(variable_list* l)
 {
+	l->writing_mode = 0;
 	ft_map_editor_tool_set_mult(l);
 	ft_map_editor_menu(l);
 	ft_map_editor_triangle(l);
@@ -827,23 +828,38 @@ void	TMP_map_editor_save_map(variable_list* l)
 			printf("Load File Error\n");
 			ft_free_and_exit(l);
 		}
-		_write(stream, "id,sprite,npc,object,sprite_orientation,action_auto,action_enable,action_disable\0", 80);
-		i = 0;
-		while (i < MAX_GROUPS)
+		_write(stream, "sprite,npc,object,action_auto,action_enable,action_disable\0", 58);
+		i = -1;
+		while (++i < MAX_GROUPS)
 		{
-			if (l->g.sprite[i] || l->g.npc[i] || l->g.object[i] || l->g.action_auto[i][0] != 0 || l->g.action_enable[i][0] != 0 || l->g.action_disable[i][0] != 0)
-			{
-				_write(stream, ",\n\0", 2);
-				buffer_size = ft_itoa(l, (double)i, buffer), _write(stream, buffer, buffer_size);
-				buffer_size = ft_itoa(l, l->g.sprite[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
-				buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
-				buffer_size = ft_itoa(l, l->g.object[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
-				buffer_size = ft_itoa(l, l->g.sprite_orientation[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
-				_write(stream, ",\0", 1), _write(stream, l->g.action_auto[i], sizeof(l->g.action_auto[i]));
-				_write(stream, ",\0", 1), _write(stream, l->g.action_enable[i], sizeof(l->g.action_enable[i]));
-				_write(stream, ",\0", 1), _write(stream, l->g.action_disable[i], sizeof(l->g.action_disable[i]));
-			}
-			i++;
+			_write(stream, ",\n\0", 2);
+			buffer_size = ft_itoa(l, l->g.sprite[i], buffer), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->g.object[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			_write(stream, ",\0", 1), _write(stream, l->g.action_auto[i], sizeof(l->g.action_auto[i]));
+			_write(stream, ",\0", 1), _write(stream, l->g.action_enable[i], sizeof(l->g.action_enable[i]));
+			_write(stream, ",\0", 1), _write(stream, l->g.action_disable[i], sizeof(l->g.action_disable[i]));
+		}
+		_write(stream, ",\0\0", 2);
+		_close(stream);
+
+		if ((_sopen_s(&stream, "./map/area", O_RDWR | _O_CREAT,
+			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
+		{
+			printf("Load File Error\n");
+			ft_free_and_exit(l);
+		}
+		_write(stream, "link,link,link,link,link,link\0", 29);
+		i = -1;
+		while (++i < MAX_AREAS)
+		{
+			_write(stream, ",\n\0", 2);
+			buffer_size = ft_itoa(l, l->link1[i], buffer), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->link2[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->link3[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->link4[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->link5[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->link6[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 		}
 		_write(stream, ",\0\0", 2);
 		_close(stream);
@@ -852,6 +868,11 @@ void	TMP_map_editor_save_map(variable_list* l)
 		printf("Done.\n");
 		l->action_select[0][9] = 0;
 	}
+
+	/*buffer_size = ft_itoa(l, l->link1[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+	buffer_size = ft_itoa(l, l->link2[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+	buffer_size = ft_itoa(l, l->link3[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+	buffer_size = ft_itoa(l, l->link4[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);*/
 }
 
 void	TMP_map_editor_clean_errors(variable_list* l)

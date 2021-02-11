@@ -229,8 +229,12 @@ void ft_main_menu_clic(variable_list* l)
             l->hl.item_state[6] = l->p.start_item[6];
             l->hl.item_state[7] = l->p.start_item[7];
             l->hl.item_state[8] = l->p.start_item[8];
+            l->triangle_select = -1;
+            l->area_select = -1;
+            l->group_select = -1;
             SDL_ShowCursor(0);
             l->menu_mode = 1;
+
         }
         else if (ft_nbrisinside(l->i.mouse_x, x[0], x[1]) && ft_nbrisinside(l->i.mouse_y, y[2], y[3]) == 1)//edit
         {
@@ -238,8 +242,9 @@ void ft_main_menu_clic(variable_list* l)
             int i;
             i = -1;
             while (++i < l->triangle_number)
-                if (l->t.texture_opacity[i] == 0)
-                    l->t.texture_opacity[i] = 100;
+                if (l->g.exist[l->t.group[i]] == 0)
+                    l->g.exist[l->t.group[i]] = 1;
+
             i = -1;
             while (++i < MAX_GROUPS)
             {

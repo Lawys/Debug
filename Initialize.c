@@ -38,6 +38,16 @@ void	ft_initialize_variables(variable_list* l)
 			l->g.action_disable[i][j] = 0;
 		}
 	}
+	i = -1;
+	while (++i < MAX_GROUPS)
+	{
+		l->link1[i] = -1;
+		l->link2[i] = -1;
+		l->link3[i] = -1;
+		l->link4[i] = -1;
+		l->link5[i] = -1;
+		l->link6[i] = -1;
+	}
 
 	i = -1;
 	while (++i < WDW)
@@ -55,9 +65,6 @@ void	ft_initialize_variables(variable_list* l)
 			l->pixels_triangle[i][j] = -1;
 		}
 	}
-	i = -1;
-	while (++i < MAX_AREAS)
-		l->area_list[i] = 0;
 
 
 	i = -1;
@@ -80,15 +87,13 @@ void	ft_initialize_variables(variable_list* l)
 		l->texture_number = 0;
 		l->group_number = 0;
 		l->area_number = 0;
-
-		l->writing_mode = 0;
 		l->p.x = -163.22;
 		l->p.y = 190;
 		l->p.z = -243.15;
 		l->p.h = 0;
 		l->p.v = 0;
 		l->p.r = 0;
-
+		l->writing_mode = 0;
 		l->triangle_select = -1;
 		l->area_select = -1;
 		l->group_select = -1;
@@ -108,8 +113,6 @@ void	ft_initialize_variables(variable_list* l)
 		l->e.view_distance = (double)WDW2 / tan(M_PI / 4);
 		l->gravity = 0;
 		l->cooldown = 0;
-		l->playing_mode = 0;
-		l->map_editor_mode = 1;
 		l->me.color_white = l->texture_colors[10];
 		l->me.color_blue = l->texture_colors[14];
 		l->me.color_red = l->texture_colors[15];
@@ -153,7 +156,7 @@ void	ft_initialize_variables(variable_list* l)
 		l->pen_light = 100;
 
 
-		l->view_only = 0;
+		l->view_only = -1;
 
 }
 
@@ -332,12 +335,9 @@ void	ft_map_reader(variable_list* l)
 	j = 0;
 	while (file[i] != '\0')
 	{
-		j = (int)ft_atoi(l, file, &i);
 		l->g.sprite[j] = (int)ft_atoi(l, file, &i);
 		l->g.npc[j] = (int)ft_atoi(l, file, &i);
 		l->g.object[j] = (int)ft_atoi(l, file, &i);
-		l->g.sprite_orientation[j] = (int)ft_atoi(l, file, &i);
-		l->g.npc_statement[j] = 1;
 		k = 0;
 		while (file[++i] != ',')
 		{
@@ -357,11 +357,11 @@ void	ft_map_reader(variable_list* l)
 			k++;
 		}
 		i++;
+		j++;
 	}
 	free(file);
-
 	/// For mapping
-	/*if ((fopen_s(&stream, "./map/area", "r")) != 0)
+	if ((fopen_s(&stream, "./map/area", "r")) != 0)
 	{
 		printf("Load File Error\n");
 		ft_free_and_exit(l);
@@ -383,11 +383,16 @@ void	ft_map_reader(variable_list* l)
 	j = 0;
 	while (file[i] != '\0')
 	{
-		j++;
+		l->link1[j] = (int)ft_atoi(l, file, &i);
+		l->link2[j] = (int)ft_atoi(l, file, &i);
+		l->link3[j] = (int)ft_atoi(l, file, &i);
+		l->link4[j] = (int)ft_atoi(l, file, &i);
+		l->link5[j] = (int)ft_atoi(l, file, &i);
+		l->link6[j] = (int)ft_atoi(l, file, &i);
 		i++;
+		j++;
 	}
-	free(file);*/
-	/// For mapping
+	free(file);
 }
 void	ft_engine_set_window_blue_border_triangle(variable_list* l)
 {

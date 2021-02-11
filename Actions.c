@@ -377,7 +377,7 @@ void ft_action_auto_start(variable_list* l, int group, int c)
 					ft_action_auto_xyzhvls(l, group, c);
 				}
 			}
-			else if (ft_strings_compare(l->g.action_auto[group], "WIN", c))
+			else if (ft_strings_compare(l->g.action_auto[group], "END;", c))
 			{
 			}
 			else if (l->menu_mode == 1 && ft_strings_compare(l->g.action_auto[group], "LOOT", c))
@@ -427,6 +427,7 @@ void ft_action_auto(variable_list* l)
 	{
 		if (l->g.exist[group])
 		{
+
 			if (l->g.action_auto[group][0] != 0)
 			{
 				c = 0;
