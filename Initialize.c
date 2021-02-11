@@ -566,25 +566,28 @@ void	ft_loop(variable_list* l)
 		else
 		{
 			if (l->menu_mode == 1)
-				ft_event_playing_hud(l) , ft_get_npc(l), npc_attack(l);
+			{
+				ft_event_playing_hud(l);
+				ft_get_npc(l);
+				npc_attack(l);
+				ft_engine_play(l);
+			}
 			else if (l->menu_mode == 2)
+			{
 				ft_map_editor(l);
-
-			ft_engine_play(l);
-
-			if (l->triangle_select != -1)
-				ft_engine_set_window_blue_border_triangle(l);
-			else if (l->area_select != -1)
-				ft_engine_set_window_red_border_area(l);
-			else if (l->group_select != -1)
-				ft_engine_set_window_green_border_group(l);
-
+				ft_engine_play(l);
+				if (l->triangle_select != -1)
+					ft_engine_set_window_blue_border_triangle(l);
+				else if (l->area_select != -1)
+					ft_engine_set_window_red_border_area(l);
+				else if (l->group_select != -1)
+					ft_engine_set_window_green_border_group(l);
+			}
 			ft_size_to_window(l);
+			ft_action_auto(l);
 		}
 		ft_events(l);
 		ft_get_time(l);
-		ft_action_auto(l);
-
 	}
 }
 

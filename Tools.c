@@ -22,7 +22,7 @@ void    ft_get_time(variable_list* l)
 	{
 		time = clock();
 		frametime = (time - old_time) / (CLOCKS_PER_SEC);
-		if ((1 / frametime) <= 999)
+		if ((1 / frametime) <= 30)
 			break;
 	}
 	old_time = time;
