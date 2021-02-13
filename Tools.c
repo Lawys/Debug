@@ -44,7 +44,7 @@ void    ft_get_time(variable_list* l)
 		ft_put_text(l);
 		l->u.wsx = l->u.wsx + 20;
 		ft_itoa(l, (double)((int)(1 / frametime)), l->u.str_address);
-		l->u.wsx = 96;
+		l->u.wsx = 95.5;
 		ft_put_text(l);
 		old_time = time;
 	

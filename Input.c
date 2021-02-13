@@ -286,9 +286,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 		tmp.vz = 0;
 		tmp.vy = -10000000000;
 		ft_event_playing_mode_player_first_area_list(l, &tmp, ts);
-	}
-	if (tmp.save_ny == -10000000000)
-		printf("ERROR\n");
+	}//if no, kill
 
 	ft_event_playing_mode_player_wallblock_init(l, &tmp);
 	ft_event_playing_mode_player_wallblock_gravity(l);
@@ -302,7 +300,10 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
-		if (l->g.object[l->t.group[ts]] == 0 && l->g.npc[l->t.group[ts]] == 0 && l->g.sprite[l->t.group[ts]] == 0)
+		if (l->g.object[l->t.group[ts]] == 0 &&
+			l->g.npc[l->t.group[ts]] == 0 &&
+			l->g.sprite[l->t.group[ts]] == 0 &&
+			l->player_area == l->t.area[ts])
 		{
 			ft_event_playing_mode_triangle_init(l, &tmp, ts);
 			tmp.vx = 10;
@@ -706,6 +707,8 @@ void	ft_event_map_editor_mode_select_triangle(variable_list* l)
 		l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2] != -1)
 		l->triangle_select =
 		l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2];
+	if (l->triangle_select < 12)
+		l->triangle_select = -1;
 }
 
 void	ft_event_map_editor_mode_select_area(variable_list* l)

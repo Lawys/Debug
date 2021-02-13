@@ -36,8 +36,6 @@ void	ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z)
 	*y *= -1;
 }
 
-
-
 void	ft_engine_set_angles_value(variable_list* l)
 {
 	l->e.c_h = cos(l->p.h);
@@ -651,16 +649,16 @@ void	ft_engine_play_calculate(variable_list* l)
 	{
 		l->e.t_s = l->e.t_id[i];
 		area = l->t.area[l->e.t_s];
-		if ((l->menu_mode == 2 || l->player_area == area ||
+		if (area == 0 || ((l->menu_mode == 2 || l->player_area == area ||
 			l->link1[l->player_area] == area ||
 			l->link2[l->player_area] == area ||
 			l->link3[l->player_area] == area ||
 			l->link4[l->player_area] == area ||
 			l->link5[l->player_area] == area ||
 			l->link6[l->player_area] == area) &&
-			(l->view_only == -1 || l->t.area[l->e.t_s] == l->view_only))
-			if (l->g.exist[l->t.group[l->e.t_s]] &&
-				l->t.texture_opacity[l->e.t_s] == 100)
+			(l->view_only == 0 || l->t.area[l->e.t_s] == l->view_only) &&
+			l->g.exist[l->t.group[l->e.t_s]] &&
+			l->t.texture_opacity[l->e.t_s] == 100))
 			{
 				ft_engine_play_calculate_initialize_points_vectors_normals(l);
 				if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
@@ -717,9 +715,9 @@ void	ft_engine_play_calculate_pixels_initialize_part_3(variable_list* l, s_engin
 	double center;
 
 	ts = tmp->t_s;
-	center = (l->t.x1[ts] + l->t.x2[ts] + l->t.x3[ts] + (l->t.x2[ts] + (l->t.x3[ts] - l->t.x1[ts]))) / 4;
 	if (l->g.npc[l->t.group[ts]] == 1)
 	{
+		center = (l->t.x1[ts] + l->t.x2[ts] + l->t.x3[ts] + (l->t.x2[ts] + (l->t.x3[ts] - l->t.x1[ts]))) / 4;
 		tmp->s = -atan2(center - l->p.x, l->t.z1[ts] - l->p.z);
 		tmp->s = ((int)((tmp->s / M_PI * 180 - 202.5 + l->g.sprite_orientation[l->t.group[ts]]) / 45) * 128.);
 		tmp->ss = -l->g.npc_statement[l->t.group[ts]] * 132;
@@ -741,14 +739,14 @@ void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_cal
 		s->c_y = ((double)s->y - WDH2) * s->t_d;
 		s->c_z = s->vd * s->t_d;
 		s->t_d = sqrt(s->c_x * s->c_x + s->c_y * s->c_y + s->c_z * s->c_z);
-		if (s->t_d < l->pixels_distance[s->x][s->y])
+		if (s->t_d <= l->pixels_distance[s->x][s->y])
 		{
 			s->v = (((abs((((s->v4x * (s->c_x + s->t_x1) + s->v4y * (s->c_y +
 				s->t_y1) + s->v4z * (s->c_z + s->t_z1)) / s->d04) * 10.24) *
 				s->ttsiy + s->ttshy) + (int)s->s) & 1023) + ((abs((((
 					s->v1x * (s->c_x + s->t_x1) + s->v1y * (s->c_y + s->t_y1) +
 					s->v1z * (s->c_z + s->t_z1)) / s->d01) * 10.24) * s->ttsix -
-					s->ttshx) + s->ss) & 1023) * 1024) * 4 + 138;
+					s->ttshx - 1) + s->ss) & 1023) * 1024) * 4 + 138;
 			if (s->c[s->v + 3] != 0)
 			{
 				l->pixels_distance[s->x][s->y] = s->t_d;

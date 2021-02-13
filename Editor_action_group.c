@@ -3,7 +3,7 @@
 void	ft_map_editor_group_action_select_group(variable_list* l)
 {
 	if (l->action_select[l->menu_select][++l->action])
-		ft_value_editing_int(l, &l->group_select, 0, MAX_GROUPS - 1);
+		ft_value_editing_int(l, &l->group_select, 1, MAX_GROUPS - 1);
 }
 void	ft_map_editor_group_action_switch_group(variable_list* l)
 {
@@ -11,7 +11,7 @@ void	ft_map_editor_group_action_switch_group(variable_list* l)
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
-		ft_value_editing_int(l, &l->me.group_switch_value, 0, MAX_GROUPS - 1);
+		ft_value_editing_int(l, &l->me.group_switch_value, 1, MAX_GROUPS - 1);
 		if (l->i.state[40] || l->i.state[88])
 		{
 			i = 0;
@@ -24,7 +24,7 @@ void	ft_map_editor_group_action_switch_group(variable_list* l)
 			l->group_select = l->me.group_switch_value;
 			l->i.state[40] = 0;
 			l->i.state[88] = 0;
-			l->me.group_switch_value = 0;
+			l->me.group_switch_value = 1;
 		}
 	}
 }

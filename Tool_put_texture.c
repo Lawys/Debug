@@ -18,7 +18,7 @@ void	ft_put_texture_while(variable_list* l, utility_list* tmp, int x, int y)
 	int xf;
 	int yf;
 
-	value = 138 + (((int)(1024 - y / tmp->sizey) % 1024) * 1024 +
+	value = 138 + (((int)(1023 - y / tmp->sizey) % 1024) * 1024 +
 		((int)(x / tmp->sizex) % 1024)) * 4;
 	if (tmp->colors[value + 3] != 0)
 	{

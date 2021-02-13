@@ -77,7 +77,7 @@ void	ft_map_editor_paint_action_opacity(variable_list* l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
-		ft_value_editing_double(l, &l->pen_opacity, 0, 100);
+		ft_value_editing_double(l, &l->pen_opacity, 10, 100);
 		if (l->i.mouse == 1)
 		{
 			l->t.texture_opacity[l->triangle_select] = l->pen_opacity;
