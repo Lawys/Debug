@@ -163,7 +163,7 @@ void	ft_map_editor_group_parameter_disable(variable_list* l)
 	ft_put_text(l);
 }
 
-void	ft_map_editor_group_parameter_mode(variable_list* l)
+void	ft_map_editor_group_parameter_flag(variable_list* l)
 {
 	l->u.str_address = "FLAG";
 	l->u.wsx = 37;
@@ -174,32 +174,10 @@ void	ft_map_editor_group_parameter_mode(variable_list* l)
 	ft_put_text(l);
 }
 
-int	ft_map_editor_group_parameter_sprite_check(variable_list* l)
-{
-	int ts;
-	double save;
-
-	ts = -1;
-	save = 0;
-	while (++ts < l->triangle_number)
-		if (l->t.group[ts] == l->group_select)
-		{
-			if (save == 0)
-				save = (l->t.z1[ts] + l->t.z2[ts] + l->t.z3[ts]) / 3;
-			else if (save != (l->t.z1[ts] + l->t.z2[ts] + l->t.z3[ts]) / 3)
-			{
-				l->u.str_address = "<SPRITE>";
-				return(1);
-			}
-		}
-	return(0);
-}
 void	ft_map_editor_group_parameter_sprite(variable_list* l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
-	if (ft_map_editor_group_parameter_sprite_check(l) == 1)
-		l->u.action = -1;
 	if (l->g.sprite[l->group_select] == 0)
 	{
 		l->u.colors = l->me.color_blue;
@@ -208,7 +186,7 @@ void	ft_map_editor_group_parameter_sprite(variable_list* l)
 	else
 	{
 		l->u.colors = l->me.color_green;
-		l->u.colors_on = l->me.color_blue;
+		l->u.colors_on = l->me.color_green;
 	}
 	l->u.str_address = "<SPRITE>";
 	ft_put_text(l);
@@ -216,7 +194,7 @@ void	ft_map_editor_group_parameter_sprite(variable_list* l)
 
 void	ft_map_editor_group_parameter_npc(variable_list* l)
 {
-	l->u.colors = l->me.color_red;
+	l->u.action = ++l->action;
 	if (l->g.npc[l->group_select] == 0)
 	{
 		l->u.colors = l->me.color_blue;
@@ -225,11 +203,10 @@ void	ft_map_editor_group_parameter_npc(variable_list* l)
 	else
 	{
 		l->u.colors = l->me.color_green;
-		l->u.colors_on = l->me.color_blue;
+		l->u.colors_on = l->me.color_green;
 	}
 	l->u.str_address = "<NPC>";
 	l->u.wsx += 0.5;
-	l->u.action = -1;
 	ft_put_text(l);
 }
 
@@ -245,7 +222,7 @@ void	ft_map_editor_group_parameter_object(variable_list* l)
 	else
 	{
 		l->u.colors = l->me.color_green;
-		l->u.colors_on = l->me.color_blue;
+		l->u.colors_on = l->me.color_green;
 	}
 	l->u.str_address = "<OBJECT>";
 	ft_put_text(l);

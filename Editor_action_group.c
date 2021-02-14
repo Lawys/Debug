@@ -549,9 +549,29 @@ void	ft_map_editor_group_action_sprite(variable_list* l)
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		if (l->g.sprite[l->group_select] == 0)
+		{
 			l->g.sprite[l->group_select] = 1;
+			l->g.npc[l->group_select] = 0;
+			l->g.object[l->group_select] = 0;
+		}
 		else
 			l->g.sprite[l->group_select] = 0;
+		l->action_select[l->menu_select][l->action] = 0;
+	}
+}
+
+void	ft_map_editor_group_action_npc(variable_list* l)
+{
+	if (l->action_select[l->menu_select][++l->action])
+	{
+		if (l->g.npc[l->group_select] == 0)
+		{
+			l->g.sprite[l->group_select] = 0;
+			l->g.npc[l->group_select] = 1;
+			l->g.object[l->group_select] = 0;
+		}
+		else
+			l->g.npc[l->group_select] = 0;
 		l->action_select[l->menu_select][l->action] = 0;
 	}
 }
@@ -561,7 +581,11 @@ void	ft_map_editor_group_action_object(variable_list* l)
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		if (l->g.object[l->group_select] == 0)
+		{
+			l->g.sprite[l->group_select] = 0;
+			l->g.npc[l->group_select] = 0;
 			l->g.object[l->group_select] = 1;
+		}
 		else
 			l->g.object[l->group_select] = 0;
 		l->action_select[l->menu_select][l->action] = 0;

@@ -278,7 +278,7 @@ typedef struct s_list_2
     int  start_ammo;
     int  start_item[9];
 
-    double  player_squat_timer;
+    double  player_size;
     int     player_jump_timer;
     int     player_crawl_timer;
 
