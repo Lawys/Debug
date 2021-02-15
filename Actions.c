@@ -337,25 +337,24 @@ void ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 {
 	int i;
 	int value;
-
-	if (ft_strings_compare(str, "ON>", ++c))
-				{
-				value = ft_atoi(l, str, &c);
-				if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-				{
-					l->g.action_statement[value] = 1;
-					ft_action_start(l, group, ++c, str);
-				}
-				}
-	else if (ft_strings_compare(str, "OFF>", ++c))
-				{
-				value = ft_atoi(l, str, &c);
-				if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-				{
-					l->g.action_statement[value] = 0;
-					ft_action_start(l, group, ++c, str);
-				}
-				}
+	if (ft_strings_compare(str, "ON>", c))
+	{
+		value = ft_atoi(l, str, &c);
+		if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
+		{
+			l->g.action_statement[value] = 1;
+			ft_action_start(l, group, ++c, str);
+		}
+	}
+	else if (ft_strings_compare(str, "OFF>", c))
+	{
+		value = ft_atoi(l, str, &c);
+		if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
+		{
+			l->g.action_statement[value] = 0;
+			ft_action_start(l, group, ++c, str);
+		}
+	}
 	else if (ft_strings_compare(str, "O>", c))
 		ft_action_o(l, group, c, str);
 	else if (ft_strings_compare(str, "X>", c))
@@ -394,6 +393,7 @@ void ft_action_start(variable_list* l, int group, int c, char* str)
 	}
 	if (ft_strings_compare(str, "T>", c))
 	{
+
 		value = ft_atoi(l, str, &c);
 		if (value > 0 && l->g.action_timer[group] < l->cooldown)
 			l->g.action_timer[group] = l->cooldown + value;
