@@ -30,7 +30,7 @@
 #define MAX_AREAS 100
 #define MAX_GENERIC 9999
 
-typedef struct s_list_10
+typedef struct s_list_16
 {
     double center_x[MAX_GROUPS];
     double center_z[MAX_GROUPS];
@@ -46,7 +46,7 @@ typedef struct s_list_10
     int init[MAX_GROUPS];
 }				engine_sprite_list;
 
-typedef struct s_list_9
+typedef struct s_list_15
 {
     int i;
     double nx, ny, nz;
@@ -62,7 +62,7 @@ typedef struct s_list_9
     double p[3];
 }				player_move_list;
 
-typedef struct s_list_8
+typedef struct s_list_14
 {
     double nzvd;
     double t_n;
@@ -105,7 +105,7 @@ typedef struct s_list_8
     int t_s;
 }               s_engine_play_calculate_pixels_tmp;
 
-typedef struct s_list_7
+typedef struct s_list_13
 {
     double d01;
     double d02;
@@ -189,7 +189,7 @@ typedef struct s_list_7
     int y;
 }               engine_list;
 
-typedef struct s_list_6
+typedef struct s_list_12
 {
     int action;
 
@@ -203,7 +203,7 @@ typedef struct s_list_6
     double wsy;
 }               ft_map_editor_put_text_pixel_list;
 
-typedef struct s_list_5
+typedef struct s_list_11
 {
     double mult;
     double endx;
@@ -227,7 +227,7 @@ typedef struct s_list_5
     unsigned char str[15];
 }               map_editor_list;
 
-typedef struct s_list_4
+typedef struct s_list_10
 {
     double sizex;
     double sizey;
@@ -247,7 +247,7 @@ typedef struct s_list_4
     int tey;
 }               utility_list;
 
-typedef struct s_list_3
+typedef struct s_list_9
 {
     Uint8* state;
     int save_mouse_x;
@@ -261,7 +261,7 @@ typedef struct s_list_3
     int key_input;
 }       input_list;
 
-typedef struct s_list_2
+typedef struct s_list_8
 {
     double  x;
     double  y;
@@ -270,20 +270,17 @@ typedef struct s_list_2
     double  v;
     double  r;
     double  speed;
-
-    int  start_x;
-    int  start_y;
-    int  start_z;
-    int  start_hp;
-    int  start_ammo;
-    int  start_item[9];
-
     double  player_size;
-    int     player_jump_timer;
-    int     player_crawl_timer;
+    int     start_x;
+    int     start_y;
+    int     start_z;
+    int     start_hp;
+    int     start_ammo;
+    int     start_item[9];
+    int     interact;
 
 }       player_list;
-typedef struct s_list_11
+typedef struct s_list_7
 {
     double			x1[MAX_TRIANGLES];
     double			y1[MAX_TRIANGLES];
@@ -310,7 +307,7 @@ typedef struct s_list_11
 
 }       triangle_list;
 
-typedef struct s_list_12
+typedef struct s_list_6
 {
     int		    sprite[MAX_GROUPS];
     int		    sprite_orientation[MAX_GROUPS];
@@ -318,20 +315,49 @@ typedef struct s_list_12
     int		    npc_hp[MAX_GROUPS];
     int		    npc_statement[MAX_GROUPS];
     int		    object[MAX_GROUPS];
+    int		    interact[MAX_GROUPS];
     int		    exist[MAX_GROUPS];
-    char		action_auto[MAX_GROUPS][57];
+    int		    action_timer[MAX_GROUPS];
+    int		    action_statement[MAX_GROUPS];
     char		action_enable[MAX_GROUPS][57];
     char		action_disable[MAX_GROUPS][57];
+
 }       group_list;
 
 //RVOLBERG -------------------------------------------//
-typedef struct  s_list_13
+
+typedef struct s_list_5
 {
-    int live_bar;
-    int item_select;// -1 non recuperer / non utilisable, 0 recuperer, 1 en utilisation
-    int item_state[9];//numero clavier
-    int weapon; //wich one equip, 0 fist, 1 gun
-    int ammo;
+    int         x1;
+    int         x2;
+    int         y1;
+    int         y2;
+    double      percx;
+    double      percy;
+    double      size;
+
+}               coord_img;
+
+typedef struct  s_list_4
+{
+    int         live_bar;
+    int         item_select;//pour le reste des objets
+
+
+
+    int         weapon[3];   //0 Fist, 1 gun, 2 grenade, bigger for more weapons
+                             //  -1 non recuperer / non utilisable, 0 recuperer, 1 en utilisation
+
+
+
+    int obj[MAX_GROUPS][10];//10 valeur arbitraire, a reduire si necessaire
+    int         ammo;
+
+    int inv1;//index quel icone ds case 1,2,3
+    int inv2;
+    int inv3;
+
+    coord_img   ci;
 
 }               hud_list;
 
@@ -342,14 +368,14 @@ typedef struct  s_list_13
 #define TIMER_NPC 60
 
 
-typedef struct s_list_14
+typedef struct s_list_3
 {
     double x;
     double y;
     double z;
 }               xyz_list;
 
-typedef struct s_list_15
+typedef struct s_list_2
 {
     double x;
     double y;
@@ -448,9 +474,13 @@ void	npc_attack(variable_list* l);
 
 void ft_event_playing_hud(variable_list* l);
 
-int ft_choose_img_inventory(int index);
+coord_img ft_pick_icone(variable_list* l, int index, int in_hud);
 
-void ft_put_ammo_bar(variable_list* l);
+void ft_put_icone(variable_list* l);
+
+void ft_weapons_select(variable_list* l);
+
+void ft_select_obj(variable_list* l);
 
 void ft_inventory_gestion(variable_list* l);
 
@@ -458,17 +488,28 @@ void ft_punch(variable_list* l);
 
 void ft_shoot(variable_list* l);
 
+void ft_throw(variable_list* l);
+
 int ft_nbrisinside(int a, int min, int max);
 
 double ft_coord_button_menu(variable_list* l, double coord, int window);
 
+void ft_fill_inventory(variable_list* l, int index, int in_hud, int type, int status, int img, int if_hud);
+
 void ft_main_menu_clic(variable_list* l);
 
-void ft_img_to_window(variable_list* l, int img_index, int* x, int* y, double* percent);
+void ft_img_to_window(variable_list* l, int img_index, coord_img ci);
 
 void ft_game_over(variable_list* l);
 
+void ft_output_hud(variable_list* l);
+
+void ft_put_ammo_bar(variable_list* l);
+
 void ft_tester_hud(variable_list* l);
+
+void ft_nbr_object_recuperation(variable_list* l);
+
 void ft_engine_calculate_triangles_distance(variable_list* l);
 
 void ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z);
@@ -694,8 +735,6 @@ void ft_put_texture_action(variable_list* l, utility_list* tmp);
 
 void ft_put_texture(variable_list* l);
 
-void ft_action_auto_start(variable_list* l, int group, int c);
-void ft_action_auto(variable_list* l);
 void ft_put_text_texture_initialize(variable_list* l, utility_list* tmp);
 
 void ft_put_text_texture_while(variable_list* l, utility_list* tmp, int x, int y);
@@ -799,6 +838,40 @@ void ft_map_editor_triangle_parameter_delete(variable_list* l);
 
 void ft_map_editor_triangle_parameter_texture_view(variable_list* l);
 
+int ft_strings_compare(char* line, char* word, int c);
 
+void ft_action_x(variable_list* l, int group, int c, char* str);
+
+void ft_action_y(variable_list* l, int group, int c, char* str);
+
+void ft_action_z(variable_list* l, int group, int c, char* str);
+
+void ft_action_calculate_center(variable_list* l, int group);
+
+void ft_action_h_rotate(variable_list* l, int group);
+
+void ft_action_h(variable_list* l, int group, int c, char* str);
+
+void ft_action_v_rotate(variable_list* l, int group);
+
+void ft_action_v(variable_list* l, int group, int c, char* str);
+
+void ft_action_l_rotate(variable_list* l, int group);
+
+void ft_action_l(variable_list* l, int group, int c, char* str);
+
+void ft_action_s_up(variable_list* l, int group, double value);
+
+void ft_action_s_do(variable_list* l, int group, double value);
+
+void ft_action_s_replace(variable_list* l, int group);
+
+void ft_action_s(variable_list* l, int group, int c, char* str);
+
+void ft_action_xyzhvls(variable_list* l, int group, int c, char* str);
+
+void ft_action_start(variable_list* l, int group, int c, char* str);
+
+void ft_action(variable_list* l);
 #endif
 

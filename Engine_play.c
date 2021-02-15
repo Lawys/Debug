@@ -656,7 +656,7 @@ void	ft_engine_play_calculate(variable_list* l)
 			l->link4[l->player_area] == area ||
 			l->link5[l->player_area] == area ||
 			l->link6[l->player_area] == area) &&
-			(l->view_only == 0 || l->t.area[l->e.t_s] == l->view_only) &&
+			(l->view_only == 0 || area == l->view_only) &&
 			l->g.exist[l->t.group[l->e.t_s]] &&
 			l->t.texture_opacity[l->e.t_s] == 100))
 			{

@@ -30,16 +30,19 @@ void	ft_initialize_variables(variable_list* l)
 		l->g.npc_hp[i] = 100;
 		l->g.npc_statement[i] = 0;
 		l->g.exist[i] = 1;
+		l->g.action_timer[i] = 0;
+		l->g.action_statement[i] = 0;
+		l->g.interact[i] = 0;;
 		j = -1;
 		while (++j < 57)
 		{
-			l->g.action_auto[i][j] = 0;
 			l->g.action_enable[i][j] = 0;
 			l->g.action_disable[i][j] = 0;
+
 		}
 	}
 	i = -1;
-	while (++i < MAX_GROUPS)
+	while (++i < MAX_AREAS)
 	{
 		l->link1[i] = -1;
 		l->link2[i] = -1;
@@ -47,6 +50,7 @@ void	ft_initialize_variables(variable_list* l)
 		l->link4[i] = -1;
 		l->link5[i] = -1;
 		l->link6[i] = -1;
+
 	}
 
 	i = -1;
@@ -79,7 +83,7 @@ void	ft_initialize_variables(variable_list* l)
 
 
 
-
+	l->player_area = 0;
 		l->i.save_mouse_x = 0;
 		l->i.save_mouse_y = 0;
 		l->triangle_number = 0;
@@ -503,7 +507,7 @@ void	ft_reset_arrays(variable_list* l)
 			l->pixels_distance[i][j] = 999999;
 			l->pixels_triangle[i][j] = -1;
 			//l->pixels[i + j * WDW] = 0;
-			l->pixels_color[i][j] = 0x0055FF;
+			//l->pixels_color[i][j] = 0x0055FF;
 		}
 	}
 }
@@ -589,12 +593,6 @@ void	ft_map_reader(variable_list* l)
 		l->g.sprite[j] = (int)ft_atoi(l, file, &i);
 		l->g.npc[j] = (int)ft_atoi(l, file, &i);
 		l->g.object[j] = (int)ft_atoi(l, file, &i);
-		k = 0;
-		while (file[++i] != ',')
-		{
-			l->g.action_auto[j][k] = file[i];
-			k++;
-		}
 		k = 0;
 		while (file[++i] != ',')
 		{
@@ -835,10 +833,10 @@ void	ft_loop(variable_list* l)
 					ft_engine_set_window_green_border_group(l);
 			}
 			ft_size_to_window(l);
-			ft_action_auto(l);
+			ft_action(l);
+			ft_get_time(l);
 		}
 		ft_events(l);
-		ft_get_time(l);
 	}
 }
 

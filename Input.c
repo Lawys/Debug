@@ -199,41 +199,35 @@ void	ft_event_playing_mode_player_first_area_list(variable_list* l, player_move_
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
-		ft_event_playing_mode_triangle_init(l, tmp, ts);
-
-		tmp->vx = -10;
-		tmp->vz = 10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = 10;
-		tmp->vz = 10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = 10;
-		tmp->vz = -10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = -10;
-		tmp->vz = -10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-
-		tmp->vx = -10;
-		tmp->vz = 0;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = 10;
-		tmp->vz = 0;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = 0;
-		tmp->vz = 10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
-		tmp->vx = 0;
-		tmp->vz = -10;
-		tmp->vy = 10000000000;
-		ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
+		if (l->g.object[l->t.group[ts]] == 0 &&
+			l->g.npc[l->t.group[ts]] == 0 &&
+			l->g.sprite[l->t.group[ts]] == 0)
+		{
+			ft_event_playing_mode_triangle_init(l, tmp, ts);
+			l->p.x += 10;
+			l->p.z += 10;
+			tmp->vx = 0;
+			tmp->vz = 0;
+			tmp->vy = 10000000000;
+			ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
+			l->p.x -= 20;
+			tmp->vx = 0;
+			tmp->vz = 0;
+			tmp->vy = 10000000000;
+			ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
+			l->p.z -= 20;
+			tmp->vx = 0;
+			tmp->vz = 0;
+			tmp->vy = 10000000000;
+			ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
+			l->p.x += 20;
+			tmp->vx = 0;
+			tmp->vz = 0;
+			tmp->vy = 10000000000;
+			ft_event_playing_mode_player_first_area_list_calculate(l, tmp, ts);
+			l->p.x -= 10;
+			l->p.z += 10;
+		}
 	}
 }
 
@@ -242,7 +236,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	player_move_list tmp;
 	int ts;
 
-
+	ft_event_playing_mode_player_wallblock_gravity(l);
 	ft_event_playing_mode_player_first_area_list(l, &tmp);
 	if (l->i.state[6] || tmp.save_py - tmp.save_ny <= 30)
 	{
@@ -256,8 +250,17 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	}
 	else
 		l->p.player_size = 50;
+	if (tmp.save_py <= 10 && tmp.save_ny >= -l->p.player_size)
+		l->p.y += l->gravity;
+	else if (tmp.save_py <= 10)
+		l->p.y += tmp.save_py - 10;
+	else if (tmp.save_ny >= -l->p.player_size)
+	{
+		l->p.y += tmp.save_ny + l->p.player_size;
+		l->gravity = 0;
+	}
 	ft_event_playing_mode_player_wallblock_init(l, &tmp);
-	ft_event_playing_mode_player_wallblock_gravity(l);
+
 	l->p.z += tmp.move_z * l->p.speed;
 	l->p.x += tmp.move_x * l->p.speed;
 
@@ -350,15 +353,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	printf("->neg %f %f %f\n", tmp.save_nx, tmp.save_ny, tmp.save_nz);
 	printf("->mov %f %f\n", tmp.move_x, tmp.move_z);*/
 
-	if (tmp.save_py <= 10 && tmp.save_ny >= -l->p.player_size)
-		l->p.y += l->gravity;
-	else if (tmp.save_py <= 10)
-		l->p.y += tmp.save_py - 10;
-	else if (tmp.save_ny >= -l->p.player_size)
-	{
-		l->p.y += tmp.save_ny + l->p.player_size;
-		l->gravity = 0;
-	}
+
 	if (tmp.angle)
 	{
 		l->p.x -= tmp.move_x * l->p.speed;
@@ -374,6 +369,8 @@ void	ft_event_playing_mode_player_crawl_or_squat
 
 void	ft_event_playing_mode_player(variable_list* l)
 {
+	int group;
+
 	l->p.speed = 2;
 	ft_event_playing_mode_player_crawl_or_squat(l);
 	if (l->i.state[225]) //MAJ sprint
@@ -382,10 +379,17 @@ void	ft_event_playing_mode_player(variable_list* l)
 		l->i.state[7] + l->i.state[4] > 1)
 		l->p.speed *= 0.75;
 	ft_event_playing_mode_player_wallblock(l);
+	l->p.interact = 0;
 	if (l->i.state[8] &&
-		l->pixels_distance[WDW2][WDH2] < 30)
+		l->pixels_distance[WDW2][WDH2] < 50)
 	{
-		//ft_action_on_input_check_list(l);
+		group = l->t.group[l->pixels_triangle[WDW2][WDH2]];
+
+		if (l->g.action_statement[group] == 0)
+			l->g.action_statement[group] = 2;
+		else if (l->g.action_statement[group] == 1)
+			l->g.action_statement[group] = 3;
+		l->i.state[8] = 0;
 	}
 }
 
@@ -573,15 +577,15 @@ void	ft_events(variable_list* l)
 				SDL_WarpMouseInWindow(l->window, (WDW2), (WDH2));
 				l->hl.live_bar = l->p.start_hp;
 				l->hl.ammo = l->p.start_ammo;
-				l->hl.item_state[0] = l->p.start_item[0];
-				l->hl.item_state[1] = l->p.start_item[1];
-				l->hl.item_state[2] = l->p.start_item[2];
-				l->hl.item_state[3] = l->p.start_item[3];
-				l->hl.item_state[4] = l->p.start_item[4];
-				l->hl.item_state[5] = l->p.start_item[5];
-				l->hl.item_state[6] = l->p.start_item[6];
-				l->hl.item_state[7] = l->p.start_item[7];
-				l->hl.item_state[8] = l->p.start_item[8];
+				l->hl.obj[0][2] = l->p.start_item[0];
+				l->hl.obj[1][2] = l->p.start_item[1];
+				l->hl.obj[2][2] = l->p.start_item[2];
+				l->hl.obj[3][2] = l->p.start_item[3];
+				l->hl.obj[4][2] = l->p.start_item[4];
+				l->hl.obj[5][2] = l->p.start_item[5];
+				l->hl.obj[6][2] = l->p.start_item[6];
+				l->hl.obj[7][2] = l->p.start_item[7];
+				l->hl.obj[8][2] = l->p.start_item[8];
 				l->triangle_select = -1;
 				l->area_select = -1;
 				l->group_select = -1;

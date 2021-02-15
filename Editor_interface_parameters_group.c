@@ -130,17 +130,6 @@ void	ft_map_editor_group_parameter_action(variable_list* l)
 	ft_put_text(l);
 }
 
-void	ft_map_editor_group_parameter_auto(variable_list* l)
-{
-	l->u.wsx += 1;
-	l->u.action = ++l->action;
-	l->u.size = 1;
-	l->u.colors = l->me.color_blue;
-	l->u.colors_on = l->me.color_green;
-	l->u.str_address = "AUTO";
-	ft_put_text(l);
-}
-
 void	ft_map_editor_group_parameter_enable(variable_list* l)
 {
 	l->u.wsx += 1;

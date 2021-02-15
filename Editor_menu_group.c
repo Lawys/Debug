@@ -15,7 +15,6 @@ void	ft_map_editor_group_parameters(variable_list* l)
 	ft_map_editor_group_parameter_position_l(l);
 	ft_map_editor_group_parameter_position_size(l);
 	ft_map_editor_group_parameter_action(l);
-	ft_map_editor_group_parameter_auto(l);
 	ft_map_editor_group_parameter_enable(l);
 	ft_map_editor_group_parameter_disable(l);
 	ft_map_editor_group_parameter_flag(l);
@@ -39,7 +38,6 @@ void	ft_map_editor_group_actions(variable_list* l)
 	ft_map_editor_group_action_position_v(l);
 	ft_map_editor_group_action_position_l(l);
 	ft_map_editor_group_action_position_size(l);
-	ft_map_editor_group_action_auto(l);
 	ft_map_editor_group_action_enable(l);
 	ft_map_editor_group_action_disable(l);
 	ft_map_editor_group_action_sprite(l);
