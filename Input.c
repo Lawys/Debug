@@ -199,7 +199,7 @@ void	ft_event_playing_mode_player_first_area_list(variable_list* l, player_move_
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
-		if (l->g.object[l->t.group[ts]] == 0 &&
+		if (l->g.no_block[l->t.group[ts]] == 0 &&
 			l->g.npc[l->t.group[ts]] == 0 &&
 			l->g.sprite[l->t.group[ts]] == 0)
 		{
@@ -267,7 +267,7 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	ts = -1;
 	while (++ts < l->triangle_number)
 	{
-		if (l->g.object[l->t.group[ts]] == 0 &&
+		if (l->g.no_block[l->t.group[ts]] == 0 &&
 			l->g.npc[l->t.group[ts]] == 0 &&
 			l->g.sprite[l->t.group[ts]] == 0)
 		{
@@ -383,13 +383,15 @@ void	ft_event_playing_mode_player(variable_list* l)
 	if (l->i.state[8] &&
 		l->pixels_distance[WDW2][WDH2] < 50)
 	{
-		group = l->t.group[l->pixels_triangle[WDW2][WDH2]];
-
-		if (l->g.action_statement[group] == 0)
-			l->g.action_statement[group] = 2;
-		else if (l->g.action_statement[group] == 1)
-			l->g.action_statement[group] = 3;
 		l->i.state[8] = 0;
+		group = l->t.group[l->pixels_triangle[WDW2][WDH2]];
+		if (l->g.interact[group])
+		{
+			if (l->g.action_statement[group] == 0)
+				l->g.action_statement[group] = 2;
+			else if (l->g.action_statement[group] == 1)
+				l->g.action_statement[group] = 3;
+		}
 	}
 }
 

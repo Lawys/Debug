@@ -300,7 +300,7 @@ void ft_action_s_replace(variable_list* l, int group)
 		}
 }
 
-void ft_action_s(variable_list* l, int group, int c, char * str)
+void ft_action_size(variable_list* l, int group, int c, char * str)
 {
 	double value;
 	double tmp;
@@ -319,17 +319,111 @@ void ft_action_s(variable_list* l, int group, int c, char * str)
 	}
 }
 
-void ft_action_o(variable_list* l, int group, int c, char* str)
+void ft_action_texture(variable_list* l, int group, int c, char* str)
+{
+	double value;
+	int i;
+
+	value = ft_atoi(l, str, &c);
+	if (str[c] == ';' && value >= 0 && value < l->texture_number)
+	{
+		i = -1;
+		while (++i < l->triangle_number)
+		{
+			if (l->t.group[i] == group)
+				l->t.texture_id[i] = value;
+		}
+		ft_action_start(l, group, ++c, str);
+	}
+}
+
+void ft_action_opacity(variable_list* l, int group, int c, char* str)
+{
+	double value;
+	int i;
+
+	value = ft_atoi(l, str, &c);
+	if (str[c] == ';' && value >= 10 && value <= 100)
+	{
+		i = -1;
+		while (++i < l->triangle_number)
+		{
+			if (l->t.group[i] == group)
+				l->t.texture_opacity[i] += value;
+		}
+		ft_action_start(l, group, ++c, str);
+	}
+}
+
+void ft_action_on(variable_list* l, int group, int c, char* str)
 {
 	int value;
 
 	value = ft_atoi(l, str, &c);
 	if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
 	{
-		if (l->g.action_statement[value] == 1)
-			l->g.action_statement[value] = 3;
-		else if (l->g.action_statement[value] == 0)
-			l->g.action_statement[value] = 2;
+		l->g.action_statement[value] = 2;
+		ft_action_start(l, group, ++c, str);
+	}
+}
+
+void ft_action_off(variable_list* l, int group, int c, char* str)
+{
+	int value;
+
+	value = ft_atoi(l, str, &c);
+	if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
+	{
+		l->g.action_statement[value] = 3;
+		ft_action_start(l, group, ++c, str);
+	}
+}
+
+void ft_action_area(variable_list* l, int group, int c, char* str)
+{
+	double distance;
+	int value;
+
+	value = ft_atoi(l, str, &c);
+	if (str[c] == '>')
+	{
+		ft_action_calculate_center(l, group);
+		distance = sqrt((l->me.x - l->p.x) * (l->me.x - l->p.x) +
+			(l->me.y - l->p.y) * (l->me.y - l->p.y) +
+			(l->me.z - l->p.z) * (l->me.z - l->p.z));
+		if ((value > 0 && distance <= value) || (value < 0 && distance > value))
+		{
+			if (ft_strings_compare(str, "END;", ++c))
+			{
+				//GG
+			}
+			else if (ft_strings_compare(str, "LOOT>", c))
+			{
+				value = (int)ft_atoi(l, str, &c);
+				if (str[c] == ';' && value >= 0 && value < 9)
+				{
+					l->hl.obj[value][2] = 1;
+					l->g.exist[group] = 0;
+					ft_action_start(l, group, ++c, str);
+				}
+			}
+			else if (ft_strings_compare(str, "HEAL>", c))
+			{
+				value = (int)ft_atoi(l, str, &c);
+				if (str[c] == ';')
+				{
+					l->hl.live_bar += value;
+					if (l->hl.live_bar > 100)
+						l->hl.live_bar = 100;
+					l->g.exist[group] = 0;
+					ft_action_start(l, group, ++c, str);
+				}
+			}
+			else if (ft_strings_compare(str, "TELEPORT>", c))
+			{
+				//TELEPORT
+			}
+		}
 	}
 }
 
@@ -337,26 +431,11 @@ void ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 {
 	int i;
 	int value;
+
 	if (ft_strings_compare(str, "ON>", c))
-	{
-		value = ft_atoi(l, str, &c);
-		if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-		{
-			l->g.action_statement[value] = 1;
-			ft_action_start(l, group, ++c, str);
-		}
-	}
+		ft_action_on(l, group, c, str);
 	else if (ft_strings_compare(str, "OFF>", c))
-	{
-		value = ft_atoi(l, str, &c);
-		if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-		{
-			l->g.action_statement[value] = 0;
-			ft_action_start(l, group, ++c, str);
-		}
-	}
-	else if (ft_strings_compare(str, "O>", c))
-		ft_action_o(l, group, c, str);
+		ft_action_off(l, group, c, str);
 	else if (ft_strings_compare(str, "X>", c))
 		ft_action_x(l, group, c, str);
 	else if (ft_strings_compare(str, "Y>", c))
@@ -369,8 +448,15 @@ void ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 		ft_action_v(l, group, c, str);
 	else if (ft_strings_compare(str, "L>", c))
 		ft_action_l(l, group, c, str);
-	else if (ft_strings_compare(str, "S>", c))
-		ft_action_s(l, group, c, str);
+	else if (ft_strings_compare(str, "SIZE>", c))
+		ft_action_size(l, group, c, str);
+	else if (ft_strings_compare(str, "TEXTURE>", c))
+		ft_action_texture(l, group, c, str);
+	else if (ft_strings_compare(str, "OPACITY>", c))
+		ft_action_opacity(l, group, c, str);
+	else if (ft_strings_compare(str, "AREA>", c))
+		ft_action_area(l, group, c, str);
+
 }
 
 void ft_action_start(variable_list* l, int group, int c, char* str)
@@ -379,93 +465,56 @@ void ft_action_start(variable_list* l, int group, int c, char* str)
 	int value;
 	double distance;
 
-	if (ft_strings_compare(str, "!", c))
+	if (l->g.action_timer[group] >= 0)
 	{
-		c = 1;
-		if (str[c] == ';')
+		if (c == 0)
 		{
-			if (l->g.action_statement[group] == 0 || l->g.action_statement[group] == 2)
-				l->g.action_statement[group] = 1;
-			else if (l->g.action_statement[group] == 1 || l->g.action_statement[group] == 3)
-				l->g.action_statement[group] = 0;
-			return;
+			while (str[c] != ';' && str[c] != '\0')
+				c++;
+			c++;
 		}
-	}
-	if (ft_strings_compare(str, "T>", c))
-	{
+		if (ft_strings_compare(str, "ONCE>", c))
+		{
 
-		value = ft_atoi(l, str, &c);
-		if (value > 0 && l->g.action_timer[group] < l->cooldown)
-			l->g.action_timer[group] = l->cooldown + value;
-		else if (value == 0 || l->g.action_timer[group] == l->cooldown)
-		{
-			if (l->g.action_statement[group] == 0 || l->g.action_statement[group] == 2)
-				l->g.action_statement[group] = 1;
-			else if (l->g.action_statement[group] == 1 || l->g.action_statement[group] == 3)
-				l->g.action_statement[group] = 0;
-		}
-		if (str[c] == '>')
-		{
 			value = ft_atoi(l, str, &c);
-			if (value > 0 && l->cooldown % value == 0)
+			if (l->g.action_timer[group] == value && str[c] == '>')
 				ft_action_xyzhvls(l, group, ++c, str);
 		}
-	}
-	else if (ft_strings_compare(str, "A>", c))
-	{
-		value = ft_atoi(l, str, &c);
-		if (str[c] == '>')
+		else
 		{
-			ft_action_calculate_center(l, group);
-			distance = sqrt((l->me.x - l->p.x) * (l->me.x - l->p.x) +
-				(l->me.y - l->p.y) * (l->me.y - l->p.y) +
-				(l->me.z - l->p.z) * (l->me.z - l->p.z));
-			if ((value > 0 && distance <= value) || (value < 0 && distance > value))
+			ft_action_xyzhvls(l, group, c, str);
+		}
+	}
+	else
+	{
+		if (ft_strings_compare(str, "!", c))
+		{
+			c = 1;
+			if (str[c] == ';')
 			{
-				if (ft_strings_compare(str, "END;", ++c))
-				{
+				if (l->g.action_statement[group] == 0 || l->g.action_statement[group] == 2)
+					l->g.action_statement[group] = 1;
+				else if (l->g.action_statement[group] == 1 || l->g.action_statement[group] == 3)
+					l->g.action_statement[group] = 0;
+				return;
+			}
+		}
+		if (ft_strings_compare(str, "KEY>", c))
+		{
 
-				}
-				else if (ft_strings_compare(str, "ON>", ++c))
-				{
-					value = ft_atoi(l, str, &c);
-					if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-					{
-						l->g.action_statement[value] = 1;
-						ft_action_start(l, group, ++c, str);
-					}
-				}
-				else if (ft_strings_compare(str, "OFF>", ++c))
-				{
-					value = ft_atoi(l, str, &c);
-					if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
-					{
-						l->g.action_statement[value] = 0;
-						ft_action_start(l, group, ++c, str);
-					}
-				}
-				else if (l->menu_mode == 1 && ft_strings_compare(str, "LOOT>", c))
-				{
-					value = (int)ft_atoi(l, str, &c);
-					if (str[c] == ';' && value >= 0 && value < 9)
-					{
-						l->hl.obj[value][2] = 1;
-						l->g.exist[group] = 0;
-						ft_action_start(l, group, ++c, str);
-					}
-				}
-				else if (ft_strings_compare(str, "LIFE>", c))
-				{
-					value = (int)ft_atoi(l, str, &c);
-					if (str[c] == ';')
-					{
-						l->hl.live_bar += value;
-						if (l->hl.live_bar > 100)
-							l->hl.live_bar = 100;
-						l->g.exist[group] = 0;
-						ft_action_start(l, group, ++c, str);
-					}
-				}
+			value = ft_atoi(l, str, &c);
+			if (l->hl.obj[value][2] == 0)
+				return;
+			else
+				c++;
+		}
+		if (ft_strings_compare(str, "TIME>", c))
+		{
+			value = ft_atoi(l, str, &c);
+			if (value >= 0 && str[c] == ';')
+			{
+				l->g.action_timer[group] = value;
+				ft_action_start(l, group, ++c, str);
 			}
 		}
 	}
@@ -488,11 +537,23 @@ void ft_action(variable_list* l)
 			{
 				c = 0;
 				ft_action_start(l, group, c, l->g.action_enable[group]);
+				if (l->g.action_timer[group] >= 0)
+				{
+					l->g.action_timer[group]--;
+					if (l->g.action_timer[group] < 0 && (l->g.action_statement[group] == 1 || l->g.action_statement[group] == 3))
+						l->g.action_statement[group] = 0;
+				}
 			}
 			if (l->g.action_disable[group][0] != '\0' && ((l->g.action_statement[group] == 0 && l->g.action_disable[group][0] == '!') || l->g.action_statement[group] == 2))
 			{
 				c = 0;
 				ft_action_start(l, group, c, l->g.action_disable[group]);
+				if (l->g.action_timer[group] >= 0)
+				{
+					l->g.action_timer[group]--;
+					if (l->g.action_timer[group] < 0 && (l->g.action_statement[group] == 0 || l->g.action_statement[group] == 2))
+						l->g.action_statement[group] = 1;
+				}
 			}
 		}
 	}

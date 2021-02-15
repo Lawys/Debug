@@ -101,7 +101,7 @@ void	ft_engine_set_triangles_points(variable_list* l)
 	ts = -1;
 	while (++ts < tn)
 	{
-		if (l->g.sprite[l->t.group[ts]] == 1 || l->g.npc[l->t.group[ts]] == 1)// || l->g.object[l->t.group[ts]] == 1)
+		if (l->g.sprite[l->t.group[ts]] == 1 || l->g.npc[l->t.group[ts]] == 1)// || l->g.no_block[l->t.group[ts]] == 1)
 			ft_engine_set_sprite_points(l, tmp, ts);
 		else
 		{

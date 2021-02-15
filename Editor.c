@@ -150,14 +150,15 @@ void	TMP_map_editor_save_map(variable_list* l)
 			printf("Load File Error\n");
 			ft_free_and_exit(l);
 		}
-		_write(stream, "sprite,npc,object,action_enable,action_disable\0", 46);
+		_write(stream, "sprite,npc,no_block,action_enable,action_disable\0", 46);
 		i = -1;
 		while (++i < MAX_GROUPS)
 		{
 			_write(stream, ",\n\0", 2);
 			buffer_size = ft_itoa(l, l->g.sprite[i], buffer), _write(stream, buffer, buffer_size);
 			buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->g.object[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->g.no_block[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
+			buffer_size = ft_itoa(l, l->g.interact[i], buffer), _write(stream, ",\0", 1), _write(stream, buffer, buffer_size);
 			_write(stream, ",\0", 1), _write(stream, l->g.action_enable[i], sizeof(l->g.action_enable[i]));
 			_write(stream, ",\0", 1), _write(stream, l->g.action_disable[i], sizeof(l->g.action_disable[i]));
 		}

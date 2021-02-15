@@ -314,13 +314,13 @@ typedef struct s_list_6
     int		    npc[MAX_GROUPS];
     int		    npc_hp[MAX_GROUPS];
     int		    npc_statement[MAX_GROUPS];
-    int		    object[MAX_GROUPS];
+    int		    no_block[MAX_GROUPS];
     int		    interact[MAX_GROUPS];
     int		    exist[MAX_GROUPS];
     int		    action_timer[MAX_GROUPS];
     int		    action_statement[MAX_GROUPS];
-    char		action_enable[MAX_GROUPS][57];
-    char		action_disable[MAX_GROUPS][57];
+    char		action_enable[MAX_GROUPS][67];
+    char		action_disable[MAX_GROUPS][67];
 
 }       group_list;
 
@@ -350,7 +350,7 @@ typedef struct  s_list_4
 
 
 
-    int obj[MAX_GROUPS][10];//10 valeur arbitraire, a reduire si necessaire
+    int obj[10][10];//10 valeur arbitraire, a reduire si necessaire
     int         ammo;
 
     int inv1;//index quel icone ds case 1,2,3
@@ -508,7 +508,7 @@ void ft_put_ammo_bar(variable_list* l);
 
 void ft_tester_hud(variable_list* l);
 
-void ft_nbr_object_recuperation(variable_list* l);
+void ft_nbr_no_block_recuperation(variable_list* l);
 
 void ft_engine_calculate_triangles_distance(variable_list* l);
 
@@ -715,7 +715,7 @@ void ft_map_editor_menu_parameter_light(variable_list* l);
 
 void ft_map_editor_menu_parameter_npc(variable_list* l);
 
-void ft_map_editor_menu_parameter_object(variable_list* l);
+void ft_map_editor_menu_parameter_no_block(variable_list* l);
 
 void ft_map_editor_menu_parameter_player(variable_list* l);
 
@@ -866,7 +866,7 @@ void ft_action_s_do(variable_list* l, int group, double value);
 
 void ft_action_s_replace(variable_list* l, int group);
 
-void ft_action_s(variable_list* l, int group, int c, char* str);
+void ft_action_size(variable_list* l, int group, int c, char* str);
 
 void ft_action_xyzhvls(variable_list* l, int group, int c, char* str);
 

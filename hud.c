@@ -11,14 +11,7 @@ void	ft_event_playing_hud(variable_list* l)
     //test
     ft_tester_hud(l);
 
-    l->hl.obj[0][2] = 1;
-    l->hl.obj[1][2] = 1;
-    l->hl.obj[2][2] = 1;
-    l->hl.obj[3][2] = 1;
-    l->hl.obj[4][2] = 1;
-    l->hl.obj[5][2] = 1;
-
-    //  ft_nbr_object_recuperation(l);
+    //  ft_nbr_no_block_recuperation(l);
       //------------------------
 
     if (l->hl.live_bar <= 0)
@@ -570,7 +563,7 @@ void ft_tester_hud(variable_list* l)
    ** compte le nombre d objet ds le jeux
    */
 
-void ft_nbr_object_recuperation(variable_list* l)
+void ft_nbr_no_block_recuperation(variable_list* l)
 {
     int i;
     int count;
@@ -579,7 +572,7 @@ void ft_nbr_object_recuperation(variable_list* l)
     i = 0;
     while (i <= MAX_GROUPS)
     {
-        if (l->g.object[i])
+        if (l->g.no_block[i])
             count++;
         i++;
     }
@@ -587,7 +580,7 @@ void ft_nbr_object_recuperation(variable_list* l)
     //  i = 0;
     while (i < count)
     {
-        //    printf("objet[%d] =  %d\n", i, l->g.object[i]);
+        //    printf("objet[%d] =  %d\n", i, l->g.no_block[i]);
         i++;
     }
 

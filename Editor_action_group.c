@@ -474,7 +474,7 @@ void	ft_map_editor_group_action_enable(variable_list* l)
 		l->u.wsx = 4;
 		l->u.wsy = 69.3;
 		l->u.action = -1;
-		l->u.size = 1;
+		l->u.size = 0.8;
 		l->u.colors = l->me.color_white;
 		l->u.colors_on = l->me.color_white;
 		l->u.str_address = l->g.action_enable[l->group_select];
@@ -505,7 +505,7 @@ void	ft_map_editor_group_action_disable(variable_list* l)
 		l->u.wsx = 4;
 		l->u.wsy = 69.3;
 		l->u.action = -1;
-		l->u.size = 1;
+		l->u.size = 0.8;
 		l->u.colors = l->me.color_white;
 		l->u.colors_on = l->me.color_white;
 		l->u.str_address = l->g.action_disable[l->group_select];
@@ -521,7 +521,7 @@ void	ft_map_editor_group_action_sprite(variable_list* l)
 		{
 			l->g.sprite[l->group_select] = 1;
 			l->g.npc[l->group_select] = 0;
-			l->g.object[l->group_select] = 0;
+			l->g.no_block[l->group_select] = 0;
 		}
 		else
 			l->g.sprite[l->group_select] = 0;
@@ -537,7 +537,7 @@ void	ft_map_editor_group_action_npc(variable_list* l)
 		{
 			l->g.sprite[l->group_select] = 0;
 			l->g.npc[l->group_select] = 1;
-			l->g.object[l->group_select] = 0;
+			l->g.no_block[l->group_select] = 0;
 		}
 		else
 			l->g.npc[l->group_select] = 0;
@@ -545,18 +545,32 @@ void	ft_map_editor_group_action_npc(variable_list* l)
 	}
 }
 
-void	ft_map_editor_group_action_object(variable_list* l)
+void	ft_map_editor_group_action_no_block(variable_list* l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
-		if (l->g.object[l->group_select] == 0)
+		if (l->g.no_block[l->group_select] == 0)
 		{
 			l->g.sprite[l->group_select] = 0;
 			l->g.npc[l->group_select] = 0;
-			l->g.object[l->group_select] = 1;
+			l->g.no_block[l->group_select] = 1;
 		}
 		else
-			l->g.object[l->group_select] = 0;
+			l->g.no_block[l->group_select] = 0;
+		l->action_select[l->menu_select][l->action] = 0;
+	}
+}
+
+void	ft_map_editor_group_action_interact(variable_list* l)
+{
+	if (l->action_select[l->menu_select][++l->action])
+	{
+		if (l->g.interact[l->group_select] == 0)
+		{
+			l->g.interact[l->group_select] = 1;
+		}
+		else
+			l->g.interact[l->group_select] = 0;
 		l->action_select[l->menu_select][l->action] = 0;
 	}
 }
@@ -659,7 +673,7 @@ void	ft_map_editor_group_action_duplicate(variable_list* l)
 			return;
 		l->g.sprite[l->me.new_group] = l->g.sprite[l->group_select];
 		l->g.npc[l->me.new_group] = l->g.npc[l->group_select];
-		l->g.object[l->me.new_group] = l->g.object[l->group_select];
+		l->g.no_block[l->me.new_group] = l->g.no_block[l->group_select];
 		ts = -1;
 		while (++ts < l->triangle_number)
 		{

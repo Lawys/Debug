@@ -199,11 +199,11 @@ void	ft_map_editor_group_parameter_npc(variable_list* l)
 	ft_put_text(l);
 }
 
-void	ft_map_editor_group_parameter_object(variable_list* l)
+void	ft_map_editor_group_parameter_no_block(variable_list* l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
-	if (l->g.object[l->group_select] == 0)
+	if (l->g.no_block[l->group_select] == 0)
 	{
 		l->u.colors = l->me.color_blue;
 		l->u.colors_on = l->me.color_green;
@@ -213,7 +213,25 @@ void	ft_map_editor_group_parameter_object(variable_list* l)
 		l->u.colors = l->me.color_green;
 		l->u.colors_on = l->me.color_green;
 	}
-	l->u.str_address = "<OBJECT>";
+	l->u.str_address = "<NO BLOCK>";
+	ft_put_text(l);
+}
+
+void	ft_map_editor_group_parameter_interact(variable_list* l)
+{
+	l->u.wsx += 0.5;
+	l->u.action = ++l->action;
+	if (l->g.interact[l->group_select] == 0)
+	{
+		l->u.colors = l->me.color_blue;
+		l->u.colors_on = l->me.color_green;
+	}
+	else
+	{
+		l->u.colors = l->me.color_green;
+		l->u.colors_on = l->me.color_green;
+	}
+	l->u.str_address = "<INTERACT>";
 	ft_put_text(l);
 }
 

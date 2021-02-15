@@ -24,15 +24,15 @@ void	ft_initialize_variables(variable_list* l)
 	{
 		l->g.sprite[i] = 0;
 		l->g.npc[i] = 0;
-		l->g.object[i] = 0;
+		l->g.no_block[i] = 0;
 		l->action_v1[i] = 0;
 		l->g.sprite_orientation[i] = 0;
 		l->g.npc_hp[i] = 100;
 		l->g.npc_statement[i] = 0;
 		l->g.exist[i] = 1;
-		l->g.action_timer[i] = 0;
+		l->g.action_timer[i] = -1;
 		l->g.action_statement[i] = 0;
-		l->g.interact[i] = 0;;
+		l->g.interact[i] = 0;
 		j = -1;
 		while (++j < 57)
 		{
@@ -592,7 +592,8 @@ void	ft_map_reader(variable_list* l)
 	{
 		l->g.sprite[j] = (int)ft_atoi(l, file, &i);
 		l->g.npc[j] = (int)ft_atoi(l, file, &i);
-		l->g.object[j] = (int)ft_atoi(l, file, &i);
+		l->g.no_block[j] = (int)ft_atoi(l, file, &i);
+		l->g.interact[j] = (int)ft_atoi(l, file, &i);
 		k = 0;
 		while (file[++i] != ',')
 		{
@@ -820,6 +821,7 @@ void	ft_loop(variable_list* l)
 				ft_get_npc(l);
 				npc_attack(l);
 				ft_engine_play(l);
+				ft_action(l);
 			}
 			else if (l->menu_mode == 2)
 			{
@@ -833,8 +835,8 @@ void	ft_loop(variable_list* l)
 					ft_engine_set_window_green_border_group(l);
 			}
 			ft_size_to_window(l);
-			ft_action(l);
 			ft_get_time(l);
+
 		}
 		ft_events(l);
 	}
