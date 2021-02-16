@@ -426,7 +426,17 @@ void ft_action_area(variable_list* l, int group, int c, char* str)
 		}
 	}
 }
+void ft_action_exist(variable_list* l, int group, int c, char* str)
+{
+	int value;
 
+	value = ft_atoi(l, str, &c);
+	if (str[c] == ';' && (value == 0 || value == 1))
+	{
+		l->g.exist[group] = value;
+		ft_action_start(l, group, ++c, str);
+	}
+}
 void ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 {
 	int i;
@@ -456,6 +466,8 @@ void ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 		ft_action_opacity(l, group, c, str);
 	else if (ft_strings_compare(str, "AREA>", c))
 		ft_action_area(l, group, c, str);
+	else if (ft_strings_compare(str, "EXIST>", c))
+		ft_action_exist(l, group, c, str);
 
 }
 
@@ -503,7 +515,7 @@ void ft_action_start(variable_list* l, int group, int c, char* str)
 		{
 
 			value = ft_atoi(l, str, &c);
-			if (l->hl.obj[value][2] == 0)
+			if (l->hl.item_select != value)
 				return;
 			else
 				c++;

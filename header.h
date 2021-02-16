@@ -90,6 +90,7 @@ typedef struct s_list_14
     double ttsiy;
     double ttshy;
     double l;
+    double o;
     Uint32* p;
     int* t_id;
     unsigned char* c;
@@ -466,6 +467,7 @@ typedef struct s_list_1
 
 }   variable_list;
 
+void	ft_engine_play_calculate_pixels_opacity(variable_list* l);
 int 	ft_bullet(variable_list* l, int p_flag, int range);
 void    ft_get_npc(variable_list* l);
 void	ft_init_npc(variable_list* l);

@@ -201,7 +201,8 @@ void	ft_event_playing_mode_player_first_area_list(variable_list* l, player_move_
 	{
 		if (l->g.no_block[l->t.group[ts]] == 0 &&
 			l->g.npc[l->t.group[ts]] == 0 &&
-			l->g.sprite[l->t.group[ts]] == 0)
+			l->g.sprite[l->t.group[ts]] == 0 && 
+			l->g.exist[l->t.group[ts]] == 1)
 		{
 			ft_event_playing_mode_triangle_init(l, tmp, ts);
 			l->p.x += 10;
@@ -269,7 +270,8 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	{
 		if (l->g.no_block[l->t.group[ts]] == 0 &&
 			l->g.npc[l->t.group[ts]] == 0 &&
-			l->g.sprite[l->t.group[ts]] == 0)
+			l->g.sprite[l->t.group[ts]] == 0 &&
+			l->g.exist[l->t.group[ts]] == 1)
 		{
 			ft_event_playing_mode_triangle_init(l, &tmp, ts);
 			tmp.vx = 10;

@@ -627,46 +627,119 @@ void	ft_engine_play_calculate_if_appear(variable_list* l)
 		l->e.min_x = 0;
 	if (l->e.max_x >= WDW)
 		l->e.max_x = WDW - 1.;
-	if (l->e.min_x >= WDW || l->e.max_x < 0)
-		return;
+	//if (l->e.min_x >= WDW || l->e.max_x < 0)
+		//return;
 	if (l->e.ref == 0)
 		ft_engine_play_calculate_triangle_limits_no_reference(l);
 	else if (l->e.ref == 1)
 		ft_engine_play_calculate_triangle_limits_reference_1(l);
 	else if (l->e.ref > 1)
 		ft_engine_play_calculate_triangle_limits_reference_2(l);
-	ft_engine_play_calculate_pixels(l);
+
 
 }
 
-void	ft_engine_play_calculate(variable_list* l)
+void	ft_engine_play_calculate_me(variable_list* l)
 {
 	int i;
+	int j;
 	int area;
 
-	i = ft_engine_play_calculate_skip_triangles_behind_player(l);
-	while (i < l->triangle_number)
+	j = ft_engine_play_calculate_skip_triangles_behind_player(l);
+	i = j - 1;
+	while (++i < l->triangle_number)
 	{
 		l->e.t_s = l->e.t_id[i];
 		area = l->t.area[l->e.t_s];
-		if (area == 0 || ((l->menu_mode == 2 || l->player_area == area ||
+		if ((area == 0 || l->view_only == 0 || area == l->view_only) &&
+			l->g.exist[l->t.group[l->e.t_s]] &&
+			l->t.texture_opacity[l->e.t_s] == 100)
+			{
+				ft_engine_play_calculate_initialize_points_vectors_normals(l);
+				if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+					(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+					l->t.texture_sides[l->e.t_s] == 0)
+				{
+					ft_engine_play_calculate_if_appear(l);
+					ft_engine_play_calculate_pixels(l);
+				}
+			}
+	}
+	while (--i >= j)
+	{
+		l->e.t_s = l->e.t_id[i];
+		area = l->t.area[l->e.t_s];
+		if (l->t.texture_opacity[l->e.t_s] < 100 &&
+			(area == 0 || l->view_only == 0 || area == l->view_only) &&
+			l->g.exist[l->t.group[l->e.t_s]])
+		{
+			ft_engine_play_calculate_initialize_points_vectors_normals(l);
+			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+				l->t.texture_sides[l->e.t_s] == 0)
+			{
+				ft_engine_play_calculate_if_appear(l);
+				ft_engine_play_calculate_pixels_opacity(l);
+			}
+		}
+	}
+}
+
+void	ft_engine_play_calculate_p(variable_list* l)
+{
+	int i;
+	int j;
+	int area;
+
+	j = ft_engine_play_calculate_skip_triangles_behind_player(l);
+	i = j - 1;
+	while (++i < l->triangle_number)
+	{
+		l->e.t_s = l->e.t_id[i];
+		area = l->t.area[l->e.t_s];
+		if ((area == 0 || l->player_area == area ||
 			l->link1[l->player_area] == area ||
 			l->link2[l->player_area] == area ||
 			l->link3[l->player_area] == area ||
 			l->link4[l->player_area] == area ||
 			l->link5[l->player_area] == area ||
 			l->link6[l->player_area] == area) &&
-			(l->view_only == 0 || area == l->view_only) &&
 			l->g.exist[l->t.group[l->e.t_s]] &&
-			l->t.texture_opacity[l->e.t_s] == 100))
+			l->t.texture_opacity[l->e.t_s] == 100)
+		{
+			ft_engine_play_calculate_initialize_points_vectors_normals(l);
+			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+				l->t.texture_sides[l->e.t_s] == 0)
 			{
-				ft_engine_play_calculate_initialize_points_vectors_normals(l);
-				if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
-					(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
-					l->t.texture_sides[l->e.t_s] == 0)
-					ft_engine_play_calculate_if_appear(l);
+				ft_engine_play_calculate_if_appear(l);
+				ft_engine_play_calculate_pixels(l);
 			}
-		i++;
+		}
+	}
+	while (--i >= j)
+	{
+		l->e.t_s = l->e.t_id[i];
+		area = l->t.area[l->e.t_s];
+		if (l->t.texture_opacity[l->e.t_s] < 100 &&
+			(area == 0 || l->player_area == area ||
+			l->link1[l->player_area] == area ||
+			l->link2[l->player_area] == area ||
+			l->link3[l->player_area] == area ||
+			l->link4[l->player_area] == area ||
+			l->link5[l->player_area] == area ||
+			l->link6[l->player_area] == area) &&
+			l->g.exist[l->t.group[l->e.t_s]])
+		{
+			ft_engine_play_calculate_initialize_points_vectors_normals(l);
+			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+				l->t.texture_sides[l->e.t_s] == 0)
+			{
+				ft_engine_play_calculate_if_appear(l);
+				ft_engine_play_calculate_pixels_opacity(l);
+			}
+		}
 	}
 }
 
@@ -708,6 +781,7 @@ void	ft_engine_play_calculate_pixels_initialize_part_2(variable_list* l, s_engin
 	tmp->ttshx = l->t.texture_shift_x[ts] * 10.24;
 	tmp->ttsiy = l->t.texture_size_y[ts] / 100;
 	tmp->ttshy = l->t.texture_shift_y[ts] * 10.24;
+	tmp->o = l->t.texture_opacity[ts] / 100;
 }
 void	ft_engine_play_calculate_pixels_initialize_part_3(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp)
 {
@@ -746,7 +820,7 @@ void	ft_engine_play_calculate_pixels_while_y(variable_list* l, s_engine_play_cal
 				s->ttsiy + s->ttshy) + (int)s->s) & 1023) + ((abs((((
 					s->v1x * (s->c_x + s->t_x1) + s->v1y * (s->c_y + s->t_y1) +
 					s->v1z * (s->c_z + s->t_z1)) / s->d01) * 10.24) * s->ttsix -
-					s->ttshx - 1) + s->ss) & 1023) * 1024) * 4 + 138;
+					s->ttshx) + s->ss) & 1023) * 1024) * 4 + 138;
 			if (s->c[s->v + 3] != 0)
 			{
 				l->pixels_distance[s->x][s->y] = s->t_d;
@@ -778,12 +852,76 @@ void	ft_engine_play_calculate_pixels(variable_list* l)
 	}
 }
 
- void	ft_engine_play(variable_list* l)
+void	ft_engine_play_calculate_pixels_while_y_opacity_color(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
+{
+	l->pixels_distance[s->x][s->y] = s->t_d;
+	l->pixels_triangle[s->x][s->y] = s->t_s;
+	l->pixels_color[s->x][s->y] =
+		(int)(s->l * s->c[s->v] * s->o) + (int)((l->pixels_color[s->x][s->y] & 0xff) * (1 - s->o)) +
+		((int)(s->l * s->c[s->v + 1] * s->o) + (int)(((l->pixels_color[s->x][s->y] >> 8) & 0xff) * (1 - s->o))) * 256 +
+		((int)(s->l * s->c[s->v + 2] * s->o) + (int)(((l->pixels_color[s->x][s->y] >> 16) & 0xff) * (1 - s->o))) * 65536;
+}
+
+void	ft_engine_play_calculate_pixels_while_y_opacity(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
+{
+	while (++s->y <= s->my)
+	{
+		s->t_d = s->t_n / -(((double)s->y - WDH2) * s->ny +
+			((double)s->x - WDW2) * s->nx + s->nzvd);
+		s->c_x = ((double)s->x - WDW2) * s->t_d;
+		s->c_y = ((double)s->y - WDH2) * s->t_d;
+		s->c_z = s->vd * s->t_d;
+		s->t_d = sqrt(s->c_x * s->c_x + s->c_y * s->c_y + s->c_z * s->c_z);
+		if (s->t_d <= l->pixels_distance[s->x][s->y])
+		{
+			s->v = (((abs((((s->v4x * (s->c_x + s->t_x1) + s->v4y * (s->c_y +
+				s->t_y1) + s->v4z * (s->c_z + s->t_z1)) / s->d04) * 10.24) *
+				s->ttsiy + s->ttshy) + (int)s->s) & 1023) + ((abs((((
+					s->v1x * (s->c_x + s->t_x1) + s->v1y * (s->c_y + s->t_y1) +
+					s->v1z * (s->c_z + s->t_z1)) / s->d01) * 10.24) * s->ttsix -
+					s->ttshx) + s->ss) & 1023) * 1024) * 4 + 138;
+			if (s->c[s->v + 3] != 0)
+				ft_engine_play_calculate_pixels_while_y_opacity_color(l, s);
+		}
+	}
+}
+
+void	ft_engine_play_calculate_pixels_opacity(variable_list* l)
+{
+	s_engine_play_calculate_pixels_tmp tmp;
+	int i;
+
+	ft_engine_play_calculate_pixels_initialize_part_1(l, &tmp);
+	ft_engine_play_calculate_pixels_initialize_part_2(l, &tmp);
+	ft_engine_play_calculate_pixels_initialize_part_3(l, &tmp);
+	tmp.t_d = -1;
+	tmp.x = l->e.min_x - 1;
+	while (++tmp.x <= tmp.mx)
+	{
+		tmp.y = tmp.fy[tmp.x];
+		tmp.my = tmp.ly[tmp.x];
+		ft_engine_play_calculate_pixels_while_y_opacity(l, &tmp);
+		tmp.fy[tmp.x] = WDH;
+		tmp.ly[tmp.x] = -1;
+	}
+}
+
+ void	ft_engine_play_p(variable_list* l)
 {
 	ft_engine_set_angles_value(l);
 	ft_engine_set_triangles_points(l);
 	ft_engine_calculate_triangles_distance(l);
 	ft_quick_sort(l->e.t_id, l->e.t_d, l->triangle_number);
-	ft_engine_play_calculate(l);
+	ft_engine_play_calculate_p(l);
 	l->pixels_color[WDW2][WDH2] = 0x00FF00;
 }
+
+ void	ft_engine_play_me(variable_list* l)
+ {
+	 ft_engine_set_angles_value(l);
+	 ft_engine_set_triangles_points(l);
+	 ft_engine_calculate_triangles_distance(l);
+	 ft_quick_sort(l->e.t_id, l->e.t_d, l->triangle_number);
+	 ft_engine_play_calculate_me(l);
+	 l->pixels_color[WDW2][WDH2] = 0x00FF00;
+ }
