@@ -53,15 +53,3 @@ void ft_map_editor_game_action_world_gravity(variable_list* l)
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->coef_gravity, 0, 2);
 }
-
-void ft_map_editor_game_action_world_fall_damage(variable_list* l)
-{
-	if (l->action_select[l->menu_select][++l->action])
-	{
-		if (l->fall_damage == 0)
-			l->fall_damage = 1;
-		else
-			l->fall_damage = 0;
-		l->action_select[l->menu_select][l->action] = 0;
-	}
-}

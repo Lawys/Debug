@@ -90,23 +90,7 @@ void	ft_map_editor_player_parameter_hp(variable_list* l)
 	l->u.colors_on = l->me.color_white;
 	ft_put_text(l);
 }
-void	ft_map_editor_player_parameter_ammo(variable_list* l)
-{
-	l->u.str_address = "AMMO";
-	l->u.wsx += 1;
-	l->u.action = ++l->action;
-	l->u.size = 1;
-	l->u.colors = l->me.color_blue;
-	l->u.colors_on = l->me.color_green;
-	ft_put_text(l);
-	ft_itoa(l, l->p.start_ammo, l->me.str);
-	l->u.str_address = l->me.str;
-	l->u.wsx += 0.5;
-	l->u.size = 0.80;
-	l->u.colors = l->me.color_white;
-	l->u.colors_on = l->me.color_white;
-	ft_put_text(l);
-}
+
 void	ft_map_editor_player_parameter_item(variable_list* l)
 {
 	l->u.str_address = "ITEM";

@@ -9,7 +9,6 @@ void	ft_map_editor_player_parameters(variable_list* l)
 	ft_map_editor_player_parameter_z(l);
 	ft_map_editor_player_parameter_provision(l);
 	ft_map_editor_player_parameter_hp(l);
-	ft_map_editor_player_parameter_ammo(l);
 	ft_map_editor_player_parameter_item(l);
 	ft_map_editor_player_parameter_item_bare_hands(l);
 	ft_map_editor_player_parameter_item_pistol(l);
@@ -25,7 +24,6 @@ void	ft_map_editor_player_actions(variable_list* l)
 	ft_map_editor_player_action_y(l);
 	ft_map_editor_player_action_z(l);
 	ft_map_editor_player_action_hp(l);
-	ft_map_editor_player_action_ammo(l);
 	ft_map_editor_player_action_item_bare_hands(l);
 	ft_map_editor_player_action_item_pistol(l);
 	ft_map_editor_player_action_item_grenade(l);

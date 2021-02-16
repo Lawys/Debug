@@ -333,7 +333,6 @@ void ft_main_menu_clic(variable_list* l)
             l->p.y = l->p.start_y;
             l->p.z = l->p.start_z;
             l->hl.live_bar = l->p.start_hp;
-            l->hl.ammo = l->p.start_ammo;
             l->hl.obj[0][2] = l->p.start_item[0];
             l->hl.obj[1][2] = l->p.start_item[1];
             l->hl.obj[2][2] = l->p.start_item[2];

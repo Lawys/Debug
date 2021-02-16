@@ -162,9 +162,9 @@ void	ft_event_playing_mode_player_wallblock_init(variable_list* l, player_move_l
 }
 void	ft_event_playing_mode_player_wallblock_gravity(variable_list* l)
 {
-	l->gravity += 0.5;
-	if (l->gravity > 20)
-		l->gravity = 20;
+	l->gravity += 0.75 * l->coef_gravity;
+	if (l->gravity > 30 * l->coef_gravity)
+		l->gravity = 30 * l->coef_gravity;
 	l->p.y -= l->gravity;
 }
 
@@ -237,6 +237,12 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	player_move_list tmp;
 	int ts;
 
+	if (l->i.state[44] && l->p.player_size == 50 && l->p.jump_timer == 0 && l->gravity == 0) // space jump
+	{
+		l->p.jump_timer = 10;
+	}
+	else if (l->p.jump_timer > 0)
+		l->p.y += l->p.jump_timer--;
 	ft_event_playing_mode_player_wallblock_gravity(l);
 	ft_event_playing_mode_player_first_area_list(l, &tmp);
 	if (l->i.state[6] || tmp.save_py - tmp.save_ny <= 30)
@@ -251,10 +257,19 @@ void	ft_event_playing_mode_player_wallblock(variable_list* l)
 	}
 	else
 		l->p.player_size = 50;
+
+
+
 	if (tmp.save_py <= 10 && tmp.save_ny >= -l->p.player_size)
+	{
 		l->p.y += l->gravity;
+		l->p.jump_timer = 0;
+	}
 	else if (tmp.save_py <= 10)
+	{
 		l->p.y += tmp.save_py - 10;
+		l->p.jump_timer = 0;
+	}
 	else if (tmp.save_ny >= -l->p.player_size)
 	{
 		l->p.y += tmp.save_ny + l->p.player_size;
@@ -383,7 +398,7 @@ void	ft_event_playing_mode_player(variable_list* l)
 	ft_event_playing_mode_player_wallblock(l);
 	l->p.interact = 0;
 	if (l->i.state[8] &&
-		l->pixels_distance[WDW2][WDH2] < 50)
+		l->pixels_distance[WDW2][WDH2] < 60)
 	{
 		l->i.state[8] = 0;
 		group = l->t.group[l->pixels_triangle[WDW2][WDH2]];

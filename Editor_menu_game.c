@@ -12,7 +12,6 @@ void	ft_map_editor_game_parameters(variable_list* l)
 	ft_map_editor_game_parameter_npc_damage(l);
 	ft_map_editor_game_parameter_world(l);
 	ft_map_editor_game_parameter_world_gravity(l);
-	ft_map_editor_game_parameter_world_fall_damage(l);
 }
 
 void	ft_map_editor_game_actions(variable_list* l)
@@ -23,7 +22,6 @@ void	ft_map_editor_game_actions(variable_list* l)
 	ft_map_editor_game_action_npc_health(l);
 	ft_map_editor_game_action_npc_damage(l);
 	ft_map_editor_game_action_world_gravity(l);
-	ft_map_editor_game_action_world_fall_damage(l);
 }
 
 void	ft_map_editor_game(variable_list* l)

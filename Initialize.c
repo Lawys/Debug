@@ -407,6 +407,8 @@ void	ft_initialize_variables(variable_list* l)
 		l->t.texture_sides[l->triangle_number] = 0;
 		l->triangle_number++;
 
+
+		l->p.jump_timer = 0;
 }
 
 void	ft_initialize_SDL(variable_list* l)

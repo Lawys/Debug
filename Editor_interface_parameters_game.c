@@ -121,15 +121,3 @@ void	ft_map_editor_game_parameter_world_gravity(variable_list* l)
 	l->u.colors_on = l->me.color_white;
 	ft_put_text(l);
 }
-void	ft_map_editor_game_parameter_world_fall_damage(variable_list* l)
-{
-	l->u.str_address = "<FALL DAMAGE>";
-	l->u.wsx += 1;
-	l->u.action = ++l->action;
-	l->u.colors_on = l->me.color_green;
-	if (l->fall_damage)
-		l->u.colors = l->me.color_green;
-	else
-		l->u.colors = l->me.color_blue;
-	ft_put_text(l);
-}

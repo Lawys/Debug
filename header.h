@@ -279,6 +279,7 @@ typedef struct s_list_8
     int     start_ammo;
     int     start_item[9];
     int     interact;
+    int     jump_timer;
 
 }       player_list;
 typedef struct s_list_7
