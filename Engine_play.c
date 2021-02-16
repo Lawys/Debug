@@ -857,9 +857,15 @@ void	ft_engine_play_calculate_pixels_while_y_opacity_color(variable_list* l, s_e
 	l->pixels_distance[s->x][s->y] = s->t_d;
 	l->pixels_triangle[s->x][s->y] = s->t_s;
 	l->pixels_color[s->x][s->y] =
-		(int)(s->l * s->c[s->v] * s->o) + (int)((l->pixels_color[s->x][s->y] & 0xff) * (1 - s->o)) +
-		((int)(s->l * s->c[s->v + 1] * s->o) + (int)(((l->pixels_color[s->x][s->y] >> 8) & 0xff) * (1 - s->o))) * 256 +
-		((int)(s->l * s->c[s->v + 2] * s->o) + (int)(((l->pixels_color[s->x][s->y] >> 16) & 0xff) * (1 - s->o))) * 65536;
+		(int)(s->l * s->c[s->v] * s->o) +
+		(int)((l->pixels_color[s->x][s->y] & 0xff) *
+			(1 - s->o)) +
+		((int)(s->l * s->c[s->v + 1] * s->o) +
+			(int)(((l->pixels_color[s->x][s->y] >> 8) & 0xff) *
+				(1 - s->o))) * 256 +
+		((int)(s->l * s->c[s->v + 2] * s->o) +
+			(int)(((l->pixels_color[s->x][s->y] >> 16) & 0xff) *
+				(1 - s->o))) * 65536;
 }
 
 void	ft_engine_play_calculate_pixels_while_y_opacity(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
