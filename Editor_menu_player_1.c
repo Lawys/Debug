@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_player_parameters(variable_list* l)
+void		ft_map_editor_player_parameters(variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_player_parameter_start(l);
@@ -17,7 +17,7 @@ void		ft_map_editor_player_parameters(variable_list* l)
 	ft_map_editor_player_parameter_item_top_secret_box(l);
 }
 
-void		ft_map_editor_player_actions(variable_list* l)
+void		ft_map_editor_player_actions(variable_list *l)
 {
 	ft_map_editor_player_action_x(l);
 	ft_map_editor_player_action_y(l);
@@ -31,7 +31,7 @@ void		ft_map_editor_player_actions(variable_list* l)
 	ft_map_editor_player_action_item_top_secret_box(l);
 }
 
-void		ft_map_editor_player(variable_list* l)
+void		ft_map_editor_player(variable_list *l)
 {
 	if (l->action_select[0][5] == 1)
 	{

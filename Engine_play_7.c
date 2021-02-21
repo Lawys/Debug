@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_engine_play_calculate_me_opacity(variable_list* l, int i, int j)
+void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
 {
 	int area;
 
@@ -24,7 +24,7 @@ void		ft_engine_play_calculate_me_opacity(variable_list* l, int i, int j)
 	}
 }
 
-void		ft_engine_play_calculate_me(variable_list* l)
+void		ft_engine_play_calculate_me(variable_list *l)
 {
 	int i;
 	int j;
@@ -53,7 +53,7 @@ void		ft_engine_play_calculate_me(variable_list* l)
 	ft_engine_play_calculate_me_opacity(l, i, j);
 }
 
-void		ft_engine_play_calculate_p_opacity(variable_list* l, int i, int j)
+void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
 {
 	int area;
 
@@ -83,7 +83,7 @@ void		ft_engine_play_calculate_p_opacity(variable_list* l, int i, int j)
 	}
 }
 
-void		ft_engine_play_calculate_p(variable_list* l)
+void		ft_engine_play_calculate_p(variable_list *l)
 {
 	int i;
 	int j;
@@ -119,7 +119,7 @@ void		ft_engine_play_calculate_p(variable_list* l)
 }
 
 void		ft_engine_play_calculate_pixels_initialize_part_1
-(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 {
 	tmp->t_s = l->e.t_s;
 	tmp->t_n = l->e.t_normal;

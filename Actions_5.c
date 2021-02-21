@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_action_area(variable_list* l, int group, int c, char* str)
+void		ft_action_area(variable_list *l, int group, int c, char *str)
 {
 	double distance;
 	int value;
@@ -25,7 +25,7 @@ void		ft_action_area(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_exist(variable_list* l, int group, int c, char* str)
+void		ft_action_exist(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -40,7 +40,7 @@ void		ft_action_exist(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
+void		ft_action_xyzhvls(variable_list *l, int group, int c, char *str)
 {
 	if (ft_strings_compare(str, "ON>", c))
 		ft_action_on(l, group, c, str);
@@ -68,7 +68,7 @@ void		ft_action_xyzhvls(variable_list* l, int group, int c, char* str)
 		ft_action_exist(l, group, c, str);
 }
 
-void		ft_action_start_action_timer_positive(variable_list* l, int group, int c, char* str)
+void		ft_action_start_action_timer_positive(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -90,7 +90,7 @@ void		ft_action_start_action_timer_positive(variable_list* l, int group, int c, 
 	}
 }
 
-void		ft_action_start_action_timer_negative_key(variable_list* l, int group, int* c, char* str)
+void		ft_action_start_action_timer_negative_key(variable_list *l, int group, int *c, char *str)
 {
 	int value;
 

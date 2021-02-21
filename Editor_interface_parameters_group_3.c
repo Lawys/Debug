@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_parameter_position_size(variable_list* l)
+void		ft_map_editor_group_parameter_position_size(variable_list *l)
 {
 	l->u.str_address = "SIZE";
 	l->u.wsx += 1;
@@ -8,7 +8,7 @@ void		ft_map_editor_group_parameter_position_size(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_action(variable_list* l)
+void		ft_map_editor_group_parameter_action(variable_list *l)
 {
 	l->u.str_address = "ACTION";
 	l->u.wsx = 37;
@@ -19,7 +19,7 @@ void		ft_map_editor_group_parameter_action(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_enable(variable_list* l)
+void		ft_map_editor_group_parameter_enable(variable_list *l)
 {
 	l->u.wsx += 1;
 	l->u.action = ++l->action;
@@ -30,7 +30,7 @@ void		ft_map_editor_group_parameter_enable(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_disable(variable_list* l)
+void		ft_map_editor_group_parameter_disable(variable_list *l)
 {
 	l->u.wsx += 1;
 	l->u.action = ++l->action;
@@ -41,7 +41,7 @@ void		ft_map_editor_group_parameter_disable(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_flag(variable_list* l)
+void		ft_map_editor_group_parameter_flag(variable_list *l)
 {
 	l->u.str_address = "FLAG";
 	l->u.wsx = 37;

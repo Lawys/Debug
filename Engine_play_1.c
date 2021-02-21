@@ -1,11 +1,11 @@
 #include "header.h"
 
-void		ft_engine_calculate_triangles_distance(variable_list* l)
+void		ft_engine_calculate_triangles_distance(variable_list *l)
 {
 	int i;
 	int end;
-	double* address[4];
-	int* id;
+	double *address[4];
+	int *id;
 
 	i = 0;
 	end = l->triangle_number;
@@ -26,7 +26,7 @@ void		ft_engine_calculate_triangles_distance(variable_list* l)
 	}
 }
 
-void		ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z)
+void		ft_engine_set_x_y_z(variable_list *l, double *x, double *y, double *z)
 {
 	*x = l->e.xp * l->e.c_h + (l->e.zp) * l->e.s_h;
 	*z = -l->e.xp * l->e.s_h + (l->e.zp) * l->e.c_h;
@@ -35,7 +35,7 @@ void		ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z)
 	*y *= -1;
 }
 
-void		ft_engine_set_angles_value(variable_list* l)
+void		ft_engine_set_angles_value(variable_list *l)
 {
 	l->e.c_h = cos(l->p.h);
 	l->e.s_h = sin(l->p.h);
@@ -45,7 +45,7 @@ void		ft_engine_set_angles_value(variable_list* l)
 	l->e.s_l = sin(l->p.r);
 }
 
-void		ft_engine_set_triangles_points_sprite(variable_list* l, int ts)
+void		ft_engine_set_triangles_points_sprite(variable_list *l, int ts)
 {
 	double x;
 	double z;
@@ -72,7 +72,7 @@ void		ft_engine_set_triangles_points_sprite(variable_list* l, int ts)
 	ft_engine_set_x_y_z(l, &l->e.t_x3[ts], &l->e.t_y3[ts], &l->e.t_z3[ts]);
 }
 
-void		ft_engine_set_triangles_points(variable_list* l)
+void		ft_engine_set_triangles_points(variable_list *l)
 {
 	int ts;
 	int tn;

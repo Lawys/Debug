@@ -1,34 +1,34 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_action_texture_light(variable_list* l)
+void		ft_map_editor_triangle_action_texture_light(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_light[l->triangle_select],
 			0, 100);
 }
 
-void		ft_map_editor_triangle_action_texture_opacity(variable_list* l)
+void		ft_map_editor_triangle_action_texture_opacity(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_opacity[l->triangle_select],
 			10, 100);
 }
 
-void		ft_map_editor_triangle_action_texture_size_x(variable_list* l)
+void		ft_map_editor_triangle_action_texture_size_x(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_size_x[l->triangle_select],
 			-MAX_GENERIC, MAX_GENERIC);
 }
 
-void		ft_map_editor_triangle_action_texture_size_y(variable_list* l)
+void		ft_map_editor_triangle_action_texture_size_y(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_size_y[l->triangle_select],
 			-MAX_GENERIC, MAX_GENERIC);
 }
 
-void		ft_map_editor_triangle_action_texture_size_stretch(variable_list* l)
+void		ft_map_editor_triangle_action_texture_size_stretch(variable_list *l)
 {
 	double dist12;
 	double dist13;

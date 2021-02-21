@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_action_on(variable_list* l, int group, int c, char* str)
+void		ft_action_on(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -12,7 +12,7 @@ void		ft_action_on(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_off(variable_list* l, int group, int c, char* str)
+void		ft_action_off(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -24,13 +24,13 @@ void		ft_action_off(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_area_end(variable_list* l)
+void		ft_action_area_end(variable_list *l)
 {
 	if (l->p.item[5] == 2)
 		l->menu_mode = 4;
 }
 
-void		ft_action_area_loot(variable_list* l, int group, int c, char* str)
+void		ft_action_area_loot(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -43,7 +43,7 @@ void		ft_action_area_loot(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_area_heal(variable_list* l, int group, int c, char* str)
+void		ft_action_area_heal(variable_list *l, int group, int c, char *str)
 {
 	int value;
 

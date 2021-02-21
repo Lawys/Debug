@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_action_h(variable_list* l, int group, int c, char* str)
+void		ft_action_h(variable_list *l, int group, int c, char *str)
 {
 	double value;
 
@@ -14,7 +14,7 @@ void		ft_action_h(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_v_rotate(variable_list* l, int group)
+void		ft_action_v_rotate(variable_list *l, int group)
 {
 	int i;
 	double tmp;
@@ -41,7 +41,7 @@ void		ft_action_v_rotate(variable_list* l, int group)
 		}
 }
 
-void		ft_action_v(variable_list* l, int group, int c, char* str)
+void		ft_action_v(variable_list *l, int group, int c, char *str)
 {
 	double value;
 
@@ -55,7 +55,7 @@ void		ft_action_v(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_l_rotate(variable_list* l, int group)
+void		ft_action_l_rotate(variable_list *l, int group)
 {
 	int i;
 	double tmp;
@@ -82,7 +82,7 @@ void		ft_action_l_rotate(variable_list* l, int group)
 		}
 }
 
-void		ft_action_l(variable_list* l, int group, int c, char* str)
+void		ft_action_l(variable_list *l, int group, int c, char *str)
 {
 	double value;
 

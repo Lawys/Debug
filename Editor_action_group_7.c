@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_action_interact(variable_list* l)
+void		ft_map_editor_group_action_interact(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -14,7 +14,7 @@ void		ft_map_editor_group_action_interact(variable_list* l)
 	}
 }
 
-void		ft_map_editor_group_action_check_free_group(variable_list* l)
+void		ft_map_editor_group_action_check_free_group(variable_list *l)
 {
 	int i;
 
@@ -34,7 +34,7 @@ void		ft_map_editor_group_action_check_free_group(variable_list* l)
 	}
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_1(variable_list* l, int ts)
+void		ft_map_editor_group_action_create_npc_triangle_1(variable_list *l, int ts)
 {
 	l->t.area[ts] = 0;
 	l->t.group[ts] = l->me.new_group;
@@ -57,7 +57,7 @@ void		ft_map_editor_group_action_create_npc_triangle_1(variable_list* l, int ts)
 	l->t.texture_sides[ts] = 0;
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_2_shift(variable_list* l, int ts, int tn)
+void		ft_map_editor_group_action_create_npc_triangle_2_shift(variable_list *l, int ts, int tn)
 {
 	l->t.texture_shift_x[tn] = -(l->t.texture_shift_x[ts] +
 		sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
@@ -71,7 +71,7 @@ void		ft_map_editor_group_action_create_npc_triangle_2_shift(variable_list* l, i
 		l->t.texture_size_y[ts] / 100);
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_2(variable_list* l, int ts)
+void		ft_map_editor_group_action_create_npc_triangle_2(variable_list *l, int ts)
 {
 	int tn;
 

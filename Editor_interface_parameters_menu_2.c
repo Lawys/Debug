@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_menu_parameter_game(variable_list* l)
+void		ft_map_editor_menu_parameter_game(variable_list *l)
 {
 	l->u.str_address = "GAME";
 	l->u.wsx += 1;
@@ -8,7 +8,7 @@ void		ft_map_editor_menu_parameter_game(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_paint(variable_list* l)
+void		ft_map_editor_menu_parameter_paint(variable_list *l)
 {
 	l->u.str_address = "PAINT";
 	l->u.wsx = 4.5;
@@ -17,7 +17,7 @@ void		ft_map_editor_menu_parameter_paint(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_view_only(variable_list* l)
+void		ft_map_editor_menu_parameter_view_only(variable_list *l)
 {
 	l->u.str_address = "VIEW ONLY AREA";
 	l->u.wsx = 4.5;

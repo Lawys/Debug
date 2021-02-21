@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_paint_action_delete_set_values(variable_list* l)
+void		ft_map_editor_paint_action_delete_set_values(variable_list *l)
 {
 	int ts;
 	int tn;
@@ -28,7 +28,7 @@ void		ft_map_editor_paint_action_delete_set_values(variable_list* l)
 	l->t.texture_sides[ts] = l->t.texture_sides[tn];
 }
 
-void		ft_map_editor_paint_action_delete(variable_list* l)
+void		ft_map_editor_paint_action_delete(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -42,7 +42,7 @@ void		ft_map_editor_paint_action_delete(variable_list* l)
 	}
 }
 
-void		ft_map_editor_paint_action_texture(variable_list* l)
+void		ft_map_editor_paint_action_texture(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -55,7 +55,7 @@ void		ft_map_editor_paint_action_texture(variable_list* l)
 	}
 }
 
-void		ft_map_editor_paint_action_group(variable_list* l)
+void		ft_map_editor_paint_action_group(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -68,7 +68,7 @@ void		ft_map_editor_paint_action_group(variable_list* l)
 	}
 }
 
-void		ft_map_editor_paint_action_area(variable_list* l)
+void		ft_map_editor_paint_action_area(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

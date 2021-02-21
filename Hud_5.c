@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_play_item_2_animation_3(variable_list* l)
+void		ft_hud_play_item_2_animation_3(variable_list *l)
 {
 	if (l->p.animation_timer == 15)
 	{
@@ -27,7 +27,7 @@ void		ft_hud_play_item_2_animation_3(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2_animation_4(variable_list* l)
+void		ft_hud_play_item_2_animation_4(variable_list *l)
 {
 	l->u.tsx = 553;
 	l->u.tex = 1022;
@@ -37,7 +37,7 @@ void		ft_hud_play_item_2_animation_4(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2_animation_5(variable_list* l)
+void		ft_hud_play_item_2_animation_5(variable_list *l)
 {
 	l->u.tsx = 553;
 	l->u.tex = 1022;
@@ -47,7 +47,7 @@ void		ft_hud_play_item_2_animation_5(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2(variable_list* l)
+void		ft_hud_play_item_2(variable_list *l)
 {
 	int i;
 
@@ -80,7 +80,7 @@ void		ft_hud_play_item_2(variable_list* l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play_item_3(variable_list* l)
+void		ft_hud_play_item_3(variable_list *l)
 {
 	l->u.colors = l->texture_colors[34];
 	l->u.wsx = 40;

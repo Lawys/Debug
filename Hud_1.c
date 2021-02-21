@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_play_set_item_select(variable_list* l, int item)
+void		ft_hud_play_set_item_select(variable_list *l, int item)
 {
 	int i;
 
@@ -14,7 +14,7 @@ void		ft_hud_play_set_item_select(variable_list* l, int item)
 	l->p.item[item] = 2;
 }
 
-void		ft_hud_play_set_item_select_scroll_up(variable_list* l)
+void		ft_hud_play_set_item_select_scroll_up(variable_list *l)
 {
 	int i;
 
@@ -32,7 +32,7 @@ void		ft_hud_play_set_item_select_scroll_up(variable_list* l)
 		}
 }
 
-void		ft_hud_play_set_item_select_scroll_down(variable_list* l)
+void		ft_hud_play_set_item_select_scroll_down(variable_list *l)
 {
 	int i;
 
@@ -50,7 +50,7 @@ void		ft_hud_play_set_item_select_scroll_down(variable_list* l)
 		}
 }
 
-void		ft_hud_play_set_item_select_scroll(variable_list* l)
+void		ft_hud_play_set_item_select_scroll(variable_list *l)
 {
 	if (l->i.scroll_up)
 		ft_hud_play_set_item_select_scroll_up(l);
@@ -58,7 +58,7 @@ void		ft_hud_play_set_item_select_scroll(variable_list* l)
 		ft_hud_play_set_item_select_scroll_down(l);
 }
 
-void		ft_hud_play_item_0_animation_1(variable_list* l)
+void		ft_hud_play_item_0_animation_1(variable_list *l)
 {
 	if (l->i.mouse == 1)
 		l->p.animation_timer = 20;

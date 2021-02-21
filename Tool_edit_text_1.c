@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_text_editing(variable_list* l, char* str, int max)
+void		ft_text_editing(variable_list *l, char *str, int max)
 {
 	int i = 0;
 	while (str[i] != 0)

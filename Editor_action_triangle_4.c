@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_action_position_vdown(variable_list* l)
+void		ft_map_editor_triangle_action_position_vdown(variable_list *l)
 {
 	double tmp;
 	int ts;
@@ -25,7 +25,7 @@ void		ft_map_editor_triangle_action_position_vdown(variable_list* l)
 	l->t.y3[ts] = tmp;
 }
 
-void		ft_map_editor_triangle_action_position_v(variable_list* l)
+void		ft_map_editor_triangle_action_position_v(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action] == 1)
 	{
@@ -36,7 +36,7 @@ void		ft_map_editor_triangle_action_position_v(variable_list* l)
 	}
 }
 
-void		ft_map_editor_triangle_action_position_l_up(variable_list* l)
+void		ft_map_editor_triangle_action_position_l_up(variable_list *l)
 {
 	double tmp;
 	int ts;
@@ -61,7 +61,7 @@ void		ft_map_editor_triangle_action_position_l_up(variable_list* l)
 	l->t.y3[ts] = tmp;
 }
 
-void		ft_map_editor_triangle_action_position_l_down(variable_list* l)
+void		ft_map_editor_triangle_action_position_l_down(variable_list *l)
 {
 	double tmp;
 	int ts;
@@ -86,7 +86,7 @@ void		ft_map_editor_triangle_action_position_l_down(variable_list* l)
 	l->t.y3[ts] = tmp;
 }
 
-void		ft_map_editor_triangle_action_position_l(variable_list* l)
+void		ft_map_editor_triangle_action_position_l(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action] == 1)
 	{

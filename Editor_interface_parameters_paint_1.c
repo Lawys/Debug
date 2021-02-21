@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_paint_parameter_mode(variable_list* l)
+void		ft_map_editor_paint_parameter_mode(variable_list *l)
 {
 	l->u.str_address = "MODE";
 	l->u.wsx = 37;
@@ -12,7 +12,7 @@ void		ft_map_editor_paint_parameter_mode(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_delete(variable_list* l)
+void		ft_map_editor_paint_parameter_delete(variable_list *l)
 {
 	l->u.str_address = "DELETE";
 	l->u.wsx += 1;
@@ -23,7 +23,7 @@ void		ft_map_editor_paint_parameter_delete(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_texture(variable_list* l)
+void		ft_map_editor_paint_parameter_texture(variable_list *l)
 {
 	l->u.str_address = "TEXTURE";
 	l->u.wsx += 1;
@@ -41,7 +41,7 @@ void		ft_map_editor_paint_parameter_texture(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_group(variable_list* l)
+void		ft_map_editor_paint_parameter_group(variable_list *l)
 {
 	l->u.str_address = "GROUP";
 	l->u.wsx += 1;
@@ -59,7 +59,7 @@ void		ft_map_editor_paint_parameter_group(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_area(variable_list* l)
+void		ft_map_editor_paint_parameter_area(variable_list *l)
 {
 	l->u.str_address = "AREA";
 	l->u.wsx += 1;

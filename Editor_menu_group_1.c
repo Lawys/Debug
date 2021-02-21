@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_parameters(variable_list* l)
+void		ft_map_editor_group_parameters(variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_group_parameter_group(l);
@@ -28,7 +28,7 @@ void		ft_map_editor_group_parameters(variable_list* l)
 	ft_map_editor_group_parameter_delete(l);
 }
 
-void		ft_map_editor_group_actions(variable_list* l)
+void		ft_map_editor_group_actions(variable_list *l)
 {
 	ft_map_editor_group_action_select_group(l);
 	ft_map_editor_group_action_switch_group(l);
@@ -50,7 +50,7 @@ void		ft_map_editor_group_actions(variable_list* l)
 	ft_map_editor_group_action_delete(l);
 }
 
-void		ft_map_editor_group(variable_list* l)
+void		ft_map_editor_group(variable_list *l)
 {
 	if (l->action_select[0][3] == 1 && l->group_select != -1)
 	{

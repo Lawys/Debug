@@ -1,7 +1,7 @@
 #include "header.h"
 
 void		ft_engine_play_calculate_triangle_line_1_2
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];
@@ -24,7 +24,7 @@ void		ft_engine_play_calculate_triangle_line_1_2
 }
 
 void		ft_engine_play_calculate_triangle_line_1_3
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];
@@ -47,7 +47,7 @@ void		ft_engine_play_calculate_triangle_line_1_3
 }
 
 void		ft_engine_play_calculate_triangle_line_2_3
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];
@@ -70,7 +70,7 @@ void		ft_engine_play_calculate_triangle_line_2_3
 }
 
 void		ft_engine_play_calculate_triangle_line_1_4
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];
@@ -93,7 +93,7 @@ void		ft_engine_play_calculate_triangle_line_1_4
 }
 
 void		ft_engine_play_calculate_triangle_line_2_4
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];

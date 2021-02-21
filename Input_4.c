@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_event_playing_mode_player_wallblock_move_while_2(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_wallblock_move_while_2(variable_list *l, player_move_list *tmp)
 {
 	tmp->vx = -10;
 	tmp->vz = -10;
@@ -28,7 +28,7 @@ void		ft_event_playing_mode_player_wallblock_move_while_2(variable_list* l, play
 	ft_event_playing_mode_player_vector_intersection(l, tmp);
 }
 
-void		ft_event_playing_mode_player_wallblock_move_while_3(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_wallblock_move_while_3(variable_list *l, player_move_list *tmp)
 {
 	tmp->vx = -10;
 	tmp->vz = 0;
@@ -56,7 +56,7 @@ void		ft_event_playing_mode_player_wallblock_move_while_3(variable_list* l, play
 	ft_event_playing_mode_player_vector_intersection(l, tmp);
 }
 
-void		ft_event_playing_mode_player_wallblock_move(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_wallblock_move(variable_list *l, player_move_list *tmp)
 {
 	int ts;
 
@@ -76,7 +76,7 @@ void		ft_event_playing_mode_player_wallblock_move(variable_list* l, player_move_
 	}
 }
 
-void		ft_event_playing_mode_player_wallblock(variable_list* l)
+void		ft_event_playing_mode_player_wallblock(variable_list *l)
 {
 	player_move_list tmp;
 
@@ -96,7 +96,7 @@ void		ft_event_playing_mode_player_wallblock(variable_list* l)
 	}
 }
 
-void		ft_event_playing_mode_player(variable_list* l)
+void		ft_event_playing_mode_player(variable_list *l)
 {
 	int group;
 

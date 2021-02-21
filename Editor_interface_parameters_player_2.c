@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_player_parameter_item(variable_list* l)
+void		ft_map_editor_player_parameter_item(variable_list *l)
 {
 	l->u.str_address = "ITEM";
 	l->u.wsx = 37;
@@ -12,7 +12,7 @@ void		ft_map_editor_player_parameter_item(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_player_parameter_item_bare_hands(variable_list* l)
+void		ft_map_editor_player_parameter_item_bare_hands(variable_list *l)
 {
 	l->u.str_address = "<BARE HANDS>";
 	l->u.wsx += 1;
@@ -25,7 +25,7 @@ void		ft_map_editor_player_parameter_item_bare_hands(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_player_parameter_item_pistol(variable_list* l)
+void		ft_map_editor_player_parameter_item_pistol(variable_list *l)
 {
 	l->u.str_address = "<PISTOL>";
 	l->u.action = ++l->action;
@@ -37,7 +37,7 @@ void		ft_map_editor_player_parameter_item_pistol(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_player_parameter_item_grenade(variable_list* l)
+void		ft_map_editor_player_parameter_item_grenade(variable_list *l)
 {
 	l->u.str_address = "<GRENADE>";
 	l->u.action = ++l->action;
@@ -49,7 +49,7 @@ void		ft_map_editor_player_parameter_item_grenade(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_player_parameter_item_telecommand(variable_list* l)
+void		ft_map_editor_player_parameter_item_telecommand(variable_list *l)
 {
 	l->u.str_address = "<TELECOMMAND>";
 	l->u.action = ++l->action;

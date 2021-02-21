@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_action_s_up(variable_list* l, int group, double value)
+void		ft_action_s_up(variable_list *l, int group, double value)
 {
 	int i;
 
@@ -22,7 +22,7 @@ void		ft_action_s_up(variable_list* l, int group, double value)
 		}
 }
 
-void		ft_action_s_do(variable_list* l, int group, double value)
+void		ft_action_s_do(variable_list *l, int group, double value)
 {
 	int i;
 
@@ -44,7 +44,7 @@ void		ft_action_s_do(variable_list* l, int group, double value)
 		}
 }
 
-void		ft_action_s_replace(variable_list* l, int group)
+void		ft_action_s_replace(variable_list *l, int group)
 {
 	double xyz[3];
 	double p[3];
@@ -73,7 +73,7 @@ void		ft_action_s_replace(variable_list* l, int group)
 		}
 }
 
-void		ft_action_size(variable_list* l, int group, int c, char* str)
+void		ft_action_size(variable_list *l, int group, int c, char *str)
 {
 	double value;
 
@@ -90,7 +90,7 @@ void		ft_action_size(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_texture(variable_list* l, int group, int c, char* str)
+void		ft_action_texture(variable_list *l, int group, int c, char *str)
 {
 	double value;
 	int i;

@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_paint_action_opacity(variable_list* l)
+void		ft_map_editor_paint_action_opacity(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -13,7 +13,7 @@ void		ft_map_editor_paint_action_opacity(variable_list* l)
 	}
 }
 
-void		ft_map_editor_paint_action_light(variable_list* l)
+void		ft_map_editor_paint_action_light(variable_list *l)
 
 {
 	if (l->action_select[l->menu_select][++l->action])

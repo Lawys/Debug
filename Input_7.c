@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_event_map_editor_mode_moving_y(variable_list* l)
+void		ft_event_map_editor_mode_moving_y(variable_list *l)
 {
 	if (l->i.state[20])
 		l->p.y += l->p.speed;
@@ -8,7 +8,7 @@ void		ft_event_map_editor_mode_moving_y(variable_list* l)
 		l->p.y -= l->p.speed;
 }
 
-void		ft_event_map_editor_mode(variable_list* l)
+void		ft_event_map_editor_mode(variable_list *l)
 {
 	l->p.speed = 4;
 	ft_event_map_editor_mode_motion(l);
@@ -17,7 +17,7 @@ void		ft_event_map_editor_mode(variable_list* l)
 	ft_event_map_editor_mode_select_on_click(l);
 }
 
-void		ft_events_init(variable_list* l)
+void		ft_events_init(variable_list *l)
 {
 	l->i.scroll_up = 0;
 	l->i.scroll_down = 0;
@@ -45,7 +45,7 @@ void		ft_events_init(variable_list* l)
 
 }
 
-void		ft_events(variable_list* l)
+void		ft_events(variable_list *l)
 {
 	ft_events_init(l);
 	if (l->i.state[SDL_SCANCODE_ESCAPE] || l->event.type == SDL_QUIT)

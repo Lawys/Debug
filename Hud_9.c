@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_main_menu_play(variable_list* l)
+void		ft_hud_main_menu_play(variable_list *l)
 {
 	int i;
 
@@ -25,7 +25,7 @@ void		ft_hud_main_menu_play(variable_list* l)
 	l->menu_mode = 1;
 }
 
-void		ft_hud_main_menu_editor(variable_list* l)
+void		ft_hud_main_menu_editor(variable_list *l)
 {
 	int i;
 
@@ -36,7 +36,7 @@ void		ft_hud_main_menu_editor(variable_list* l)
 	l->menu_mode = 2;
 }
 
-void		ft_hud_main_menu(variable_list* l)
+void		ft_hud_main_menu(variable_list *l)
 {
 	ft_hud_main_menu_display(l);
 	if (l->i.mouse == 1 && l->i.mouse_time_pressing == 1)

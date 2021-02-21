@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_triangle(variable_list* l)
+void		ft_map_editor_triangle_parameter_triangle(variable_list *l)
 {
 	l->u.str_address = "TRIANGLE";
 	l->u.wsx = 37;
@@ -12,7 +12,7 @@ void		ft_map_editor_triangle_parameter_triangle(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_triangle_id(variable_list* l)
+void		ft_map_editor_triangle_parameter_triangle_id(variable_list *l)
 {
 	l->u.str_address = "ID";
 	l->u.wsx += 1;
@@ -30,7 +30,7 @@ void		ft_map_editor_triangle_parameter_triangle_id(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_area(variable_list* l)
+void		ft_map_editor_triangle_parameter_area(variable_list *l)
 {
 	l->u.str_address = "AREA";
 	l->u.wsx += 1;
@@ -48,7 +48,7 @@ void		ft_map_editor_triangle_parameter_area(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_group(variable_list* l)
+void		ft_map_editor_triangle_parameter_group(variable_list *l)
 {
 	l->u.str_address = "GROUP";
 	l->u.wsx += 1;
@@ -66,7 +66,7 @@ void		ft_map_editor_triangle_parameter_group(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position(variable_list* l)
+void		ft_map_editor_triangle_parameter_position(variable_list *l)
 {
 	l->u.str_address = "POSITION";
 	l->u.wsx = 37;

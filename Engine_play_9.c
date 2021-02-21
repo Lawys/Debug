@@ -1,7 +1,7 @@
 #include "header.h"
 
 void		ft_engine_play_calculate_pixels_while_y_opacity
-(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *s)
 {
 	while (++s->y <= s->my)
 	{
@@ -26,7 +26,7 @@ void		ft_engine_play_calculate_pixels_while_y_opacity
 	}
 }
 
-void		ft_engine_play_calculate_pixels_opacity(variable_list* l)
+void		ft_engine_play_calculate_pixels_opacity(variable_list *l)
 {
 	s_engine_play_calculate_pixels_tmp tmp;
 
@@ -45,7 +45,7 @@ void		ft_engine_play_calculate_pixels_opacity(variable_list* l)
 	}
 }
 
-void		ft_engine_play_p(variable_list* l)
+void		ft_engine_play_p(variable_list *l)
 {
 	ft_engine_set_angles_value(l);
 	ft_engine_set_triangles_points(l);
@@ -55,7 +55,7 @@ void		ft_engine_play_p(variable_list* l)
 	l->pixels_color[WDW2][WDH2] = 0x00FF00;
 }
 
-void		ft_engine_play_me(variable_list* l)
+void		ft_engine_play_me(variable_list *l)
 {
 	ft_engine_set_angles_value(l);
 	ft_engine_set_triangles_points(l);

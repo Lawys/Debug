@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_game_parameter_npc(variable_list* l)
+void		ft_map_editor_game_parameter_npc(variable_list *l)
 {
 	l->u.str_address = "NPC";
 	l->u.wsx = 37;
@@ -12,7 +12,7 @@ void		ft_map_editor_game_parameter_npc(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_npc_health(variable_list* l)
+void		ft_map_editor_game_parameter_npc_health(variable_list *l)
 {
 	l->u.str_address = "HEALTH";
 	l->u.wsx += 1;
@@ -30,7 +30,7 @@ void		ft_map_editor_game_parameter_npc_health(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_npc_damage(variable_list* l)
+void		ft_map_editor_game_parameter_npc_damage(variable_list *l)
 {
 	l->u.str_address = "DAMAGE";
 	l->u.wsx += 1;
@@ -48,7 +48,7 @@ void		ft_map_editor_game_parameter_npc_damage(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_world(variable_list* l)
+void		ft_map_editor_game_parameter_world(variable_list *l)
 {
 	l->u.str_address = "WORLD";
 	l->u.wsx = 37;
@@ -60,7 +60,7 @@ void		ft_map_editor_game_parameter_world(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_world_gravity(variable_list* l)
+void		ft_map_editor_game_parameter_world_gravity(variable_list *l)
 {
 	l->u.str_address = "GRAVITY";
 	l->u.wsx += 1;

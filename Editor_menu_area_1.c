@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_area_parameters(variable_list* l)
+void		ft_map_editor_area_parameters(variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_area_parameter_area(l);
@@ -21,7 +21,7 @@ void		ft_map_editor_area_parameters(variable_list* l)
 	ft_map_editor_area_parameter_delete(l);
 }
 
-void		ft_map_editor_area_actions(variable_list* l)
+void		ft_map_editor_area_actions(variable_list *l)
 {
 	ft_map_editor_area_action_select_area(l);
 	ft_map_editor_area_action_switch_area(l);
@@ -37,7 +37,7 @@ void		ft_map_editor_area_actions(variable_list* l)
 	ft_map_editor_area_action_delete(l);
 }
 
-void		ft_map_editor_area(variable_list* l)
+void		ft_map_editor_area(variable_list *l)
 {
 	if (l->action_select[0][2] == 1 && l->area_select != -1)
 	{

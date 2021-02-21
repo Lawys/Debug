@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_action_position_z(variable_list* l)
+void		ft_map_editor_group_action_position_z(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -11,7 +11,7 @@ void		ft_map_editor_group_action_position_z(variable_list* l)
 	}
 }
 
-void		ft_map_editor_group_action_position_calculate_center(variable_list* l)
+void		ft_map_editor_group_action_position_calculate_center(variable_list *l)
 {
 	int c;
 	int i;
@@ -37,7 +37,7 @@ void		ft_map_editor_group_action_position_calculate_center(variable_list* l)
 	l->me.z = l->me.z / c;
 }
 
-void		ft_map_editor_group_action_position_h_up(variable_list* l)
+void		ft_map_editor_group_action_position_h_up(variable_list *l)
 {
 	double tmp;
 	int i;
@@ -66,7 +66,7 @@ void		ft_map_editor_group_action_position_h_up(variable_list* l)
 		}
 }
 
-void		ft_map_editor_group_action_position_h_down(variable_list* l)
+void		ft_map_editor_group_action_position_h_down(variable_list *l)
 {
 	double tmp;
 	int i;
@@ -95,7 +95,7 @@ void		ft_map_editor_group_action_position_h_down(variable_list* l)
 		}
 }
 
-void		ft_map_editor_group_action_position_h(variable_list* l)
+void		ft_map_editor_group_action_position_h(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

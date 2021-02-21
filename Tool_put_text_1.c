@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_put_text_texture_initialize(variable_list* l, utility_list* tmp)
+void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp)
 {
 	int i;
 
@@ -29,7 +29,7 @@ void		ft_put_text_texture_initialize(variable_list* l, utility_list* tmp)
 	}
 }
 
-void		ft_put_text_texture_while(variable_list* l, utility_list* tmp, int x, int y)
+void		ft_put_text_texture_while(variable_list *l, utility_list *tmp, int x, int y)
 {
 	int value;
 	int xf;
@@ -53,7 +53,7 @@ void		ft_put_text_texture_while(variable_list* l, utility_list* tmp, int x, int 
 	}
 }
 
-void		ft_put_text_texture_action(variable_list* l, utility_list* tmp)
+void		ft_put_text_texture_action(variable_list *l, utility_list *tmp)
 {
 	int i;
 
@@ -85,7 +85,7 @@ void		ft_put_text_texture_action(variable_list* l, utility_list* tmp)
 	}
 }
 
-void		ft_put_text_texture(variable_list* l, utility_list* tmp)
+void		ft_put_text_texture(variable_list *l, utility_list *tmp)
 {
 	int x;
 	int y;
@@ -103,7 +103,7 @@ void		ft_put_text_texture(variable_list* l, utility_list* tmp)
 	}
 }
 
-void		ft_put_text(variable_list* l)
+void		ft_put_text(variable_list *l)
 {
 	int i;
 	utility_list tmp;

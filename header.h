@@ -74,11 +74,11 @@ typedef struct s_list_14
     double ttshy;
     double l;
     double o;
-    Uint32* p;
-    int* t_id;
-    unsigned char* c;
-    double* fy;
-    double* ly;
+    Uint32 *p;
+    int *t_id;
+    unsigned char *c;
+    double *fy;
+    double *ly;
     double s;
     int ss;
     int x;
@@ -178,7 +178,7 @@ typedef struct s_list_12
     double sizex;
     double sizey;
     double size;
-    char* colors;
+    char *colors;
     double tsx;
     double tsy;
     double wsx;
@@ -195,10 +195,10 @@ typedef struct s_list_11
     double y;
     double z;
     double angle;
-    char* color_white;
-    char* color_blue;
-    char* color_red;
-    char* color_green;
+    char *color_white;
+    char *color_blue;
+    char *color_red;
+    char *color_green;
     int xf;
     int yf;
     int area_switch_value;
@@ -223,9 +223,9 @@ typedef struct s_list_10
     double frametime;
     double old_time;
     unsigned char str[15];
-    unsigned char* str_address;
-    unsigned char* colors;
-    unsigned char* colors_on;
+    unsigned char *str_address;
+    unsigned char *colors;
+    unsigned char *colors_on;
     int action;
     int tsx;
     int tex;
@@ -235,7 +235,7 @@ typedef struct s_list_10
 
 typedef struct s_list_9
 {
-    Uint8* state;
+    Uint8 *state;
     int save_mouse_x;
     int save_mouse_y;
     int mouse;
@@ -363,9 +363,9 @@ typedef struct s_list_2
 typedef struct s_list_1
 {
     SDL_Event event;
-    SDL_Window* window;
-    SDL_Surface* window_surface;
-    Uint32* pixels;
+    SDL_Window *window;
+    SDL_Surface *window_surface;
+    Uint32 *pixels;
     triangle_list t;
     group_list g;
     engine_list e;
@@ -419,363 +419,363 @@ typedef struct s_list_1
     unsigned char		texture_colors[49][1024 * 1024 * 4];
 }   variable_list;
 
-void		ft_engine_play_calculate_pixels_opacity(variable_list* l);
-void		ft_engine_calculate_triangles_distance(variable_list* l);
+void		ft_engine_play_calculate_pixels_opacity(variable_list *l);
+void		ft_engine_calculate_triangles_distance(variable_list *l);
 
-void		ft_engine_set_x_y_z(variable_list* l, double* x, double* y, double* z);
+void		ft_engine_set_x_y_z(variable_list *l, double *x, double *y, double *z);
 
-void		ft_engine_set_angles_value(variable_list* l);
+void		ft_engine_set_angles_value(variable_list *l);
 
-void		ft_engine_set_triangles_points(variable_list* l);
+void		ft_engine_set_triangles_points(variable_list *l);
 
-int ft_engine_play_calculate_skip_triangles_behind_player(variable_list* l);
+int ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l);
 
-void		ft_engine_play_calculate_initialize_points_vectors_normals(variable_list* l);
+void		ft_engine_play_calculate_initialize_points_vectors_normals(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_ref_1(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_ref_1(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_ref_2(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_ref_2(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_ref_3(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_ref_3(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front_no_ref(variable_list* l);
+void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l);
 
-void		ft_engine_play_calculate_points_to_front(variable_list* l);
+void		ft_engine_play_calculate_points_to_front(variable_list *l);
 
-void		ft_engine_play_calculate_pixel_points(variable_list* l);
+void		ft_engine_play_calculate_pixel_points(variable_list *l);
 
-void		ft_engine_play_calculate_pixel_points_p4(variable_list* l);
+void		ft_engine_play_calculate_pixel_points_p4(variable_list *l);
 
-void		ft_engine_play_calculate_pixels_switch(variable_list* l);
+void		ft_engine_play_calculate_pixels_switch(variable_list *l);
 
-void		ft_engine_play_calculate_pixels_switch_p4(variable_list* l);
+void		ft_engine_play_calculate_pixels_switch_p4(variable_list *l);
 
-void		ft_engine_play_calculate_min_max_x_limits(variable_list* l);
+void		ft_engine_play_calculate_min_max_x_limits(variable_list *l);
 
-void		ft_engine_play_calculate_min_max_x_p4(variable_list* l);
+void		ft_engine_play_calculate_min_max_x_p4(variable_list *l);
 
-void		ft_engine_play_calculate_min_max_x(variable_list* l);
+void		ft_engine_play_calculate_min_max_x(variable_list *l);
 
-void		ft_engine_play_calculate_triangle_line_1_2(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_1_2(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_line_1_3(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_1_3(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_line_2_3(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_2_3(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_line_1_4(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_1_4(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_line_2_4(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_2_4(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_line_3_4(variable_list* l, int i, double* first_y, double* last_y);
+void		ft_engine_play_calculate_triangle_line_3_4(variable_list *l, int i, double *first_y, double *last_y);
 
-void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list* l);
+void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list *l);
 
-void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list* l);
+void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l);
 
-void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list* l);
+void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l);
 
-void		ft_engine_play_calculate_pixels_initialize_part_1(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp);
+void		ft_engine_play_calculate_pixels_initialize_part_1(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp);
 
-void		ft_engine_play_calculate_pixels_initialize_part_2(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp);
+void		ft_engine_play_calculate_pixels_initialize_part_2(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp);
 
-void		ft_engine_play_calculate_pixels_y_initialize(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp);
+void		ft_engine_play_calculate_pixels_y_initialize(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp);
 
-void		ft_engine_play_calculate_pixels_distance(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp);
+void		ft_engine_play_calculate_pixels_distance(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp);
 
-void		ft_engine_play_calculate_pixels_color(s_engine_play_calculate_pixels_tmp* tmp);
+void		ft_engine_play_calculate_pixels_color(s_engine_play_calculate_pixels_tmp *tmp);
 
-void		ft_engine_play_calculate_pixels(variable_list* l);
+void		ft_engine_play_calculate_pixels(variable_list *l);
 
-void		ft_engine_play_calculate_if_appear(variable_list* l);
+void		ft_engine_play_calculate_if_appear(variable_list *l);
 
-void		ft_engine_play_calculate(variable_list* l);
+void		ft_engine_play_calculate(variable_list *l);
 
-void		ft_engine_play(variable_list* l);
-void		ft_map_editor_tool_set_mult(variable_list* l);
+void		ft_engine_play(variable_list *l);
+void		ft_map_editor_tool_set_mult(variable_list *l);
 
-void		ft_map_editor_menu_background(variable_list* l);
+void		ft_map_editor_menu_background(variable_list *l);
 
-void		ft_map_editor_submenu_background(variable_list* l);
+void		ft_map_editor_submenu_background(variable_list *l);
 
-void		ft_map_editor_menu_parameters(variable_list* l);
+void		ft_map_editor_menu_parameters(variable_list *l);
 
-void		ft_map_editor_menu(variable_list* l);
+void		ft_map_editor_menu(variable_list *l);
 
-void		ft_map_editor(variable_list* l);
+void		ft_map_editor(variable_list *l);
 
-void TMP_map_editor_save_map(variable_list* l);
+void TMP_map_editor_save_map(variable_list *l);
 
-void TMP_map_editor_clean_errors(variable_list* l);
+void TMP_map_editor_clean_errors(variable_list *l);
 
-void		ft_initialize_variables(variable_list* l);
+void		ft_initialize_variables(variable_list *l);
 
-void		ft_initialize_SDL(variable_list* l);
+void		ft_initialize_SDL(variable_list *l);
 
-void		ft_read_all(variable_list* l);
+void		ft_read_all(variable_list *l);
 
-void		ft_reset_arrays(variable_list* l);
+void		ft_reset_arrays(variable_list *l);
 
-void		ft_map_reader(variable_list* l);
+void		ft_map_reader(variable_list *l);
 
-void		ft_engine_set_window_blue_border_triangle(variable_list* l);
+void		ft_engine_set_window_blue_border_triangle(variable_list *l);
 
-void		ft_engine_set_window_red_border_area(variable_list* l);
+void		ft_engine_set_window_red_border_area(variable_list *l);
 
-void		ft_engine_set_window_green_border_group(variable_list* l);
+void		ft_engine_set_window_green_border_group(variable_list *l);
 
-void		ft_loop(variable_list* l);
+void		ft_loop(variable_list *l);
 
-void		ft_event_playing_mode_motion(variable_list* l);
+void		ft_event_playing_mode_motion(variable_list *l);
 
-void		ft_event_playing_mode_player_line_plan_t(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_player_line_plan_t(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_line_plan_u(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_player_line_plan_u(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_line_plan_v(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_player_line_plan_v(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_vector_intersection(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_player_vector_intersection(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_triangle_init(variable_list* l, player_move_list* tmp, int ts);
+void		ft_event_playing_mode_player_triangle_init(variable_list *l, player_move_list *tmp, int ts);
 
-void		ft_event_playing_mode_triangle_line_plan_t(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_triangle_line_plan_t(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_triangle_line_plan_u(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_triangle_line_plan_u(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_triangle_line_plan_v(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_triangle_line_plan_v(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_triangle_vector_intersection(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_triangle_vector_intersection(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_wallblock_triangle_init(player_move_list* tmp);
+void		ft_event_playing_mode_player_wallblock_triangle_init(player_move_list *tmp);
 
-void		ft_event_playing_mode_player_wallblock_init(variable_list* l, player_move_list* tmp);
+void		ft_event_playing_mode_player_wallblock_init(variable_list *l, player_move_list *tmp);
 
-void		ft_event_playing_mode_player_wallblock_gravity(variable_list* l);
+void		ft_event_playing_mode_player_wallblock_gravity(variable_list *l);
 
-void		ft_event_playing_mode_player_wallblock(variable_list* l);
+void		ft_event_playing_mode_player_wallblock(variable_list *l);
 
-void		ft_event_playing_mode_player_crawl_or_squat(variable_list* l);
+void		ft_event_playing_mode_player_crawl_or_squat(variable_list *l);
 
-void		ft_event_playing_mode_player(variable_list* l);
+void		ft_event_playing_mode_player(variable_list *l);
 
-void		ft_event_playing_mode(variable_list* l);
+void		ft_event_playing_mode(variable_list *l);
 
-void		ft_event_map_editor_mode_motion_right_click_on(variable_list* l);
+void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l);
 
-void		ft_event_map_editor_mode_motion_right_click_off(variable_list* l);
+void		ft_event_map_editor_mode_motion_right_click_off(variable_list *l);
 
-void		ft_event_map_editor_mode_motion(variable_list* l);
+void		ft_event_map_editor_mode_motion(variable_list *l);
 
-void		ft_event_map_editor_mode_moving(variable_list* l);
+void		ft_event_map_editor_mode_moving(variable_list *l);
 
-void		ft_event_map_editor_mode_mouse_time_pressing_counter(variable_list* l);
+void		ft_event_map_editor_mode_mouse_time_pressing_counter(variable_list *l);
 
-void		ft_event_map_editor_mode_select_triangle(variable_list* l);
+void		ft_event_map_editor_mode_select_triangle(variable_list *l);
 
-void		ft_event_map_editor_mode_select_area(variable_list* l);
+void		ft_event_map_editor_mode_select_area(variable_list *l);
 
-void		ft_event_map_editor_mode_select_group(variable_list* l);
+void		ft_event_map_editor_mode_select_group(variable_list *l);
 
-void		ft_event_map_editor_mode_select_on_click(variable_list* l);
+void		ft_event_map_editor_mode_select_on_click(variable_list *l);
 
-void		ft_event_map_editor_mode_moving_y(variable_list* l);
+void		ft_event_map_editor_mode_moving_y(variable_list *l);
 
-void		ft_event_map_editor_mode(variable_list* l);
+void		ft_event_map_editor_mode(variable_list *l);
 
-void		ft_events(variable_list* l);
-void		ft_free_and_exit(variable_list* l, const char* str);
+void		ft_events(variable_list *l);
+void		ft_free_and_exit(variable_list *l, const char *str);
 
-void		ft_get_time(variable_list* l);
+void		ft_get_time(variable_list *l);
 
-void		ft_img_reader(variable_list* l);
+void		ft_img_reader(variable_list *l);
 
-double ft_atoi_while(variable_list* l, char* str, int* i);
+double ft_atoi_while(variable_list *l, char *str, int *i);
 
-double ft_atoi(variable_list* l, char* str, int* i);
+double ft_atoi(variable_list *l, char *str, int *i);
 
-int ft_itoa(variable_list* l, double number, char* str);
+int ft_itoa(variable_list *l, double number, char *str);
 
-void		ft_swap_nbr(int* k, double* t, int i, int j);
+void		ft_swap_nbr(int *k, double *t, int i, int j);
 
-void		ft_quick_sort(int* k, double* t, int size);
-void		ft_map_editor_menu_parameter_triangle(variable_list* l);
+void		ft_quick_sort(int *k, double *t, int size);
+void		ft_map_editor_menu_parameter_triangle(variable_list *l);
 
-void		ft_map_editor_menu_parameter_area(variable_list* l);
+void		ft_map_editor_menu_parameter_area(variable_list *l);
 
-void		ft_map_editor_menu_parameter_group(variable_list* l);
+void		ft_map_editor_menu_parameter_group(variable_list *l);
 
-void		ft_map_editor_menu_parameter_light(variable_list* l);
+void		ft_map_editor_menu_parameter_light(variable_list *l);
 
-void		ft_map_editor_menu_parameter_npc(variable_list* l);
+void		ft_map_editor_menu_parameter_npc(variable_list *l);
 
-void		ft_map_editor_menu_parameter_no_block(variable_list* l);
+void		ft_map_editor_menu_parameter_no_block(variable_list *l);
 
-void		ft_map_editor_menu_parameter_player(variable_list* l);
+void		ft_map_editor_menu_parameter_player(variable_list *l);
 
-void		ft_map_editor_menu_parameter_game(variable_list* l);
+void		ft_map_editor_menu_parameter_game(variable_list *l);
 
-void		ft_map_editor_menu_parameter_paint(variable_list* l);
+void		ft_map_editor_menu_parameter_paint(variable_list *l);
 
-void TMP_map_editor_menu_parameter_save_map(variable_list* l);
+void TMP_map_editor_menu_parameter_save_map(variable_list *l);
 
-void TMP_map_editor_menu_parameter_clean_errors(variable_list* l);
+void TMP_map_editor_menu_parameter_clean_errors(variable_list *l);
 
-void		ft_put_texture_initialize(variable_list* l, utility_list* tmp);
+void		ft_put_texture_initialize(variable_list *l, utility_list *tmp);
 
-void		ft_put_texture_while(variable_list* l, utility_list* tmp, int x, int y);
+void		ft_put_texture_while(variable_list *l, utility_list *tmp, int x, int y);
 
-void		ft_put_texture_action(variable_list* l, utility_list* tmp);
+void		ft_put_texture_action(variable_list *l, utility_list *tmp);
 
-void		ft_put_texture(variable_list* l);
+void		ft_put_texture(variable_list *l);
 
-void		ft_put_text_texture_initialize(variable_list* l, utility_list* tmp);
+void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp);
 
-void		ft_put_text_texture_while(variable_list* l, utility_list* tmp, int x, int y);
+void		ft_put_text_texture_while(variable_list *l, utility_list *tmp, int x, int y);
 
-void		ft_put_text_texture_action(variable_list* l, utility_list* tmp);
+void		ft_put_text_texture_action(variable_list *l, utility_list *tmp);
 
-void		ft_put_text_texture(variable_list* l, utility_list* tmp);
+void		ft_put_text_texture(variable_list *l, utility_list *tmp);
 
-void		ft_put_text(variable_list* l);
-void		ft_map_editor_triangle_parameters(variable_list* l);
+void		ft_put_text(variable_list *l);
+void		ft_map_editor_triangle_parameters(variable_list *l);
 
-void		ft_map_editor_triangle_actions(variable_list* l);
+void		ft_map_editor_triangle_actions(variable_list *l);
 
-void		ft_map_editor_triangle(variable_list* l);
+void		ft_map_editor_triangle(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_triangle(variable_list* l);
+void		ft_map_editor_triangle_parameter_triangle(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_triangle_id(variable_list* l);
+void		ft_map_editor_triangle_parameter_triangle_id(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_area(variable_list* l);
+void		ft_map_editor_triangle_parameter_area(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_group(variable_list* l);
+void		ft_map_editor_triangle_parameter_group(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position(variable_list* l);
+void		ft_map_editor_triangle_parameter_position(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_x_all(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_x_all(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_y_all(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_y_all(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_z_all(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_z_all(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_size(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_size(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_rotation(variable_list* l);
+void		ft_map_editor_triangle_parameter_rotation(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_h(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_h(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_v(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_v(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_l(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_l(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_x_1(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_x_1(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_y_1(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_y_1(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_z_1(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_z_1(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_x_2(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_x_2(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_y_2(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_y_2(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_z_2(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_z_2(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_x_3(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_x_3(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_y_3(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_y_3(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_position_z_3(variable_list* l);
+void		ft_map_editor_triangle_parameter_position_z_3(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_id(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_id(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_light(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_light(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_opacity(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_opacity(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_x(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_x(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_y(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_y(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_shift(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_shift(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_shift_x(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_shift_x(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_shift_y(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_shift_y(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_adapt(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_adapt(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_stretch(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_stretch(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_repeat(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_repeat(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_adapt_x(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_adapt_x(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_size_adapt_y(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_size_adapt_y(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_sides(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_sides(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_options(variable_list* l);
+void		ft_map_editor_triangle_parameter_options(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_create_new(variable_list* l);
+void		ft_map_editor_triangle_parameter_create_new(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_create_square(variable_list* l);
+void		ft_map_editor_triangle_parameter_create_square(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_duplicate(variable_list* l);
+void		ft_map_editor_triangle_parameter_duplicate(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_delete(variable_list* l);
+void		ft_map_editor_triangle_parameter_delete(variable_list *l);
 
-void		ft_map_editor_triangle_parameter_texture_view(variable_list* l);
+void		ft_map_editor_triangle_parameter_texture_view(variable_list *l);
 
-int ft_strings_compare(char* line, char* word, int c);
+int ft_strings_compare(char *line, char *word, int c);
 
-void		ft_action_x(variable_list* l, int group, int c, char* str);
+void		ft_action_x(variable_list *l, int group, int c, char *str);
 
-void		ft_action_y(variable_list* l, int group, int c, char* str);
+void		ft_action_y(variable_list *l, int group, int c, char *str);
 
-void		ft_action_z(variable_list* l, int group, int c, char* str);
+void		ft_action_z(variable_list *l, int group, int c, char *str);
 
-void		ft_action_calculate_center(variable_list* l, int group);
+void		ft_action_calculate_center(variable_list *l, int group);
 
-void		ft_action_h_rotate(variable_list* l, int group);
+void		ft_action_h_rotate(variable_list *l, int group);
 
-void		ft_action_h(variable_list* l, int group, int c, char* str);
+void		ft_action_h(variable_list *l, int group, int c, char *str);
 
-void		ft_action_v_rotate(variable_list* l, int group);
+void		ft_action_v_rotate(variable_list *l, int group);
 
-void		ft_action_v(variable_list* l, int group, int c, char* str);
+void		ft_action_v(variable_list *l, int group, int c, char *str);
 
-void		ft_action_l_rotate(variable_list* l, int group);
+void		ft_action_l_rotate(variable_list *l, int group);
 
-void		ft_action_l(variable_list* l, int group, int c, char* str);
+void		ft_action_l(variable_list *l, int group, int c, char *str);
 
-void		ft_action_s_up(variable_list* l, int group, double value);
+void		ft_action_s_up(variable_list *l, int group, double value);
 
-void		ft_action_s_do(variable_list* l, int group, double value);
+void		ft_action_s_do(variable_list *l, int group, double value);
 
-void		ft_action_s_replace(variable_list* l, int group);
+void		ft_action_s_replace(variable_list *l, int group);
 
-void		ft_action_size(variable_list* l, int group, int c, char* str);
+void		ft_action_size(variable_list *l, int group, int c, char *str);
 
-void		ft_action_xyzhvls(variable_list* l, int group, int c, char* str);
+void		ft_action_xyzhvls(variable_list *l, int group, int c, char *str);
 
-void		ft_action_start(variable_list* l, int group, int c, char* str);
+void		ft_action_start(variable_list *l, int group, int c, char *str);
 
-void		ft_action(variable_list* l);
+void		ft_action(variable_list *l);
 #endif
 

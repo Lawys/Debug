@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_play_life(variable_list* l)
+void		ft_hud_play_life(variable_list *l)
 {
 	l->u.colors = l->texture_colors[38];
 	l->u.tsx = 0;
@@ -28,7 +28,7 @@ void		ft_hud_play_life(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_hud_play_items_1(variable_list* l)
+void		ft_hud_play_items_1(variable_list *l)
 {
 	l->u.tsx = 0;
 	l->u.tex = 128;
@@ -53,7 +53,7 @@ void		ft_hud_play_items_1(variable_list* l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play_items_2(variable_list* l)
+void		ft_hud_play_items_2(variable_list *l)
 {
 	l->u.tsx = 386;
 	l->u.tex = 513;
@@ -78,7 +78,7 @@ void		ft_hud_play_items_2(variable_list* l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play(variable_list* l)
+void		ft_hud_play(variable_list *l)
 {
 	if (l->p.hp <= 0)
 	{
@@ -106,7 +106,7 @@ void		ft_hud_play(variable_list* l)
 	ft_hud_play_items_2(l);
 }
 
-void		ft_hud_main_menu_display(variable_list* l)
+void		ft_hud_main_menu_display(variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[32];

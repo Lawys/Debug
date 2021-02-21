@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_player_parameter_item_access_card(variable_list* l)
+void		ft_map_editor_player_parameter_item_access_card(variable_list *l)
 {
 	l->u.str_address = "<ACCESS CARD>";
 	l->u.wsx = 37;
@@ -14,7 +14,7 @@ void		ft_map_editor_player_parameter_item_access_card(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_player_parameter_item_top_secret_box(variable_list* l)
+void		ft_map_editor_player_parameter_item_top_secret_box(variable_list *l)
 {
 	l->u.str_address = "<TOP SECRET BOX>";
 	l->u.action = ++l->action;

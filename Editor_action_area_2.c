@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_area_action_position_y_up(variable_list* l)
+void		ft_map_editor_area_action_position_y_up(variable_list *l)
 {
 	int i;
 
@@ -17,7 +17,7 @@ void		ft_map_editor_area_action_position_y_up(variable_list* l)
 	}
 }
 
-void		ft_map_editor_area_action_position_y_down(variable_list* l)
+void		ft_map_editor_area_action_position_y_down(variable_list *l)
 {
 	int i;
 
@@ -34,7 +34,7 @@ void		ft_map_editor_area_action_position_y_down(variable_list* l)
 	}
 }
 
-void		ft_map_editor_area_action_position_y(variable_list* l)
+void		ft_map_editor_area_action_position_y(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -45,7 +45,7 @@ void		ft_map_editor_area_action_position_y(variable_list* l)
 	}
 }
 
-void		ft_map_editor_area_action_position_z_up(variable_list* l)
+void		ft_map_editor_area_action_position_z_up(variable_list *l)
 {
 	int i;
 
@@ -62,7 +62,7 @@ void		ft_map_editor_area_action_position_z_up(variable_list* l)
 	}
 }
 
-void		ft_map_editor_area_action_position_z_down(variable_list* l)
+void		ft_map_editor_area_action_position_z_down(variable_list *l)
 {
 	int i;
 

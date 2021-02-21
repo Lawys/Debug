@@ -1,13 +1,13 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_action_texture_sides(variable_list* l)
+void		ft_map_editor_triangle_action_texture_sides(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_int(l, &l->t.texture_sides[l->triangle_select],
 			-1, 1);
 }
 
-void		ft_map_editor_triangle_action_create_new_set_values(variable_list* l)
+void		ft_map_editor_triangle_action_create_new_set_values(variable_list *l)
 {
 	int tn;
 
@@ -34,7 +34,7 @@ void		ft_map_editor_triangle_action_create_new_set_values(variable_list* l)
 	l->triangle_select = tn;
 }
 
-void		ft_map_editor_triangle_action_create_new(variable_list* l)
+void		ft_map_editor_triangle_action_create_new(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -48,7 +48,7 @@ void		ft_map_editor_triangle_action_create_new(variable_list* l)
 	}
 }
 
-void		ft_map_editor_triangle_action_create_square_set_values_shift(variable_list* l, int tn, int ts)
+void		ft_map_editor_triangle_action_create_square_set_values_shift(variable_list *l, int tn, int ts)
 {
 	l->t.texture_shift_x[tn] = -(l->t.texture_shift_x[ts] +
 		sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
@@ -62,7 +62,7 @@ void		ft_map_editor_triangle_action_create_square_set_values_shift(variable_list
 		l->t.texture_size_y[ts] / 100);
 }
 
-void		ft_map_editor_triangle_action_create_square_set_values(variable_list* l, int tn)
+void		ft_map_editor_triangle_action_create_square_set_values(variable_list *l, int tn)
 {
 	int ts;
 

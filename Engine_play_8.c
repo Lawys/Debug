@@ -1,7 +1,7 @@
 #include "header.h"
 
 void		ft_engine_play_calculate_pixels_initialize_part_2
-(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 {
 	int ts;
 
@@ -27,7 +27,7 @@ void		ft_engine_play_calculate_pixels_initialize_part_2
 }
 
 void		ft_engine_play_calculate_pixels_initialize_part_3
-(variable_list* l, s_engine_play_calculate_pixels_tmp* tmp)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 {
 	double center;
 	int ts;
@@ -57,7 +57,7 @@ void		ft_engine_play_calculate_pixels_initialize_part_3
 }
 
 void		ft_engine_play_calculate_pixels_while_y
-(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *s)
 {
 	while (++s->y <= s->my)
 	{
@@ -86,7 +86,7 @@ void		ft_engine_play_calculate_pixels_while_y
 	}
 }
 
-void		ft_engine_play_calculate_pixels(variable_list* l)
+void		ft_engine_play_calculate_pixels(variable_list *l)
 {
 	s_engine_play_calculate_pixels_tmp tmp;
 
@@ -106,7 +106,7 @@ void		ft_engine_play_calculate_pixels(variable_list* l)
 }
 
 void		ft_engine_play_calculate_pixels_while_y_opacity_color
-(variable_list* l, s_engine_play_calculate_pixels_tmp* s)
+(variable_list *l, s_engine_play_calculate_pixels_tmp *s)
 {
 	l->pixels_distance[s->x][s->y] = s->t_d;
 	l->pixels_triangle[s->x][s->y] = s->t_s;

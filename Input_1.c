@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_event_playing_mode_motion(variable_list* l)
+void		ft_event_playing_mode_motion(variable_list *l)
 {
 	l->p.h += (((double)WDW2) - l->i.mouse_x) / 360;
 	l->p.v += (((double)WDH2) - l->i.mouse_y) / 360;
@@ -11,7 +11,7 @@ void		ft_event_playing_mode_motion(variable_list* l)
 		l->p.v = -M_PI / 2 + M_PI / 45;
 }
 
-void		ft_event_playing_mode_player_line_plan_t(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_line_plan_t(variable_list *l, player_move_list *tmp)
 {
 	tmp->t =
 		(tmp->nx * (l->p.x - tmp->p1x) +
@@ -22,7 +22,7 @@ void		ft_event_playing_mode_player_line_plan_t(variable_list* l, player_move_lis
 			-tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_line_plan_u(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_line_plan_u(variable_list *l, player_move_list *tmp)
 {
 	tmp->u =
 		((-tmp->vy * tmp->p02z - -tmp->vz * tmp->p02y) *
@@ -36,7 +36,7 @@ void		ft_event_playing_mode_player_line_plan_u(variable_list* l, player_move_lis
 			tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_line_plan_v(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_line_plan_v(variable_list *l, player_move_list *tmp)
 {
 	tmp->v =
 		((tmp->p01y * -tmp->vz - tmp->p01z * -tmp->vy) *
@@ -50,7 +50,7 @@ void		ft_event_playing_mode_player_line_plan_v(variable_list* l, player_move_lis
 			tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_vector_intersection(variable_list* l, player_move_list* tmp)
+void		ft_event_playing_mode_player_vector_intersection(variable_list *l, player_move_list *tmp)
 {
 	double x;
 	double y;

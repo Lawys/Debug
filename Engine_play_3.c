@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l)
 {
 	double t;
 	double x;
@@ -18,7 +18,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list* l)
 	l->e.tmp_z1 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l)
 {
 	double t;
 	double x;
@@ -36,7 +36,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list* l)
 	l->e.tmp_z1 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l)
 {
 	double t;
 	double x;
@@ -54,7 +54,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list* l)
 	l->e.tmp_z2 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l)
 {
 	double t;
 	double x;
@@ -72,7 +72,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list* l)
 	l->e.tmp_z2 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list *l)
 {
 	double t;
 	double x;

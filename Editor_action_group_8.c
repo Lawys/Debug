@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_action_create_npc(variable_list* l)
+void		ft_map_editor_group_action_create_npc(variable_list *l)
 {
 	int ts;
 
@@ -21,7 +21,7 @@ void		ft_map_editor_group_action_create_npc(variable_list* l)
 	}
 }
 
-void		ft_map_editor_group_action_duplicate_set_values(variable_list* l, int ts)
+void		ft_map_editor_group_action_duplicate_set_values(variable_list *l, int ts)
 {
 	int tn;
 
@@ -47,7 +47,7 @@ void		ft_map_editor_group_action_duplicate_set_values(variable_list* l, int ts)
 	l->t.texture_sides[tn] = l->t.texture_sides[ts];
 }
 
-void		ft_map_editor_group_action_duplicate(variable_list* l)
+void		ft_map_editor_group_action_duplicate(variable_list *l)
 {
 	int ts;
 
@@ -72,7 +72,7 @@ void		ft_map_editor_group_action_duplicate(variable_list* l)
 	}
 }
 
-void		ft_map_editor_group_action_delete_set_values(variable_list* l, int ts)
+void		ft_map_editor_group_action_delete_set_values(variable_list *l, int ts)
 {
 	int tn;
 
@@ -98,7 +98,7 @@ void		ft_map_editor_group_action_delete_set_values(variable_list* l, int ts)
 	l->t.texture_sides[ts] = l->t.texture_sides[tn];
 }
 
-void		ft_map_editor_group_action_delete(variable_list* l)
+void		ft_map_editor_group_action_delete(variable_list *l)
 {
 	int ts;
 

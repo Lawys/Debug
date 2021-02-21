@@ -1,6 +1,6 @@
 ﻿#include "header.h"
 
-void		ft_map_editor_tool_set_mult(variable_list* l)
+void		ft_map_editor_tool_set_mult(variable_list *l)
 {
 	l->me.mult = 100;
 	if (l->i.state[225])
@@ -12,7 +12,7 @@ void		ft_map_editor_tool_set_mult(variable_list* l)
 		
 }
 
-void		ft_map_editor_menu_background(variable_list* l)
+void		ft_map_editor_menu_background(variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[16];
@@ -29,7 +29,7 @@ void		ft_map_editor_menu_background(variable_list* l)
 
 }
 
-void		ft_map_editor_submenu_background(variable_list* l)
+void		ft_map_editor_submenu_background(variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[16];
@@ -45,7 +45,7 @@ void		ft_map_editor_submenu_background(variable_list* l)
 	ft_put_texture(l);
 }
 
-void		ft_map_editor_menu(variable_list* l)
+void		ft_map_editor_menu(variable_list *l)
 {
 	if (l->action_select[0][0] == 1)
 	{
@@ -74,7 +74,7 @@ void		ft_map_editor_menu(variable_list* l)
 	}
 }
 
-void		ft_map_editor(variable_list* l)
+void		ft_map_editor(variable_list *l)
 {
 	l->writing_mode = 0;
 	ft_map_editor_tool_set_mult(l);
@@ -88,7 +88,7 @@ void		ft_map_editor(variable_list* l)
 }
 
 /*
-void	TMP_map_editor_save_map(variable_list* l)
+void	TMP_map_editor_save_map(variable_list *l)
 {
 	if (l->action_select[0][9] == 1)
 	{

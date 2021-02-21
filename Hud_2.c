@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_play_item_0_animation_2(variable_list* l)
+void		ft_hud_play_item_0_animation_2(variable_list *l)
 {
 	l->u.tex = 362;
 	l->u.tsy = 583;
@@ -9,7 +9,7 @@ void		ft_hud_play_item_0_animation_2(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_3(variable_list* l)
+void		ft_hud_play_item_0_animation_3(variable_list *l)
 {
 	if (l->p.animation_timer == 15 && l->pixels_triangle[WDW2][WDH2] > 11
 		&& l->g.npc[l->t.group[l->pixels_triangle[WDW2][WDH2]]] &&
@@ -24,7 +24,7 @@ void		ft_hud_play_item_0_animation_3(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_4(variable_list* l)
+void		ft_hud_play_item_0_animation_4(variable_list *l)
 {
 	l->u.tex = 362;
 	l->u.tsy = 583;
@@ -33,7 +33,7 @@ void		ft_hud_play_item_0_animation_4(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_5(variable_list* l)
+void		ft_hud_play_item_0_animation_5(variable_list *l)
 {
 	l->u.tex = 270;
 	l->u.tsy = 436;
@@ -42,7 +42,7 @@ void		ft_hud_play_item_0_animation_5(variable_list* l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0(variable_list* l)
+void		ft_hud_play_item_0(variable_list *l)
 {
 	l->u.colors = l->texture_colors[35];
 	l->u.wsx = 0;

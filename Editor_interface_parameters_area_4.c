@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_area_parameter_link4(variable_list* l)
+void		ft_map_editor_area_parameter_link4(variable_list *l)
 {
 	ft_itoa(l, l->link4[l->area_select], l->me.str);
 	l->u.action = ++l->action;
@@ -8,7 +8,7 @@ void		ft_map_editor_area_parameter_link4(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link5(variable_list* l)
+void		ft_map_editor_area_parameter_link5(variable_list *l)
 {
 	ft_itoa(l, l->link5[l->area_select], l->me.str);
 	l->u.action = ++l->action;
@@ -16,7 +16,7 @@ void		ft_map_editor_area_parameter_link5(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link6(variable_list* l)
+void		ft_map_editor_area_parameter_link6(variable_list *l)
 {
 	ft_itoa(l, l->link6[l->area_select], l->me.str);
 	l->u.action = ++l->action;
@@ -24,7 +24,7 @@ void		ft_map_editor_area_parameter_link6(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_options(variable_list* l)
+void		ft_map_editor_area_parameter_options(variable_list *l)
 {
 	l->u.str_address = "OPTIONS";
 	l->u.wsx = 37;
@@ -36,7 +36,7 @@ void		ft_map_editor_area_parameter_options(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_delete(variable_list* l)
+void		ft_map_editor_area_parameter_delete(variable_list *l)
 {
 	l->u.str_address = "<DELETE>";
 	l->u.wsx += 0.5;

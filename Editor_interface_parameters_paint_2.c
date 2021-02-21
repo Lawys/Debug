@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_paint_parameter_opacity(variable_list* l)
+void		ft_map_editor_paint_parameter_opacity(variable_list *l)
 {
 	l->u.str_address = "OPACITY";
 	l->u.wsx = 37;
@@ -19,7 +19,7 @@ void		ft_map_editor_paint_parameter_opacity(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_light(variable_list* l)
+void		ft_map_editor_paint_parameter_light(variable_list *l)
 {
 	l->u.str_address = "LIGHT";
 	l->u.wsx += 1;

@@ -1,7 +1,7 @@
 #include "header.h"
 
 void		ft_engine_play_calculate_triangle_line_3_4
-(variable_list* l, int i, double* first_y, double* last_y)
+(variable_list *l, int i, double *first_y, double *last_y)
 {
 	double x[2];
 	double y[2];
@@ -23,12 +23,12 @@ void		ft_engine_play_calculate_triangle_line_3_4
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list* l)
+void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list *l)
 {
 	int x;
 	double max_x;
-	double* first_y;
-	double* last_y;
+	double *first_y;
+	double *last_y;
 	int check;
 
 	x = (int)(l->e.min_x - 1.);
@@ -50,12 +50,12 @@ void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list* l)
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list* l)
+void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l)
 {
 	int x;
 	int max_x;
-	double* first_y;
-	double* last_y;
+	double *first_y;
+	double *last_y;
 
 	x = (int)(l->e.min_x - 1);
 	max_x = (int)l->e.max_x;
@@ -75,12 +75,12 @@ void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list* l)
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list* l)
+void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l)
 {
 	int x;
 	double max_x;
-	double* first_y;
-	double* last_y;
+	double *first_y;
+	double *last_y;
 
 	x = (int)(l->e.min_x - 1.);
 	max_x = l->e.max_x;
@@ -99,7 +99,7 @@ void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list* l)
 	}
 }
 
-void		ft_engine_play_calculate_if_appear(variable_list* l)
+void		ft_engine_play_calculate_if_appear(variable_list *l)
 {
 	l->e.ref = 0;
 	ft_engine_play_calculate_points_to_front(l);

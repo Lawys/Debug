@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_position_y_3(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_y_3(variable_list *l)
 {
 	l->u.str_address = "Y";
 	l->u.wsx += 1;
@@ -18,7 +18,7 @@ void		ft_map_editor_triangle_parameter_position_y_3(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_z_3(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_z_3(variable_list *l)
 {
 	l->u.str_address = "Z";
 	l->u.wsx += 1;
@@ -36,7 +36,7 @@ void		ft_map_editor_triangle_parameter_position_z_3(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture(variable_list *l)
 {
 	l->u.str_address = "TEXTURE";
 	l->u.wsx = 37;
@@ -48,7 +48,7 @@ void		ft_map_editor_triangle_parameter_texture(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_id(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_id(variable_list *l)
 {
 	l->u.str_address = "ID";
 	l->u.wsx += 1;
@@ -66,7 +66,7 @@ void		ft_map_editor_triangle_parameter_texture_id(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_light(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_light(variable_list *l)
 {
 	l->u.str_address = "LIGHT";
 	l->u.wsx += 1;

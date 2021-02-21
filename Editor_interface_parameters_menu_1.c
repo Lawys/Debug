@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_menu_parameter_triangle(variable_list* l)
+void		ft_map_editor_menu_parameter_triangle(variable_list *l)
 {
 	l->u.str_address = "TRIANGLE";
 	l->u.wsx = 4.5;
@@ -12,7 +12,7 @@ void		ft_map_editor_menu_parameter_triangle(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_area(variable_list* l)
+void		ft_map_editor_menu_parameter_area(variable_list *l)
 {
 	l->u.str_address = "AREA";
 	l->u.wsx += 1;
@@ -20,7 +20,7 @@ void		ft_map_editor_menu_parameter_area(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_group(variable_list* l)
+void		ft_map_editor_menu_parameter_group(variable_list *l)
 {
 	l->u.str_address = "GROUP";
 	l->u.wsx += 1;
@@ -28,7 +28,7 @@ void		ft_map_editor_menu_parameter_group(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_light(variable_list* l)
+void		ft_map_editor_menu_parameter_light(variable_list *l)
 {
 	l->u.str_address = "LIGHT";
 	l->u.wsx = 4.5;
@@ -38,7 +38,7 @@ void		ft_map_editor_menu_parameter_light(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_menu_parameter_player(variable_list* l)
+void		ft_map_editor_menu_parameter_player(variable_list *l)
 {
 	l->u.str_address = "PLAYER";
 	l->u.wsx += 1;

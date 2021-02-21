@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_value_editing_double(variable_list* l, double* value, int min, int max)
+void		ft_value_editing_double(variable_list *l, double *value, int min, int max)
 {
 	int i;
 

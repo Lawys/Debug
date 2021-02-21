@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_action_start_action_timer_negative_time(variable_list* l, int group, int c, char* str)
+void		ft_action_start_action_timer_negative_time(variable_list *l, int group, int c, char *str)
 {
 	int value;
 
@@ -12,7 +12,7 @@ void		ft_action_start_action_timer_negative_time(variable_list* l, int group, in
 	}
 }
 
-void		ft_action_start(variable_list* l, int group, int c, char* str)
+void		ft_action_start(variable_list *l, int group, int c, char *str)
 {
 	if (l->g.action_timer[group] >= 0)
 		ft_action_start_action_timer_positive(l, group, c, str);
@@ -36,7 +36,7 @@ void		ft_action_start(variable_list* l, int group, int c, char* str)
 	}
 }
 
-void		ft_action_enable(variable_list* l, int group)
+void		ft_action_enable(variable_list *l, int group)
 {
 	int c;
 
@@ -49,7 +49,7 @@ void		ft_action_enable(variable_list* l, int group)
 			l->g.action_statement[group] = 0;
 }
 
-void		ft_action_disable(variable_list* l, int group)
+void		ft_action_disable(variable_list *l, int group)
 {
 	int c;
 
@@ -62,7 +62,7 @@ void		ft_action_disable(variable_list* l, int group)
 			l->g.action_statement[group] = 1;
 }
 
-void		ft_action(variable_list* l)
+void		ft_action(variable_list *l)
 {
 	int group;
 

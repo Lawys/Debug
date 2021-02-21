@@ -1,20 +1,20 @@
 #include "header.h"
 
-void		ft_value_editing_double_wheel_up(variable_list* l, double* value, int max)
+void		ft_value_editing_double_wheel_up(variable_list *l, double *value, int max)
 {
 	*value += l->me.mult;
 	if (*value > max)
 		*value = max;
 }
 
-void		ft_value_editing_double_wheel_down(variable_list* l, double* value, int min)
+void		ft_value_editing_double_wheel_down(variable_list *l, double *value, int min)
 {
 	*value -= l->me.mult;
 	if (*value < min)
 		*value = min;
 }
 
-void		ft_value_editing_double_set_number(variable_list* l, double* value, int min, int max, int i)
+void		ft_value_editing_double_set_number(variable_list *l, double *value, int min, int max, int i)
 {
 	int result;
 
@@ -40,7 +40,7 @@ void		ft_value_editing_double_set_number(variable_list* l, double* value, int mi
 		*value = min;
 }
 
-void		ft_value_editing_double_remove_number(variable_list* l, double* value, int min, int max, int i)
+void		ft_value_editing_double_remove_number(variable_list *l, double *value, int min, int max, int i)
 {
 	int result;
 
@@ -68,7 +68,7 @@ void		ft_value_editing_double_remove_number(variable_list* l, double* value, int
 	l->i.state[42] = 0;
 }
 
-void		ft_value_editing_double_set_negativ(variable_list* l, double* value, int min, int max, int i)
+void		ft_value_editing_double_set_negativ(variable_list *l, double *value, int min, int max, int i)
 {
 	*value *= -1;
 	if (*value > max)

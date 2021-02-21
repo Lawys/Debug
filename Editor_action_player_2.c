@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_player_action_item_pistol(variable_list* l)
+void		ft_map_editor_player_action_item_pistol(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -12,7 +12,7 @@ void		ft_map_editor_player_action_item_pistol(variable_list* l)
 	}
 }
 
-void		ft_map_editor_player_action_item_grenade(variable_list* l)
+void		ft_map_editor_player_action_item_grenade(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -24,7 +24,7 @@ void		ft_map_editor_player_action_item_grenade(variable_list* l)
 	}
 }
 
-void		ft_map_editor_player_action_item_telecommand(variable_list* l)
+void		ft_map_editor_player_action_item_telecommand(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -36,7 +36,7 @@ void		ft_map_editor_player_action_item_telecommand(variable_list* l)
 	}
 }
 
-void		ft_map_editor_player_action_item_access_card(variable_list* l)
+void		ft_map_editor_player_action_item_access_card(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -48,7 +48,7 @@ void		ft_map_editor_player_action_item_access_card(variable_list* l)
 	}
 }
 
-void		ft_map_editor_player_action_item_top_secret_box(variable_list* l)
+void		ft_map_editor_player_action_item_top_secret_box(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

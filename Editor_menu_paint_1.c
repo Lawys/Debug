@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_paint_parameters(variable_list* l)
+void		ft_map_editor_paint_parameters(variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_paint_parameter_mode(l);
@@ -12,7 +12,7 @@ void		ft_map_editor_paint_parameters(variable_list* l)
 	ft_map_editor_paint_parameter_light(l);
 }
 
-void		ft_map_editor_paint_actions(variable_list* l)
+void		ft_map_editor_paint_actions(variable_list *l)
 {
 	ft_map_editor_paint_action_delete(l);
 	ft_map_editor_paint_action_texture(l);
@@ -22,7 +22,7 @@ void		ft_map_editor_paint_actions(variable_list* l)
 	ft_map_editor_paint_action_light(l);
 }
 
-void		ft_map_editor_paint(variable_list* l)
+void		ft_map_editor_paint(variable_list *l)
 {
 	if (l->action_select[0][7] == 1)
 	{

@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_atoi_while_p2(variable_list* l, char* str, int* i, double* result_decimal)
+void		ft_atoi_while_p2(variable_list *l, char *str, int *i, double *result_decimal)
 {
 	double	c;
 
@@ -14,7 +14,7 @@ void		ft_atoi_while_p2(variable_list* l, char* str, int* i, double* result_decim
 	}
 }
 
-double ft_atoi_while(variable_list* l, char* str, int* i)
+double ft_atoi_while(variable_list *l, char *str, int *i)
 {
 	double	result;
 	double	result_decimal;
@@ -39,7 +39,7 @@ double ft_atoi_while(variable_list* l, char* str, int* i)
 	return (result);
 }
 
-double ft_atoi(variable_list* l, char* str, int* i)
+double ft_atoi(variable_list *l, char *str, int *i)
 {
 	double result;
 	int inc;
@@ -57,7 +57,7 @@ double ft_atoi(variable_list* l, char* str, int* i)
 	return(result);
 }
 
-void		ft_itoa_naturals(variable_list* l, double number, char* str, int* i)
+void		ft_itoa_naturals(variable_list *l, double number, char *str, int *i)
 {
 	int result;
 	int c;
@@ -78,7 +78,7 @@ void		ft_itoa_naturals(variable_list* l, double number, char* str, int* i)
 	}
 }
 
-void		ft_itoa_decimals(variable_list* l, double number, char* str, int* i)
+void		ft_itoa_decimals(variable_list *l, double number, char *str, int *i)
 {
 	int d;
 	int c;

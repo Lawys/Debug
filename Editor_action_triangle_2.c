@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_action_position_z_all(variable_list* l)
+void		ft_map_editor_triangle_action_position_z_all(variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -13,7 +13,7 @@ void		ft_map_editor_triangle_action_position_z_all(variable_list* l)
 	}
 }
 
-void		ft_map_editor_triangle_action_position_calculate_center(variable_list* l)
+void		ft_map_editor_triangle_action_position_calculate_center(variable_list *l)
 {
 	int ts;
 
@@ -23,7 +23,7 @@ void		ft_map_editor_triangle_action_position_calculate_center(variable_list* l)
 	l->me.z = (l->t.z1[ts] + l->t.z2[ts] + l->t.z3[ts]) / 3;
 }
 
-void		ft_map_editor_triangle_action_position_size_recall(variable_list* l)
+void		ft_map_editor_triangle_action_position_size_recall(variable_list *l)
 {
 	int ts;
 	double x;
@@ -45,7 +45,7 @@ void		ft_map_editor_triangle_action_position_size_recall(variable_list* l)
 	l->t.z3[ts] -= z;
 }
 
-void		ft_map_editor_triangle_action_position_size_up(variable_list* l)
+void		ft_map_editor_triangle_action_position_size_up(variable_list *l)
 {
 	int ts;
 	ft_map_editor_triangle_action_position_calculate_center(l);
@@ -64,7 +64,7 @@ void		ft_map_editor_triangle_action_position_size_up(variable_list* l)
 	ft_map_editor_triangle_action_position_size_recall(l);
 }
 
-void		ft_map_editor_triangle_action_position_size_down(variable_list* l)
+void		ft_map_editor_triangle_action_position_size_down(variable_list *l)
 {
 	int ts;
 

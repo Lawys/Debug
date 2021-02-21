@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_texture_opacity(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_opacity(variable_list *l)
 {
 	l->u.str_address = "OPACITY";
 	l->u.wsx += 1;
@@ -18,7 +18,7 @@ void		ft_map_editor_triangle_parameter_texture_opacity(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_size(variable_list *l)
 {
 	l->u.str_address = "SIZE";
 	l->u.wsx = 37;
@@ -30,7 +30,7 @@ void		ft_map_editor_triangle_parameter_texture_size(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size_x(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_size_x(variable_list *l)
 {
 	l->u.str_address = "X";
 	l->u.wsx += 1;
@@ -48,7 +48,7 @@ void		ft_map_editor_triangle_parameter_texture_size_x(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size_y(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_size_y(variable_list *l)
 {
 	l->u.str_address = "Y";
 	l->u.wsx += 1;
@@ -66,7 +66,7 @@ void		ft_map_editor_triangle_parameter_texture_size_y(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_shift(variable_list* l)
+void		ft_map_editor_triangle_parameter_texture_shift(variable_list *l)
 {
 	l->u.str_address = "SHIFT";
 	l->u.wsx += 1;

@@ -1,13 +1,13 @@
 #include "header.h"
 
-void		ft_event_playing_mode(variable_list* l)
+void		ft_event_playing_mode(variable_list *l)
 {
 
 	ft_event_playing_mode_motion(l);
 	ft_event_playing_mode_player(l);
 }
 
-void		ft_event_map_editor_mode_motion_right_click_on(variable_list* l)
+void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l)
 {
 	if (l->i.save_mouse_x == 0 && l->i.save_mouse_y == 0)
 	{
@@ -32,7 +32,7 @@ void		ft_event_map_editor_mode_motion_right_click_on(variable_list* l)
 	}
 }
 
-void		ft_event_map_editor_mode_motion_right_click_off(variable_list* l)
+void		ft_event_map_editor_mode_motion_right_click_off(variable_list *l)
 {
 
 	SDL_WarpMouseInWindow(l->window, l->i.save_mouse_x, l->i.save_mouse_y);
@@ -40,7 +40,7 @@ void		ft_event_map_editor_mode_motion_right_click_off(variable_list* l)
 	l->i.save_mouse_y = 0;
 }
 
-void		ft_event_map_editor_mode_motion(variable_list* l)
+void		ft_event_map_editor_mode_motion(variable_list *l)
 {
 	if (l->i.mouse == 4)
 		ft_event_map_editor_mode_motion_right_click_on(l);
@@ -48,7 +48,7 @@ void		ft_event_map_editor_mode_motion(variable_list* l)
 		ft_event_map_editor_mode_motion_right_click_off(l);
 }
 
-void		ft_event_map_editor_mode_moving(variable_list* l)
+void		ft_event_map_editor_mode_moving(variable_list *l)
 {
 	if (l->i.state[26]) // haut
 	{

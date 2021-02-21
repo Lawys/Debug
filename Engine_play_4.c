@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l)
 {
 	double t;
 	double x;
@@ -18,7 +18,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list* l)
 	l->e.tmp_z3 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l)
 {
 	int ts;
 	double z1;
@@ -43,7 +43,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref(variable_list* l)
 		ft_engine_play_calculate_points_to_front_no_ref_6(l);
 }
 
-void		ft_engine_play_calculate_points_to_front(variable_list* l)
+void		ft_engine_play_calculate_points_to_front(variable_list *l)
 {
 	int ts;
 	double z1;
@@ -64,7 +64,7 @@ void		ft_engine_play_calculate_points_to_front(variable_list* l)
 		ft_engine_play_calculate_points_to_front_no_ref(l);
 }
 
-void		ft_engine_play_calculate_pixel_points(variable_list* l)
+void		ft_engine_play_calculate_pixel_points(variable_list *l)
 {
 	double t;
 
@@ -89,11 +89,11 @@ void		ft_engine_play_calculate_pixel_points(variable_list* l)
 		l->e.max_x = l->e.p_x3;
 }
 
-void		ft_engine_play_calculate_pixel_points_p4(variable_list* l)
+void		ft_engine_play_calculate_pixel_points_p4(variable_list *l)
 {
 	double t;
-	double* min_x;
-	double* max_x;
+	double *min_x;
+	double *max_x;
 	double x4;
 
 	t = -l->e.view_distance / -l->e.tmp_z4;

@@ -1,9 +1,9 @@
 #include "header.h"
 
-int	ft_engine_play_calculate_skip_triangles_behind_player(variable_list* l)
+int	ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l)
 {
 	int i;
-	double* distance;
+	double *distance;
 
 	distance = l->e.t_d;
 	i = -1;
@@ -13,7 +13,7 @@ int	ft_engine_play_calculate_skip_triangles_behind_player(variable_list* l)
 }
 
 void		ft_engine_play_calculate_initialize_points_vectors_normals
-(variable_list* l)
+(variable_list *l)
 {
 	int ts;
 
@@ -40,7 +40,7 @@ void		ft_engine_play_calculate_initialize_points_vectors_normals
 		l->e.nx + l->e.tmp_z1 * l->e.nz);
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_1(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
 {
 	double t;
 	double x;
@@ -63,7 +63,7 @@ void		ft_engine_play_calculate_points_to_front_ref_1(variable_list* l)
 	l->e.ref = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_2(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
 {
 	double t;
 	double x;
@@ -86,7 +86,7 @@ void		ft_engine_play_calculate_points_to_front_ref_2(variable_list* l)
 	l->e.ref = 2;
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_3(variable_list* l)
+void		ft_engine_play_calculate_points_to_front_ref_3(variable_list *l)
 {
 	double t;
 	double x;

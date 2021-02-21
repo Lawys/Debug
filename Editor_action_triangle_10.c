@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_action_create_square(variable_list* l)
+void		ft_map_editor_triangle_action_create_square(variable_list *l)
 {
 	int tn;
 
@@ -15,7 +15,7 @@ void		ft_map_editor_triangle_action_create_square(variable_list* l)
 	}
 }
 
-void		ft_map_editor_triangle_action_duplicate_set_values(variable_list* l)
+void		ft_map_editor_triangle_action_duplicate_set_values(variable_list *l)
 {
 	int tn;
 	int ts;
@@ -44,7 +44,7 @@ void		ft_map_editor_triangle_action_duplicate_set_values(variable_list* l)
 	l->triangle_select = tn;
 }
 
-void		ft_map_editor_triangle_action_duplicate(variable_list* l)
+void		ft_map_editor_triangle_action_duplicate(variable_list *l)
 {
 
 	if (l->action_select[l->menu_select][++l->action])
@@ -56,7 +56,7 @@ void		ft_map_editor_triangle_action_duplicate(variable_list* l)
 	}
 }
 
-void		ft_map_editor_triangle_action_delete_set_values(variable_list* l)
+void		ft_map_editor_triangle_action_delete_set_values(variable_list *l)
 {
 	int tn;
 	int ts;
@@ -85,7 +85,7 @@ void		ft_map_editor_triangle_action_delete_set_values(variable_list* l)
 	l->triangle_select = -1;
 }
 
-void		ft_map_editor_triangle_action_delete(variable_list* l)
+void		ft_map_editor_triangle_action_delete(variable_list *l)
 {
 
 	if (l->action_select[l->menu_select][++l->action])

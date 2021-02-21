@@ -1,5 +1,5 @@
 #include "header.h"
-void		ft_initialize_variables_triangles(variable_list* l)
+void		ft_initialize_variables_triangles(variable_list *l)
 {
 	int i;
 
@@ -19,7 +19,7 @@ void		ft_initialize_variables_triangles(variable_list* l)
 		l->e.t_id[i] = 0;
 	}
 }
-void		ft_initialize_variables_groups(variable_list* l)
+void		ft_initialize_variables_groups(variable_list *l)
 {
 	int i;
 	int j;
@@ -48,7 +48,7 @@ void		ft_initialize_variables_groups(variable_list* l)
 		}
 	}
 }
-void		ft_initialize_variables_areas(variable_list* l)
+void		ft_initialize_variables_areas(variable_list *l)
 {
 	int i;
 
@@ -63,7 +63,7 @@ void		ft_initialize_variables_areas(variable_list* l)
 		l->link6[i] = -1;
 	}
 }
-void		ft_initialize_variables_1(variable_list* l)
+void		ft_initialize_variables_1(variable_list *l)
 {
 	int i;
 	int j;
@@ -82,7 +82,7 @@ void		ft_initialize_variables_1(variable_list* l)
 			l->action_select[i][j] = 0;
 	}
 }
-void		ft_initialize_variables_2(variable_list* l)
+void		ft_initialize_variables_2(variable_list *l)
 {
 	l->player_area = 0;
 	l->i.save_mouse_x = 0;
@@ -110,7 +110,7 @@ void		ft_initialize_variables_2(variable_list* l)
 	l->e.view_distance = (double)WDW2 / tan(M_PI / 4);
 	l->gravity = 0;
 }
-void		ft_initialize_variables_3(variable_list* l)
+void		ft_initialize_variables_3(variable_list *l)
 {
 	l->cooldown = 0;
 	l->me.color_white = l->texture_colors[10];
@@ -137,7 +137,7 @@ void		ft_initialize_variables_3(variable_list* l)
 	l->npc_base_damage = 5;
 	l->coef_gravity = 1;
 }
-void		ft_initialize_variables_4(variable_list* l)
+void		ft_initialize_variables_4(variable_list *l)
 {
 	l->pe.pen_size = 0;
 	l->pe.pen_texture = 0;
@@ -148,7 +148,7 @@ void		ft_initialize_variables_4(variable_list* l)
 	l->view_only = 0;
 	l->p.jump_timer = 0;
 }
-void		ft_initialize_skybox_1(variable_list* l)
+void		ft_initialize_skybox_1(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -171,7 +171,7 @@ void		ft_initialize_skybox_1(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_2(variable_list* l)
+void		ft_initialize_skybox_2(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -194,7 +194,7 @@ void		ft_initialize_skybox_2(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_3(variable_list* l)
+void		ft_initialize_skybox_3(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -217,7 +217,7 @@ void		ft_initialize_skybox_3(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_4(variable_list* l)
+void		ft_initialize_skybox_4(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -240,7 +240,7 @@ void		ft_initialize_skybox_4(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_5(variable_list* l)
+void		ft_initialize_skybox_5(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -263,7 +263,7 @@ void		ft_initialize_skybox_5(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_6(variable_list* l)
+void		ft_initialize_skybox_6(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -286,7 +286,7 @@ void		ft_initialize_skybox_6(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_7(variable_list* l)
+void		ft_initialize_skybox_7(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -309,7 +309,7 @@ void		ft_initialize_skybox_7(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_8(variable_list* l)
+void		ft_initialize_skybox_8(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -332,7 +332,7 @@ void		ft_initialize_skybox_8(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_9(variable_list* l)
+void		ft_initialize_skybox_9(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -355,7 +355,7 @@ void		ft_initialize_skybox_9(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_10(variable_list* l)
+void		ft_initialize_skybox_10(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -378,7 +378,7 @@ void		ft_initialize_skybox_10(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_11(variable_list* l)
+void		ft_initialize_skybox_11(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -401,7 +401,7 @@ void		ft_initialize_skybox_11(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_skybox_12(variable_list* l)
+void		ft_initialize_skybox_12(variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -424,7 +424,7 @@ void		ft_initialize_skybox_12(variable_list* l)
 	l->t.texture_sides[l->triangle_number] = 0;
 	l->triangle_number++;
 }
-void		ft_initialize_variables(variable_list* l)
+void		ft_initialize_variables(variable_list *l)
 {
 	ft_initialize_variables_triangles(l);
 	ft_initialize_variables_groups(l);
@@ -447,7 +447,7 @@ void		ft_initialize_variables(variable_list* l)
 	ft_initialize_skybox_12(l);
 }
 
-void		ft_initialize_SDL(variable_list* l)
+void		ft_initialize_SDL(variable_list *l)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 	{
@@ -475,7 +475,7 @@ void		ft_initialize_SDL(variable_list* l)
 	l->pixels = (Uint32*)l->window_surface->pixels;
 }
 
-void		ft_reset_arrays(variable_list* l)
+void		ft_reset_arrays(variable_list *l)
 {
 	int i;
 	int j;
@@ -491,7 +491,7 @@ void		ft_reset_arrays(variable_list* l)
 		}
 	}
 }
-void		ft_map_reader_error(variable_list* l, char* file, double value, double min, double max)
+void		ft_map_reader_error(variable_list *l, char *file, double value, double min, double max)
 {
 	if (value < min || value > max)
 	{
@@ -499,9 +499,9 @@ void		ft_map_reader_error(variable_list* l, char* file, double value, double min
 		ft_free_and_exit(l, "Load File Error\n");
 	}
 }
-void		ft_reader(variable_list* l)
+void		ft_reader(variable_list *l)
 {
-	FILE* stream;
+	FILE *stream;
 	int fd;
 	int size;
 	char *file;
@@ -660,7 +660,7 @@ void		ft_reader(variable_list* l)
 	}
 	free(file);
 }
-void		ft_engine_set_window_blue_border_triangle1(variable_list* l)
+void		ft_engine_set_window_blue_border_triangle1(variable_list *l)
 {
 	int i;
 	int j;
@@ -684,7 +684,7 @@ void		ft_engine_set_window_blue_border_triangle1(variable_list* l)
 		i++;
 	}
 }
-void		ft_engine_set_window_blue_border_triangle2(variable_list* l)
+void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
 {
 	int i;
 	int j;
@@ -709,7 +709,7 @@ void		ft_engine_set_window_blue_border_triangle2(variable_list* l)
 	}
 }
 
-void		ft_engine_set_window_red_border_area1(variable_list* l)
+void		ft_engine_set_window_red_border_area1(variable_list *l)
 {
 	int i;
 	int j;
@@ -733,7 +733,7 @@ void		ft_engine_set_window_red_border_area1(variable_list* l)
 		i++;
 	}
 }
-void		ft_engine_set_window_red_border_area2(variable_list* l)
+void		ft_engine_set_window_red_border_area2(variable_list *l)
 {
 	int i;
 	int j;
@@ -757,7 +757,7 @@ void		ft_engine_set_window_red_border_area2(variable_list* l)
 		i++;
 	}
 }
-void		ft_engine_set_window_green_border_group1(variable_list* l)
+void		ft_engine_set_window_green_border_group1(variable_list *l)
 {
 	int i;
 	int j;
@@ -781,7 +781,7 @@ void		ft_engine_set_window_green_border_group1(variable_list* l)
 		i++;
 	}
 }
-void		ft_engine_set_window_green_border_group2(variable_list* l)
+void		ft_engine_set_window_green_border_group2(variable_list *l)
 {
 	int i;
 	int j;
@@ -806,7 +806,7 @@ void		ft_engine_set_window_green_border_group2(variable_list* l)
 	}
 }
 
-void		ft_size_to_window(variable_list* l)
+void		ft_size_to_window(variable_list *l)
 {
 	int i;
 	int j;
@@ -834,7 +834,7 @@ void		ft_size_to_window(variable_list* l)
 	}
 }
 
-void		ft_loop_menu_1(variable_list* l)
+void		ft_loop_menu_1(variable_list *l)
 {
 	ft_npc(l);
 	ft_engine_play_p(l);
@@ -843,7 +843,7 @@ void		ft_loop_menu_1(variable_list* l)
 	ft_action(l);
 }
 
-void		ft_loop_menu_2(variable_list* l)
+void		ft_loop_menu_2(variable_list *l)
 {
 	ft_engine_play_me(l);
 	if (l->triangle_select != -1)
@@ -865,7 +865,7 @@ void		ft_loop_menu_2(variable_list* l)
 	ft_map_editor(l);
 }
 
-void		ft_loop_menu_3(variable_list* l)
+void		ft_loop_menu_3(variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[33];
@@ -883,7 +883,7 @@ void		ft_loop_menu_3(variable_list* l)
 		ft_free_and_exit(l, "You lose.\n");
 }
 
-void		ft_loop_menu_4(variable_list* l)
+void		ft_loop_menu_4(variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[36];
@@ -900,7 +900,7 @@ void		ft_loop_menu_4(variable_list* l)
 	if (l->i.state[SDL_SCANCODE_RETURN])
 		ft_free_and_exit(l, "You win.\n");
 }
-void		ft_loop(variable_list* l)
+void		ft_loop(variable_list *l)
 {
 	while (1)
 	{
@@ -927,7 +927,7 @@ void		ft_loop(variable_list* l)
 
 int main(void)
 {
-	variable_list* l;
+	variable_list *l;
 
 	if (!(l = malloc(sizeof(variable_list))))
 		exit(-1);

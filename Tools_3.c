@@ -1,6 +1,6 @@
 #include "header.h"
 
-int	ft_itoa(variable_list* l, double number, char* str)
+int	ft_itoa(variable_list *l, double number, char *str)
 {
 	int		i;
 
@@ -23,7 +23,7 @@ int	ft_itoa(variable_list* l, double number, char* str)
 	return(i);
 }
 
-int	ft_strings_compare(char* line, char* word, int c)
+int	ft_strings_compare(char *line, char *word, int c)
 {
 	int i;
 
@@ -34,7 +34,7 @@ int	ft_strings_compare(char* line, char* word, int c)
 	return (1);
 }
 
-void		ft_swap_nbr(int* k, double* t, int i, int j)
+void		ft_swap_nbr(int *k, double *t, int i, int j)
 {
 	double d;
 	int c;
@@ -47,7 +47,7 @@ void		ft_swap_nbr(int* k, double* t, int i, int j)
 	k[j] = c;
 }
 
-void		ft_quick_sort(int* k, double* t, int size)
+void		ft_quick_sort(int *k, double *t, int size)
 {
 	double p;
 	int i;

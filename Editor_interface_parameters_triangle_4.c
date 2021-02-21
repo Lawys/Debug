@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_position_z_1(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_z_1(variable_list *l)
 {
 	l->u.str_address = "Z";
 	l->u.wsx += 1;
@@ -18,7 +18,7 @@ void		ft_map_editor_triangle_parameter_position_z_1(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_x_2(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_x_2(variable_list *l)
 {
 	l->u.str_address = "X";
 	l->u.wsx = 37;
@@ -37,7 +37,7 @@ void		ft_map_editor_triangle_parameter_position_x_2(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_y_2(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_y_2(variable_list *l)
 {
 	l->u.str_address = "Y";
 	l->u.wsx += 1;
@@ -55,7 +55,7 @@ void		ft_map_editor_triangle_parameter_position_y_2(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_z_2(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_z_2(variable_list *l)
 {
 	l->u.str_address = "Z";
 	l->u.wsx += 1;
@@ -73,7 +73,7 @@ void		ft_map_editor_triangle_parameter_position_z_2(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_x_3(variable_list* l)
+void		ft_map_editor_triangle_parameter_position_x_3(variable_list *l)
 {
 	l->u.str_address = "X";
 	l->u.wsx = 37;

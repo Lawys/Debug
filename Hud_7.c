@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_hud_play_grenade_distance_negative_delete(variable_list* l)
+void		ft_hud_play_grenade_distance_negative_delete(variable_list *l)
 {
 	int ts;
 	int tn;
@@ -29,7 +29,7 @@ void		ft_hud_play_grenade_distance_negative_delete(variable_list* l)
 	l->t.texture_sides[ts] = l->t.texture_sides[tn];
 }
 
-void		ft_hud_play_grenade_distance_negative_explosion(variable_list* l)
+void		ft_hud_play_grenade_distance_negative_explosion(variable_list *l)
 {
 	int i;
 
@@ -49,7 +49,7 @@ void		ft_hud_play_grenade_distance_negative_explosion(variable_list* l)
 		}
 }
 
-void		ft_hud_play_grenade_distance_negative_move(variable_list* l)
+void		ft_hud_play_grenade_distance_negative_move(variable_list *l)
 {
 	l->t.x1[l->gr.ts] = l->gr.sx - 100 * l->e.c_h;
 	l->t.y1[l->gr.ts] = l->gr.sy - 100;
@@ -68,7 +68,7 @@ void		ft_hud_play_grenade_distance_negative_move(variable_list* l)
 	l->t.texture_opacity[l->gr.ts] = 99;
 }
 
-void		ft_hud_play_grenade_distance_negative(variable_list* l)
+void		ft_hud_play_grenade_distance_negative(variable_list *l)
 {
 	if (l->t.texture_opacity[l->gr.ts] < 100)
 	{
@@ -90,7 +90,7 @@ void		ft_hud_play_grenade_distance_negative(variable_list* l)
 	}
 }
 
-void		ft_hud_play_grenade(variable_list* l)
+void		ft_hud_play_grenade(variable_list *l)
 {
 	if (l->gr.gd > 0)
 		ft_hud_play_grenade_distance_positive(l);

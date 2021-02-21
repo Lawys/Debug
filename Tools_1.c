@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_free_and_exit(variable_list* l, const char* str)
+void		ft_free_and_exit(variable_list *l, const char *str)
 {
 	int i;
 
@@ -17,7 +17,7 @@ void		ft_free_and_exit(variable_list* l, const char* str)
 	exit(0);
 }
 
-void		ft_get_time_editor(variable_list* l)
+void		ft_get_time_editor(variable_list *l)
 {
 	l->u.wsx = 2;
 	ft_itoa(l, l->p.x, l->u.str_address);
@@ -31,7 +31,7 @@ void		ft_get_time_editor(variable_list* l)
 	l->u.wsx = l->u.wsx + 20;
 }
 
-void		ft_get_time(variable_list* l)
+void		ft_get_time(variable_list *l)
 {
 	static double moyenne = 0;
 	static double cd = 0;
@@ -58,7 +58,7 @@ void		ft_get_time(variable_list* l)
 	l->cooldown++;
 }
 
-double ft_atoi_while_init(variable_list* l, char* str, int* i, double*n)
+double ft_atoi_while_init(variable_list *l, char *str, int *i, double*n)
 {
 	*n = 1;
 	if (str[*i] == '\0')
@@ -75,7 +75,7 @@ double ft_atoi_while_init(variable_list* l, char* str, int* i, double*n)
 	return(1);
 }
 
-void		ft_atoi_while_p1(variable_list* l, char* str, int* i, double* result, double* result_decimal)
+void		ft_atoi_while_p1(variable_list *l, char *str, int *i, double *result, double *result_decimal)
 {
 	double c;
 

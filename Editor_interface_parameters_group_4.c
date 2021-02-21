@@ -1,6 +1,6 @@
 #include "header.h"
 
-void		ft_map_editor_group_parameter_sprite(variable_list* l)
+void		ft_map_editor_group_parameter_sprite(variable_list *l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
@@ -18,7 +18,7 @@ void		ft_map_editor_group_parameter_sprite(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_npc(variable_list* l)
+void		ft_map_editor_group_parameter_npc(variable_list *l)
 {
 	l->u.action = ++l->action;
 	if (l->g.npc[l->group_select] == 0)
@@ -36,7 +36,7 @@ void		ft_map_editor_group_parameter_npc(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_no_block(variable_list* l)
+void		ft_map_editor_group_parameter_no_block(variable_list *l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
@@ -54,7 +54,7 @@ void		ft_map_editor_group_parameter_no_block(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_interact(variable_list* l)
+void		ft_map_editor_group_parameter_interact(variable_list *l)
 {
 	l->u.wsx += 0.5;
 	l->u.action = ++l->action;
@@ -72,7 +72,7 @@ void		ft_map_editor_group_parameter_interact(variable_list* l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_group_parameter_options(variable_list* l)
+void		ft_map_editor_group_parameter_options(variable_list *l)
 {
 	l->u.str_address = "OPTIONS";
 	l->u.wsx = 37;

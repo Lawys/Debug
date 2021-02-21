@@ -1,6 +1,6 @@
 #include "header.h"
 
-int		ft_npc_hp_positive_while(variable_list* l, npc_list* tmp, int group)
+int		ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
 {
 	int ts;
 
@@ -30,7 +30,7 @@ int		ft_npc_hp_positive_while(variable_list* l, npc_list* tmp, int group)
 	return(0);
 }
 
-void		ft_npc_hp_positive(variable_list* l, npc_list* tmp, int group)
+void		ft_npc_hp_positive(variable_list *l, npc_list *tmp, int group)
 {
 	ft_npc_hp_positive_init(l, tmp, group);
 	if (ft_npc_hp_positive_while(l, tmp, group) == 1)
@@ -46,7 +46,7 @@ void		ft_npc_hp_positive(variable_list* l, npc_list* tmp, int group)
 	l->g.npc_timer[group]++;
 }
 
-void		ft_npc_hp_negative(variable_list* l, int group)
+void		ft_npc_hp_negative(variable_list *l, int group)
 {
 	if (l->g.npc_hp[group] == -10)
 	{
@@ -71,7 +71,7 @@ void		ft_npc_hp_negative(variable_list* l, int group)
 	}
 }
 
-void		ft_npc(variable_list* l)
+void		ft_npc(variable_list *l)
 {
 	npc_list tmp;
 	int group;
