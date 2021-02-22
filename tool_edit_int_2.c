@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:23 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:12:39 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:36:47 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int max)
 	else if (l->i.key_input >= '0' && l->i.key_input <= '9')
 		ft_value_editing_int_set_number(l, value, limits, i);
 	else if (l->i.state[42] && i > 0)
-		ft_value_editing_int_remove_number(l, value, limits, i);
+		ft_value_editing_int_remove_number(l, value, limits);
 	else if (l->i.key_input == '-')
-		ft_value_editing_int_set_negativ(l, value, limits);
+		ft_value_editing_int_set_negativ(value, limits);
 }

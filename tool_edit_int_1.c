@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:07 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:12:40 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:36:50 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int *limits, int i)
 }
 
 void		ft_value_editing_int_remove_number(variable_list *l, int *value,
-int *limits, int i)
+int *limits)
 {
 	*value /= 10;
 	if (*value > limits[1])
@@ -55,7 +55,7 @@ int *limits, int i)
 	l->i.state[42] = 0;
 }
 
-void		ft_value_editing_int_set_negativ(variable_list *l, int *value,
+void		ft_value_editing_int_set_negativ(int *value,
 int *limits)
 {
 	*value *= -1;

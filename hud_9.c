@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:39 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:13:07 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 17:07:37 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void		ft_hud_main_menu(variable_list *l)
 	{
 		if (l->i.mouse_x > (308. * WDHF) / 1024 &&
 			l->i.mouse_x < (743. * WDWF) / 1024)
+		{
 			if (l->i.mouse_y > (359. * WDHF) / 1024 &&
 				l->i.mouse_y < (499. * WDHF) / 1024)
 				ft_hud_main_menu_play(l);
@@ -64,6 +65,7 @@ void		ft_hud_main_menu(variable_list *l)
 			else if (l->i.mouse_y > (698. * WDHF) / 1024 &&
 				l->i.mouse_y < (838. * WDHF) / 1024)
 				ft_free_and_exit(l, "EXIT\n");
+		}
 	}
 }
 

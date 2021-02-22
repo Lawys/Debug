@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:03 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:12:42 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:36:52 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int max)
 	else if (l->i.state[42] && i > 0)
 		ft_value_editing_double_remove_number(l, value, limits, i);
 	else if (l->i.key_input == '-')
-		ft_value_editing_double_set_negativ(l, value, limits);
+		ft_value_editing_double_set_negativ(value, limits);
 	*value = (int)*value / 100.;
 }

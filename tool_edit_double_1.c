@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:58 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:12:43 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:36:54 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ double *value, int *limits, int i)
 	l->i.state[42] = 0;
 }
 
-void		ft_value_editing_double_set_negativ(variable_list *l,
+void		ft_value_editing_double_set_negativ(
 double *value, int *limits)
 {
 	*value *= -1;

@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:42 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:12:33 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:36:41 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,11 @@ void		ft_free_and_exit(variable_list *l, const char *str)
 	i = -1;
 	while (str[++i])
 		continue ;
-	_write(1, str, i * sizeof(char));
+	write(1, str, i * sizeof(char));
 	SDL_FreeSurface(l->window_surface);
 	SDL_DestroyWindow(l->window);
 	SDL_Quit();
 	free(l);
-	printf("%d\n", _CrtDumpMemoryLeaks());
-	SDL_Delay(500);
 	exit(0);
 }
 
@@ -45,9 +43,6 @@ void		ft_get_time_editor(variable_list *l)
 
 void		ft_get_time(variable_list *l)
 {
-	static double moyenne = 0;
-	static double cd = 0;
-
 	while (1)
 	{
 		l->u.time = clock();

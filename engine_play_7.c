@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:35 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 10:13:26 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/22 16:38:03 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
 			l->g.exist[l->t.group[l->e.t_s]])
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
-			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+			if ((l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0) ||
 				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
 				l->t.texture_sides[l->e.t_s] == 0)
 			{
@@ -53,7 +53,7 @@ void		ft_engine_play_calculate_me(variable_list *l)
 			l->t.texture_opacity[l->e.t_s] == 100)
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
-			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+			if ((l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0) ||
 				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
 				l->t.texture_sides[l->e.t_s] == 0)
 			{
@@ -80,7 +80,7 @@ void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
 			l->link6[l->player_area] == a) && l->g.exist[l->t.group[l->e.t_s]])
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
-			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
+			if ((l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0) ||
 				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
 				l->t.texture_sides[l->e.t_s] == 0)
 			{
@@ -108,9 +108,9 @@ void		ft_engine_play_calculate_p(variable_list *l, int i, int j)
 	l->t.texture_opacity[l->e.t_s] == 100)
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
-			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
-	(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
-	l->t.texture_sides[l->e.t_s] == 0)
+			if ((l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0) ||
+				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+				l->t.texture_sides[l->e.t_s] == 0)
 			{
 				ft_engine_play_calculate_if_appear(l);
 				ft_engine_play_calculate_pixels(l);
