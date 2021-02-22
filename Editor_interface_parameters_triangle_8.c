@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_triangle_8.c           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:28:32 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:58 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_texture_size_adapt_x(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_size_adapt_x(
+variable_list *l)
 {
 	l->u.str_address = "<X>";
 	l->u.wsx += 0.5;
@@ -8,7 +21,8 @@ void		ft_map_editor_triangle_parameter_texture_size_adapt_x(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size_adapt_y(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_size_adapt_y(
+variable_list *l)
 {
 	l->u.str_address = "<Y>";
 	l->u.wsx += 0.5;
@@ -25,7 +39,7 @@ void		ft_map_editor_triangle_parameter_texture_sides(variable_list *l)
 	l->u.colors = l->me.color_blue;
 	l->u.colors_on = l->me.color_green;
 	ft_put_text(l);
-	ft_itoa(l, l->t.texture_sides[l->triangle_select], l->me.str);
+	ft_itoa(l->t.texture_sides[l->triangle_select], l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 0.5;
 	l->u.size = 0.80;
@@ -40,7 +54,6 @@ void		ft_map_editor_triangle_parameter_options(variable_list *l)
 	l->u.wsx = 37;
 	l->u.wsy += 2.5;
 	l->u.action = -1;
-
 	l->u.colors = l->me.color_red;
 	ft_put_text(l);
 }

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_paint_1.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:25:40 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:25 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_paint_action_delete_set_values(variable_list *l)
 {
-	int ts;
-	int tn;
+	int	ts;
+	int	tn;
 
 	ts = l->triangle_select;
 	tn = --l->triangle_number;
@@ -35,7 +47,7 @@ void		ft_map_editor_paint_action_delete(variable_list *l)
 		if (l->i.mouse == 1 && l->triangle_select != -1)
 		{
 			if (l->triangle_number == 0)
-				return;
+				return ;
 			ft_map_editor_paint_action_delete_set_values(l);
 			l->triangle_select = -1;
 		}

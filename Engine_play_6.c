@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_6.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:29 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:28 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_engine_play_calculate_triangle_line_3_4
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_3_4(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x3;
 	x[1] = l->e.p_x4;
@@ -25,49 +37,51 @@ void		ft_engine_play_calculate_triangle_line_3_4
 
 void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list *l)
 {
-	int x;
-	double max_x;
-	double *first_y;
-	double *last_y;
-	int check;
+	int		x;
+	double	max_x;
+	double	*first_y;
+	double	*last_y;
 
 	x = (int)(l->e.min_x - 1.);
 	max_x = l->e.max_x;
 	first_y = l->e.first_y;
 	last_y = l->e.last_y;
-	check = 0;
 	while (++x <= max_x)
 	{
-		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_1_3(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_2_3(l, x, &first_y[x], &last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_3(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_2_3(l, x, &first_y[x],
+		&last_y[x]);
 		if (first_y[x] < 0)
 			first_y[x] = -1 + 0.0;
 		if (last_y[x] >= WDH)
 			last_y[x] = WDH - 1.;
-		if (first_y[x] < WDH)
-			check = 1;
 	}
 }
 
 void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l)
 {
-	int x;
-	int max_x;
-	double *first_y;
-	double *last_y;
+	int		x;
+	int		max_x;
+	double	*first_y;
+	double	*last_y;
 
 	x = (int)(l->e.min_x - 1);
 	max_x = (int)l->e.max_x;
 	first_y = l->e.first_y;
 	last_y = l->e.last_y;
-
 	while (++x <= max_x)
 	{
-		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_2_3(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_3_4(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_1_4(l, x, &first_y[x], &last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_2_3(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_3_4(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_4(l, x, &first_y[x],
+		&last_y[x]);
 		if (first_y[x] < 0)
 			first_y[x] = -1;
 		if (last_y[x] >= WDH)
@@ -77,10 +91,10 @@ void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l)
 
 void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l)
 {
-	int x;
-	double max_x;
-	double *first_y;
-	double *last_y;
+	int		x;
+	double	max_x;
+	double	*first_y;
+	double	*last_y;
 
 	x = (int)(l->e.min_x - 1.);
 	max_x = l->e.max_x;
@@ -88,10 +102,14 @@ void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l)
 	last_y = l->e.last_y;
 	while (++x <= max_x)
 	{
-		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_1_3(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_3_4(l, x, &first_y[x], &last_y[x]);
-		ft_engine_play_calculate_triangle_line_2_4(l, x, &first_y[x], &last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_2(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_1_3(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_3_4(l, x, &first_y[x],
+		&last_y[x]);
+		ft_engine_play_calculate_triangle_line_2_4(l, x, &first_y[x],
+		&last_y[x]);
 		if (first_y[x] < 0)
 			first_y[x] = -1;
 		if (last_y[x] >= WDH)

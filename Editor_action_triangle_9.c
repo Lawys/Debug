@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_triangle_9.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:35 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:55 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_triangle_action_texture_sides(variable_list *l)
@@ -7,9 +19,10 @@ void		ft_map_editor_triangle_action_texture_sides(variable_list *l)
 			-1, 1);
 }
 
-void		ft_map_editor_triangle_action_create_new_set_values(variable_list *l)
+void		ft_map_editor_triangle_action_create_new_set_values(
+variable_list *l)
 {
-	int tn;
+	int	tn;
 
 	tn = l->triangle_number++;
 	l->t.area[tn] = 0;
@@ -40,15 +53,16 @@ void		ft_map_editor_triangle_action_create_new(variable_list *l)
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		if (l->triangle_number == MAX_TRIANGLES - 1)
-			return;
+			return ;
 		ft_map_editor_group_action_check_free_group(l);
 		if (l->me.new_group == MAX_GROUPS)
-			return;
+			return ;
 		ft_map_editor_triangle_action_create_new_set_values(l);
 	}
 }
 
-void		ft_map_editor_triangle_action_create_square_set_values_shift(variable_list *l, int tn, int ts)
+void		ft_map_editor_triangle_action_create_square_set_values_shift(
+variable_list *l, int tn, int ts)
 {
 	l->t.texture_shift_x[tn] = -(l->t.texture_shift_x[ts] +
 		sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
@@ -62,9 +76,10 @@ void		ft_map_editor_triangle_action_create_square_set_values_shift(variable_list
 		l->t.texture_size_y[ts] / 100);
 }
 
-void		ft_map_editor_triangle_action_create_square_set_values(variable_list *l, int tn)
+void		ft_map_editor_triangle_action_create_square_set_values(
+variable_list *l, int tn)
 {
-	int ts;
+	int	ts;
 
 	ts = l->triangle_select;
 	l->t.area[tn] = l->t.area[ts];

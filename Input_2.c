@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:02 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:01 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_event_playing_mode_triangle_init(variable_list *l, player_move_list *tmp, int ts)
+void		ft_event_playing_mode_triangle_init(variable_list *l,
+player_move_list *tmp, int ts)
 {
 	tmp->p1x = l->t.x1[ts];
 	tmp->p2x = l->t.x2[ts];
@@ -25,29 +38,30 @@ void		ft_event_playing_mode_triangle_init(variable_list *l, player_move_list *tm
 		tmp->p01y * tmp->p02x;
 }
 
-void		ft_event_playing_mode_player_wallblock_init(variable_list *l, player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_init(variable_list *l,
+player_move_list *tmp)
 {
 	tmp->move_x = 0;
 	tmp->move_z = 0;
 	tmp->save_py = 10000000000;
 	tmp->save_ny = -10000000000;
 	tmp->angle = 0;
-	if (l->i.state[26]) // haut
+	if (l->i.state[26])
 	{
 		tmp->move_x -= sin(l->p.h) * l->p.speed;
 		tmp->move_z += cos(l->p.h) * l->p.speed;
 	}
-	else if (l->i.state[22]) // bas
+	else if (l->i.state[22])
 	{
 		tmp->move_x += sin(l->p.h) * l->p.speed;
 		tmp->move_z -= cos(l->p.h) * l->p.speed;
 	}
-	if (l->i.state[4]) // gauche
+	if (l->i.state[4])
 	{
 		tmp->move_x -= cos(l->p.h) * l->p.speed;
 		tmp->move_z -= sin(l->p.h) * l->p.speed;
 	}
-	else if (l->i.state[7]) // droite
+	else if (l->i.state[7])
 	{
 		tmp->move_x += cos(l->p.h) * l->p.speed;
 		tmp->move_z += sin(l->p.h) * l->p.speed;
@@ -62,9 +76,10 @@ void		ft_event_playing_mode_player_wallblock_gravity(variable_list *l)
 	l->p.y -= l->gravity;
 }
 
-void		ft_event_playing_mode_player_first_area_list_calculate(variable_list *l, player_move_list *tmp, int ts)
+void		ft_event_playing_mode_player_first_area_list_calculate(
+variable_list *l, player_move_list *tmp, int ts)
 {
-	double y;
+	double	y;
 
 	ft_event_playing_mode_player_line_plan_t(l, tmp);
 	ft_event_playing_mode_player_line_plan_u(l, tmp);
@@ -85,7 +100,8 @@ void		ft_event_playing_mode_player_first_area_list_calculate(variable_list *l, p
 	}
 }
 
-void		ft_event_playing_mode_set_player_area_while(variable_list *l, player_move_list *tmp, int ts)
+void		ft_event_playing_mode_set_player_area_while(variable_list *l,
+player_move_list *tmp, int ts)
 {
 	l->p.x += 10;
 	l->p.z += 10;

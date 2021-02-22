@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_group_1.c              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:27:04 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:40 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_group_parameter_group(variable_list *l)
@@ -21,7 +33,7 @@ void		ft_map_editor_group_parameter_group_id(variable_list *l)
 	l->u.colors = l->me.color_blue;
 	l->u.colors_on = l->me.color_green;
 	ft_put_text(l);
-	ft_itoa(l, l->group_select, l->me.str);
+	ft_itoa(l->group_select, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 0.5;
 	l->u.size = 0.80;
@@ -39,7 +51,7 @@ void		ft_map_editor_group_parameter_switch(variable_list *l)
 	l->u.colors = l->me.color_blue;
 	l->u.colors_on = l->me.color_green;
 	ft_put_text(l);
-	ft_itoa(l, l->me.group_switch_value, l->me.str);
+	ft_itoa(l->me.group_switch_value, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 0.5;
 	l->u.size = 0.80;

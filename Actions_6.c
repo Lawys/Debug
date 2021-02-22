@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_6.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:12 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:16:02 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_action_start_action_timer_negative_time(variable_list *l, int group, int c, char *str)
+void		ft_action_start_action_timer_negative_time(variable_list *l,
+int group, int c, char *str)
 {
-	int value;
+	int	value;
 
-	value = (int)ft_atoi(l, str, &c);
+	value = (int)ft_atoi(str, &c);
 	if (value >= 0 && str[c] == ';')
 	{
 		l->g.action_timer[group] = value;
@@ -27,7 +40,7 @@ void		ft_action_start(variable_list *l, int group, int c, char *str)
 				else if (l->g.action_statement[group] == 1 ||
 					l->g.action_statement[group] == 3)
 					l->g.action_statement[group] = 0;
-				return;
+				return ;
 			}
 		if (ft_strings_compare(str, "KEY>", c))
 			ft_action_start_action_timer_negative_key(l, group, &c, str);
@@ -38,7 +51,7 @@ void		ft_action_start(variable_list *l, int group, int c, char *str)
 
 void		ft_action_enable(variable_list *l, int group)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	ft_action_start(l, group, c, l->g.action_enable[group]);
@@ -51,7 +64,7 @@ void		ft_action_enable(variable_list *l, int group)
 
 void		ft_action_disable(variable_list *l, int group)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	ft_action_start(l, group, c, l->g.action_disable[group]);
@@ -64,7 +77,7 @@ void		ft_action_disable(variable_list *l, int group)
 
 void		ft_action(variable_list *l)
 {
-	int group;
+	int	group;
 
 	group = -1;
 	while (++group < MAX_GROUPS)

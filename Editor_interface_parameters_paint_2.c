@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_paint_2.c              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:27:38 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:25 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_paint_parameter_opacity(variable_list *l)
@@ -10,7 +22,7 @@ void		ft_map_editor_paint_parameter_opacity(variable_list *l)
 	l->u.colors = l->me.color_blue;
 	l->u.colors_on = l->me.color_green;
 	ft_put_text(l);
-	ft_itoa(l, l->pe.pen_opacity, l->me.str);
+	ft_itoa(l->pe.pen_opacity, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 0.5;
 	l->u.size = 0.80;
@@ -28,7 +40,7 @@ void		ft_map_editor_paint_parameter_light(variable_list *l)
 	l->u.colors = l->me.color_blue;
 	l->u.colors_on = l->me.color_green;
 	ft_put_text(l);
-	ft_itoa(l, l->pe.pen_light, l->me.str);
+	ft_itoa(l->pe.pen_light, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 0.5;
 	l->u.size = 0.80;

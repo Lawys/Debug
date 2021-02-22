@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_triangle_8.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:31 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:57 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_triangle_action_texture_size_repeat(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -15,18 +27,18 @@ void		ft_map_editor_triangle_action_texture_size_repeat(variable_list *l)
 
 void		ft_map_editor_triangle_action_texture_size_adapt_y(variable_list *l)
 {
-	double dist12;
-	double dist13;
-	int ts;
+	double	dist12;
+	double	dist13;
+	int		ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		ts = l->triangle_select;
-		dist12 = sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
-			(l->t.y2[ts] - l->t.y1[ts]) * (l->t.y2[ts] - l->t.y1[ts]) +
+		dist12 = sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts])
+		+ (l->t.y2[ts] - l->t.y1[ts]) * (l->t.y2[ts] - l->t.y1[ts]) +
 			(l->t.z2[ts] - l->t.z1[ts]) * (l->t.z2[ts] - l->t.z1[ts]));
-		dist13 = sqrt((l->t.x3[ts] - l->t.x1[ts]) * (l->t.x3[ts] - l->t.x1[ts]) +
-			(l->t.y3[ts] - l->t.y1[ts]) * (l->t.y3[ts] - l->t.y1[ts]) +
+		dist13 = sqrt((l->t.x3[ts] - l->t.x1[ts]) * (l->t.x3[ts] - l->t.x1[ts])
+		+ (l->t.y3[ts] - l->t.y1[ts]) * (l->t.y3[ts] - l->t.y1[ts]) +
 			(l->t.z3[ts] - l->t.z1[ts]) * (l->t.z3[ts] - l->t.z1[ts]));
 		if (dist12 < dist13)
 		{
@@ -42,20 +54,21 @@ void		ft_map_editor_triangle_action_texture_size_adapt_y(variable_list *l)
 	}
 }
 
-void		ft_map_editor_triangle_action_texture_size_adapt_x(variable_list *l)
+void		ft_map_editor_triangle_action_texture_size_adapt_x(
+variable_list *l)
 {
-	double dist12;
-	double dist13;
-	int ts;
+	double	dist12;
+	double	dist13;
+	int		ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		ts = l->triangle_select;
-		dist12 = sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
-			(l->t.y2[ts] - l->t.y1[ts]) * (l->t.y2[ts] - l->t.y1[ts]) +
+		dist12 = sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts])
+		+ (l->t.y2[ts] - l->t.y1[ts]) * (l->t.y2[ts] - l->t.y1[ts]) +
 			(l->t.z2[ts] - l->t.z1[ts]) * (l->t.z2[ts] - l->t.z1[ts]));
-		dist13 = sqrt((l->t.x3[ts] - l->t.x1[ts]) * (l->t.x3[ts] - l->t.x1[ts]) +
-			(l->t.y3[ts] - l->t.y1[ts]) * (l->t.y3[ts] - l->t.y1[ts]) +
+		dist13 = sqrt((l->t.x3[ts] - l->t.x1[ts]) * (l->t.x3[ts] - l->t.x1[ts])
+		+ (l->t.y3[ts] - l->t.y1[ts]) * (l->t.y3[ts] - l->t.y1[ts]) +
 			(l->t.z3[ts] - l->t.z1[ts]) * (l->t.z3[ts] - l->t.z1[ts]));
 		if (dist12 < dist13)
 		{

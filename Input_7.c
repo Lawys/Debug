@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_7.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:33 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:47 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_event_map_editor_mode_moving_y(variable_list *l)
@@ -42,7 +54,6 @@ void		ft_events_init(variable_list *l)
 	l->i.state = (Uint8*)SDL_GetKeyboardState(NULL);
 	l->i.mouse = SDL_GetMouseState(&l->i.mouse_x, &l->i.mouse_y);
 	ft_event_map_editor_mode_mouse_time_pressing_counter(l);
-
 }
 
 void		ft_events(variable_list *l)

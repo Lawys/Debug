@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_menu_2.c               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:27:30 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:29 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_menu_parameter_game(variable_list *l)
@@ -25,7 +37,7 @@ void		ft_map_editor_menu_parameter_view_only(variable_list *l)
 	l->u.wsy += 3;
 	l->u.size = 0.80;
 	ft_put_text(l);
-	ft_itoa(l, l->view_only, l->me.str);
+	ft_itoa(l->view_only, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx += 1;
 	l->u.colors = l->me.color_white;

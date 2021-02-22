@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_2.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:23:53 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:11:52 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_action_h(variable_list *l, int group, int c, char *str)
 {
-	double value;
+	double	value;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		ft_action_calculate_center(l, group);
@@ -16,8 +28,8 @@ void		ft_action_h(variable_list *l, int group, int c, char *str)
 
 void		ft_action_v_rotate(variable_list *l, int group)
 {
-	int i;
-	double tmp;
+	int		i;
+	double	tmp;
 
 	i = -1;
 	while (++i < l->triangle_number)
@@ -43,9 +55,9 @@ void		ft_action_v_rotate(variable_list *l, int group)
 
 void		ft_action_v(variable_list *l, int group, int c, char *str)
 {
-	double value;
+	double	value;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		ft_action_calculate_center(l, group);
@@ -57,8 +69,8 @@ void		ft_action_v(variable_list *l, int group, int c, char *str)
 
 void		ft_action_l_rotate(variable_list *l, int group)
 {
-	int i;
-	double tmp;
+	int		i;
+	double	tmp;
 
 	i = -1;
 	while (++i < l->triangle_number)
@@ -84,9 +96,9 @@ void		ft_action_l_rotate(variable_list *l, int group)
 
 void		ft_action_l(variable_list *l, int group, int c, char *str)
 {
-	double value;
+	double	value;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		ft_action_calculate_center(l, group);

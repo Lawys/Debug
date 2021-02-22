@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_paint_2.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:25:44 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:23 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_paint_action_opacity(variable_list *l)
@@ -14,7 +26,6 @@ void		ft_map_editor_paint_action_opacity(variable_list *l)
 }
 
 void		ft_map_editor_paint_action_light(variable_list *l)
-
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

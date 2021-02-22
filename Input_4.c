@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_4.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:15 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:57 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_event_playing_mode_player_wallblock_move_while_2(variable_list *l, player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_move_while_2(
+variable_list *l, player_move_list *tmp)
 {
 	tmp->vx = -10;
 	tmp->vz = -10;
@@ -28,7 +41,8 @@ void		ft_event_playing_mode_player_wallblock_move_while_2(variable_list *l, play
 	ft_event_playing_mode_player_vector_intersection(l, tmp);
 }
 
-void		ft_event_playing_mode_player_wallblock_move_while_3(variable_list *l, player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_move_while_3(
+variable_list *l, player_move_list *tmp)
 {
 	tmp->vx = -10;
 	tmp->vz = 0;
@@ -56,9 +70,10 @@ void		ft_event_playing_mode_player_wallblock_move_while_3(variable_list *l, play
 	ft_event_playing_mode_player_vector_intersection(l, tmp);
 }
 
-void		ft_event_playing_mode_player_wallblock_move(variable_list *l, player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_move(
+variable_list *l, player_move_list *tmp)
 {
-	int ts;
+	int	ts;
 
 	ts = -1;
 	while (++ts < l->triangle_number)
@@ -78,7 +93,7 @@ void		ft_event_playing_mode_player_wallblock_move(variable_list *l, player_move_
 
 void		ft_event_playing_mode_player_wallblock(variable_list *l)
 {
-	player_move_list tmp;
+	player_move_list	tmp;
 
 	ft_event_playing_mode_player_wallblock_jump(l);
 	ft_event_playing_mode_player_wallblock_gravity(l);
@@ -98,10 +113,10 @@ void		ft_event_playing_mode_player_wallblock(variable_list *l)
 
 void		ft_event_playing_mode_player(variable_list *l)
 {
-	int group;
+	int	group;
 
 	l->p.speed = 2;
-	if (l->i.state[225]) //MAJ sprint
+	if (l->i.state[225])
 		l->p.speed = 2.5;
 	if (l->i.state[26] + l->i.state[22] +
 		l->i.state[7] + l->i.state[4] > 1)

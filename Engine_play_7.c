@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_7.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:35 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:26 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
 {
-	int area;
+	int	area;
 
 	while (--i >= j)
 	{
@@ -26,9 +38,9 @@ void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
 
 void		ft_engine_play_calculate_me(variable_list *l)
 {
-	int i;
-	int j;
-	int area;
+	int	i;
+	int	j;
+	int	area;
 
 	j = ft_engine_play_calculate_skip_triangles_behind_player(l);
 	i = j - 1;
@@ -55,21 +67,17 @@ void		ft_engine_play_calculate_me(variable_list *l)
 
 void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
 {
-	int area;
+	int	a;
 
 	while (--i >= j)
 	{
 		l->e.t_s = l->e.t_id[i];
-		area = l->t.area[l->e.t_s];
+		a = l->t.area[l->e.t_s];
 		if (l->t.texture_opacity[l->e.t_s] < 100 &&
-			(area == 0 || l->player_area == area ||
-				l->link1[l->player_area] == area ||
-				l->link2[l->player_area] == area ||
-				l->link3[l->player_area] == area ||
-				l->link4[l->player_area] == area ||
-				l->link5[l->player_area] == area ||
-				l->link6[l->player_area] == area) &&
-			l->g.exist[l->t.group[l->e.t_s]])
+			(a == 0 || l->player_area == a || l->link1[l->player_area] == a ||
+			l->link2[l->player_area] == a || l->link3[l->player_area] == a ||
+			l->link4[l->player_area] == a || l->link5[l->player_area] == a ||
+			l->link6[l->player_area] == a) && l->g.exist[l->t.group[l->e.t_s]])
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
 			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
@@ -83,32 +91,26 @@ void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
 	}
 }
 
-void		ft_engine_play_calculate_p(variable_list *l)
+void		ft_engine_play_calculate_p(variable_list *l, int i, int j)
 {
-	int i;
-	int j;
-	int area;
+	int	a;
 
 	j = ft_engine_play_calculate_skip_triangles_behind_player(l);
 	i = j - 1;
 	while (++i < l->triangle_number)
 	{
 		l->e.t_s = l->e.t_id[i];
-		area = l->t.area[l->e.t_s];
-		if ((area == 0 || l->player_area == area ||
-			l->link1[l->player_area] == area ||
-			l->link2[l->player_area] == area ||
-			l->link3[l->player_area] == area ||
-			l->link4[l->player_area] == area ||
-			l->link5[l->player_area] == area ||
-			l->link6[l->player_area] == area) &&
-			l->g.exist[l->t.group[l->e.t_s]] &&
-			l->t.texture_opacity[l->e.t_s] == 100)
+		a = l->t.area[l->e.t_s];
+		if ((a == 0 || l->player_area == a || l->link1[l->player_area] == a ||
+	l->link2[l->player_area] == a || l->link3[l->player_area] == a ||
+	l->link4[l->player_area] == a || l->link5[l->player_area] == a ||
+	l->link6[l->player_area] == a) && l->g.exist[l->t.group[l->e.t_s]] &&
+	l->t.texture_opacity[l->e.t_s] == 100)
 		{
 			ft_engine_play_calculate_initialize_points_vectors_normals(l);
 			if (l->t.texture_sides[l->e.t_s] == 1 && l->e.t_normal < 0 ||
-				(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
-				l->t.texture_sides[l->e.t_s] == 0)
+	(l->t.texture_sides[l->e.t_s] == -1 && l->e.t_normal > 0) ||
+	l->t.texture_sides[l->e.t_s] == 0)
 			{
 				ft_engine_play_calculate_if_appear(l);
 				ft_engine_play_calculate_pixels(l);
@@ -118,8 +120,8 @@ void		ft_engine_play_calculate_p(variable_list *l)
 	ft_engine_play_calculate_p_opacity(l, i, j);
 }
 
-void		ft_engine_play_calculate_pixels_initialize_part_1
-(variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
+void		ft_engine_play_calculate_pixels_initialize_part_1(
+variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 {
 	tmp->t_s = l->e.t_s;
 	tmp->t_n = l->e.t_normal;

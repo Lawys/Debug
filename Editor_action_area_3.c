@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_area_3.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:30 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:55 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_action_position_z(variable_list *l)
@@ -11,10 +23,11 @@ void		ft_map_editor_area_action_position_z(variable_list *l)
 	}
 }
 
-void		ft_map_editor_area_action_position_calculate_center(variable_list *l)
+void		ft_map_editor_area_action_position_calculate_center(
+variable_list *l)
 {
-	int c;
-	int i;
+	int	c;
+	int	i;
 
 	l->me.x = 0;
 	l->me.y = 0;
@@ -39,8 +52,8 @@ void		ft_map_editor_area_action_position_calculate_center(variable_list *l)
 
 void		ft_map_editor_area_action_position_h_up(variable_list *l)
 {
-	double tmp;
-	int i;
+	double	tmp;
+	int		i;
 
 	ft_map_editor_area_action_position_calculate_center(l);
 	l->me.angle = (M_PI / 180) * (l->me.mult / 100);
@@ -68,8 +81,8 @@ void		ft_map_editor_area_action_position_h_up(variable_list *l)
 
 void		ft_map_editor_area_action_position_h_down(variable_list *l)
 {
-	double tmp;
-	int i;
+	double	tmp;
+	int		i;
 
 	ft_map_editor_area_action_position_calculate_center(l);
 	l->me.angle = -(M_PI / 180) * (l->me.mult / 100);

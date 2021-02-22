@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:00 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:21 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_play_set_item_select(variable_list *l, int item)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < 6)
 		if (l->p.item[i] == 2)
 		{
 			l->p.item[i] = 1;
-			break;
+			break ;
 		}
 	l->p.item[item] = 2;
 }
 
 void		ft_hud_play_set_item_select_scroll_up(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < 6)
@@ -34,7 +46,7 @@ void		ft_hud_play_set_item_select_scroll_up(variable_list *l)
 
 void		ft_hud_play_set_item_select_scroll_down(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 6;
 	while (--i >= 0)

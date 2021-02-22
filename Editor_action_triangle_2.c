@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_triangle_2.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:03 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:16 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_triangle_action_position_z_all(variable_list *l)
@@ -13,9 +25,10 @@ void		ft_map_editor_triangle_action_position_z_all(variable_list *l)
 	}
 }
 
-void		ft_map_editor_triangle_action_position_calculate_center(variable_list *l)
+void		ft_map_editor_triangle_action_position_calculate_center(
+variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	ts = l->triangle_select;
 	l->me.x = (l->t.x1[ts] + l->t.x2[ts] + l->t.x3[ts]) / 3;
@@ -25,10 +38,10 @@ void		ft_map_editor_triangle_action_position_calculate_center(variable_list *l)
 
 void		ft_map_editor_triangle_action_position_size_recall(variable_list *l)
 {
-	int ts;
-	double x;
-	double y;
-	double z;
+	int		ts;
+	double	x;
+	double	y;
+	double	z;
 
 	ts = l->triangle_select;
 	x = (l->t.x1[ts] + l->t.x2[ts] + l->t.x3[ts]) / 3 - l->me.x;
@@ -47,7 +60,8 @@ void		ft_map_editor_triangle_action_position_size_recall(variable_list *l)
 
 void		ft_map_editor_triangle_action_position_size_up(variable_list *l)
 {
-	int ts;
+	int	ts;
+
 	ft_map_editor_triangle_action_position_calculate_center(l);
 	ts = l->triangle_select;
 	l->t.x1[ts] *= 1 + 0.00001 * l->me.mult;
@@ -66,7 +80,7 @@ void		ft_map_editor_triangle_action_position_size_up(variable_list *l)
 
 void		ft_map_editor_triangle_action_position_size_down(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	ft_map_editor_triangle_action_position_calculate_center(l);
 	ts = l->triangle_select;

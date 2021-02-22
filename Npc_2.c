@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   npc_2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:53 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:44 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int		ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
+int			ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
 {
-	int ts;
+	int	ts;
 
 	ts = -1;
 	while (++ts < l->triangle_number)
@@ -16,25 +28,23 @@ int		ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
 			ft_npc_line_triangle_t(l, tmp);
 			ft_npc_line_triangle_u(l, tmp);
 			ft_npc_line_triangle_v(l, tmp);
-			if (tmp->t >= 0 && tmp->t < 1 &&
-				tmp->u >= 0 && tmp->u <= 1 &&
-				tmp->v >= 0 && tmp->v <= 1 &&
-				tmp->u + tmp->v <= 1)
+			if (tmp->t >= 0 && tmp->t < 1 && tmp->u >= 0 && tmp->u <= 1 &&
+				tmp->v >= 0 && tmp->v <= 1 && tmp->u + tmp->v <= 1)
 			{
 				l->g.npc_hp[group] = l->npc_base_life;
 				l->g.npc_statement[group] = 0;
-				return(1);
+				return (1);
 			}
 		}
 	}
-	return(0);
+	return (0);
 }
 
 void		ft_npc_hp_positive(variable_list *l, npc_list *tmp, int group)
 {
 	ft_npc_hp_positive_init(l, tmp, group);
 	if (ft_npc_hp_positive_while(l, tmp, group) == 1)
-		return;
+		return ;
 	l->g.npc_o[group] = (int)(atan2(tmp->vx, tmp->vz) * 180 / M_PI + 180);
 	if (l->g.npc_timer[group] % 10 == 0)
 	{
@@ -73,8 +83,8 @@ void		ft_npc_hp_negative(variable_list *l, int group)
 
 void		ft_npc(variable_list *l)
 {
-	npc_list tmp;
-	int group;
+	npc_list	tmp;
+	int			group;
 
 	group = -1;
 	while (++group < MAX_GROUPS)

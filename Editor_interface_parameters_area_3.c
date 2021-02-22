@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_area_3.c               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:51 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:48 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_parameter_position_size(variable_list *l)
@@ -22,7 +34,7 @@ void		ft_map_editor_area_parameter_link(variable_list *l)
 
 void		ft_map_editor_area_parameter_link1(variable_list *l)
 {
-	ft_itoa(l, l->link1[l->area_select], l->me.str);
+	ft_itoa(l->link1[l->area_select], l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
@@ -31,7 +43,7 @@ void		ft_map_editor_area_parameter_link1(variable_list *l)
 
 void		ft_map_editor_area_parameter_link2(variable_list *l)
 {
-	ft_itoa(l, l->link2[l->area_select], l->me.str);
+	ft_itoa(l->link2[l->area_select], l->me.str);
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
 	ft_put_text(l);
@@ -39,7 +51,7 @@ void		ft_map_editor_area_parameter_link2(variable_list *l)
 
 void		ft_map_editor_area_parameter_link3(variable_list *l)
 {
-	ft_itoa(l, l->link3[l->area_select], l->me.str);
+	ft_itoa(l->link3[l->area_select], l->me.str);
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
 	ft_put_text(l);

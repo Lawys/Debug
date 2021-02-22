@@ -1,32 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_1.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:05 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:37 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_engine_calculate_triangles_distance(variable_list *l)
 {
-	int i;
-	int end;
-	double *address[4];
-	int *id;
+	int		i;
+	int		end;
+	double	*address[3];
 
 	i = 0;
 	end = l->triangle_number;
-	address[0] = &l->e.t_d;
-	address[1] = l->e.t_z1;
-	address[2] = l->e.t_z2;
-	address[3] = l->e.t_z3;
-	id = &l->e.t_id;
+	address[0] = l->e.t_z1;
+	address[1] = l->e.t_z2;
+	address[2] = l->e.t_z3;
 	while (i < end)
 	{
-		address[0][i] = address[1][i];
-		if (address[2][i] > address[0][i])
-			address[0][i] = address[2][i];
-		if (address[3][i] > address[0][i])
-			address[0][i] = address[3][i];
-		id[i] = i;
+		l->e.t_d[i] = address[0][i];
+		if (address[1][i] > l->e.t_d[i])
+			l->e.t_d[i] = address[1][i];
+		if (address[2][i] > l->e.t_d[i])
+			l->e.t_d[i] = address[2][i];
+		l->e.t_id[i] = i;
 		i++;
 	}
 }
 
-void		ft_engine_set_x_y_z(variable_list *l, double *x, double *y, double *z)
+void		ft_engine_set_x_y_z(variable_list *l, double *x, double *y,
+double *z)
 {
 	*x = l->e.xp * l->e.c_h + (l->e.zp) * l->e.s_h;
 	*z = -l->e.xp * l->e.s_h + (l->e.zp) * l->e.c_h;
@@ -72,31 +82,21 @@ void		ft_engine_set_triangles_points_sprite(variable_list *l, int ts)
 	ft_engine_set_x_y_z(l, &l->e.t_x3[ts], &l->e.t_y3[ts], &l->e.t_z3[ts]);
 }
 
-void		ft_engine_set_triangles_points(variable_list *l)
+void		ft_engine_set_triangles_points_no_sprite(variable_list *l, int ts)
 {
-	int ts;
-	int tn;
-
-	tn = l->triangle_number;
-	ts = -1;
-	while (++ts < tn)
-	{
-		if (l->g.sprite[l->t.group[ts]] == 1 || l->g.npc[l->t.group[ts]] == 1)
-			ft_engine_set_triangles_points_sprite(l, ts);
-		else
-		{
-			l->e.xp = l->t.x1[ts] - l->p.x;
-			l->e.yp = l->t.y1[ts] - l->p.y;
-			l->e.zp = l->t.z1[ts] - l->p.z;
-			ft_engine_set_x_y_z(l, &l->e.t_x1[ts], &l->e.t_y1[ts], &l->e.t_z1[ts]);
-			l->e.xp = l->t.x2[ts] - l->p.x;
-			l->e.yp = l->t.y2[ts] - l->p.y;
-			l->e.zp = l->t.z2[ts] - l->p.z;
-			ft_engine_set_x_y_z(l, &l->e.t_x2[ts], &l->e.t_y2[ts], &l->e.t_z2[ts]);
-			l->e.xp = l->t.x3[ts] - l->p.x;
-			l->e.yp = l->t.y3[ts] - l->p.y;
-			l->e.zp = l->t.z3[ts] - l->p.z;
-			ft_engine_set_x_y_z(l, &l->e.t_x3[ts], &l->e.t_y3[ts], &l->e.t_z3[ts]);
-		}
-	}
+	l->e.xp = l->t.x1[ts] - l->p.x;
+	l->e.yp = l->t.y1[ts] - l->p.y;
+	l->e.zp = l->t.z1[ts] - l->p.z;
+	ft_engine_set_x_y_z(l, &l->e.t_x1[ts], &l->e.t_y1[ts],
+	&l->e.t_z1[ts]);
+	l->e.xp = l->t.x2[ts] - l->p.x;
+	l->e.yp = l->t.y2[ts] - l->p.y;
+	l->e.zp = l->t.z2[ts] - l->p.z;
+	ft_engine_set_x_y_z(l, &l->e.t_x2[ts], &l->e.t_y2[ts],
+	&l->e.t_z2[ts]);
+	l->e.xp = l->t.x3[ts] - l->p.x;
+	l->e.yp = l->t.y3[ts] - l->p.y;
+	l->e.zp = l->t.z3[ts] - l->p.z;
+	ft_engine_set_x_y_z(l, &l->e.t_x3[ts], &l->e.t_y3[ts],
+	&l->e.t_z3[ts]);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_6.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:25 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:12 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_play_item_4(variable_list *l)
@@ -11,7 +23,6 @@ void		ft_hud_play_item_4(variable_list *l)
 	l->u.tey = 504;
 	l->u.wsy = 100 - (((double)l->u.tey - l->u.tsy) * 100 * l->u.size) / 1024;
 	ft_put_texture(l);
-
 	if (l->i.mouse == 1 && l->pixels_distance[WDW2][WDH2] < 60)
 	{
 		if (l->g.action_statement[48] == 0)

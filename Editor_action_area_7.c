@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_area_7.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:49 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:44 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_action_link6(variable_list *l)
@@ -8,9 +20,10 @@ void		ft_map_editor_area_action_link6(variable_list *l)
 	}
 }
 
-void		ft_map_editor_area_action_delete_set_values(variable_list *l, int ts)
+void		ft_map_editor_area_action_delete_set_values(variable_list *l,
+int ts)
 {
-	int tn;
+	int	tn;
 
 	tn = --l->triangle_number;
 	l->t.area[ts] = l->t.area[tn];
@@ -36,7 +49,7 @@ void		ft_map_editor_area_action_delete_set_values(variable_list *l, int ts)
 
 void		ft_map_editor_area_action_delete(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{

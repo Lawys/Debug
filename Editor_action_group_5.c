@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_group_5.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:25:17 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:33 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_group_action_position_l(variable_list *l)
@@ -13,8 +25,8 @@ void		ft_map_editor_group_action_position_l(variable_list *l)
 
 void		ft_map_editor_group_action_position_size_recall(variable_list *l)
 {
-	int ts;
-	double p[3];
+	int		ts;
+	double	p[3];
 
 	p[0] = l->me.x;
 	p[1] = l->me.y;
@@ -38,7 +50,7 @@ void		ft_map_editor_group_action_position_size_recall(variable_list *l)
 
 void		ft_map_editor_group_action_position_size_up(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	ft_map_editor_group_action_position_calculate_center(l);
 	ts = -1;
@@ -62,7 +74,7 @@ void		ft_map_editor_group_action_position_size_up(variable_list *l)
 
 void		ft_map_editor_group_action_position_size_down(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	ft_map_editor_group_action_position_calculate_center(l);
 	ts = -1;

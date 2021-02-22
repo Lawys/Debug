@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_5.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:08 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:11:58 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_action_area(variable_list *l, int group, int c, char *str)
 {
-	double distance;
-	int value;
+	double	distance;
+	int		value;
 
-	value = (int)ft_atoi(l, str, &c);
+	value = (int)ft_atoi(str, &c);
 	if (str[c] == '>')
 	{
 		ft_action_calculate_center(l, group);
@@ -27,9 +39,9 @@ void		ft_action_area(variable_list *l, int group, int c, char *str)
 
 void		ft_action_exist(variable_list *l, int group, int c, char *str)
 {
-	int value;
+	int	value;
 
-	value = (int)ft_atoi(l, str, &c);
+	value = (int)ft_atoi(str, &c);
 	if (str[c] == ';' && value > 0 && value < MAX_GROUPS - 1)
 	{
 		if (l->g.exist[value] == 0)
@@ -68,9 +80,10 @@ void		ft_action_xyzhvls(variable_list *l, int group, int c, char *str)
 		ft_action_exist(l, group, c, str);
 }
 
-void		ft_action_start_action_timer_positive(variable_list *l, int group, int c, char *str)
+void		ft_action_start_action_timer_positive(variable_list *l, int group,
+int c, char *str)
 {
-	int value;
+	int	value;
 
 	if (c == 0)
 	{
@@ -80,7 +93,7 @@ void		ft_action_start_action_timer_positive(variable_list *l, int group, int c, 
 	}
 	if (ft_strings_compare(str, "ONCE>", c))
 	{
-		value = (int)ft_atoi(l, str, &c);
+		value = (int)ft_atoi(str, &c);
 		if (l->g.action_timer[group] == value && str[c] == '>')
 			ft_action_xyzhvls(l, group, ++c, str);
 	}
@@ -90,18 +103,19 @@ void		ft_action_start_action_timer_positive(variable_list *l, int group, int c, 
 	}
 }
 
-void		ft_action_start_action_timer_negative_key(variable_list *l, int group, int *c, char *str)
+void		ft_action_start_action_timer_negative_key(variable_list *l,
+int group, int *c, char *str)
 {
-	int value;
+	int	value;
 
-	value = (int)ft_atoi(l, str, c);
+	value = (int)ft_atoi(str, c);
 	if (l->p.item[value] != 2)
 	{
 		if (l->g.action_statement[group] == 2)
 			l->g.action_statement[group] = 0;
 		else if (l->g.action_statement[group] == 3)
 			l->g.action_statement[group] = 1;
-		return;
+		return ;
 	}
 	else if (str[*c] == '>')
 		(*c)++;

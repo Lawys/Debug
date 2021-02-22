@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tool_put_text_1.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:32:32 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:36 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp)
 {
-	int i;
+	int	i;
 
 	tmp->size = (l->u.size / 2);
 	tmp->wsx = (double)WDWF * (l->u.wsx / 100);
@@ -29,17 +41,19 @@ void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp)
 	}
 }
 
-void		ft_put_text_texture_while(variable_list *l, utility_list *tmp, int x, int y)
+void		ft_put_text_texture_while(variable_list *l, utility_list *tmp,
+int x, int y)
 {
-	int value;
-	int xf;
-	int yf;
+	int	value;
+	int	xf;
+	int	yf;
 
-	value = (((int)(1024 - y / (tmp->size * ((double)WDHF / 1024)) + tmp->tsy) % 1024) * 1024 +
-		((int)(x / (tmp->size * ((double)WDWF / 1024)) + tmp->tsx) % 1024)) * 4;
+	value = (((int)(1024 - y / (tmp->size * ((double)WDHF / 1024)) +
+	tmp->tsy) % 1024) * 1024 + ((int)(x / (tmp->size * ((double)WDWF / 1024)) +
+	tmp->tsx) % 1024)) * 4;
 	if (tmp->colors[value + 3] != 0)
 	{
-	value = tmp->colors[value] +
+		value = tmp->colors[value] +
 		tmp->colors[value + 1] * 256 +
 		tmp->colors[value + 2] * 65536;
 		yf = (int)(tmp->wsy + y);
@@ -55,15 +69,11 @@ void		ft_put_text_texture_while(variable_list *l, utility_list *tmp, int x, int 
 
 void		ft_put_text_texture_action(variable_list *l, utility_list *tmp)
 {
-	int i;
+	int	i;
 
-	if (tmp->action != -1 &&
-		l->i.mouse_x > tmp->wsx &&
-		l->i.mouse_x < tmp->wex &&
-		l->i.mouse_y > tmp->wsy &&
-		l->i.mouse_y < tmp->wey)
+	if (tmp->action != -1 && l->i.mouse_x > tmp->wsx && l->i.mouse_x < tmp->wex
+	&& l->i.mouse_y > tmp->wsy && l->i.mouse_y < tmp->wey)
 	{
-
 		tmp->colors = l->u.colors_on;
 		if (l->i.mouse == 1 && l->i.mouse_time_pressing == 1)
 		{
@@ -87,10 +97,10 @@ void		ft_put_text_texture_action(variable_list *l, utility_list *tmp)
 
 void		ft_put_text_texture(variable_list *l, utility_list *tmp)
 {
-	int x;
-	int y;
-	int endy;
-	int endx;
+	int	x;
+	int	y;
+	int	endy;
+	int	endx;
 
 	endy = (int)(34. * tmp->size * ((double)WDHF / 1024));
 	endx = (int)(34. * tmp->size * ((double)WDWF / 1024));
@@ -105,8 +115,8 @@ void		ft_put_text_texture(variable_list *l, utility_list *tmp)
 
 void		ft_put_text(variable_list *l)
 {
-	int i;
-	utility_list tmp;
+	int				i;
+	utility_list	tmp;
 
 	ft_put_text_texture_initialize(l, &tmp);
 	ft_put_text_texture_action(l, &tmp);

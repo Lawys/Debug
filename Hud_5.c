@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_5.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:20 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:14 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_play_item_2_animation_3(variable_list *l)
@@ -49,8 +61,6 @@ void		ft_hud_play_item_2_animation_5(variable_list *l)
 
 void		ft_hud_play_item_2(variable_list *l)
 {
-	int i;
-
 	l->u.colors = l->texture_colors[35];
 	l->u.wsx = 39.5;
 	l->u.size = 1.5;
@@ -66,16 +76,8 @@ void		ft_hud_play_item_2(variable_list *l)
 		ft_hud_play_item_2_animation_5(l);
 	else if (l->p.animation_timer == 1)
 	{
-		i = -1;
-		while (++i < 6)
-			if (l->p.item[i] == 1)
-			{
-				l->p.item[i] = 2;
-				break;
-			}
-		l->p.item[2] = 0;
-		l->p.animation_timer--;
-		return;
+		ft_hud_play_item_2_animation_6(l);
+		return ;
 	}
 	ft_put_texture(l);
 }
@@ -91,7 +93,6 @@ void		ft_hud_play_item_3(variable_list *l)
 	l->u.tey = 1024;
 	l->u.wsy = 100 - (((double)l->u.tey - l->u.tsy) * 100 * l->u.size) / 1024;
 	ft_put_texture(l);
-
 	if (l->i.mouse == 1)
 	{
 		if (l->g.action_statement[48] == 0)

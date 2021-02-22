@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:09 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:35 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int	ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l)
+int		ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l)
 {
-	int i;
-	double *distance;
+	int		i;
+	double	*distance;
 
 	distance = l->e.t_d;
 	i = -1;
 	while (distance[++i] < 1 && i < l->triangle_number)
 		continue;
-	return(i);
+	return (i);
 }
 
-void		ft_engine_play_calculate_initialize_points_vectors_normals
-(variable_list *l)
+void	ft_engine_play_calculate_initialize_points_vectors_normals(
+variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	ts = l->e.t_s;
 	l->e.tmp_z1 = l->e.t_z1[ts];
@@ -40,13 +52,13 @@ void		ft_engine_play_calculate_initialize_points_vectors_normals
 		l->e.nx + l->e.tmp_z1 * l->e.nz);
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x1[ts];
@@ -63,13 +75,13 @@ void		ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
 	l->e.ref = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x2[ts];
@@ -86,13 +98,13 @@ void		ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
 	l->e.ref = 2;
 }
 
-void		ft_engine_play_calculate_points_to_front_ref_3(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_3(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x3[ts];

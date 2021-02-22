@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_9.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:39 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:07 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_main_menu_play(variable_list *l)
@@ -19,7 +31,7 @@ void		ft_hud_main_menu_play(variable_list *l)
 		if (l->p.item[i] == 1)
 		{
 			l->p.item[i] = 2;
-			break;
+			break ;
 		}
 	SDL_ShowCursor(0);
 	l->menu_mode = 1;
@@ -45,12 +57,27 @@ void		ft_hud_main_menu(variable_list *l)
 			l->i.mouse_x < (743. * WDWF) / 1024)
 			if (l->i.mouse_y > (359. * WDHF) / 1024 &&
 				l->i.mouse_y < (499. * WDHF) / 1024)
-				ft_hud_main_menu_play(l); //GAME
+				ft_hud_main_menu_play(l);
 			else if (l->i.mouse_y > (529. * WDHF) / 1024 &&
 				l->i.mouse_y < (668. * WDHF) / 1024)
-				ft_hud_main_menu_editor(l); //EDITOR
+				ft_hud_main_menu_editor(l);
 			else if (l->i.mouse_y > (698. * WDHF) / 1024 &&
 				l->i.mouse_y < (838. * WDHF) / 1024)
-				ft_free_and_exit(l, "EXIT\n"); //EXIT
+				ft_free_and_exit(l, "EXIT\n");
 	}
+}
+
+void		ft_hud_play_item_2_animation_6(variable_list *l)
+{
+	int i;
+
+	i = -1;
+	while (++i < 6)
+		if (l->p.item[i] == 1)
+		{
+			l->p.item[i] = 2;
+			break ;
+		}
+	l->p.item[2] = 0;
+	l->p.animation_timer--;
 }

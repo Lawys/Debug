@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_7.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:30 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:10 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_play_grenade_distance_negative_delete(variable_list *l)
 {
-	int ts;
-	int tn;
+	int	ts;
+	int	tn;
 
 	l->gr.gd = 0;
 	tn = --l->triangle_number;
@@ -31,7 +43,7 @@ void		ft_hud_play_grenade_distance_negative_delete(variable_list *l)
 
 void		ft_hud_play_grenade_distance_negative_explosion(variable_list *l)
 {
-	int i;
+	int	i;
 
 	if (sqrt((l->gr.sx - l->p.x) * (l->gr.sx - l->p.x) +
 		(l->gr.sy - l->p.y) * (l->gr.sy - l->p.y) +

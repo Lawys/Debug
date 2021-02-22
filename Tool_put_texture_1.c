@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tool_put_texture_1.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:32:37 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:35 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_put_texture_initialize(variable_list *l, utility_list *tmp)
@@ -13,11 +25,12 @@ void		ft_put_texture_initialize(variable_list *l, utility_list *tmp)
 	tmp->tex = l->u.tex;
 }
 
-void		ft_put_texture_while(variable_list *l, utility_list *tmp, int x, int y)
+void		ft_put_texture_while(variable_list *l, utility_list *tmp, int x,
+int y)
 {
-	int value;
-	int xf;
-	int yf;
+	int	value;
+	int	xf;
+	int	yf;
 
 	value = (((int)(1023 - y / tmp->sizey) % 1024) * 1024 +
 		((int)(x / tmp->sizex) % 1024)) * 4;
@@ -39,7 +52,7 @@ void		ft_put_texture_while(variable_list *l, utility_list *tmp, int x, int y)
 
 void		ft_put_texture_action(variable_list *l, utility_list *tmp)
 {
-	int i;
+	int	i;
 
 	if (tmp->action != -1 &&
 		l->i.mouse_x > tmp->wsx &&
@@ -67,11 +80,11 @@ void		ft_put_texture_action(variable_list *l, utility_list *tmp)
 
 void		ft_put_texture(variable_list *l)
 {
-	int x;
-	int y;
-	int endy;
-	int endx;
-	utility_list tmp;
+	int				x;
+	int				y;
+	int				endy;
+	int				endx;
+	utility_list	tmp;
 
 	ft_put_texture_initialize(l, &tmp);
 	endy = (int)(tmp.tey * tmp.sizey);

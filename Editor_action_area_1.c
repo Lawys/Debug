@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_area_1.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:21 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:16:00 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_action_select_area(variable_list *l)
@@ -8,7 +20,7 @@ void		ft_map_editor_area_action_select_area(variable_list *l)
 
 void		ft_map_editor_area_action_switch_area(variable_list *l)
 {
-	int i;
+	int	i;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -32,7 +44,7 @@ void		ft_map_editor_area_action_switch_area(variable_list *l)
 
 void		ft_map_editor_area_action_position_x_up(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)
@@ -49,7 +61,7 @@ void		ft_map_editor_area_action_position_x_up(variable_list *l)
 
 void		ft_map_editor_area_action_position_x_down(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)

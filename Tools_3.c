@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools_3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 19:27:42 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:15 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-int	ft_itoa(variable_list *l, double number, char *str)
+int		ft_itoa(double number, char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (number < 0)
@@ -14,18 +26,18 @@ int	ft_itoa(variable_list *l, double number, char *str)
 	{
 		str[i++] = '0';
 		str[i] = '\0';
-		return(i);
+		return (i);
 	}
-	ft_itoa_naturals(l, number, str, &i);
+	ft_itoa_naturals(number, str, &i);
 	if (number - (int)number > 0)
-		ft_itoa_decimals(l, number, str, &i);
+		ft_itoa_decimals(number, str, &i);
 	str[i] = 0;
-	return(i);
+	return (i);
 }
 
-int	ft_strings_compare(char *line, char *word, int c)
+int		ft_strings_compare(char *line, char *word, int c)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (word[++i] != '\0')
@@ -34,10 +46,10 @@ int	ft_strings_compare(char *line, char *word, int c)
 	return (1);
 }
 
-void		ft_swap_nbr(int *k, double *t, int i, int j)
+void	ft_swap_nbr(int *k, double *t, int i, int j)
 {
-	double d;
-	int c;
+	double	d;
+	int		c;
 
 	d = t[i];
 	t[i] = t[j];
@@ -47,13 +59,14 @@ void		ft_swap_nbr(int *k, double *t, int i, int j)
 	k[j] = c;
 }
 
-void		ft_quick_sort(int *k, double *t, int size)
+void	ft_quick_sort(int *k, double *t, int size)
 {
-	double p;
-	int i;
-	int j;
+	double	p;
+	int		i;
+	int		j;
+
 	if (t == NULL || size <= 1)
-		return;
+		return ;
 	p = t[size - 1];
 	j = -1;
 	i = 0;

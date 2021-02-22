@@ -1,22 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tool_edit_double_1.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:58 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:43 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_value_editing_double_wheel_up(variable_list *l, double *value, int max)
+void		ft_value_editing_double_wheel_up(variable_list *l, double *value,
+int max)
 {
 	*value += l->me.mult;
 	if (*value > max)
 		*value = max;
 }
 
-void		ft_value_editing_double_wheel_down(variable_list *l, double *value, int min)
+void		ft_value_editing_double_wheel_down(variable_list *l, double *value,
+int min)
 {
 	*value -= l->me.mult;
 	if (*value < min)
 		*value = min;
 }
 
-void		ft_value_editing_double_set_number(variable_list *l, double *value, int min, int max, int i)
+void		ft_value_editing_double_set_number(variable_list *l, double *value,
+int *limits, int i)
 {
-	int result;
+	int	result;
 
 	if (*value != 0)
 	{
@@ -24,55 +39,57 @@ void		ft_value_editing_double_set_number(variable_list *l, double *value, int mi
 		l->u.str[i] = l->u.str[i - 1];
 		l->u.str[i - 1] = l->u.str[i - 2];
 		l->u.str[i - 2] = l->i.key_input;
-		result = (int)ft_atoi(l, l->u.str, NULL);
+		result = (int)ft_atoi(l->u.str, NULL);
 	}
 	else
 	{
 		l->u.str[i + 1] = 0;
 		l->u.str[i] = l->i.key_input;
-		result = (int)ft_atoi(l, l->u.str, NULL) * 100;
+		result = (int)ft_atoi(l->u.str, NULL) * 100;
 	}
-	if (result >= min && result <= max)
+	if (result >= limits[0] && result <= limits[1])
 		*value = result;
-	else if (result > max)
-		*value = max;
-	else if (result < min)
-		*value = min;
+	else if (result > limits[1])
+		*value = limits[1];
+	else if (result < limits[0])
+		*value = limits[0];
 }
 
-void		ft_value_editing_double_remove_number(variable_list *l, double *value, int min, int max, int i)
+void		ft_value_editing_double_remove_number(variable_list *l,
+double *value, int *limits, int i)
 {
-	int result;
+	int	result;
 
 	if (l->u.str[i - 1] != '0')
 	{
 		l->u.str[i - 1] = '0';
-		result = (int)ft_atoi(l, l->u.str, NULL);
+		result = (int)ft_atoi(l->u.str, NULL);
 	}
 	else if (l->u.str[i - 2] != '0')
 	{
 		l->u.str[i - 2] = '0';
-		result = (int)ft_atoi(l, l->u.str, NULL);
+		result = (int)ft_atoi(l->u.str, NULL);
 	}
 	else
 	{
 		l->u.str[i - 3] = '0';
-		result = (int)ft_atoi(l, l->u.str, NULL) / 10;
+		result = (int)ft_atoi(l->u.str, NULL) / 10;
 	}
-	if (result >= min && result <= max)
+	if (result >= limits[0] && result <= limits[1])
 		*value = result;
-	else if (result > max)
-		*value = max;
-	else if (result < min)
-		*value = min;
+	else if (result > limits[1])
+		*value = limits[1];
+	else if (result < limits[0])
+		*value = limits[0];
 	l->i.state[42] = 0;
 }
 
-void		ft_value_editing_double_set_negativ(variable_list *l, double *value, int min, int max, int i)
+void		ft_value_editing_double_set_negativ(variable_list *l,
+double *value, int *limits)
 {
 	*value *= -1;
-	if (*value > max)
-		*value = max;
-	else if (*value < min)
-		*value = min;
+	if (*value > limits[1])
+		*value = limits[1];
+	else if (*value < limits[0])
+		*value = limits[0];
 }

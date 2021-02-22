@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hud_8.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:34 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:09 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_hud_play_life(variable_list *l)
@@ -19,7 +31,7 @@ void		ft_hud_play_life(variable_list *l)
 	l->u.wsx = 2.5;
 	l->u.wsy = 90;
 	ft_put_texture(l);
-	ft_itoa(l, l->p.hp, l->me.str);
+	ft_itoa(l->p.hp, l->me.str);
 	l->u.str_address = l->me.str;
 	l->u.wsx = 3.5;
 	l->u.wsy = 91;
@@ -83,7 +95,7 @@ void		ft_hud_play(variable_list *l)
 	if (l->p.hp <= 0)
 	{
 		l->menu_mode = 3;
-		return;
+		return ;
 	}
 	l->u.action = -1;
 	l->u.sizex = (double)WDWF / 1024;

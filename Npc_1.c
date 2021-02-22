@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   npc_1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:49 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:45 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_npc_line_triangle_t(variable_list *l, npc_list *tmp)
@@ -12,8 +24,8 @@ void		ft_npc_line_triangle_u(variable_list *l, npc_list *tmp)
 {
 	tmp->u =
 		((-tmp->vy * tmp->v2z - -tmp->vz * tmp->v2y) * (l->p.x - tmp->p1x) +
-			(-tmp->vz * tmp->v2x - -tmp->vx * tmp->v2z) * (l->p.y - tmp->p1y) +
-			(-tmp->vx * tmp->v2y - -tmp->vy * tmp->v2x) * (l->p.z - tmp->p1z)) /
+		(-tmp->vz * tmp->v2x - -tmp->vx * tmp->v2z) * (l->p.y - tmp->p1y) +
+		(-tmp->vx * tmp->v2y - -tmp->vy * tmp->v2x) * (l->p.z - tmp->p1z)) /
 		(tmp->vx * tmp->nx + tmp->vy * tmp->ny + tmp->vz * tmp->nz);
 }
 
@@ -21,12 +33,13 @@ void		ft_npc_line_triangle_v(variable_list *l, npc_list *tmp)
 {
 	tmp->v =
 		((tmp->v1y * -tmp->vz - tmp->v1z * -tmp->vy) * (l->p.x - tmp->p1x) +
-			(tmp->v1z * -tmp->vx - tmp->v1x * -tmp->vz) * (l->p.y - tmp->p1y) +
-			(tmp->v1x * -tmp->vy - tmp->v1y * -tmp->vx) * (l->p.z - tmp->p1z)) /
+		(tmp->v1z * -tmp->vx - tmp->v1x * -tmp->vz) * (l->p.y - tmp->p1y) +
+		(tmp->v1x * -tmp->vy - tmp->v1y * -tmp->vx) * (l->p.z - tmp->p1z)) /
 		(tmp->vx * tmp->nx + tmp->vy * tmp->ny + tmp->vz * tmp->nz);
 }
 
-void		ft_npc_line_triangle_initialize(variable_list *l, npc_list *tmp, int ts)
+void		ft_npc_line_triangle_initialize(variable_list *l, npc_list *tmp,
+int ts)
 {
 	tmp->p1x = l->t.x1[ts];
 	tmp->p2x = l->t.x2[ts];
@@ -50,10 +63,10 @@ void		ft_npc_line_triangle_initialize(variable_list *l, npc_list *tmp, int ts)
 
 void		ft_npc_hp_positive_init(variable_list *l, npc_list *tmp, int group)
 {
-	int ts;
-	double x;
-	double y;
-	double z;
+	int		ts;
+	double	x;
+	double	y;
+	double	z;
 
 	x = 0;
 	y = 0;
@@ -66,7 +79,7 @@ void		ft_npc_hp_positive_init(variable_list *l, npc_list *tmp, int group)
 			x = l->t.x1[ts] + (l->t.x3[ts] - l->t.x1[ts]) / 2;
 			y = l->t.y1[ts] + (l->t.y2[ts] - l->t.y1[ts]) / 2;
 			z = l->t.z1[ts];
-			break;
+			break ;
 		}
 	}
 	tmp->vx = (x - l->p.x);

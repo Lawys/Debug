@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_group_7.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:25:29 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:29 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_group_action_interact(variable_list *l)
@@ -16,7 +28,7 @@ void		ft_map_editor_group_action_interact(variable_list *l)
 
 void		ft_map_editor_group_action_check_free_group(variable_list *l)
 {
-	int i;
+	int	i;
 
 	l->me.new_group = 0;
 	while (l->me.new_group < MAX_GROUPS)
@@ -25,16 +37,17 @@ void		ft_map_editor_group_action_check_free_group(variable_list *l)
 		while (i < l->triangle_number)
 		{
 			if (l->t.group[i] == l->me.new_group)
-				break;
+				break ;
 			i++;
 		}
 		if (i == l->triangle_number)
-			break;
+			break ;
 		l->me.new_group++;
 	}
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_1(variable_list *l, int ts)
+void		ft_map_editor_group_action_create_npc_triangle_1(variable_list *l,
+int ts)
 {
 	l->t.area[ts] = 0;
 	l->t.group[ts] = l->me.new_group;
@@ -57,7 +70,8 @@ void		ft_map_editor_group_action_create_npc_triangle_1(variable_list *l, int ts)
 	l->t.texture_sides[ts] = 0;
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_2_shift(variable_list *l, int ts, int tn)
+void		ft_map_editor_group_action_create_npc_triangle_2_shift(
+variable_list *l, int ts, int tn)
 {
 	l->t.texture_shift_x[tn] = -(l->t.texture_shift_x[ts] +
 		sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
@@ -71,9 +85,10 @@ void		ft_map_editor_group_action_create_npc_triangle_2_shift(variable_list *l, i
 		l->t.texture_size_y[ts] / 100);
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_2(variable_list *l, int ts)
+void		ft_map_editor_group_action_create_npc_triangle_2(variable_list *l,
+int ts)
 {
-	int tn;
+	int	tn;
 
 	tn = l->triangle_number++;
 	l->t.area[tn] = l->t.area[ts];

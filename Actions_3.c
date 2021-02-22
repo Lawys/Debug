@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_3.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:23:58 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:11:49 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_action_s_up(variable_list *l, int group, double value)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < l->triangle_number)
@@ -24,7 +36,7 @@ void		ft_action_s_up(variable_list *l, int group, double value)
 
 void		ft_action_s_do(variable_list *l, int group, double value)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < l->triangle_number)
@@ -46,9 +58,9 @@ void		ft_action_s_do(variable_list *l, int group, double value)
 
 void		ft_action_s_replace(variable_list *l, int group)
 {
-	double xyz[3];
-	double p[3];
-	int i;
+	double	xyz[3];
+	double	p[3];
+	int		i;
 
 	p[0] = l->me.x;
 	p[1] = l->me.y;
@@ -75,9 +87,9 @@ void		ft_action_s_replace(variable_list *l, int group)
 
 void		ft_action_size(variable_list *l, int group, int c, char *str)
 {
-	double value;
+	double	value;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		ft_action_calculate_center(l, group);
@@ -92,10 +104,10 @@ void		ft_action_size(variable_list *l, int group, int c, char *str)
 
 void		ft_action_texture(variable_list *l, int group, int c, char *str)
 {
-	double value;
-	int i;
+	double	value;
+	int		i;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';' && value >= 0 && value < l->texture_number)
 	{
 		i = -1;

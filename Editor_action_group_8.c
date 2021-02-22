@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_group_8.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:25:33 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:27 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_group_action_create_npc(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		if (l->triangle_number == MAX_TRIANGLES - 1 ||
 			l->triangle_number + 1 == MAX_TRIANGLES - 1)
-			return;
+			return ;
 		ft_map_editor_group_action_check_free_group(l);
 		if (l->me.new_group == MAX_GROUPS)
-			return;
+			return ;
 		l->g.npc[l->me.new_group] = 1;
 		ts = l->triangle_number++;
 		ft_map_editor_group_action_create_npc_triangle_1(l, ts);
@@ -21,9 +33,10 @@ void		ft_map_editor_group_action_create_npc(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_duplicate_set_values(variable_list *l, int ts)
+void		ft_map_editor_group_action_duplicate_set_values(variable_list *l,
+int ts)
 {
-	int tn;
+	int	tn;
 
 	tn = l->triangle_number++;
 	l->t.area[tn] = l->t.area[ts];
@@ -49,14 +62,14 @@ void		ft_map_editor_group_action_duplicate_set_values(variable_list *l, int ts)
 
 void		ft_map_editor_group_action_duplicate(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		ft_map_editor_group_action_check_free_group(l);
 		if (l->me.new_group == MAX_GROUPS)
-			return;
+			return ;
 		l->g.sprite[l->me.new_group] = l->g.sprite[l->group_select];
 		l->g.npc[l->me.new_group] = l->g.npc[l->group_select];
 		l->g.no_block[l->me.new_group] = l->g.no_block[l->group_select];
@@ -65,16 +78,17 @@ void		ft_map_editor_group_action_duplicate(variable_list *l)
 			if (l->t.group[ts] == l->group_select)
 			{
 				if (l->triangle_number == MAX_TRIANGLES - 1)
-					return;
+					return ;
 				ft_map_editor_group_action_duplicate_set_values(l, ts);
 			}
 		l->group_select = l->me.new_group;
 	}
 }
 
-void		ft_map_editor_group_action_delete_set_values(variable_list *l, int ts)
+void		ft_map_editor_group_action_delete_set_values(variable_list *l,
+int ts)
 {
-	int tn;
+	int	tn;
 
 	tn = --l->triangle_number;
 	l->t.area[ts] = l->t.area[tn];
@@ -100,7 +114,7 @@ void		ft_map_editor_group_action_delete_set_values(variable_list *l, int ts)
 
 void		ft_map_editor_group_action_delete(variable_list *l)
 {
-	int ts;
+	int	ts;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{

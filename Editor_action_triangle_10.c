@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_triangle_10.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:38 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:53 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_triangle_action_create_square(variable_list *l)
 {
-	int tn;
+	int	tn;
 
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		if (l->triangle_number == MAX_TRIANGLES - 1)
-			return;
+			return ;
 		tn = l->triangle_number++;
 		ft_map_editor_triangle_action_create_square_set_values(l, tn);
 		l->triangle_select = tn;
@@ -17,8 +29,8 @@ void		ft_map_editor_triangle_action_create_square(variable_list *l)
 
 void		ft_map_editor_triangle_action_duplicate_set_values(variable_list *l)
 {
-	int tn;
-	int ts;
+	int	tn;
+	int	ts;
 
 	tn = l->triangle_number++;
 	ts = l->triangle_select;
@@ -46,20 +58,19 @@ void		ft_map_editor_triangle_action_duplicate_set_values(variable_list *l)
 
 void		ft_map_editor_triangle_action_duplicate(variable_list *l)
 {
-
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		if (l->triangle_number == MAX_TRIANGLES - 1)
-			return;
+			return ;
 		ft_map_editor_triangle_action_duplicate_set_values(l);
 	}
 }
 
 void		ft_map_editor_triangle_action_delete_set_values(variable_list *l)
 {
-	int tn;
-	int ts;
+	int	tn;
+	int	ts;
 
 	tn = --l->triangle_number;
 	ts = l->triangle_select;
@@ -87,12 +98,11 @@ void		ft_map_editor_triangle_action_delete_set_values(variable_list *l)
 
 void		ft_map_editor_triangle_action_delete(variable_list *l)
 {
-
 	if (l->action_select[l->menu_select][++l->action])
 	{
 		l->action_select[l->menu_select][l->action] = 0;
 		if (l->triangle_number == 0)
-			return;
+			return ;
 		ft_map_editor_triangle_action_delete_set_values(l);
 	}
 }

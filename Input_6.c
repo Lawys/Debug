@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_6.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:28 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:52 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_event_map_editor_mode_mouse_time_pressing_counter(variable_list *l)
+void		ft_event_map_editor_mode_mouse_time_pressing_counter(
+variable_list *l)
 {
 	if (l->i.mouse == 0)
 		l->i.mouse_time_pressing = 0;

@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_4.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:16 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:31 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x3[ts];
@@ -20,10 +32,10 @@ void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l)
 {
-	int ts;
-	double z1;
-	double z2;
-	double z3;
+	int		ts;
+	double	z1;
+	double	z2;
+	double	z3;
 
 	ts = l->e.t_s;
 	z1 = l->e.t_z1[ts];
@@ -45,10 +57,10 @@ void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front(variable_list *l)
 {
-	int ts;
-	double z1;
-	double z2;
-	double z3;
+	int		ts;
+	double	z1;
+	double	z2;
+	double	z3;
 
 	ts = l->e.t_s;
 	z1 = l->e.t_z1[ts];
@@ -66,7 +78,7 @@ void		ft_engine_play_calculate_points_to_front(variable_list *l)
 
 void		ft_engine_play_calculate_pixel_points(variable_list *l)
 {
-	double t;
+	double	t;
 
 	t = -l->e.view_distance / -l->e.tmp_z1;
 	l->e.p_y1 = l->e.tmp_y1 * t + WDH2;
@@ -91,10 +103,10 @@ void		ft_engine_play_calculate_pixel_points(variable_list *l)
 
 void		ft_engine_play_calculate_pixel_points_p4(variable_list *l)
 {
-	double t;
-	double *min_x;
-	double *max_x;
-	double x4;
+	double	t;
+	double	*min_x;
+	double	*max_x;
+	double	x4;
 
 	t = -l->e.view_distance / -l->e.tmp_z4;
 	l->e.p_y4 = l->e.tmp_y4 * t;

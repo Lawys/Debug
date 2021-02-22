@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_area_2.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:26 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:58 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_action_position_y_up(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)
@@ -19,7 +31,7 @@ void		ft_map_editor_area_action_position_y_up(variable_list *l)
 
 void		ft_map_editor_area_action_position_y_down(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)
@@ -47,7 +59,7 @@ void		ft_map_editor_area_action_position_y(variable_list *l)
 
 void		ft_map_editor_area_action_position_z_up(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)
@@ -64,7 +76,7 @@ void		ft_map_editor_area_action_position_z_up(variable_list *l)
 
 void		ft_map_editor_area_action_position_z_down(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < l->triangle_number)

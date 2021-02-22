@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_action_triangle_4.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:12 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:15:12 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_triangle_action_position_vdown(variable_list *l)
 {
-	double tmp;
-	int ts;
+	double	tmp;
+	int		ts;
 
 	ft_map_editor_triangle_action_position_calculate_center(l);
 	l->me.angle = -(M_PI / 180) * (l->me.mult / 100) * 0.9;
@@ -38,8 +50,8 @@ void		ft_map_editor_triangle_action_position_v(variable_list *l)
 
 void		ft_map_editor_triangle_action_position_l_up(variable_list *l)
 {
-	double tmp;
-	int ts;
+	double	tmp;
+	int		ts;
 
 	ft_map_editor_triangle_action_position_calculate_center(l);
 	l->me.angle = (M_PI / 180) * (l->me.mult / 100) * 0.9;
@@ -63,8 +75,8 @@ void		ft_map_editor_triangle_action_position_l_up(variable_list *l)
 
 void		ft_map_editor_triangle_action_position_l_down(variable_list *l)
 {
-	double tmp;
-	int ts;
+	double	tmp;
+	int		ts;
 
 	ft_map_editor_triangle_action_position_calculate_center(l);
 	l->me.angle = -(M_PI / 180) * (l->me.mult / 100) * 0.9;

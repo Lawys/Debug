@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialize.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:05 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 void		ft_initialize_variables_triangles(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < MAX_TRIANGLES)
@@ -21,8 +33,8 @@ void		ft_initialize_variables_triangles(variable_list *l)
 }
 void		ft_initialize_variables_groups(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < MAX_GROUPS)
@@ -50,7 +62,7 @@ void		ft_initialize_variables_groups(variable_list *l)
 }
 void		ft_initialize_variables_areas(variable_list *l)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < MAX_AREAS)
@@ -65,8 +77,8 @@ void		ft_initialize_variables_areas(variable_list *l)
 }
 void		ft_initialize_variables_1(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < WDW)
@@ -477,8 +489,8 @@ void		ft_initialize_SDL(variable_list *l)
 
 void		ft_reset_arrays(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < WDW)
@@ -491,7 +503,8 @@ void		ft_reset_arrays(variable_list *l)
 		}
 	}
 }
-void		ft_map_reader_error(variable_list *l, char *file, double value, double min, double max)
+void		ft_map_reader_error(variable_list *l, char *file, double value,
+double min, double max)
 {
 	if (value < min || value > max)
 	{
@@ -501,15 +514,14 @@ void		ft_map_reader_error(variable_list *l, char *file, double value, double min
 }
 void		ft_reader(variable_list *l)
 {
-	FILE *stream;
-	int fd;
-	int size;
-	char *file;
-	int i;
-	int j;
-	int k;
+	FILE	*stream;
+	int		fd;
+	int		size;
+	char	*file;
+	int		i;
+	int		j;
+	int		k;
 
-	/// For mapping
 	if ((fopen_s(&stream, "./FILE", "r")) != 0)
 	{
 		ft_free_and_exit(l, "Load File Error\n");
@@ -546,47 +558,66 @@ void		ft_reader(variable_list *l)
 		free(file);
 		ft_free_and_exit(l, "FILE Error\n");
 	}
-
+	i += 3;
 	while (i + 3 <= size && file[i + 3] != '#')
 	{
-		l->t.area[l->triangle_number] = (int)ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.area[l->triangle_number], 1, MAX_AREAS - 1);
-		l->t.group[l->triangle_number] = (int)ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.group[l->triangle_number], 1, MAX_GROUPS - 1);
-		l->t.x1[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.x1[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.y1[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.y1[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.z1[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.z1[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.x2[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.x2[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.y2[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.y2[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.z2[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.z2[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.x3[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.x3[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.y3[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.y3[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.z3[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.z3[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.texture_id[l->triangle_number] = (int)ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_id[l->triangle_number], 0, (double)l->texture_number - 1);
-		l->t.texture_size_x[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_size_x[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.texture_size_y[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_size_y[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.texture_shift_x[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_shift_x[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.texture_shift_y[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_shift_y[l->triangle_number], -MAX_GENERIC, MAX_GENERIC);
-		l->t.texture_light[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_light[l->triangle_number], 0, 100);
-		l->t.texture_opacity[l->triangle_number] = ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_opacity[l->triangle_number], 10, 100);
-		l->t.texture_sides[l->triangle_number] = (int)ft_atoi(l, file, &i);
-		ft_map_reader_error(l, file, l->t.texture_sides[l->triangle_number], -1, 1);
+		l->t.area[l->triangle_number] = (int)ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.area[l->triangle_number], 1,
+		MAX_AREAS - 1);
+		l->t.group[l->triangle_number] = (int)ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.group[l->triangle_number], 1,
+		MAX_GROUPS - 1);
+		l->t.x1[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.x1[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.y1[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.y1[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.z1[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.z1[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.x2[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.x2[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.y2[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.y2[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.z2[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.z2[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.x3[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.x3[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.y3[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.y3[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.z3[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.z3[l->triangle_number], -MAX_GENERIC,
+		MAX_GENERIC);
+		l->t.texture_id[l->triangle_number] = (int)ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_id[l->triangle_number], 0,
+		(double)l->texture_number - 1);
+		l->t.texture_size_x[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_size_x[l->triangle_number],
+		-MAX_GENERIC, MAX_GENERIC);
+		l->t.texture_size_y[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_size_y[l->triangle_number],
+		-MAX_GENERIC, MAX_GENERIC);
+		l->t.texture_shift_x[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_shift_x[l->triangle_number],
+		-MAX_GENERIC, MAX_GENERIC);
+		l->t.texture_shift_y[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_shift_y[l->triangle_number],
+		-MAX_GENERIC, MAX_GENERIC);
+		l->t.texture_light[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_light[l->triangle_number],
+		0, 100);
+		l->t.texture_opacity[l->triangle_number] = ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_opacity[l->triangle_number],
+		10, 100);
+		l->t.texture_sides[l->triangle_number] = (int)ft_atoi(file, &i);
+		ft_map_reader_error(l, file, l->t.texture_sides[l->triangle_number],
+		-1, 1);
 		l->triangle_number++;
 	}
 	_write(1, "Triangles OK.\n", 14);
@@ -601,13 +632,13 @@ void		ft_reader(variable_list *l)
 	j = 0;
 	while (i + 3 <= size && file[i + 3] != '#' && i <= size)
 	{
-		l->g.sprite[j] = (int)ft_atoi(l, file, &i);
+		l->g.sprite[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->g.sprite[j], 0, 1);
-		l->g.npc[j] = (int)ft_atoi(l, file, &i);
+		l->g.npc[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->g.npc[j], 0, 1);
-		l->g.no_block[j] = (int)ft_atoi(l, file, &i);
+		l->g.no_block[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->g.no_block[j], 0, 1);
-		l->g.interact[j] = (int)ft_atoi(l, file, &i);
+		l->g.interact[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->g.interact[j], 0, 1);
 		k = 0;
 		while (++i <= size && file[i] != ',' && k < 57
@@ -637,17 +668,17 @@ void		ft_reader(variable_list *l)
 	j = 0;
 	while (i + 3 <= size && file[i + 3] != '#')
 	{
-		l->link1[j] = (int)ft_atoi(l, file, &i);
+		l->link1[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link1[j], -1, MAX_AREAS - 1);
-		l->link2[j] = (int)ft_atoi(l, file, &i);
+		l->link2[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link2[j], -1, MAX_AREAS - 1);
-		l->link3[j] = (int)ft_atoi(l, file, &i);
+		l->link3[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link3[j], -1, MAX_AREAS - 1);
-		l->link4[j] = (int)ft_atoi(l, file, &i);
+		l->link4[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link4[j], -1, MAX_AREAS - 1);
-		l->link5[j] = (int)ft_atoi(l, file, &i);
+		l->link5[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link5[j], -1, MAX_AREAS - 1);
-		l->link6[j] = (int)ft_atoi(l, file, &i);
+		l->link6[j] = (int)ft_atoi(file, &i);
 		ft_map_reader_error(l, file, l->link6[j], -1, MAX_AREAS - 1);
 		j++;
 	}
@@ -674,7 +705,8 @@ void		ft_engine_set_window_blue_border_triangle1(variable_list *l)
 			if (l->pixels_triangle[j][i] == l->triangle_select)
 			{
 				l->pixels_color[j][i] = 0x0000FF;
-				while (j < WDW && l->pixels_triangle[j][i] == l->triangle_select)
+				while (j < WDW &&
+				l->pixels_triangle[j][i] == l->triangle_select)
 					j++;
 				j--;
 				l->pixels_color[j][i] = 0x0000FF;
@@ -686,8 +718,8 @@ void		ft_engine_set_window_blue_border_triangle1(variable_list *l)
 }
 void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < WDW)
@@ -698,7 +730,8 @@ void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
 			if (l->pixels_triangle[i][j] == l->triangle_select)
 			{
 				l->pixels_color[i][j] = 0x0000FF;
-				while (j < WDH && l->pixels_triangle[i][j] == l->triangle_select)
+				while (j < WDH &&
+				l->pixels_triangle[i][j] == l->triangle_select)
 					j++;
 				j--;
 				l->pixels_color[i][j] = 0x0000FF;
@@ -711,8 +744,8 @@ void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
 
 void		ft_engine_set_window_red_border_area1(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < WDH)
@@ -723,7 +756,8 @@ void		ft_engine_set_window_red_border_area1(variable_list *l)
 			if (l->t.area[l->pixels_triangle[j][i]] == l->area_select)
 			{
 				l->pixels_color[j][i] = 0xFF0000;
-				while (j < WDW && l->t.area[l->pixels_triangle[j][i]] == l->area_select)
+				while (j < WDW &&
+				l->t.area[l->pixels_triangle[j][i]] == l->area_select)
 					j++;
 				j--;
 				l->pixels_color[j][i] = 0xFF0000;
@@ -735,8 +769,8 @@ void		ft_engine_set_window_red_border_area1(variable_list *l)
 }
 void		ft_engine_set_window_red_border_area2(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < WDW)
@@ -747,7 +781,8 @@ void		ft_engine_set_window_red_border_area2(variable_list *l)
 			if (l->t.area[l->pixels_triangle[i][j]] == l->area_select)
 			{
 				l->pixels_color[i][j] = 0xFF0000;
-				while (j < WDH && l->t.area[l->pixels_triangle[i][j]] == l->area_select)
+				while (j < WDH &&
+				l->t.area[l->pixels_triangle[i][j]] == l->area_select)
 					j++;
 				j--;
 				l->pixels_color[i][j] = 0xFF0000;
@@ -759,8 +794,8 @@ void		ft_engine_set_window_red_border_area2(variable_list *l)
 }
 void		ft_engine_set_window_green_border_group1(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < WDH)
@@ -783,8 +818,8 @@ void		ft_engine_set_window_green_border_group1(variable_list *l)
 }
 void		ft_engine_set_window_green_border_group2(variable_list *l)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < WDW)
@@ -795,7 +830,8 @@ void		ft_engine_set_window_green_border_group2(variable_list *l)
 			if (l->t.group[l->pixels_triangle[i][j]] == l->group_select)
 			{
 				l->pixels_color[i][j] = 0x00FF00;
-				while (j < WDH && l->t.group[l->pixels_triangle[i][j]] == l->group_select)
+				while (j < WDH &&
+				l->t.group[l->pixels_triangle[i][j]] == l->group_select)
 					j++;
 				j--;
 				l->pixels_color[i][j] = 0x00FF00;
@@ -808,10 +844,10 @@ void		ft_engine_set_window_green_border_group2(variable_list *l)
 
 void		ft_size_to_window(variable_list *l)
 {
-	int i;
-	int j;
-	int k;
-	int n;
+	int	i;
+	int	j;
+	int	k;
+	int	n;
 
 	i = 0;
 	while (i < WDHF)

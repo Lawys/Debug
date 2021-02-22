@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_interface_parameters_area_4.c               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:26:54 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:14:43 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_map_editor_area_parameter_link4(variable_list *l)
 {
-	ft_itoa(l, l->link4[l->area_select], l->me.str);
+	ft_itoa(l->link4[l->area_select], l->me.str);
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
 	ft_put_text(l);
@@ -10,7 +22,7 @@ void		ft_map_editor_area_parameter_link4(variable_list *l)
 
 void		ft_map_editor_area_parameter_link5(variable_list *l)
 {
-	ft_itoa(l, l->link5[l->area_select], l->me.str);
+	ft_itoa(l->link5[l->area_select], l->me.str);
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
 	ft_put_text(l);
@@ -18,7 +30,7 @@ void		ft_map_editor_area_parameter_link5(variable_list *l)
 
 void		ft_map_editor_area_parameter_link6(variable_list *l)
 {
-	ft_itoa(l, l->link6[l->area_select], l->me.str);
+	ft_itoa(l->link6[l->area_select], l->me.str);
 	l->u.action = ++l->action;
 	l->u.wsx += 1;
 	ft_put_text(l);

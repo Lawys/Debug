@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   actions_1.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:23:45 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:11:45 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_action_x(variable_list *l, int group, int c, char * str)
+void		ft_action_x(variable_list *l, int group, int c, char *str)
 {
-	double value;
-	int i;
+	double	value;
+	int		i;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		i = -1;
@@ -24,10 +36,10 @@ void		ft_action_x(variable_list *l, int group, int c, char * str)
 
 void		ft_action_y(variable_list *l, int group, int c, char *str)
 {
-	double value;
-	int i;
+	double	value;
+	int		i;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		i = -1;
@@ -46,10 +58,10 @@ void		ft_action_y(variable_list *l, int group, int c, char *str)
 
 void		ft_action_z(variable_list *l, int group, int c, char *str)
 {
-	double value;
-	int i;
+	double	value;
+	int		i;
 
-	value = ft_atoi(l, str, &c);
+	value = ft_atoi(str, &c);
 	if (str[c] == ';')
 	{
 		i = -1;
@@ -68,8 +80,8 @@ void		ft_action_z(variable_list *l, int group, int c, char *str)
 
 void		ft_action_calculate_center(variable_list *l, int group)
 {
-	int i;
-	int s;
+	int	i;
+	int	s;
 
 	l->me.x = 0;
 	l->me.y = 0;
@@ -91,8 +103,8 @@ void		ft_action_calculate_center(variable_list *l, int group)
 
 void		ft_action_h_rotate(variable_list *l, int group)
 {
-	int i;
-	double tmp;
+	int		i;
+	double	tmp;
 
 	i = -1;
 	while (++i < l->triangle_number)

@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_5.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:25 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:30 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_engine_play_calculate_triangle_line_1_2
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_1_2(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x1;
 	x[1] = l->e.p_x2;
@@ -23,13 +35,13 @@ void		ft_engine_play_calculate_triangle_line_1_2
 	}
 }
 
-void		ft_engine_play_calculate_triangle_line_1_3
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_1_3(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x1;
 	x[1] = l->e.p_x3;
@@ -46,13 +58,13 @@ void		ft_engine_play_calculate_triangle_line_1_3
 	}
 }
 
-void		ft_engine_play_calculate_triangle_line_2_3
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_2_3(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x2;
 	x[1] = l->e.p_x3;
@@ -69,13 +81,13 @@ void		ft_engine_play_calculate_triangle_line_2_3
 	}
 }
 
-void		ft_engine_play_calculate_triangle_line_1_4
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_1_4(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x1;
 	x[1] = l->e.p_x4;
@@ -92,13 +104,13 @@ void		ft_engine_play_calculate_triangle_line_1_4
 	}
 }
 
-void		ft_engine_play_calculate_triangle_line_2_4
-(variable_list *l, int i, double *first_y, double *last_y)
+void		ft_engine_play_calculate_triangle_line_2_4(
+variable_list *l, int i, double *first_y, double *last_y)
 {
-	double x[2];
-	double y[2];
-	double t;
-	double v;
+	double	x[2];
+	double	y[2];
+	double	t;
+	double	v;
 
 	x[0] = l->e.p_x2;
 	x[1] = l->e.p_x4;

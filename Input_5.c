@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_5.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:31:20 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:55 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_event_playing_mode(variable_list *l)
 {
-
 	ft_event_playing_mode_motion(l);
 	ft_event_playing_mode_player(l);
 }
@@ -34,7 +45,6 @@ void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l)
 
 void		ft_event_map_editor_mode_motion_right_click_off(variable_list *l)
 {
-
 	SDL_WarpMouseInWindow(l->window, l->i.save_mouse_x, l->i.save_mouse_y);
 	l->i.save_mouse_x = 0;
 	l->i.save_mouse_y = 0;
@@ -50,22 +60,22 @@ void		ft_event_map_editor_mode_motion(variable_list *l)
 
 void		ft_event_map_editor_mode_moving(variable_list *l)
 {
-	if (l->i.state[26]) // haut
+	if (l->i.state[26])
 	{
 		l->p.x -= sin(l->p.h) * l->p.speed;
 		l->p.z += cos(l->p.h) * l->p.speed;
 	}
-	else if (l->i.state[22]) // bas
+	else if (l->i.state[22])
 	{
 		l->p.x += sin(l->p.h) * l->p.speed;
 		l->p.z -= cos(l->p.h) * l->p.speed;
 	}
-	if (l->i.state[4]) // gauche
+	if (l->i.state[4])
 	{
 		l->p.x -= cos(l->p.h) * l->p.speed;
 		l->p.z -= sin(l->p.h) * l->p.speed;
 	}
-	else if (l->i.state[7]) // droite
+	else if (l->i.state[7])
 	{
 		l->p.x += cos(l->p.h) * l->p.speed;
 		l->p.z += sin(l->p.h) * l->p.speed;

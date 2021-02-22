@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools_2.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:32:46 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:12:27 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
-void		ft_atoi_while_p2(variable_list *l, char *str, int *i, double *result_decimal)
+void		ft_atoi_while_p2(char *str, int *i,
+double *result_decimal)
 {
 	double	c;
 
@@ -14,7 +27,7 @@ void		ft_atoi_while_p2(variable_list *l, char *str, int *i, double *result_decim
 	}
 }
 
-double ft_atoi_while(variable_list *l, char *str, int *i)
+double		ft_atoi_while(char *str, int *i)
 {
 	double	result;
 	double	result_decimal;
@@ -22,16 +35,16 @@ double ft_atoi_while(variable_list *l, char *str, int *i)
 
 	result = 0;
 	result_decimal = 0;
-	if (ft_atoi_while_init(l, str, i, &n) == 0)
-		return(0);
+	if (ft_atoi_while_init(str, i, &n) == 0)
+		return (0);
 	if (str[*i] >= '1' && str[*i] <= '9')
 	{
-		ft_atoi_while_p1(l, str, i, &result, &result_decimal);
+		ft_atoi_while_p1(str, i, &result, &result_decimal);
 		result = result * n;
 	}
 	else if (str[*i] == '0' && str[*i + 1] == '.')
 	{
-		ft_atoi_while_p2(l, str, i, &result_decimal);
+		ft_atoi_while_p2(str, i, &result_decimal);
 		result = result_decimal * n;
 	}
 	else
@@ -39,28 +52,26 @@ double ft_atoi_while(variable_list *l, char *str, int *i)
 	return (result);
 }
 
-double ft_atoi(variable_list *l, char *str, int *i)
+double		ft_atoi(char *str, int *i)
 {
-	double result;
-	int inc;
+	double	result;
+	int		inc;
 
-	if (i != NULL)
-		inc = *i;
-	else
-		inc = 0;
+	inc = *i;
 	result = 0;
-	while (str[inc] != '\0' && (str[inc] < '0' || str[inc] > '9') && str[inc] != '-')
+	while (str[inc] != '\0' && (str[inc] < '0' || str[inc] > '9') &&
+	str[inc] != '-')
 		inc++;
-	result = ft_atoi_while(l, str, &inc);
-	if (i != NULL)
-		*i = inc;
-	return(result);
+	result = ft_atoi_while(str, &inc);
+	*i = inc;
+	return (result);
 }
 
-void		ft_itoa_naturals(variable_list *l, double number, char *str, int *i)
+void		ft_itoa_naturals(double number, char *str,
+int *i)
 {
-	int result;
-	int c;
+	int	result;
+	int	c;
 
 	result = (int)number;
 	c = 1;
@@ -78,10 +89,11 @@ void		ft_itoa_naturals(variable_list *l, double number, char *str, int *i)
 	}
 }
 
-void		ft_itoa_decimals(variable_list *l, double number, char *str, int *i)
+void		ft_itoa_decimals(double number, char *str,
+int *i)
 {
-	int d;
-	int c;
+	int	d;
+	int	c;
 
 	str[(*i)++] = '.';
 	d = 0;

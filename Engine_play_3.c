@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   engine_play_3.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:29:12 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:13:33 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header.h"
 
 void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x1[ts];
@@ -20,11 +32,11 @@ void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x1[ts];
@@ -38,11 +50,11 @@ void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x2[ts];
@@ -56,11 +68,11 @@ void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x2[ts];
@@ -74,11 +86,11 @@ void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l)
 
 void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list *l)
 {
-	double t;
-	double x;
-	double y;
-	double z;
-	int ts;
+	double	t;
+	double	x;
+	double	y;
+	double	z;
+	int		ts;
 
 	ts = l->e.t_s;
 	x = l->e.t_x3[ts];

@@ -1,4 +1,16 @@
-﻿#include "header.h"
+﻿/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   editor_1.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/02/21 23:24:16 by mofikrat          #+#    #+#             */
+/*   Updated: 2021/02/22 10:16:04 by lparis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "header.h"
 
 void		ft_map_editor_tool_set_mult(variable_list *l)
 {
@@ -7,9 +19,8 @@ void		ft_map_editor_tool_set_mult(variable_list *l)
 		l->me.mult = 1000;
 	else if (l->i.state[224])
 		l->me.mult = 10000;
-	if (l->i.state[226])
+	else if (l->i.state[226])
 		l->me.mult = 1;
-		
 }
 
 void		ft_map_editor_menu_background(variable_list *l)
@@ -26,7 +37,6 @@ void		ft_map_editor_menu_background(variable_list *l)
 	l->u.wsx = 2.5;
 	l->u.wsy = 72.5;
 	ft_put_texture(l);
-
 }
 
 void		ft_map_editor_submenu_background(variable_list *l)
@@ -60,7 +70,6 @@ void		ft_map_editor_menu(variable_list *l)
 		ft_map_editor_menu_parameter_game(l);
 		ft_map_editor_menu_parameter_paint(l);
 		ft_map_editor_menu_parameter_view_only(l);
-		l->action = 0;
 		if (l->action_select[0][8])
 			ft_value_editing_int(l, &l->view_only, 0, MAX_AREAS - 1);
 	}
@@ -69,7 +78,6 @@ void		ft_map_editor_menu(variable_list *l)
 		l->triangle_select = -1;
 		l->area_select = -1;
 		l->group_select = -1;
-		l->light_select = -1;
 		l->action_select[0][0]++;
 	}
 }
@@ -86,93 +94,3 @@ void		ft_map_editor(variable_list *l)
 	ft_map_editor_game(l);
 	ft_map_editor_paint(l);
 }
-
-/*
-void	TMP_map_editor_save_map(variable_list *l)
-{
-	if (l->action_select[0][9] == 1)
-	{
-		int i, j;
-		int buffer_size;
-		char buffer[15];
-		int stream;
-		buffer_size = 15;
-
-		if ((_sopen_s(&stream, "./map/triangle", O_RDWR | _O_CREAT,
-			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
-			ft_free_and_exit(l, "Load File Error\n");
-		i = 11;
-		while (++i < l->triangle_number)
-		{
-			buffer_size = ft_itoa(l, l->t.area[i], buffer), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.group[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.x1[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.y1[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.z1[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.x2[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.y2[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.z2[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.x3[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.y3[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.z3[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_id[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_size_x[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_size_y[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_shift_x[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_shift_y[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_light[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_opacity[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->t.texture_sides[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			_write(stream, ",\n", 2);
-		}
-		_write(stream, "\0", 1);
-		_close(stream);
-
-		if ((_sopen_s(&stream, "./map/group", O_RDWR | _O_CREAT,
-			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
-			ft_free_and_exit(l, "Load File Error\n");
-
-		i = -1;
-		while (++i < MAX_GROUPS)
-		{
-			buffer_size = ft_itoa(l, l->g.sprite[i], buffer), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->g.npc[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->g.no_block[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->g.interact[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			j = -1;
-			while (l->g.action_enable[i][++j] != '\0')
-				continue;
-			_write(stream, ",", 1); if (j > 0) _write(stream, l->g.action_enable[i], j * sizeof(char));
-			j = -1;
-			while (l->g.action_disable[i][++j] != '\0')
-				continue;
-			_write(stream, ",", 1); if (j > 0) _write(stream, l->g.action_disable[i], j * sizeof(char));
-			_write(stream, ",\n", 2);
-		}
-		_write(stream, "\0", 1);
-		_close(stream);
-
-		if ((_sopen_s(&stream, "./map/area", O_RDWR | _O_CREAT,
-			_SH_DENYNO, _S_IREAD | _S_IWRITE)) != 0)
-			ft_free_and_exit(l, "Load File Error\n");
-
-		i = -1;
-		while (++i < MAX_AREAS)
-		{
-			buffer_size = ft_itoa(l, l->link1[i], buffer), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->link2[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->link3[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->link4[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->link5[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			buffer_size = ft_itoa(l, l->link6[i], buffer), _write(stream, ",", 1), _write(stream, buffer, buffer_size);
-			_write(stream, ",\n", 2);
-		}
-		_write(stream, "\0", 1);
-		_close(stream);
-
-
-		printf("Done.\n");
-		l->action_select[0][9] = 0;
-	}
-}
-*/
