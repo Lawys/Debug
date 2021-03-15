@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 17:08:28 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_size_to_window(variable_list *l)
+void		ft_size_to_window(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ void		ft_size_to_window(variable_list *l)
 	}
 }
 
-void		ft_loop_menu_1(variable_list *l)
+void		ft_loop_menu_1(t_variable_list *l)
 {
 	ft_npc(l);
 	ft_engine_play_p(l);
@@ -49,7 +49,7 @@ void		ft_loop_menu_1(variable_list *l)
 	ft_action(l);
 }
 
-void		ft_loop_menu_2(variable_list *l)
+void		ft_loop_menu_2(t_variable_list *l)
 {
 	ft_engine_play_me(l);
 	if (l->triangle_select != -1)
@@ -71,7 +71,7 @@ void		ft_loop_menu_2(variable_list *l)
 	ft_map_editor(l);
 }
 
-void		ft_loop_menu_3(variable_list *l)
+void		ft_loop_menu_3(t_variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[33];
@@ -89,7 +89,7 @@ void		ft_loop_menu_3(variable_list *l)
 		ft_free_and_exit(l, "You lose.\n");
 }
 
-void		ft_loop_menu_4(variable_list *l)
+void		ft_loop_menu_4(t_variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[36];

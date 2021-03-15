@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 17:05:41 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_loop(variable_list *l)
+void		ft_loop(t_variable_list *l)
 {
 	while (1)
 	{
@@ -37,15 +37,18 @@ void		ft_loop(variable_list *l)
 	}
 }
 
-int			main(void)
+int			main(int argc, char **argv)
 {
-	variable_list *l;
+	t_variable_list *l;
 
-	if (!(l = malloc(sizeof(variable_list))))
-		exit(-1);
+	if (!(l = malloc(sizeof(t_variable_list))))// || argc != 2)
+	{
+		_write(1, "Start Error\n", 13);
+		exit(0);
+	}
 	ft_initialize_variables(l);
-	ft_initialize_SDL(l);
-	ft_reader(l);
+	ft_initialize_sdl(l);
+	ft_reader(l, argv);
 	ft_loop(l);
 	return (0);
 }

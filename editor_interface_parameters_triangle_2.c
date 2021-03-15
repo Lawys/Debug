@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:28:08 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:36 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_position_x_all(variable_list *l)
+void		ft_map_editor_triangle_parameter_position_x_all(t_variable_list *l)
 {
 	l->u.str_address = "X";
 	l->u.wsx += 1;
@@ -23,7 +23,7 @@ void		ft_map_editor_triangle_parameter_position_x_all(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_y_all(variable_list *l)
+void		ft_map_editor_triangle_parameter_position_y_all(t_variable_list *l)
 {
 	l->u.str_address = "Y";
 	l->u.wsx += 0.5;
@@ -31,7 +31,7 @@ void		ft_map_editor_triangle_parameter_position_y_all(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_z_all(variable_list *l)
+void		ft_map_editor_triangle_parameter_position_z_all(t_variable_list *l)
 {
 	l->u.str_address = "Z";
 	l->u.wsx += 0.5;
@@ -39,7 +39,7 @@ void		ft_map_editor_triangle_parameter_position_z_all(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position_size(variable_list *l)
+void		ft_map_editor_triangle_parameter_position_size(t_variable_list *l)
 {
 	l->u.str_address = "SIZE";
 	l->u.wsx += 1;
@@ -47,7 +47,7 @@ void		ft_map_editor_triangle_parameter_position_size(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_rotation(variable_list *l)
+void		ft_map_editor_triangle_parameter_rotation(t_variable_list *l)
 {
 	l->u.str_address = "ROTATION";
 	l->u.wsx += 1;

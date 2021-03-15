@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:39 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:01 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 void		ft_engine_play_calculate_pixels_initialize_part_2(
-variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *tmp)
 {
 	int	ts;
 
@@ -39,7 +39,7 @@ variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 }
 
 void		ft_engine_play_calculate_pixels_initialize_part_3(
-variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *tmp)
 {
 	double	center;
 	int		ts;
@@ -69,7 +69,7 @@ variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
 }
 
 void		ft_engine_play_calculate_pixels_while_y(
-variable_list *l, s_engine_play_calculate_pixels_tmp *s)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *s)
 {
 	while (++s->y <= s->my)
 	{
@@ -98,9 +98,9 @@ variable_list *l, s_engine_play_calculate_pixels_tmp *s)
 	}
 }
 
-void		ft_engine_play_calculate_pixels(variable_list *l)
+void		ft_engine_play_calculate_pixels(t_variable_list *l)
 {
-	s_engine_play_calculate_pixels_tmp	tmp;
+	t_engine_play_calculate_pixels_tmp	tmp;
 
 	ft_engine_play_calculate_pixels_initialize_part_1(l, &tmp);
 	ft_engine_play_calculate_pixels_initialize_part_2(l, &tmp);
@@ -118,7 +118,7 @@ void		ft_engine_play_calculate_pixels(variable_list *l)
 }
 
 void		ft_engine_play_calculate_pixels_while_y_opacity_color(
-variable_list *l, s_engine_play_calculate_pixels_tmp *s)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *s)
 {
 	l->pixels_distance[s->x][s->y] = s->t_d;
 	l->pixels_triangle[s->x][s->y] = s->t_s;

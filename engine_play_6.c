@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:29 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:05 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 void		ft_engine_play_calculate_triangle_line_3_4(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];
@@ -35,7 +35,7 @@ variable_list *l, int i, double *first_y, double *last_y)
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list *l)
+void		ft_engine_play_calculate_triangle_limits_no_ref(t_variable_list *l)
 {
 	int		x;
 	double	max_x;
@@ -61,7 +61,7 @@ void		ft_engine_play_calculate_triangle_limits_no_ref(variable_list *l)
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l)
+void		ft_engine_play_calculate_triangle_limits_ref_1(t_variable_list *l)
 {
 	int		x;
 	int		max_x;
@@ -89,7 +89,7 @@ void		ft_engine_play_calculate_triangle_limits_ref_1(variable_list *l)
 	}
 }
 
-void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l)
+void		ft_engine_play_calculate_triangle_limits_ref_2(t_variable_list *l)
 {
 	int		x;
 	double	max_x;
@@ -117,7 +117,7 @@ void		ft_engine_play_calculate_triangle_limits_ref_2(variable_list *l)
 	}
 }
 
-void		ft_engine_play_calculate_if_appear(variable_list *l)
+void		ft_engine_play_calculate_if_appear(t_variable_list *l)
 {
 	l->e.ref = 0;
 	ft_engine_play_calculate_points_to_front(l);

@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:25 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:07 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 void		ft_engine_play_calculate_triangle_line_1_2(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];
@@ -36,7 +36,7 @@ variable_list *l, int i, double *first_y, double *last_y)
 }
 
 void		ft_engine_play_calculate_triangle_line_1_3(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];
@@ -59,7 +59,7 @@ variable_list *l, int i, double *first_y, double *last_y)
 }
 
 void		ft_engine_play_calculate_triangle_line_2_3(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];
@@ -82,7 +82,7 @@ variable_list *l, int i, double *first_y, double *last_y)
 }
 
 void		ft_engine_play_calculate_triangle_line_1_4(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];
@@ -105,7 +105,7 @@ variable_list *l, int i, double *first_y, double *last_y)
 }
 
 void		ft_engine_play_calculate_triangle_line_2_4(
-variable_list *l, int i, double *first_y, double *last_y)
+t_variable_list *l, int i, double *first_y, double *last_y)
 {
 	double	x[2];
 	double	y[2];

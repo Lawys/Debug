@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:05 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:12 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_engine_calculate_triangles_distance(variable_list *l)
+void		ft_engine_calculate_triangles_distance(
+t_variable_list *l)
 {
 	int		i;
 	int		end;
@@ -35,8 +36,8 @@ void		ft_engine_calculate_triangles_distance(variable_list *l)
 	}
 }
 
-void		ft_engine_set_x_y_z(variable_list *l, double *x, double *y,
-double *z)
+void		ft_engine_set_x_y_z(
+t_variable_list *l, double *x, double *y, double *z)
 {
 	*x = l->e.xp * l->e.c_h + (l->e.zp) * l->e.s_h;
 	*z = -l->e.xp * l->e.s_h + (l->e.zp) * l->e.c_h;
@@ -45,7 +46,7 @@ double *z)
 	*y *= -1;
 }
 
-void		ft_engine_set_angles_value(variable_list *l)
+void		ft_engine_set_angles_value(t_variable_list *l)
 {
 	l->e.c_h = cos(l->p.h);
 	l->e.s_h = sin(l->p.h);
@@ -55,7 +56,8 @@ void		ft_engine_set_angles_value(variable_list *l)
 	l->e.s_l = sin(l->p.r);
 }
 
-void		ft_engine_set_triangles_points_sprite(variable_list *l, int ts)
+void		ft_engine_set_triangles_points_sprite(
+t_variable_list *l, int ts)
 {
 	double x;
 	double z;
@@ -82,7 +84,8 @@ void		ft_engine_set_triangles_points_sprite(variable_list *l, int ts)
 	ft_engine_set_x_y_z(l, &l->e.t_x3[ts], &l->e.t_y3[ts], &l->e.t_z3[ts]);
 }
 
-void		ft_engine_set_triangles_points_no_sprite(variable_list *l, int ts)
+void		ft_engine_set_triangles_points_no_sprite(
+t_variable_list *l, int ts)
 {
 	l->e.xp = l->t.x1[ts] - l->p.x;
 	l->e.yp = l->t.y1[ts] - l->p.y;

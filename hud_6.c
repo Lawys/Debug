@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:25 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:47 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_item_4(variable_list *l)
+void		ft_hud_play_item_4(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[34];
 	l->u.wsx = 35;
@@ -32,7 +32,7 @@ void		ft_hud_play_item_4(variable_list *l)
 	}
 }
 
-void		ft_hud_play_item_5(variable_list *l)
+void		ft_hud_play_item_5(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[34];
 	l->u.wsx = 0;
@@ -45,7 +45,7 @@ void		ft_hud_play_item_5(variable_list *l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play_animation_timer_zero(variable_list *l)
+void		ft_hud_play_animation_timer_zero(t_variable_list *l)
 {
 	if (l->i.state[SDL_SCANCODE_1] && l->p.item[0] == 1)
 		ft_hud_play_set_item_select(l, 0);
@@ -62,7 +62,7 @@ void		ft_hud_play_animation_timer_zero(variable_list *l)
 	ft_hud_play_set_item_select_scroll(l);
 }
 
-void		ft_hud_play_item_select(variable_list *l)
+void		ft_hud_play_item_select(t_variable_list *l)
 {
 	if (l->p.item[0] == 2)
 		ft_hud_play_item_0(l);
@@ -78,7 +78,7 @@ void		ft_hud_play_item_select(variable_list *l)
 		ft_hud_play_item_5(l);
 }
 
-void		ft_hud_play_grenade_distance_positive(variable_list *l)
+void		ft_hud_play_grenade_distance_positive(t_variable_list *l)
 {
 	l->gr.sx += l->gr.gx * 10;
 	l->gr.sy += l->gr.gy * 10;

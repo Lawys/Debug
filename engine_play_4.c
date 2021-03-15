@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:16 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:08 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_6(
+t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -30,7 +31,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref_6(variable_list *l)
 	l->e.tmp_z3 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref(t_variable_list *l)
 {
 	int		ts;
 	double	z1;
@@ -55,7 +56,7 @@ void		ft_engine_play_calculate_points_to_front_no_ref(variable_list *l)
 		ft_engine_play_calculate_points_to_front_no_ref_6(l);
 }
 
-void		ft_engine_play_calculate_points_to_front(variable_list *l)
+void		ft_engine_play_calculate_points_to_front(t_variable_list *l)
 {
 	int		ts;
 	double	z1;
@@ -76,7 +77,7 @@ void		ft_engine_play_calculate_points_to_front(variable_list *l)
 		ft_engine_play_calculate_points_to_front_no_ref(l);
 }
 
-void		ft_engine_play_calculate_pixel_points(variable_list *l)
+void		ft_engine_play_calculate_pixel_points(t_variable_list *l)
 {
 	double	t;
 
@@ -101,7 +102,7 @@ void		ft_engine_play_calculate_pixel_points(variable_list *l)
 		l->e.max_x = l->e.p_x3;
 }
 
-void		ft_engine_play_calculate_pixel_points_p4(variable_list *l)
+void		ft_engine_play_calculate_pixel_points_p4(t_variable_list *l)
 {
 	double	t;
 	double	*min_x;

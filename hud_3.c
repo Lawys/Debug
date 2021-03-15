@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:10 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:53 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_item_1_animation_1(variable_list *l)
+void		ft_hud_play_item_1_animation_1(t_variable_list *l)
 {
 	if (l->i.mouse == 1)
 		l->p.animation_timer = 20;
@@ -23,7 +23,7 @@ void		ft_hud_play_item_1_animation_1(variable_list *l)
 	l->u.wsy = 100 - (((double)l->u.tey - l->u.tsy) * 100 * l->u.size) / 1024;
 }
 
-void		ft_hud_play_item_1_animation_2(variable_list *l)
+void		ft_hud_play_item_1_animation_2(t_variable_list *l)
 {
 	l->u.tsx = 231;
 	l->u.tex = 443;
@@ -33,7 +33,7 @@ void		ft_hud_play_item_1_animation_2(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_1_animation_3(variable_list *l)
+void		ft_hud_play_item_1_animation_3(t_variable_list *l)
 {
 	if (l->p.animation_timer == 15 && l->pixels_triangle[WDW2][WDH2] > 11 &&
 		l->g.npc[l->t.group[l->pixels_triangle[WDW2][WDH2]]])
@@ -50,7 +50,7 @@ void		ft_hud_play_item_1_animation_3(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_1_animation_4(variable_list *l)
+void		ft_hud_play_item_1_animation_4(t_variable_list *l)
 {
 	l->u.tsx = 231;
 	l->u.tex = 443;
@@ -60,7 +60,7 @@ void		ft_hud_play_item_1_animation_4(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_1_animation_5(variable_list *l)
+void		ft_hud_play_item_1_animation_5(t_variable_list *l)
 {
 	l->u.tsx = 448;
 	l->u.tex = 601;

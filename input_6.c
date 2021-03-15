@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:28 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:05 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 void		ft_event_map_editor_mode_mouse_time_pressing_counter(
-variable_list *l)
+t_variable_list *l)
 {
 	if (l->i.mouse == 0)
 		l->i.mouse_time_pressing = 0;
@@ -21,7 +21,7 @@ variable_list *l)
 		l->i.mouse_time_pressing++;
 }
 
-void		ft_event_map_editor_mode_select_triangle(variable_list *l)
+void		ft_event_map_editor_mode_select_triangle(t_variable_list *l)
 {
 	if (l->pixels_distance[l->i.mouse_x / 2][l->i.mouse_y / 2] > 0 &&
 		l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2] != -1)
@@ -31,23 +31,27 @@ void		ft_event_map_editor_mode_select_triangle(variable_list *l)
 		l->triangle_select = -1;
 }
 
-void		ft_event_map_editor_mode_select_area(variable_list *l)
+void		ft_event_map_editor_mode_select_area(t_variable_list *l)
 {
 	if (l->pixels_distance[l->i.mouse_x / 2][l->i.mouse_y / 2] > 0 &&
 		l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2] != -1)
 		l->area_select = l->t.area[
 			l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2]];
+	if (l->area_select == 0)
+		l->area_select = -1;
 }
 
-void		ft_event_map_editor_mode_select_group(variable_list *l)
+void		ft_event_map_editor_mode_select_group(t_variable_list *l)
 {
 	if (l->pixels_distance[l->i.mouse_x / 2][l->i.mouse_y / 2] > 0 &&
 		l->pixels_triangle[l->i.mouse_x / 2][l->i.mouse_y / 2] != -1)
 		l->group_select = l->t.group[l->pixels_triangle[
 			l->i.mouse_x / 2][l->i.mouse_y / 2]];
+	if (l->group_select == 0)
+		l->group_select = -1;
 }
 
-void		ft_event_map_editor_mode_select_on_click(variable_list *l)
+void		ft_event_map_editor_mode_select_on_click(t_variable_list *l)
 {
 	if (l->i.mouse == 1)
 	{

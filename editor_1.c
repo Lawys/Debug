@@ -6,24 +6,24 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 12:34:41 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:15 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_tool_set_mult(variable_list *l)
+void		ft_map_editor_tool_set_mult(t_variable_list *l)
 {
 	l->me.mult = 100;
-	if (l->i.state[225])
+	if (l->i.state[225] && l->i.state[224])
+		l->me.mult = 1;
+	else if (l->i.state[225])
 		l->me.mult = 1000;
 	else if (l->i.state[224])
 		l->me.mult = 10000;
-	if (l->i.state[226])
-		l->me.mult = 1;
 }
 
-void		ft_map_editor_menu_background(variable_list *l)
+void		ft_map_editor_menu_background(t_variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[16];
@@ -39,7 +39,7 @@ void		ft_map_editor_menu_background(variable_list *l)
 	ft_put_texture(l);
 }
 
-void		ft_map_editor_submenu_background(variable_list *l)
+void		ft_map_editor_submenu_background(t_variable_list *l)
 {
 	l->u.action = -1;
 	l->u.colors = l->texture_colors[16];
@@ -55,7 +55,7 @@ void		ft_map_editor_submenu_background(variable_list *l)
 	ft_put_texture(l);
 }
 
-void		ft_map_editor_menu(variable_list *l)
+void		ft_map_editor_menu(t_variable_list *l)
 {
 	if (l->action_select[0][0] == 1)
 	{
@@ -82,7 +82,7 @@ void		ft_map_editor_menu(variable_list *l)
 	}
 }
 
-void		ft_map_editor(variable_list *l)
+void		ft_map_editor(t_variable_list *l)
 {
 	l->writing_mode = 0;
 	ft_map_editor_tool_set_mult(l);

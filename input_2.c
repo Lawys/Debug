@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:02 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:15 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_event_playing_mode_triangle_init(variable_list *l,
-player_move_list *tmp, int ts)
+void		ft_event_playing_mode_triangle_init(t_variable_list *l,
+t_player_move_list *tmp, int ts)
 {
 	tmp->p1x = l->t.x1[ts];
 	tmp->p2x = l->t.x2[ts];
@@ -38,8 +38,8 @@ player_move_list *tmp, int ts)
 		tmp->p01y * tmp->p02x;
 }
 
-void		ft_event_playing_mode_player_wallblock_init(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_init(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	tmp->move_x = 0;
 	tmp->move_z = 0;
@@ -68,7 +68,7 @@ player_move_list *tmp)
 	}
 }
 
-void		ft_event_playing_mode_player_wallblock_gravity(variable_list *l)
+void		ft_event_playing_mode_player_wallblock_gravity(t_variable_list *l)
 {
 	l->gravity += 0.75 * l->coef_gravity;
 	if (l->gravity > 30 * l->coef_gravity)
@@ -77,7 +77,7 @@ void		ft_event_playing_mode_player_wallblock_gravity(variable_list *l)
 }
 
 void		ft_event_playing_mode_player_first_area_list_calculate(
-variable_list *l, player_move_list *tmp, int ts)
+t_variable_list *l, t_player_move_list *tmp, int ts)
 {
 	double	y;
 
@@ -100,8 +100,8 @@ variable_list *l, player_move_list *tmp, int ts)
 	}
 }
 
-void		ft_event_playing_mode_set_player_area_while(variable_list *l,
-player_move_list *tmp, int ts)
+void		ft_event_playing_mode_set_player_area_while(t_variable_list *l,
+t_player_move_list *tmp, int ts)
 {
 	l->p.x += 10;
 	l->p.z += 10;

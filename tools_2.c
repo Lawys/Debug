@@ -6,7 +6,7 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:46 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:39 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,17 @@ double		ft_atoi(char *str, int *i)
 	double	result;
 	int		inc;
 
-	inc = *i;
+	if (i == NULL)
+		inc = 0;
+	else
+		inc = *i;
 	result = 0;
 	while (str[inc] != '\0' && (str[inc] < '0' || str[inc] > '9') &&
 	str[inc] != '-')
 		inc++;
 	result = ft_atoi_while(str, &inc);
-	*i = inc;
+	if (i != NULL)
+		*i = inc;
 	return (result);
 }
 

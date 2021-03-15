@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:07 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:50 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_value_editing_int_wheel_up(variable_list *l, int *value,
+void		ft_value_editing_int_wheel_up(t_variable_list *l, int *value,
 int max)
 {
 	*value += (int)l->me.mult;
@@ -20,7 +20,7 @@ int max)
 		*value = max;
 }
 
-void		ft_value_editing_int_wheel_down(variable_list *l, int *value,
+void		ft_value_editing_int_wheel_down(t_variable_list *l, int *value,
 int min)
 {
 	*value -= (int)l->me.mult;
@@ -28,7 +28,7 @@ int min)
 		*value = min;
 }
 
-void		ft_value_editing_int_set_number(variable_list *l, int *value,
+void		ft_value_editing_int_set_number(t_variable_list *l, int *value,
 int *limits, int i)
 {
 	int result;
@@ -44,7 +44,7 @@ int *limits, int i)
 		*value = limits[0];
 }
 
-void		ft_value_editing_int_remove_number(variable_list *l, int *value,
+void		ft_value_editing_int_remove_number(t_variable_list *l, int *value,
 int *limits)
 {
 	*value /= 10;

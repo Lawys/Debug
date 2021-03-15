@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:28:41 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:25 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_area_parameters(variable_list *l)
+void		ft_map_editor_area_parameters(t_variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_area_parameter_area(l);
@@ -33,7 +33,7 @@ void		ft_map_editor_area_parameters(variable_list *l)
 	ft_map_editor_area_parameter_delete(l);
 }
 
-void		ft_map_editor_area_actions(variable_list *l)
+void		ft_map_editor_area_actions(t_variable_list *l)
 {
 	ft_map_editor_area_action_select_area(l);
 	ft_map_editor_area_action_switch_area(l);
@@ -49,7 +49,7 @@ void		ft_map_editor_area_actions(variable_list *l)
 	ft_map_editor_area_action_delete(l);
 }
 
-void		ft_map_editor_area(variable_list *l)
+void		ft_map_editor_area(t_variable_list *l)
 {
 	if (l->action_select[0][2] == 1 && l->area_select != -1)
 	{

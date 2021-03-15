@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:28:02 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:38 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_triangle(variable_list *l)
+void		ft_map_editor_triangle_parameter_triangle(t_variable_list *l)
 {
 	l->u.str_address = "TRIANGLE";
 	l->u.wsx = 37;
@@ -24,7 +24,7 @@ void		ft_map_editor_triangle_parameter_triangle(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_triangle_id(variable_list *l)
+void		ft_map_editor_triangle_parameter_triangle_id(t_variable_list *l)
 {
 	l->u.str_address = "ID";
 	l->u.wsx += 1;
@@ -42,7 +42,7 @@ void		ft_map_editor_triangle_parameter_triangle_id(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_area(variable_list *l)
+void		ft_map_editor_triangle_parameter_area(t_variable_list *l)
 {
 	l->u.str_address = "AREA";
 	l->u.wsx += 1;
@@ -60,7 +60,7 @@ void		ft_map_editor_triangle_parameter_area(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_group(variable_list *l)
+void		ft_map_editor_triangle_parameter_group(t_variable_list *l)
 {
 	l->u.str_address = "GROUP";
 	l->u.wsx += 1;
@@ -78,7 +78,7 @@ void		ft_map_editor_triangle_parameter_group(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_position(variable_list *l)
+void		ft_map_editor_triangle_parameter_position(t_variable_list *l)
 {
 	l->u.str_address = "POSITION";
 	l->u.wsx = 37;

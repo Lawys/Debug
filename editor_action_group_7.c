@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:25:29 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:39:45 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_group_action_interact(variable_list *l)
+void		ft_map_editor_group_action_interact(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -26,7 +26,7 @@ void		ft_map_editor_group_action_interact(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_check_free_group(variable_list *l)
+void		ft_map_editor_group_action_check_free_group(t_variable_list *l)
 {
 	int	i;
 
@@ -46,10 +46,10 @@ void		ft_map_editor_group_action_check_free_group(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_1(variable_list *l,
+void		ft_map_editor_group_action_create_npc_triangle_1(t_variable_list *l,
 int ts)
 {
-	l->t.area[ts] = 0;
+	l->t.area[ts] = 1;
 	l->t.group[ts] = l->me.new_group;
 	l->t.x1[ts] = (int)l->p.x;
 	l->t.y1[ts] = (int)l->p.y - 50.;
@@ -71,7 +71,7 @@ int ts)
 }
 
 void		ft_map_editor_group_action_create_npc_triangle_2_shift(
-variable_list *l, int ts, int tn)
+t_variable_list *l, int ts, int tn)
 {
 	l->t.texture_shift_x[tn] = -(l->t.texture_shift_x[ts] +
 		sqrt((l->t.x2[ts] - l->t.x1[ts]) * (l->t.x2[ts] - l->t.x1[ts]) +
@@ -85,7 +85,7 @@ variable_list *l, int ts, int tn)
 		l->t.texture_size_y[ts] / 100);
 }
 
-void		ft_map_editor_group_action_create_npc_triangle_2(variable_list *l,
+void		ft_map_editor_group_action_create_npc_triangle_2(t_variable_list *l,
 int ts)
 {
 	int	tn;

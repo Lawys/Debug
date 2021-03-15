@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:39 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 17:07:37 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_main_menu_play(variable_list *l)
+void		ft_hud_main_menu_play(t_variable_list *l)
 {
 	int i;
 
@@ -33,22 +33,20 @@ void		ft_hud_main_menu_play(variable_list *l)
 			l->p.item[i] = 2;
 			break ;
 		}
-	SDL_ShowCursor(0);
 	l->menu_mode = 1;
 }
 
-void		ft_hud_main_menu_editor(variable_list *l)
+void		ft_hud_main_menu_editor(t_variable_list *l)
 {
 	int i;
 
 	i = -1;
 	while (++i < MAX_GROUPS)
 		l->g.exist[i] = 1;
-	SDL_ShowCursor(1);
 	l->menu_mode = 2;
 }
 
-void		ft_hud_main_menu(variable_list *l)
+void		ft_hud_main_menu(t_variable_list *l)
 {
 	ft_hud_main_menu_display(l);
 	if (l->i.mouse == 1 && l->i.mouse_time_pressing == 1)
@@ -69,7 +67,7 @@ void		ft_hud_main_menu(variable_list *l)
 	}
 }
 
-void		ft_hud_play_item_2_animation_6(variable_list *l)
+void		ft_hud_play_item_2_animation_6(t_variable_list *l)
 {
 	int i;
 

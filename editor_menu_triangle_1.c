@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-void		ft_map_editor_triangle_parameters_1(variable_list *l)
+void		ft_map_editor_triangle_parameters_1(t_variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_triangle_parameter_triangle(l);
@@ -39,7 +39,7 @@ void		ft_map_editor_triangle_parameters_1(variable_list *l)
 	ft_map_editor_triangle_parameter_position_z_3(l);
 }
 
-void		ft_map_editor_triangle_parameters_2(variable_list *l)
+void		ft_map_editor_triangle_parameters_2(t_variable_list *l)
 {
 	ft_map_editor_triangle_parameter_texture(l);
 	ft_map_editor_triangle_parameter_texture_id(l);
@@ -65,7 +65,7 @@ void		ft_map_editor_triangle_parameters_2(variable_list *l)
 	ft_map_editor_triangle_parameter_texture_view(l);
 }
 
-void		ft_map_editor_triangle_actions_1(variable_list *l)
+void		ft_map_editor_triangle_actions_1(t_variable_list *l)
 {
 	ft_map_editor_triangle_action_triangle(l);
 	ft_map_editor_triangle_action_area(l);
@@ -88,7 +88,7 @@ void		ft_map_editor_triangle_actions_1(variable_list *l)
 	ft_map_editor_triangle_action_position_z_3(l);
 }
 
-void		ft_map_editor_triangle_actions_2(variable_list *l)
+void		ft_map_editor_triangle_actions_2(t_variable_list *l)
 {
 	ft_map_editor_triangle_action_texture(l);
 	ft_map_editor_triangle_action_texture_light(l);
@@ -108,7 +108,7 @@ void		ft_map_editor_triangle_actions_2(variable_list *l)
 	ft_map_editor_triangle_action_delete(l);
 }
 
-void		ft_map_editor_triangle(variable_list *l)
+void		ft_map_editor_triangle(t_variable_list *l)
 {
 	if (l->action_select[0][1] == 1 && l->triangle_select != -1)
 	{

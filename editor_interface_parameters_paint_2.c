@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:27:38 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:46 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_paint_parameter_opacity(variable_list *l)
+void		ft_map_editor_paint_parameter_opacity(t_variable_list *l)
 {
 	l->u.str_address = "OPACITY";
 	l->u.wsx = 37;
@@ -31,7 +31,7 @@ void		ft_map_editor_paint_parameter_opacity(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_paint_parameter_light(variable_list *l)
+void		ft_map_editor_paint_parameter_light(t_variable_list *l)
 {
 	l->u.str_address = "LIGHT";
 	l->u.wsx += 1;

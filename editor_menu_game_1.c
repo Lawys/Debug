@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:28:45 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:23 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_game_parameters(variable_list *l)
+void		ft_map_editor_game_parameters(t_variable_list *l)
 {
 	ft_map_editor_submenu_background(l);
 	ft_map_editor_game_parameter_npc(l);
@@ -22,14 +22,14 @@ void		ft_map_editor_game_parameters(variable_list *l)
 	ft_map_editor_game_parameter_world_gravity(l);
 }
 
-void		ft_map_editor_game_actions(variable_list *l)
+void		ft_map_editor_game_actions(t_variable_list *l)
 {
 	ft_map_editor_game_action_npc_health(l);
 	ft_map_editor_game_action_npc_damage(l);
 	ft_map_editor_game_action_world_gravity(l);
 }
 
-void		ft_map_editor_game(variable_list *l)
+void		ft_map_editor_game(t_variable_list *l)
 {
 	if (l->action_select[0][6] == 1)
 	{

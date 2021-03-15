@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:44 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:59 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
 void		ft_engine_play_calculate_pixels_while_y_opacity(
-variable_list *l, s_engine_play_calculate_pixels_tmp *s)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *s)
 {
 	while (++s->y <= s->my)
 	{
@@ -38,9 +38,9 @@ variable_list *l, s_engine_play_calculate_pixels_tmp *s)
 	}
 }
 
-void		ft_engine_play_calculate_pixels_opacity(variable_list *l)
+void		ft_engine_play_calculate_pixels_opacity(t_variable_list *l)
 {
-	s_engine_play_calculate_pixels_tmp	tmp;
+	t_engine_play_calculate_pixels_tmp	tmp;
 
 	ft_engine_play_calculate_pixels_initialize_part_1(l, &tmp);
 	ft_engine_play_calculate_pixels_initialize_part_2(l, &tmp);
@@ -57,7 +57,7 @@ void		ft_engine_play_calculate_pixels_opacity(variable_list *l)
 	}
 }
 
-void		ft_engine_play_p(variable_list *l)
+void		ft_engine_play_p(t_variable_list *l)
 {
 	ft_engine_set_angles_value(l);
 	ft_engine_set_triangles_points(l);
@@ -67,7 +67,7 @@ void		ft_engine_play_p(variable_list *l)
 	l->pixels_color[WDW2][WDH2] = 0x00FF00;
 }
 
-void		ft_engine_play_me(variable_list *l)
+void		ft_engine_play_me(t_variable_list *l)
 {
 	ft_engine_set_angles_value(l);
 	ft_engine_set_triangles_points(l);
@@ -77,7 +77,7 @@ void		ft_engine_play_me(variable_list *l)
 	l->pixels_color[WDW2][WDH2] = 0x00FF00;
 }
 
-void		ft_engine_set_triangles_points(variable_list *l)
+void		ft_engine_set_triangles_points(t_variable_list *l)
 {
 	int	ts;
 	int	tn;

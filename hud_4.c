@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:15 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:51 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_item_1(variable_list *l)
+void		ft_hud_play_item_1(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[35];
 	l->u.wsx = 38.6;
@@ -30,7 +30,7 @@ void		ft_hud_play_item_1(variable_list *l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play_item_2_animation_1(variable_list *l)
+void		ft_hud_play_item_2_animation_1(t_variable_list *l)
 {
 	if (l->i.mouse == 1)
 		l->p.animation_timer = 20;
@@ -41,7 +41,7 @@ void		ft_hud_play_item_2_animation_1(variable_list *l)
 	l->u.wsy = 100 - (((double)l->u.tey - l->u.tsy) * 100 * l->u.size) / 1024;
 }
 
-void		ft_hud_play_item_2_animation_2(variable_list *l)
+void		ft_hud_play_item_2_animation_2(t_variable_list *l)
 {
 	l->u.tsx = 567;
 	l->u.tex = 1006;
@@ -51,7 +51,7 @@ void		ft_hud_play_item_2_animation_2(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2_animation_3_check_error(variable_list *l)
+void		ft_hud_play_item_2_animation_3_check_error(t_variable_list *l)
 {
 	if (l->triangle_number == MAX_TRIANGLES - 1)
 		ft_free_and_exit(l, "MAX_TRIANGLES Error\n");
@@ -60,7 +60,7 @@ void		ft_hud_play_item_2_animation_3_check_error(variable_list *l)
 		ft_free_and_exit(l, "MAX_GROUPS Error\n");
 }
 
-void		ft_hud_play_item_2_animation_3_create_grenade(variable_list *l)
+void		ft_hud_play_item_2_animation_3_create_grenade(t_variable_list *l)
 {
 	l->gr.ts = l->triangle_number++;
 	l->t.area[l->gr.ts] = 0;

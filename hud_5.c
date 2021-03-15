@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:20 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:49 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_item_2_animation_3(variable_list *l)
+void		ft_hud_play_item_2_animation_3(t_variable_list *l)
 {
 	if (l->p.animation_timer == 15)
 	{
@@ -39,7 +39,7 @@ void		ft_hud_play_item_2_animation_3(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2_animation_4(variable_list *l)
+void		ft_hud_play_item_2_animation_4(t_variable_list *l)
 {
 	l->u.tsx = 553;
 	l->u.tex = 1022;
@@ -49,7 +49,7 @@ void		ft_hud_play_item_2_animation_4(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2_animation_5(variable_list *l)
+void		ft_hud_play_item_2_animation_5(t_variable_list *l)
 {
 	l->u.tsx = 553;
 	l->u.tex = 1022;
@@ -59,7 +59,7 @@ void		ft_hud_play_item_2_animation_5(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_2(variable_list *l)
+void		ft_hud_play_item_2(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[35];
 	l->u.wsx = 39.5;
@@ -82,7 +82,7 @@ void		ft_hud_play_item_2(variable_list *l)
 	ft_put_texture(l);
 }
 
-void		ft_hud_play_item_3(variable_list *l)
+void		ft_hud_play_item_3(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[34];
 	l->u.wsx = 40;

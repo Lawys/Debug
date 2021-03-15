@@ -6,19 +6,23 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:20 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:08 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_event_playing_mode(variable_list *l)
+/*
+**ft_event_playing_mode_motion(l);
+*/
+
+void		ft_event_playing_mode(t_variable_list *l)
 {
 	ft_event_playing_mode_motion(l);
 	ft_event_playing_mode_player(l);
 }
 
-void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l)
+void		ft_event_map_editor_mode_motion_right_click_on(t_variable_list *l)
 {
 	if (l->i.save_mouse_x == 0 && l->i.save_mouse_y == 0)
 	{
@@ -31,7 +35,6 @@ void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l)
 		l->p.v += ((double)l->i.save_mouse_y - l->i.mouse_y) / 360;
 		l->i.save_mouse_x -= l->i.save_mouse_x - l->i.mouse_x;
 		l->i.save_mouse_y -= l->i.save_mouse_y - l->i.mouse_y;
-		SDL_WarpMouseInWindow(l->window, l->i.save_mouse_x, l->i.save_mouse_y);
 		if (l->p.v > M_PI / 2)
 			l->p.v = M_PI / 2;
 		else if (l->p.v < -M_PI / 2)
@@ -43,14 +46,13 @@ void		ft_event_map_editor_mode_motion_right_click_on(variable_list *l)
 	}
 }
 
-void		ft_event_map_editor_mode_motion_right_click_off(variable_list *l)
+void		ft_event_map_editor_mode_motion_right_click_off(t_variable_list *l)
 {
-	SDL_WarpMouseInWindow(l->window, l->i.save_mouse_x, l->i.save_mouse_y);
 	l->i.save_mouse_x = 0;
 	l->i.save_mouse_y = 0;
 }
 
-void		ft_event_map_editor_mode_motion(variable_list *l)
+void		ft_event_map_editor_mode_motion(t_variable_list *l)
 {
 	if (l->i.mouse == 4)
 		ft_event_map_editor_mode_motion_right_click_on(l);
@@ -58,7 +60,7 @@ void		ft_event_map_editor_mode_motion(variable_list *l)
 		ft_event_map_editor_mode_motion_right_click_off(l);
 }
 
-void		ft_event_map_editor_mode_moving(variable_list *l)
+void		ft_event_map_editor_mode_moving(t_variable_list *l)
 {
 	if (l->i.state[26])
 	{

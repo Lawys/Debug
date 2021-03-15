@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 17:04:34 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_initialize_variables_triangles(variable_list *l)
+void		ft_initialize_variables_triangles(t_variable_list *l)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void		ft_initialize_variables_triangles(variable_list *l)
 	}
 }
 
-void		ft_initialize_variables_groups(variable_list *l)
+void		ft_initialize_variables_groups(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -62,7 +62,7 @@ void		ft_initialize_variables_groups(variable_list *l)
 	}
 }
 
-void		ft_initialize_variables_areas(variable_list *l)
+void		ft_initialize_variables_areas(t_variable_list *l)
 {
 	int	i;
 
@@ -78,7 +78,7 @@ void		ft_initialize_variables_areas(variable_list *l)
 	}
 }
 
-void		ft_initialize_variables_1(variable_list *l)
+void		ft_initialize_variables_1(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -96,9 +96,15 @@ void		ft_initialize_variables_1(variable_list *l)
 		while (++j < 200)
 			l->action_select[i][j] = 0;
 	}
+	i = -1;
+	while (++i < 15)
+	{
+		l->u.str[i] = 0;
+		l->me.str[i] = 0;
+	}
 }
 
-void		ft_initialize_variables_2(variable_list *l)
+void		ft_initialize_variables_2(t_variable_list *l)
 {
 	l->player_area = 0;
 	l->i.save_mouse_x = 0;

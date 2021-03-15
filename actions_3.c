@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:23:58 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:19 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_s_up(variable_list *l, int group, double value)
+void		ft_action_s_up(t_variable_list *l, int group, double value)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ void		ft_action_s_up(variable_list *l, int group, double value)
 		}
 }
 
-void		ft_action_s_do(variable_list *l, int group, double value)
+void		ft_action_s_do(t_variable_list *l, int group, double value)
 {
 	int	i;
 
@@ -56,7 +56,7 @@ void		ft_action_s_do(variable_list *l, int group, double value)
 		}
 }
 
-void		ft_action_s_replace(variable_list *l, int group)
+void		ft_action_s_replace(t_variable_list *l, int group)
 {
 	double	xyz[3];
 	double	p[3];
@@ -85,7 +85,7 @@ void		ft_action_s_replace(variable_list *l, int group)
 		}
 }
 
-void		ft_action_size(variable_list *l, int group, int c, char *str)
+void		ft_action_size(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 
@@ -102,7 +102,7 @@ void		ft_action_size(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_texture(variable_list *l, int group, int c, char *str)
+void		ft_action_texture(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 	int		i;

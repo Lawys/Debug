@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:23 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:47 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_value_editing_int(variable_list *l, int *value, int min,
+void		ft_value_editing_int(t_variable_list *l, int *value, int min,
 int max)
 {
 	int	i;

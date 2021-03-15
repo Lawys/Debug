@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:26:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:39:05 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_area_parameter_position_size(variable_list *l)
+void		ft_map_editor_area_parameter_position_size(t_variable_list *l)
 {
 	l->u.str_address = "SIZE";
 	l->u.wsx += 1;
@@ -20,7 +20,7 @@ void		ft_map_editor_area_parameter_position_size(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link(variable_list *l)
+void		ft_map_editor_area_parameter_link(t_variable_list *l)
 {
 	l->u.str_address = "LINK";
 	l->u.wsx = 37;
@@ -32,7 +32,7 @@ void		ft_map_editor_area_parameter_link(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link1(variable_list *l)
+void		ft_map_editor_area_parameter_link1(t_variable_list *l)
 {
 	ft_itoa(l->link1[l->area_select], l->me.str);
 	l->u.str_address = l->me.str;
@@ -41,7 +41,7 @@ void		ft_map_editor_area_parameter_link1(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link2(variable_list *l)
+void		ft_map_editor_area_parameter_link2(t_variable_list *l)
 {
 	ft_itoa(l->link2[l->area_select], l->me.str);
 	l->u.action = ++l->action;
@@ -49,7 +49,7 @@ void		ft_map_editor_area_parameter_link2(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_area_parameter_link3(variable_list *l)
+void		ft_map_editor_area_parameter_link3(t_variable_list *l)
 {
 	ft_itoa(l->link3[l->area_select], l->me.str);
 	l->u.action = ++l->action;

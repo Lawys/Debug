@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:28:24 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:31 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_triangle_parameter_texture_opacity(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_opacity(t_variable_list *l)
 {
 	l->u.str_address = "OPACITY";
 	l->u.wsx += 1;
@@ -30,7 +30,7 @@ void		ft_map_editor_triangle_parameter_texture_opacity(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_size(t_variable_list *l)
 {
 	l->u.str_address = "SIZE";
 	l->u.wsx = 37;
@@ -42,7 +42,7 @@ void		ft_map_editor_triangle_parameter_texture_size(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size_x(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_size_x(t_variable_list *l)
 {
 	l->u.str_address = "X";
 	l->u.wsx += 1;
@@ -60,7 +60,7 @@ void		ft_map_editor_triangle_parameter_texture_size_x(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_size_y(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_size_y(t_variable_list *l)
 {
 	l->u.str_address = "Y";
 	l->u.wsx += 1;
@@ -78,7 +78,7 @@ void		ft_map_editor_triangle_parameter_texture_size_y(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_triangle_parameter_texture_shift(variable_list *l)
+void		ft_map_editor_triangle_parameter_texture_shift(t_variable_list *l)
 {
 	l->u.str_address = "SHIFT";
 	l->u.wsx += 1;

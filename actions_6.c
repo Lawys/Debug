@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:24:12 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:16 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_start_action_timer_negative_time(variable_list *l,
+void		ft_action_start_action_timer_negative_time(t_variable_list *l,
 int group, int c, char *str)
 {
 	int	value;
@@ -25,7 +25,7 @@ int group, int c, char *str)
 	}
 }
 
-void		ft_action_start(variable_list *l, int group, int c, char *str)
+void		ft_action_start(t_variable_list *l, int group, int c, char *str)
 {
 	if (l->g.action_timer[group] >= 0)
 		ft_action_start_action_timer_positive(l, group, c, str);
@@ -49,7 +49,7 @@ void		ft_action_start(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_enable(variable_list *l, int group)
+void		ft_action_enable(t_variable_list *l, int group)
 {
 	int	c;
 
@@ -62,7 +62,7 @@ void		ft_action_enable(variable_list *l, int group)
 			l->g.action_statement[group] = 0;
 }
 
-void		ft_action_disable(variable_list *l, int group)
+void		ft_action_disable(t_variable_list *l, int group)
 {
 	int	c;
 
@@ -75,7 +75,7 @@ void		ft_action_disable(variable_list *l, int group)
 			l->g.action_statement[group] = 1;
 }
 
-void		ft_action(variable_list *l)
+void		ft_action(t_variable_list *l)
 {
 	int	group;
 

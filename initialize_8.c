@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:44:59 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
+void		ft_engine_set_window_blue_border_triangle2(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -38,7 +38,7 @@ void		ft_engine_set_window_blue_border_triangle2(variable_list *l)
 	}
 }
 
-void		ft_engine_set_window_red_border_area1(variable_list *l)
+void		ft_engine_set_window_red_border_area1(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -64,7 +64,7 @@ void		ft_engine_set_window_red_border_area1(variable_list *l)
 	}
 }
 
-void		ft_engine_set_window_red_border_area2(variable_list *l)
+void		ft_engine_set_window_red_border_area2(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -90,7 +90,7 @@ void		ft_engine_set_window_red_border_area2(variable_list *l)
 	}
 }
 
-void		ft_engine_set_window_green_border_group1(variable_list *l)
+void		ft_engine_set_window_green_border_group1(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -116,7 +116,7 @@ void		ft_engine_set_window_green_border_group1(variable_list *l)
 	}
 }
 
-void		ft_engine_set_window_green_border_group2(variable_list *l)
+void		ft_engine_set_window_green_border_group2(t_variable_list *l)
 {
 	int	i;
 	int	j;

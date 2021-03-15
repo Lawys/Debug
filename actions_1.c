@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:23:45 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:29 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:19:59 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_x(variable_list *l, int group, int c, char *str)
+void		ft_action_x(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 	int		i;
@@ -34,7 +34,7 @@ void		ft_action_x(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_y(variable_list *l, int group, int c, char *str)
+void		ft_action_y(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 	int		i;
@@ -56,7 +56,7 @@ void		ft_action_y(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_z(variable_list *l, int group, int c, char *str)
+void		ft_action_z(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 	int		i;
@@ -78,7 +78,7 @@ void		ft_action_z(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_calculate_center(variable_list *l, int group)
+void		ft_action_calculate_center(t_variable_list *l, int group)
 {
 	int	i;
 	int	s;
@@ -101,7 +101,7 @@ void		ft_action_calculate_center(variable_list *l, int group)
 	l->me.z = l->me.z / s;
 }
 
-void		ft_action_h_rotate(variable_list *l, int group)
+void		ft_action_h_rotate(t_variable_list *l, int group)
 {
 	int		i;
 	double	tmp;

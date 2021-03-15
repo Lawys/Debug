@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:53 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:57 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int			ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
+int			ft_npc_hp_positive_while(
+t_variable_list *l, t_npc_list *tmp, int group)
 {
 	int	ts;
 
@@ -40,7 +41,7 @@ int			ft_npc_hp_positive_while(variable_list *l, npc_list *tmp, int group)
 	return (0);
 }
 
-void		ft_npc_hp_positive(variable_list *l, npc_list *tmp, int group)
+void		ft_npc_hp_positive(t_variable_list *l, t_npc_list *tmp, int group)
 {
 	ft_npc_hp_positive_init(l, tmp, group);
 	if (ft_npc_hp_positive_while(l, tmp, group) == 1)
@@ -56,7 +57,7 @@ void		ft_npc_hp_positive(variable_list *l, npc_list *tmp, int group)
 	l->g.npc_timer[group]++;
 }
 
-void		ft_npc_hp_negative(variable_list *l, int group)
+void		ft_npc_hp_negative(t_variable_list *l, int group)
 {
 	if (l->g.npc_hp[group] == -10)
 	{
@@ -81,10 +82,11 @@ void		ft_npc_hp_negative(variable_list *l, int group)
 	}
 }
 
-void		ft_npc(variable_list *l)
+void		ft_npc(t_variable_list *l)
 {
-	npc_list	tmp;
+	t_npc_list	tmp;
 	int			group;
+	int			i;
 
 	group = -1;
 	while (++group < MAX_GROUPS)

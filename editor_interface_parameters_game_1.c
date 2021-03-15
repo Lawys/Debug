@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:26:59 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:39:02 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_game_parameter_npc(variable_list *l)
+void		ft_map_editor_game_parameter_npc(t_variable_list *l)
 {
 	l->u.str_address = "NPC";
 	l->u.wsx = 37;
@@ -24,7 +24,7 @@ void		ft_map_editor_game_parameter_npc(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_npc_health(variable_list *l)
+void		ft_map_editor_game_parameter_npc_health(t_variable_list *l)
 {
 	l->u.str_address = "HEALTH";
 	l->u.wsx += 1;
@@ -42,7 +42,7 @@ void		ft_map_editor_game_parameter_npc_health(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_npc_damage(variable_list *l)
+void		ft_map_editor_game_parameter_npc_damage(t_variable_list *l)
 {
 	l->u.str_address = "DAMAGE";
 	l->u.wsx += 1;
@@ -60,7 +60,7 @@ void		ft_map_editor_game_parameter_npc_damage(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_world(variable_list *l)
+void		ft_map_editor_game_parameter_world(t_variable_list *l)
 {
 	l->u.str_address = "WORLD";
 	l->u.wsx = 37;
@@ -72,7 +72,7 @@ void		ft_map_editor_game_parameter_world(variable_list *l)
 	ft_put_text(l);
 }
 
-void		ft_map_editor_game_parameter_world_gravity(variable_list *l)
+void		ft_map_editor_game_parameter_world_gravity(t_variable_list *l)
 {
 	l->u.str_address = "GRAVITY";
 	l->u.wsx += 1;

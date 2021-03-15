@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:56 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:18 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_event_playing_mode_motion(variable_list *l)
+void		ft_event_playing_mode_motion(t_variable_list *l)
 {
 	l->p.h += (((double)WDW2) - l->i.mouse_x) / 360;
 	l->p.v += (((double)WDH2) - l->i.mouse_y) / 360;
@@ -23,8 +23,8 @@ void		ft_event_playing_mode_motion(variable_list *l)
 		l->p.v = -M_PI / 2 + M_PI / 45;
 }
 
-void		ft_event_playing_mode_player_line_plan_t(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_line_plan_t(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	tmp->t =
 		(tmp->nx * (l->p.x - tmp->p1x) +
@@ -35,8 +35,8 @@ player_move_list *tmp)
 			-tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_line_plan_u(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_line_plan_u(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	tmp->u =
 		((-tmp->vy * tmp->p02z - -tmp->vz * tmp->p02y) *
@@ -50,8 +50,8 @@ player_move_list *tmp)
 			tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_line_plan_v(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_line_plan_v(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	tmp->v =
 		((tmp->p01y * -tmp->vz - tmp->p01z * -tmp->vy) *
@@ -65,12 +65,10 @@ player_move_list *tmp)
 			tmp->vz * tmp->nz);
 }
 
-void		ft_event_playing_mode_player_vector_intersection(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_vector_intersection(t_variable_list *l,
+t_player_move_list *tmp)
 {
-	double	x;
 	double	y;
-	double	z;
 
 	ft_event_playing_mode_player_line_plan_t(l, tmp);
 	ft_event_playing_mode_player_line_plan_u(l, tmp);
@@ -80,9 +78,7 @@ player_move_list *tmp)
 		tmp->v >= 0 && tmp->v <= 1 &&
 		tmp->u + tmp->v <= 1)
 	{
-		x = tmp->vx * tmp->t;
 		y = tmp->vy * tmp->t;
-		z = tmp->vz * tmp->t;
 		if (fabs(tmp->nx) > fabs(tmp->ny) || fabs(tmp->nz) > fabs(tmp->ny))
 			tmp->angle = 1;
 		if (y > 0 && y < tmp->save_py && tmp->ny != 0)

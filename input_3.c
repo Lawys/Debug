@@ -6,14 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:10 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:13 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_event_playing_mode_set_player_area(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_set_player_area(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	int	ts;
 
@@ -35,7 +35,7 @@ player_move_list *tmp)
 	}
 }
 
-void		ft_event_playing_mode_player_wallblock_jump(variable_list *l)
+void		ft_event_playing_mode_player_wallblock_jump(t_variable_list *l)
 {
 	if (l->i.state[44] && l->p.player_size == 50 &&
 		l->p.jump_timer == 0 && l->gravity == 0)
@@ -51,8 +51,8 @@ void		ft_event_playing_mode_player_wallblock_jump(variable_list *l)
 	}
 }
 
-void		ft_event_playing_mode_player_wallblock_size(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_size(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	if (l->i.state[6] || tmp->save_py - tmp->save_ny <= 30)
 	{
@@ -68,8 +68,8 @@ player_move_list *tmp)
 		l->p.player_size = 50;
 }
 
-void		ft_event_playing_mode_player_wallblock_check_y(variable_list *l,
-player_move_list *tmp)
+void		ft_event_playing_mode_player_wallblock_check_y(t_variable_list *l,
+t_player_move_list *tmp)
 {
 	if (tmp->save_py <= 10 && tmp->save_ny >= -l->p.player_size)
 	{
@@ -89,7 +89,7 @@ player_move_list *tmp)
 }
 
 void		ft_event_playing_mode_player_wallblock_move_while_1(
-variable_list *l, player_move_list *tmp)
+t_variable_list *l, t_player_move_list *tmp)
 {
 	tmp->vx = 10;
 	tmp->vz = 10;

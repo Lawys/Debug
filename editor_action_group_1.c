@@ -6,19 +6,19 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:25:00 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:03 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_group_action_select_group(variable_list *l)
+void		ft_map_editor_group_action_select_group(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_int(l, &l->group_select, 1, MAX_GROUPS - 1);
 }
 
-void		ft_map_editor_group_action_switch_group(variable_list *l)
+void		ft_map_editor_group_action_switch_group(t_variable_list *l)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ void		ft_map_editor_group_action_switch_group(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_position_x_up(variable_list *l)
+void		ft_map_editor_group_action_position_x_up(t_variable_list *l)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ void		ft_map_editor_group_action_position_x_up(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_position_x_down(variable_list *l)
+void		ft_map_editor_group_action_position_x_down(t_variable_list *l)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ void		ft_map_editor_group_action_position_x_down(variable_list *l)
 	}
 }
 
-void		ft_map_editor_group_action_position_x(variable_list *l)
+void		ft_map_editor_group_action_position_x(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

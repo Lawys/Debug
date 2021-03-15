@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:26:31 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:39:22 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_triangle_action_texture_size_repeat(variable_list *l)
+void		ft_map_editor_triangle_action_texture_size_repeat(
+t_variable_list *l)
 {
 	int	ts;
 
@@ -25,7 +26,8 @@ void		ft_map_editor_triangle_action_texture_size_repeat(variable_list *l)
 	}
 }
 
-void		ft_map_editor_triangle_action_texture_size_adapt_y(variable_list *l)
+void		ft_map_editor_triangle_action_texture_size_adapt_y(
+t_variable_list *l)
 {
 	double	dist12;
 	double	dist13;
@@ -55,7 +57,7 @@ void		ft_map_editor_triangle_action_texture_size_adapt_y(variable_list *l)
 }
 
 void		ft_map_editor_triangle_action_texture_size_adapt_x(
-variable_list *l)
+t_variable_list *l)
 {
 	double	dist12;
 	double	dist13;
@@ -84,14 +86,14 @@ variable_list *l)
 	}
 }
 
-void		ft_map_editor_triangle_action_texture_shift_x(variable_list *l)
+void		ft_map_editor_triangle_action_texture_shift_x(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_shift_x[l->triangle_select],
 			-MAX_GENERIC, MAX_GENERIC);
 }
 
-void		ft_map_editor_triangle_action_texture_shift_y(variable_list *l)
+void		ft_map_editor_triangle_action_texture_shift_y(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 		ft_value_editing_double(l, &l->t.texture_shift_y[l->triangle_select],

@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:25:52 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:39:38 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_map_editor_player_action_item_pistol(variable_list *l)
+void		ft_map_editor_player_action_item_pistol(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -24,7 +24,7 @@ void		ft_map_editor_player_action_item_pistol(variable_list *l)
 	}
 }
 
-void		ft_map_editor_player_action_item_grenade(variable_list *l)
+void		ft_map_editor_player_action_item_grenade(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -36,7 +36,7 @@ void		ft_map_editor_player_action_item_grenade(variable_list *l)
 	}
 }
 
-void		ft_map_editor_player_action_item_telecommand(variable_list *l)
+void		ft_map_editor_player_action_item_telecommand(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -48,7 +48,7 @@ void		ft_map_editor_player_action_item_telecommand(variable_list *l)
 	}
 }
 
-void		ft_map_editor_player_action_item_access_card(variable_list *l)
+void		ft_map_editor_player_action_item_access_card(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{
@@ -60,7 +60,7 @@ void		ft_map_editor_player_action_item_access_card(variable_list *l)
 	}
 }
 
-void		ft_map_editor_player_action_item_top_secret_box(variable_list *l)
+void		ft_map_editor_player_action_item_top_secret_box(t_variable_list *l)
 {
 	if (l->action_select[l->menu_select][++l->action])
 	{

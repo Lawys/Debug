@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:49 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:00 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_npc_line_triangle_t(variable_list *l, npc_list *tmp)
+void		ft_npc_line_triangle_t(t_variable_list *l, t_npc_list *tmp)
 {
 	tmp->t =
 		(tmp->nx * (l->p.x - tmp->p1x) + tmp->ny * (l->p.y - tmp->p1y) +
@@ -20,7 +20,7 @@ void		ft_npc_line_triangle_t(variable_list *l, npc_list *tmp)
 		(-tmp->vx * tmp->nx + -tmp->vy * tmp->ny + -tmp->vz * tmp->nz);
 }
 
-void		ft_npc_line_triangle_u(variable_list *l, npc_list *tmp)
+void		ft_npc_line_triangle_u(t_variable_list *l, t_npc_list *tmp)
 {
 	tmp->u =
 		((-tmp->vy * tmp->v2z - -tmp->vz * tmp->v2y) * (l->p.x - tmp->p1x) +
@@ -29,7 +29,7 @@ void		ft_npc_line_triangle_u(variable_list *l, npc_list *tmp)
 		(tmp->vx * tmp->nx + tmp->vy * tmp->ny + tmp->vz * tmp->nz);
 }
 
-void		ft_npc_line_triangle_v(variable_list *l, npc_list *tmp)
+void		ft_npc_line_triangle_v(t_variable_list *l, t_npc_list *tmp)
 {
 	tmp->v =
 		((tmp->v1y * -tmp->vz - tmp->v1z * -tmp->vy) * (l->p.x - tmp->p1x) +
@@ -38,7 +38,7 @@ void		ft_npc_line_triangle_v(variable_list *l, npc_list *tmp)
 		(tmp->vx * tmp->nx + tmp->vy * tmp->ny + tmp->vz * tmp->nz);
 }
 
-void		ft_npc_line_triangle_initialize(variable_list *l, npc_list *tmp,
+void		ft_npc_line_triangle_initialize(t_variable_list *l, t_npc_list *tmp,
 int ts)
 {
 	tmp->p1x = l->t.x1[ts];
@@ -61,7 +61,8 @@ int ts)
 	tmp->nz = tmp->v1x * tmp->v2y - tmp->v1y * tmp->v2x;
 }
 
-void		ft_npc_hp_positive_init(variable_list *l, npc_list *tmp, int group)
+void		ft_npc_hp_positive_init(
+t_variable_list *l, t_npc_list *tmp, int group)
 {
 	int		ts;
 	double	x;

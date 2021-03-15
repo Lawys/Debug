@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:30 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:45 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_grenade_distance_negative_delete(variable_list *l)
+void		ft_hud_play_grenade_distance_negative_delete(t_variable_list *l)
 {
 	int	ts;
 	int	tn;
@@ -41,7 +41,7 @@ void		ft_hud_play_grenade_distance_negative_delete(variable_list *l)
 	l->t.texture_sides[ts] = l->t.texture_sides[tn];
 }
 
-void		ft_hud_play_grenade_distance_negative_explosion(variable_list *l)
+void		ft_hud_play_grenade_distance_negative_explosion(t_variable_list *l)
 {
 	int	i;
 
@@ -61,7 +61,7 @@ void		ft_hud_play_grenade_distance_negative_explosion(variable_list *l)
 		}
 }
 
-void		ft_hud_play_grenade_distance_negative_move(variable_list *l)
+void		ft_hud_play_grenade_distance_negative_move(t_variable_list *l)
 {
 	l->t.x1[l->gr.ts] = l->gr.sx - 100 * l->e.c_h;
 	l->t.y1[l->gr.ts] = l->gr.sy - 100;
@@ -80,7 +80,7 @@ void		ft_hud_play_grenade_distance_negative_move(variable_list *l)
 	l->t.texture_opacity[l->gr.ts] = 99;
 }
 
-void		ft_hud_play_grenade_distance_negative(variable_list *l)
+void		ft_hud_play_grenade_distance_negative(t_variable_list *l)
 {
 	if (l->t.texture_opacity[l->gr.ts] < 100)
 	{
@@ -102,7 +102,7 @@ void		ft_hud_play_grenade_distance_negative(variable_list *l)
 	}
 }
 
-void		ft_hud_play_grenade(variable_list *l)
+void		ft_hud_play_grenade(t_variable_list *l)
 {
 	if (l->gr.gd > 0)
 		ft_hud_play_grenade_distance_positive(l);

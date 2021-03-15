@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:06 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:55 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_hud_play_item_0_animation_2(variable_list *l)
+void		ft_hud_play_item_0_animation_2(t_variable_list *l)
 {
 	l->u.tex = 362;
 	l->u.tsy = 583;
@@ -21,7 +21,7 @@ void		ft_hud_play_item_0_animation_2(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_3(variable_list *l)
+void		ft_hud_play_item_0_animation_3(t_variable_list *l)
 {
 	if (l->p.animation_timer == 15 && l->pixels_triangle[WDW2][WDH2] > 11
 		&& l->g.npc[l->t.group[l->pixels_triangle[WDW2][WDH2]]] &&
@@ -36,7 +36,7 @@ void		ft_hud_play_item_0_animation_3(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_4(variable_list *l)
+void		ft_hud_play_item_0_animation_4(t_variable_list *l)
 {
 	l->u.tex = 362;
 	l->u.tsy = 583;
@@ -45,7 +45,7 @@ void		ft_hud_play_item_0_animation_4(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0_animation_5(variable_list *l)
+void		ft_hud_play_item_0_animation_5(t_variable_list *l)
 {
 	l->u.tex = 270;
 	l->u.tsy = 436;
@@ -54,7 +54,7 @@ void		ft_hud_play_item_0_animation_5(variable_list *l)
 	l->p.animation_timer--;
 }
 
-void		ft_hud_play_item_0(variable_list *l)
+void		ft_hud_play_item_0(t_variable_list *l)
 {
 	l->u.colors = l->texture_colors[35];
 	l->u.wsx = 0;

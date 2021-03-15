@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:32 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:22 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp)
+void		ft_put_text_texture_initialize(
+t_variable_list *l, t_utility_list *tmp)
 {
 	int	i;
 
@@ -41,7 +42,7 @@ void		ft_put_text_texture_initialize(variable_list *l, utility_list *tmp)
 	}
 }
 
-void		ft_put_text_texture_while(variable_list *l, utility_list *tmp,
+void		ft_put_text_texture_while(t_variable_list *l, t_utility_list *tmp,
 int x, int y)
 {
 	int	value;
@@ -67,7 +68,7 @@ int x, int y)
 	}
 }
 
-void		ft_put_text_texture_action(variable_list *l, utility_list *tmp)
+void		ft_put_text_texture_action(t_variable_list *l, t_utility_list *tmp)
 {
 	int	i;
 
@@ -95,7 +96,7 @@ void		ft_put_text_texture_action(variable_list *l, utility_list *tmp)
 	}
 }
 
-void		ft_put_text_texture(variable_list *l, utility_list *tmp)
+void		ft_put_text_texture(t_variable_list *l, t_utility_list *tmp)
 {
 	int	x;
 	int	y;
@@ -113,10 +114,10 @@ void		ft_put_text_texture(variable_list *l, utility_list *tmp)
 	}
 }
 
-void		ft_put_text(variable_list *l)
+void		ft_put_text(t_variable_list *l)
 {
 	int				i;
-	utility_list	tmp;
+	t_utility_list	tmp;
 
 	ft_put_text_texture_initialize(l, &tmp);
 	ft_put_text_texture_action(l, &tmp);

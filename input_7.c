@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:31:33 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:03 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_event_map_editor_mode_moving_y(variable_list *l)
+void		ft_event_map_editor_mode_moving_y(t_variable_list *l)
 {
 	if (l->i.state[20])
 		l->p.y += l->p.speed;
@@ -20,7 +20,7 @@ void		ft_event_map_editor_mode_moving_y(variable_list *l)
 		l->p.y -= l->p.speed;
 }
 
-void		ft_event_map_editor_mode(variable_list *l)
+void		ft_event_map_editor_mode(t_variable_list *l)
 {
 	l->p.speed = 4;
 	ft_event_map_editor_mode_motion(l);
@@ -29,7 +29,7 @@ void		ft_event_map_editor_mode(variable_list *l)
 	ft_event_map_editor_mode_select_on_click(l);
 }
 
-void		ft_events_init(variable_list *l)
+void		ft_events_init(t_variable_list *l)
 {
 	l->i.scroll_up = 0;
 	l->i.scroll_down = 0;
@@ -40,13 +40,9 @@ void		ft_events_init(variable_list *l)
 		if (l->event.type == SDL_MOUSEWHEEL)
 		{
 			if (l->event.wheel.y > 0)
-			{
 				l->i.scroll_up = 1;
-			}
 			else if (l->event.wheel.y < 0)
-			{
 				l->i.scroll_down = 1;
-			}
 		}
 		if (l->event.key.state != 0)
 			l->i.key_input = l->event.key.state;
@@ -56,11 +52,11 @@ void		ft_events_init(variable_list *l)
 	ft_event_map_editor_mode_mouse_time_pressing_counter(l);
 }
 
-void		ft_events(variable_list *l)
+void		ft_events(t_variable_list *l)
 {
 	ft_events_init(l);
 	if (l->i.state[SDL_SCANCODE_ESCAPE] || l->event.type == SDL_QUIT)
-		ft_free_and_exit(l, "EXIT\n");
+		ft_free_and_exit(l, "Escape.\n");
 	if (l->writing_mode == 0)
 	{
 		if (l->menu_mode == 1)

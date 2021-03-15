@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:24:03 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:18 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_on(variable_list *l, int group, int c, char *str)
+void		ft_action_on(t_variable_list *l, int group, int c, char *str)
 {
 	int	value;
 
@@ -24,7 +24,7 @@ void		ft_action_on(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_off(variable_list *l, int group, int c, char *str)
+void		ft_action_off(t_variable_list *l, int group, int c, char *str)
 {
 	int	value;
 
@@ -36,13 +36,13 @@ void		ft_action_off(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_area_end(variable_list *l)
+void		ft_action_area_end(t_variable_list *l)
 {
 	if (l->p.item[5] == 2)
 		l->menu_mode = 4;
 }
 
-void		ft_action_area_loot(variable_list *l, int group, int c, char *str)
+void		ft_action_area_loot(t_variable_list *l, int group, int c, char *str)
 {
 	int	value;
 
@@ -55,7 +55,7 @@ void		ft_action_area_loot(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_area_heal(variable_list *l, int group, int c, char *str)
+void		ft_action_area_heal(t_variable_list *l, int group, int c, char *str)
 {
 	int	value;
 

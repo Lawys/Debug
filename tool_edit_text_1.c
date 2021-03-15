@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:28 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:45 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_text_editing(variable_list *l, char *str, int max)
+void		ft_text_editing(t_variable_list *l, char *str, int max)
 {
 	int	i;
 

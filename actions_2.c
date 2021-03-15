@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:23:53 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:20 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:22:31 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_h(variable_list *l, int group, int c, char *str)
+void		ft_action_h(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 
@@ -26,7 +26,7 @@ void		ft_action_h(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_v_rotate(variable_list *l, int group)
+void		ft_action_v_rotate(t_variable_list *l, int group)
 {
 	int		i;
 	double	tmp;
@@ -53,7 +53,7 @@ void		ft_action_v_rotate(variable_list *l, int group)
 		}
 }
 
-void		ft_action_v(variable_list *l, int group, int c, char *str)
+void		ft_action_v(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 
@@ -67,7 +67,7 @@ void		ft_action_v(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_l_rotate(variable_list *l, int group)
+void		ft_action_l_rotate(t_variable_list *l, int group)
 {
 	int		i;
 	double	tmp;
@@ -94,7 +94,7 @@ void		ft_action_l_rotate(variable_list *l, int group)
 		}
 }
 
-void		ft_action_l(variable_list *l, int group, int c, char *str)
+void		ft_action_l(t_variable_list *l, int group, int c, char *str)
 {
 	double	value;
 

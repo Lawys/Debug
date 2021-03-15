@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:24:08 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:40:17 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_action_area(variable_list *l, int group, int c, char *str)
+void		ft_action_area(t_variable_list *l, int group, int c, char *str)
 {
 	double	distance;
 	int		value;
@@ -37,7 +37,7 @@ void		ft_action_area(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_exist(variable_list *l, int group, int c, char *str)
+void		ft_action_exist(t_variable_list *l, int group, int c, char *str)
 {
 	int	value;
 
@@ -52,7 +52,7 @@ void		ft_action_exist(variable_list *l, int group, int c, char *str)
 	}
 }
 
-void		ft_action_xyzhvls(variable_list *l, int group, int c, char *str)
+void		ft_action_xyzhvls(t_variable_list *l, int group, int c, char *str)
 {
 	if (ft_strings_compare(str, "ON>", c))
 		ft_action_on(l, group, c, str);
@@ -80,7 +80,7 @@ void		ft_action_xyzhvls(variable_list *l, int group, int c, char *str)
 		ft_action_exist(l, group, c, str);
 }
 
-void		ft_action_start_action_timer_positive(variable_list *l, int group,
+void		ft_action_start_action_timer_positive(t_variable_list *l, int group,
 int c, char *str)
 {
 	int	value;
@@ -103,7 +103,7 @@ int c, char *str)
 	}
 }
 
-void		ft_action_start_action_timer_negative_key(variable_list *l,
+void		ft_action_start_action_timer_negative_key(t_variable_list *l,
 int group, int *c, char *str)
 {
 	int	value;

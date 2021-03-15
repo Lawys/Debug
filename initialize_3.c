@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:30:51 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:37:35 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_initialize_skybox_4(variable_list *l)
+void		ft_initialize_skybox_4(t_variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -36,7 +36,7 @@ void		ft_initialize_skybox_4(variable_list *l)
 	l->triangle_number++;
 }
 
-void		ft_initialize_skybox_5(variable_list *l)
+void		ft_initialize_skybox_5(t_variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -60,7 +60,7 @@ void		ft_initialize_skybox_5(variable_list *l)
 	l->triangle_number++;
 }
 
-void		ft_initialize_skybox_6(variable_list *l)
+void		ft_initialize_skybox_6(t_variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -84,7 +84,7 @@ void		ft_initialize_skybox_6(variable_list *l)
 	l->triangle_number++;
 }
 
-void		ft_initialize_skybox_7(variable_list *l)
+void		ft_initialize_skybox_7(t_variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;
@@ -108,7 +108,7 @@ void		ft_initialize_skybox_7(variable_list *l)
 	l->triangle_number++;
 }
 
-void		ft_initialize_skybox_8(variable_list *l)
+void		ft_initialize_skybox_8(t_variable_list *l)
 {
 	l->t.area[l->triangle_number] = 0;
 	l->t.group[l->triangle_number] = 0;

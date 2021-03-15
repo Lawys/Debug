@@ -6,20 +6,20 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:03 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:52 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_value_editing_double(variable_list *l, double *value, int min,
+void		ft_value_editing_double(t_variable_list *l, double *value, int min,
 int max)
 {
 	int	i;
 	int limits[2];
 
-	limits[0] = min;
-	limits[1] = max;
+	limits[0] = min * 100;
+	limits[1] = max * 100;
 	*value = (int)(*value * 100.000001);
 	min *= 100;
 	max *= 100;

@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:35 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:03 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
+void		ft_engine_play_calculate_me_opacity(
+t_variable_list *l, int i, int j)
 {
 	int	area;
 
@@ -36,7 +37,7 @@ void		ft_engine_play_calculate_me_opacity(variable_list *l, int i, int j)
 	}
 }
 
-void		ft_engine_play_calculate_me(variable_list *l)
+void		ft_engine_play_calculate_me(t_variable_list *l)
 {
 	int	i;
 	int	j;
@@ -65,7 +66,7 @@ void		ft_engine_play_calculate_me(variable_list *l)
 	ft_engine_play_calculate_me_opacity(l, i, j);
 }
 
-void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
+void		ft_engine_play_calculate_p_opacity(t_variable_list *l, int i, int j)
 {
 	int	a;
 
@@ -91,7 +92,7 @@ void		ft_engine_play_calculate_p_opacity(variable_list *l, int i, int j)
 	}
 }
 
-void		ft_engine_play_calculate_p(variable_list *l, int i, int j)
+void		ft_engine_play_calculate_p(t_variable_list *l, int i, int j)
 {
 	int	a;
 
@@ -121,7 +122,7 @@ void		ft_engine_play_calculate_p(variable_list *l, int i, int j)
 }
 
 void		ft_engine_play_calculate_pixels_initialize_part_1(
-variable_list *l, s_engine_play_calculate_pixels_tmp *tmp)
+t_variable_list *l, t_engine_play_calculate_pixels_tmp *tmp)
 {
 	tmp->t_s = l->e.t_s;
 	tmp->t_n = l->e.t_normal;

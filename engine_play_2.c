@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:09 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:11 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int		ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l)
+int		ft_engine_play_calculate_skip_triangles_behind_player(
+t_variable_list *l)
 {
 	int		i;
 	double	*distance;
@@ -25,7 +26,7 @@ int		ft_engine_play_calculate_skip_triangles_behind_player(variable_list *l)
 }
 
 void	ft_engine_play_calculate_initialize_points_vectors_normals(
-variable_list *l)
+t_variable_list *l)
 {
 	int	ts;
 
@@ -52,7 +53,7 @@ variable_list *l)
 		l->e.nx + l->e.tmp_z1 * l->e.nz);
 }
 
-void	ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_1(t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -75,7 +76,7 @@ void	ft_engine_play_calculate_points_to_front_ref_1(variable_list *l)
 	l->e.ref = 1;
 }
 
-void	ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_2(t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -98,7 +99,7 @@ void	ft_engine_play_calculate_points_to_front_ref_2(variable_list *l)
 	l->e.ref = 2;
 }
 
-void	ft_engine_play_calculate_points_to_front_ref_3(variable_list *l)
+void	ft_engine_play_calculate_points_to_front_ref_3(t_variable_list *l)
 {
 	double	t;
 	double	x;

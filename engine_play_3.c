@@ -6,13 +6,14 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:29:12 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:38:10 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:15 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_1(
+t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -30,7 +31,8 @@ void		ft_engine_play_calculate_points_to_front_no_ref_1(variable_list *l)
 	l->e.tmp_z1 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_2(
+t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -48,7 +50,8 @@ void		ft_engine_play_calculate_points_to_front_no_ref_2(variable_list *l)
 	l->e.tmp_z1 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_3(
+t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -66,7 +69,8 @@ void		ft_engine_play_calculate_points_to_front_no_ref_3(variable_list *l)
 	l->e.tmp_z2 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_4(
+t_variable_list *l)
 {
 	double	t;
 	double	x;
@@ -84,7 +88,8 @@ void		ft_engine_play_calculate_points_to_front_no_ref_4(variable_list *l)
 	l->e.tmp_z2 = 1;
 }
 
-void		ft_engine_play_calculate_points_to_front_no_ref_5(variable_list *l)
+void		ft_engine_play_calculate_points_to_front_no_ref_5(
+t_variable_list *l)
 {
 	double	t;
 	double	x;

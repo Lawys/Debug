@@ -6,13 +6,13 @@
 /*   By: lparis <lparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 23:32:37 by mofikrat          #+#    #+#             */
-/*   Updated: 2021/02/22 16:36:43 by lparis           ###   ########.fr       */
+/*   Updated: 2021/02/23 14:24:14 by lparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		ft_put_texture_initialize(variable_list *l, utility_list *tmp)
+void		ft_put_texture_initialize(t_variable_list *l, t_utility_list *tmp)
 {
 	tmp->action = l->u.action;
 	tmp->wsx = (double)WDWF * (l->u.wsx / 100);
@@ -25,7 +25,7 @@ void		ft_put_texture_initialize(variable_list *l, utility_list *tmp)
 	tmp->tex = l->u.tex;
 }
 
-void		ft_put_texture_while(variable_list *l, utility_list *tmp, int x,
+void		ft_put_texture_while(t_variable_list *l, t_utility_list *tmp, int x,
 int y)
 {
 	int	value;
@@ -50,7 +50,7 @@ int y)
 	}
 }
 
-void		ft_put_texture_action(variable_list *l, utility_list *tmp)
+void		ft_put_texture_action(t_variable_list *l, t_utility_list *tmp)
 {
 	int	i;
 
@@ -78,13 +78,13 @@ void		ft_put_texture_action(variable_list *l, utility_list *tmp)
 		tmp->colors = l->u.colors;
 }
 
-void		ft_put_texture(variable_list *l)
+void		ft_put_texture(t_variable_list *l)
 {
 	int				x;
 	int				y;
 	int				endy;
 	int				endx;
-	utility_list	tmp;
+	t_utility_list	tmp;
 
 	ft_put_texture_initialize(l, &tmp);
 	endy = (int)(tmp.tey * tmp.sizey);
