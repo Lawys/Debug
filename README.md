@@ -1,4 +1,4 @@
-# Debug
+# doom-nukem
 
 42 school project
 
